@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheKiwiCoder {
-    [BehaviourTreeNode(menuPath = "A-Star", nodeTitle = "Repeat")]
+    
     [System.Serializable]
     public class Repeat : DecoratorNode {
 

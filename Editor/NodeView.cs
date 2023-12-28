@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Codice.CM.SEIDInfo;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
@@ -76,6 +77,15 @@ namespace TheKiwiCoder {
                 AddToClassList("decorator");
             } else if (node is RootNode) {
                 AddToClassList("root");
+            }
+            
+            foreach (var attribute in node.GetType().GetCustomAttributes(true))
+            {
+                if (attribute is BehaviourTreeNodeAttribute behaviourTreeNodeAttribute)
+                {
+                    AddToClassList(behaviourTreeNodeAttribute.nodeColor.ToString());
+                    AddToClassList(behaviourTreeNodeAttribute.nodeIcon.ToString());
+                }
             }
         }
 

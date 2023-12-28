@@ -25,6 +25,8 @@ namespace TheKiwiCoder {
         [Tooltip("Script template to use when creating decorator nodes")]
         public TextAsset scriptTemplateDecoratorNode;
 
+        public bool hideAllDescriptions;
+        
         static BehaviourTreeProjectSettings FindSettings(){
             var guids = AssetDatabase.FindAssets($"t:{nameof(BehaviourTreeProjectSettings)}");
             if (guids.Length > 1) {

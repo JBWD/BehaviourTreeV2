@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Color = System.Drawing.Color;
 
 namespace TheKiwiCoder {
 
-    [BehaviourTreeNode(menuPath = "Composite Nodes")]
+    [BehaviourTreeNode(menuPath = "Composite Nodes", nodeColor = NodeColors.orange)]
     [System.Serializable]
     public abstract class CompositeNode : Node {
 

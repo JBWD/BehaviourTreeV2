@@ -2,6 +2,7 @@
 {
     public enum NodeColors
     {
+        Default,
         red,
         orange,
         yellow,
@@ -13,10 +14,5 @@
         white,
         black
     }
-
     
-    public class Test
-    {
-        
-    }
 }

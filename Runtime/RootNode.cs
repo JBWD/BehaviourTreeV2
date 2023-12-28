@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace TheKiwiCoder {
 
+    [BehaviourTreeNode(nodeColor = NodeColors.red, nodeTitle = "Root Node")]
     [System.Serializable]
     public class RootNode : Node {
 
