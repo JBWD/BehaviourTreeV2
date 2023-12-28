@@ -10,7 +10,7 @@ namespace TheKiwiCoder
     {
         public string menuPath = "";
         public string nodeTitle = "";
-        public NodeColors nodeColor = NodeColors.grey;
+        public NodeColors nodeColor = NodeColors.Default;
         public NodeIcons nodeIcon = NodeIcons.none;
 
 
