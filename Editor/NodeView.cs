@@ -69,7 +69,9 @@ namespace TheKiwiCoder {
         }
 
         private void SetupClasses() {
-            if (node is ActionNode) {
+            if (node is TriggerNode) {
+                AddToClassList("trigger");
+            } if (node is ActionNode) {
                 AddToClassList("action");
             } else if (node is CompositeNode) {
                 AddToClassList("composite");
@@ -90,15 +92,16 @@ namespace TheKiwiCoder {
         }
 
         private void CreateInputPorts() {
-            
-            if (node is ActionNode) {
+
+            if (node is TriggerNode) {
+                
+            }else if (node is ActionNode) {
                 input = new NodePort(Direction.Input, Port.Capacity.Single);
             } else if (node is CompositeNode) {
                 input = new NodePort(Direction.Input, Port.Capacity.Single);
             } else if (node is DecoratorNode) {
                 input = new NodePort(Direction.Input, Port.Capacity.Single);
-            }
-            else if (node is RootNode) {
+            }else if (node is RootNode) {
 
             }
 
@@ -110,7 +113,9 @@ namespace TheKiwiCoder {
         }
 
         private void CreateOutputPorts() {
-            if (node is ActionNode) {
+            if (node is TriggerNode) {
+                output = new NodePort(Direction.Output, Port.Capacity.Single);
+            }else if (node is ActionNode) {
                 // Actions have no outputs
             } else if (node is CompositeNode) {
                 output = new NodePort(Direction.Output, Port.Capacity.Multi);
