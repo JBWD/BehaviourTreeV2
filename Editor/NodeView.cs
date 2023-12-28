@@ -90,13 +90,15 @@ namespace TheKiwiCoder {
         }
 
         private void CreateInputPorts() {
+            
             if (node is ActionNode) {
                 input = new NodePort(Direction.Input, Port.Capacity.Single);
             } else if (node is CompositeNode) {
                 input = new NodePort(Direction.Input, Port.Capacity.Single);
             } else if (node is DecoratorNode) {
                 input = new NodePort(Direction.Input, Port.Capacity.Single);
-            } else if (node is RootNode) {
+            }
+            else if (node is RootNode) {
 
             }
 
@@ -114,7 +116,7 @@ namespace TheKiwiCoder {
                 output = new NodePort(Direction.Output, Port.Capacity.Multi);
             } else if (node is DecoratorNode) {
                 output = new NodePort(Direction.Output, Port.Capacity.Single);
-            } else if (node is RootNode) {
+            }else if (node is RootNode) {
                 output = new NodePort(Direction.Output, Port.Capacity.Single);
             }
 

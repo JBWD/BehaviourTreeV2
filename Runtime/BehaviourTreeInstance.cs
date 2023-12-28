@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ namespace TheKiwiCoder {
 
     [AddComponentMenu("TheKiwiCoder/BehaviourTreeInstance")]
     public class BehaviourTreeInstance : MonoBehaviour {
+
+
 
         // The main behaviour tree asset
         [Tooltip("BehaviourTree asset to instantiate during Awake")]
@@ -31,6 +34,34 @@ namespace TheKiwiCoder {
         // Storage container object to hold game object subsystems
         Context context;
 
+        
+        //Actions the trigger nodes are subscribed to.
+        public Action<KeyCode> OnInputKeyDown;
+        public Action<KeyCode> OnInputKeyUp;
+        public Action<KeyCode> OnInputKey;
+
+        public Action<Collision> On3DCollisionEnter;
+        public Action<Collision> On3DCollisionExit;
+        public Action<Collision> On3DCollisionStay;
+
+        public Action<Collider> On3DTriggerEnter;
+        public Action<Collider> On3DTriggerExit;
+        public Action<Collider> On3DTriggerStay;
+        
+        public Action<Collision2D> On2DCollisionEnter;
+        public Action<Collision2D> On2DCollisionExit;
+        public Action<Collision2D> On2DCollisionStay;
+
+        public Action<Collider2D> On2DTriggerEnter;
+        public Action<Collider2D> On2DTriggerExit;
+        public Action<Collider2D> On2DTriggerStay;
+        
+        
+        
+        
+        
+        
+        
         // Start is called before the first frame update
         void OnEnable() {
 
@@ -167,6 +198,12 @@ namespace TheKiwiCoder {
                 return runtimeTree.blackboard.GetValue<T>(keyName);
             }
             return default(T);
+        }
+
+
+        public void OnTriggerEnter(Collider other)
+        {
+            On3DTriggerEnter?.Invoke(other);
         }
     }
 }

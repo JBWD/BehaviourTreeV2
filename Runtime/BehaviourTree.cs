@@ -77,11 +77,19 @@ namespace TheKiwiCoder {
         }
 
         public void Bind(Context context) {
-            Traverse(rootNode, node => {
+            //Changed to a for loop for all nodes in the in the tree (Including Trigger Nodes)
+            foreach (var node in nodes)
+            {
                 node.context = context;
                 node.blackboard = blackboard;
                 node.OnInit();
-            });
+            }
+            
+            // Traverse(rootNode, node => {
+            //     node.context = context;
+            //     node.blackboard = blackboard;
+            //     node.OnInit();
+            // });
         }
     }
 }
