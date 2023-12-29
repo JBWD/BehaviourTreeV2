@@ -6,7 +6,7 @@ using UnityEngine;
 namespace TheKiwiCoder
 {
 
-    [BehaviourTreeNode(menuPath = "A-Star Pathfinding", nodeIcon = NodeIcons.ai, nodeColor = NodeColors.yellow)]
+    [BehaviourTreeNode(menuPath = "A-Star Pathfinding", nodeTitle = "Is Agent Moving" ,nodeIcon = NodeIcons.condition, nodeColor = NodeColors.yellow)]
     public class IsAgentMoving : DecoratorNode
     {
         
@@ -57,6 +57,11 @@ namespace TheKiwiCoder
             }
 
             return state;
+        }
+
+        public override void UpdateDescription()
+        {
+            description = $"Checks if the agent is currently moving, will call child nodes if '{comparisonState.Value}'";
         }
     }
 }

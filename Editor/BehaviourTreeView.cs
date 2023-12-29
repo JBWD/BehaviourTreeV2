@@ -236,7 +236,7 @@ namespace TheKiwiCoder {
             foreach(var elem in blockedDeletes) {
                 graphViewChange.elementsToRemove.Remove(elem);  
             }
-
+          
             return graphViewChange;
         }
 

@@ -5,12 +5,9 @@ namespace TheKiwiCoder
 {
     [BehaviourTreeNode(menuPath = "Trigger Nodes", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [System.Serializable]
-    public abstract class TriggerNode : Node
+    public abstract class TriggerNode : RootNode
     {
-        [SerializeReference]
-        [HideInInspector] 
-        public Node child;
-
+        
         protected override void OnStart() {
 
         }
@@ -27,5 +24,7 @@ namespace TheKiwiCoder
             }
         }
 
+        
+        
     }
 }

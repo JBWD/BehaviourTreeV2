@@ -69,17 +69,6 @@ namespace TheKiwiCoder {
         }
 
         private void SetupClasses() {
-            if (node is TriggerNode) {
-                AddToClassList("trigger");
-            } if (node is ActionNode) {
-                AddToClassList("action");
-            } else if (node is CompositeNode) {
-                AddToClassList("composite");
-            } else if (node is DecoratorNode) {
-                AddToClassList("decorator");
-            } else if (node is RootNode) {
-                AddToClassList("root");
-            }
             
             foreach (var attribute in node.GetType().GetCustomAttributes(true))
             {
@@ -87,6 +76,8 @@ namespace TheKiwiCoder {
                 {
                     AddToClassList(behaviourTreeNodeAttribute.nodeColor.ToString());
                     AddToClassList(behaviourTreeNodeAttribute.nodeIcon.ToString());
+                    if(behaviourTreeNodeAttribute.nodeTitle != "")
+                        title = behaviourTreeNodeAttribute.nodeTitle;
                 }
             }
         }
@@ -165,7 +156,7 @@ namespace TheKiwiCoder {
             RemoveFromClassList("running");
             RemoveFromClassList("failure");
             RemoveFromClassList("success");
-
+            
             if (Application.isPlaying) {
                 switch (node.state) {
                     case Node.State.Running:

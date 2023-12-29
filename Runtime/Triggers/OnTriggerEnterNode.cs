@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuPath = "Trigger Nodes", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Trigger Nodes", nodeTitle = "On Trigger Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class OnTriggerEnterNode : TriggerNode
     {
 
@@ -20,8 +20,13 @@ namespace TheKiwiCoder
             OnUpdate();
         }
 
-        
-        
-        
+        public override void UpdateDescription()
+        {
+        }
+
+        public override void OnDrawGizmos()
+        {
+            Gizmos.DrawCube(context.gameObject.transform.position, new Vector3(1,1,1));
+        }
     }
 }

@@ -290,6 +290,11 @@ namespace TheKiwiCoder {
             if (Application.isPlaying) {
                 treeView?.UpdateNodeStates();
             }
+
+            if (tree != null)
+            {
+                tree.UpdateDescriptions();
+            }
         }
 
         void OnToolbarNewAsset() {

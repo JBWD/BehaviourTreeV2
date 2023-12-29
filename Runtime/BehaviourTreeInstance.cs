@@ -173,12 +173,21 @@ namespace TheKiwiCoder {
                 return;
             }
 
-            BehaviourTree.Traverse(runtimeTree.rootNode, (n) => {
-                if (n.drawGizmos) {
-                    n.OnDrawGizmos();
+            foreach (var node in runtimeTree.nodes)
+            {
+                if (node.drawGizmos)
+                {
+                    node.OnDrawGizmos();
                 }
-            });
+            }
+            
+            // BehaviourTree.Traverse(runtimeTree.rootNode, (n) => {
+            //     if (n.drawGizmos) {
+            //         n.OnDrawGizmos();
+            //     }
+            // });
         }
+        
 
         public BlackboardKey<T> FindBlackboardKey<T>(string keyName) {
             if (runtimeTree) {

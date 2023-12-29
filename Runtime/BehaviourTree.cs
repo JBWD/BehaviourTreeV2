@@ -91,5 +91,14 @@ namespace TheKiwiCoder {
             //     node.OnInit();
             // });
         }
+
+
+        public void UpdateDescriptions()
+        {
+            foreach (var node in nodes)
+            {
+                node.UpdateDescription();
+            }
+        }
     }
 }
