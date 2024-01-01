@@ -43,8 +43,9 @@ This Agreement constitutes the entire understanding between the parties and supe
 By using the Software, Licensee acknowledges that they have read and understood this Agreement and agree to be bound by its terms.
 
 Halcyon Studios 
-cardcastleusa@gmail.com
+halcyonstudios@gmail.com
 
+-----------------------------------------------------------------------------------------------------
 
 Orignal License:
 

@@ -13,5 +13,8 @@
         oneTime,
         random,
         animation,
+        action,
+        light,
+        
     }
 }

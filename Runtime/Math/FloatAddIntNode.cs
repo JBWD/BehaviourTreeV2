@@ -1,0 +1,38 @@
+﻿using System;
+
+namespace TheKiwiCoder
+{
+    [BehaviourTreeNode(menuFolder = "Math", menuName = "Float: Add Integer", nodeTitle = "Float Math:\nAdd Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [Serializable]
+    public class FloatAddIntNode : ActionNode
+    {
+
+        public NodeProperty<float> baseValue;
+        public NodeProperty<int> addValue;
+        public NodeProperty<float> saveValue;
+
+
+        protected override void OnStart()
+        {
+            
+        }
+
+        protected override void OnStop()
+        {
+            
+        }
+
+        protected override State OnUpdate()
+        {
+            saveValue.Value = baseValue.Value + addValue.Value;
+            state = State.Success;
+            return state;
+        }
+
+        public override void UpdateDescription()
+        {
+            description =
+                $"Adds '{baseValue.Value}' + '{addValue.Value}' and saves the total in '{saveValue.reference.name}'";
+        }
+    }
+}

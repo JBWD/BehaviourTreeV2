@@ -4,18 +4,18 @@
     <ui:VisualElement name="node-border" style="background-image: none;">
         <ui:VisualElement name="contents">
             <ui:VisualElement name="top">
-                <ui:VisualElement name="input" />
+                <ui:VisualElement name="input" style="height: 25px;" />
                 <ui:VisualElement name="divider" class="vertical" />
-                <ui:VisualElement name="title">
-                    <ui:Label name="title-label" text="SequencerNode" class="unity-text-element unity-label" />
+                <ui:VisualElement name="title" style="flex-grow: 1;">
+                    <ui:Label name="title-label" text="SequencerNode" class="unity-text-element unity-label" style="white-space: normal; max-width: 250px;" />
                     <ui:VisualElement name="title-button-container">
                         <ui:VisualElement name="collapse-button">
                             <ui:VisualElement name="icon" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:Label display-tooltip-when-elided="true" name="description" />
+                    <ui:VisualElement name="typeIcon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+                    <ui:Label name="description" class="hide" style="max-width: 250px; flex-grow: 1; flex-shrink: 1; flex-wrap: wrap; white-space: normal;" />
                 </ui:VisualElement>
-                <ui:VisualElement name="typeIcon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                 <ui:VisualElement name="divider" class="horizontal" />
                 <ui:VisualElement name="output" />
             </ui:VisualElement>

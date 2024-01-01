@@ -108,7 +108,7 @@ namespace TheKiwiCoder {
     public class NodePropertyPropertyDrawer : PropertyDrawer {
 
         public override VisualElement CreatePropertyGUI(SerializedProperty property) {
-
+            
             BehaviourTree tree = property.serializedObject.targetObject as BehaviourTree;
 
             SerializedProperty reference = property.FindPropertyRelative("reference");

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace TheKiwiCoder {
     
+    [BehaviourTreeNode(menuFolder = "Decorator Nodes", nodeColor = NodeColors.blue , nodeIcon = NodeIcons.repeat)]
     [System.Serializable]
     public class Repeat : DecoratorNode {
 
@@ -21,6 +22,8 @@ namespace TheKiwiCoder {
 
         }
 
+        
+        
         protected override State OnUpdate() {
             if (child == null) {
                 return State.Failure;

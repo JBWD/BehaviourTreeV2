@@ -61,7 +61,10 @@ namespace TheKiwiCoder {
             this.tree = tree;
         }
 
-        public SerializedProperty FindNode(SerializedProperty array, Node node) {
+        public SerializedProperty FindNode(SerializedProperty array, Node node)
+        {
+            if (array == null)
+                return null;
             for(int i = 0; i < array.arraySize; ++i) {
                 var current = array.GetArrayElementAtIndex(i);
                 if (current.FindPropertyRelative(sPropGuid).stringValue == node.guid) {

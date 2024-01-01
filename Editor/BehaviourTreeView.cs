@@ -236,7 +236,7 @@ namespace TheKiwiCoder {
             foreach(var elem in blockedDeletes) {
                 graphViewChange.elementsToRemove.Remove(elem);  
             }
-
+          
             return graphViewChange;
         }
 
@@ -333,6 +333,16 @@ namespace TheKiwiCoder {
             ClearSelection();
             if (nodeView != null) {
                 AddToSelection(nodeView);
+            }
+        }
+
+        public void UpdateEditorNodeSelectors(bool visibility)
+        {
+            foreach (var n in nodes)
+            {
+                NodeView nodeView = n as NodeView;
+                nodeView.UpdateDescriptionVisibility(visibility);
+                nodeView.UpdateErroredNode();
             }
         }
     }

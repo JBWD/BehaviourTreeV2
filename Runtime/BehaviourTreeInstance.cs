@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ namespace TheKiwiCoder {
 
     [AddComponentMenu("TheKiwiCoder/BehaviourTreeInstance")]
     public class BehaviourTreeInstance : MonoBehaviour {
+
+
 
         // The main behaviour tree asset
         [Tooltip("BehaviourTree asset to instantiate during Awake")]
@@ -27,10 +30,44 @@ namespace TheKiwiCoder {
 
         // These values override the keys in the blackboard
         public List<BlackboardKeyValuePair> blackboardOverrides = new List<BlackboardKeyValuePair>();
-
+        
+        
+        
         // Storage container object to hold game object subsystems
         Context context;
 
+        
+        //Actions the trigger nodes are subscribed to.
+        public Action OnInputKeyDown;
+        public Action OnInputKeyUp;
+        public Action OnInputKey;
+
+        public Action<Collision> On3DCollisionEnter;
+        public Action<Collision> On3DCollisionExit;
+        public Action<Collision> On3DCollisionStay;
+
+        public Action<Collider> On3DTriggerEnter;
+        public Action<Collider> On3DTriggerExit;
+        public Action<Collider> On3DTriggerStay;
+        
+        public Action<Collision2D> On2DCollisionEnter;
+        public Action<Collision2D> On2DCollisionExit;
+        public Action<Collision2D> On2DCollisionStay;
+
+        public Action<Collider2D> On2DTriggerEnter;
+        public Action<Collider2D> On2DTriggerExit;
+        public Action<Collider2D> On2DTriggerStay;
+
+        public Action OnMouseEnterCollider;
+        public Action OnMouseExitCollider;
+        public Action OnMouseOverCollider;
+        
+        public Action OnMouseUpCollider;
+        public Action OnMouseDownCollider;
+        public Action OnMouseButtonCollider;
+        
+        
+        
         // Start is called before the first frame update
         void OnEnable() {
 
@@ -43,6 +80,14 @@ namespace TheKiwiCoder {
                 ApplyBlackboardOverrides();
             } else {
                 runtimeTree = null;
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach (var node in runtimeTree.nodes)
+            {
+                node.OnDisable();
             }
         }
 
@@ -62,6 +107,8 @@ namespace TheKiwiCoder {
             if (runtimeTree) {
                 runtimeTree.Update();
             }
+            UpdateKeyBoardInputs();
+
         }
 
         Context CreateBehaviourTreeContext() {
@@ -142,12 +189,16 @@ namespace TheKiwiCoder {
                 return;
             }
 
-            BehaviourTree.Traverse(runtimeTree.rootNode, (n) => {
-                if (n.drawGizmos) {
-                    n.OnDrawGizmos();
+            foreach (var node in runtimeTree.nodes)
+            {
+                if (node.drawGizmos)
+                {
+                    node.OnDrawGizmos();
                 }
-            });
+            }
+            
         }
+        
 
         public BlackboardKey<T> FindBlackboardKey<T>(string keyName) {
             if (runtimeTree) {
@@ -168,5 +219,107 @@ namespace TheKiwiCoder {
             }
             return default(T);
         }
+        
+        
+        
+        
+        #region Triggers Calling
+        public void UpdateKeyBoardInputs()
+        {
+            OnInputKey?.Invoke();
+            OnInputKeyDown?.Invoke();
+            OnInputKeyUp?.Invoke();
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            On3DTriggerEnter?.Invoke(other);
+        }
+
+        public void OnTriggerExit(Collider other)
+        {
+            On3DTriggerExit?.Invoke(other);
+        }
+
+        public void OnTriggerStay(Collider other)
+        {
+            On3DTriggerStay?.Invoke(other);
+        }
+
+        
+        public void OnCollisionEnter(Collision collision)
+        {
+            On3DCollisionEnter?.Invoke(collision);
+        }
+        public void OnCollisionExit(Collision collision)
+        {
+            On3DCollisionExit?.Invoke(collision);
+        }
+        public void OnCollisionStay(Collision collision)
+        {
+            On3DCollisionStay?.Invoke(collision);
+        }
+
+        public void OnMouseEnter()
+        {
+            OnMouseEnterCollider?.Invoke();
+        }
+
+        public void OnMouseOver()
+        {
+            OnMouseOverCollider?.Invoke();
+        }
+
+        public void OnMouseExit()
+        {
+            OnMouseExitCollider?.Invoke();
+        }
+
+        public void OnMouseDown()
+        {
+            OnMouseDownCollider?.Invoke();
+        }
+
+        public void OnMouseUp()
+        {
+            OnMouseUpCollider?.Invoke();
+        }
+
+        public void OnMouseUpAsButton()
+        {
+            OnMouseButtonCollider?.Invoke();
+        }
+
+        public void OnTriggerEnter2D(Collider2D other)
+        {
+            On2DTriggerEnter?.Invoke(other);
+        }
+
+        public void OnTriggerExit2D(Collider2D other)
+        {
+            On2DTriggerExit?.Invoke(other);
+        }
+
+        public void OnTriggerStay2D(Collider2D other)
+        {
+            On2DTriggerStay?.Invoke(other);
+        }
+
+        public void OnCollisionEnter2D(Collision2D col)
+        {
+            On2DCollisionEnter?.Invoke(col);
+        }
+        
+        public void OnCollisionExit2D(Collision2D col)
+        {
+            On2DCollisionExit?.Invoke(col);
+        }
+        
+        public void OnCollisionStay2D(Collision2D col)
+        {
+            On2DCollisionStay?.Invoke(col);
+        }
+
+        #endregion
     }
 }

@@ -56,7 +56,8 @@ namespace TheKiwiCoder {
         public Label versionLabel;
         public NewScriptDialogView newScriptDialog;
         public ToolbarBreadcrumbs breadcrumbs;
-
+        public ToolbarToggle hideDescriptionToggle;
+        public Label descriptionLabel;
         [SerializeField]
         public PendingScriptCreate pendingScriptCreate = new PendingScriptCreate();
 
@@ -112,7 +113,9 @@ namespace TheKiwiCoder {
             newScriptDialog = root.Q<NewScriptDialogView>("NewScriptDialogView");
             breadcrumbs = root.Q<ToolbarBreadcrumbs>("breadcrumbs");
             versionLabel = root.Q<Label>("Version");
-
+            hideDescriptionToggle = root.Q<ToolbarToggle>("hideDescriptionToggle");
+            descriptionLabel = root.Q<Label>("description");
+            
             treeView.styleSheets.Add(behaviourTreeStyle);
 
             // Toolbar assets menu
@@ -121,6 +124,8 @@ namespace TheKiwiCoder {
                 // Refresh the menu options just before it's opened (on mouse enter)
                 toolbarMenu.menu.MenuItems().Clear();
                 var behaviourTrees = EditorUtility.GetAssetPaths<BehaviourTree>();
+                
+                //Probably Remove this as it just creates bloat or create a file that keeps track of the past 10 files opened.
                 behaviourTrees.ForEach(path => {
                     var fileName = System.IO.Path.GetFileName(path);
                     toolbarMenu.menu.AppendAction($"{fileName}", (a) => {
@@ -160,6 +165,8 @@ namespace TheKiwiCoder {
             }
         }
 
+        
+        
         void CreatePendingScriptNode() {
 
             // #TODO: Unify this with CreateNodeWindow.CreateNode
@@ -215,6 +222,7 @@ namespace TheKiwiCoder {
                     break;
                 case PlayModeStateChange.ExitingPlayMode:
                     inspectorView?.Clear();
+                    SelectTree(tree);
                     break;
             }
         }
@@ -286,10 +294,24 @@ namespace TheKiwiCoder {
             inspectorView.UpdateSelection(serializer, node);
         }
 
+      
         private void OnInspectorUpdate() {
             if (Application.isPlaying) {
                 treeView?.UpdateNodeStates();
             }
+
+            if (tree == null || treeView == null)
+                return;
+            if (hideDescriptionToggle.value)
+            {
+                hideDescriptionToggle.label = "Hide Description";
+            }
+            else
+            {
+                hideDescriptionToggle.label = "Show Description";
+            }
+            treeView.UpdateEditorNodeSelectors(hideDescriptionToggle.value);
+            tree.UpdateDescriptions();
         }
 
         void OnToolbarNewAsset() {

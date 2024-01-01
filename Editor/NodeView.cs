@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Codice.CM.Common;
 using Codice.CM.SEIDInfo;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -17,11 +18,21 @@ namespace TheKiwiCoder {
         public Port output;
 
         public NodeView NodeParent {
+            
             get {
-                using (IEnumerator<Edge> iter = input.connections.GetEnumerator()) {
-                    iter.MoveNext();
-                    return iter.Current?.output.node as NodeView;
+                try
+                {
+                    using (IEnumerator<Edge> iter = input.connections.GetEnumerator()) {
+                        iter.MoveNext();
+                        return iter.Current?.output.node as NodeView;
+                    }
                 }
+                catch
+                {
+                    return null;
+                }
+
+                
             }
         }
 
@@ -69,15 +80,6 @@ namespace TheKiwiCoder {
         }
 
         private void SetupClasses() {
-            if (node is ActionNode) {
-                AddToClassList("action");
-            } else if (node is CompositeNode) {
-                AddToClassList("composite");
-            } else if (node is DecoratorNode) {
-                AddToClassList("decorator");
-            } else if (node is RootNode) {
-                AddToClassList("root");
-            }
             
             foreach (var attribute in node.GetType().GetCustomAttributes(true))
             {
@@ -85,18 +87,23 @@ namespace TheKiwiCoder {
                 {
                     AddToClassList(behaviourTreeNodeAttribute.nodeColor.ToString());
                     AddToClassList(behaviourTreeNodeAttribute.nodeIcon.ToString());
+                    if(behaviourTreeNodeAttribute.nodeTitle != "")
+                        title = behaviourTreeNodeAttribute.nodeTitle;
                 }
             }
         }
 
         private void CreateInputPorts() {
-            if (node is ActionNode) {
-                input = new NodePort(Direction.Input, Port.Capacity.Single);
+
+            if (node is TriggerNode) {
+                
+            }else if (node is ActionNode) {
+                input = new NodePort(Direction.Input, Port.Capacity.Multi);
             } else if (node is CompositeNode) {
                 input = new NodePort(Direction.Input, Port.Capacity.Single);
             } else if (node is DecoratorNode) {
                 input = new NodePort(Direction.Input, Port.Capacity.Single);
-            } else if (node is RootNode) {
+            }else if (node is RootNode) {
 
             }
 
@@ -108,13 +115,15 @@ namespace TheKiwiCoder {
         }
 
         private void CreateOutputPorts() {
-            if (node is ActionNode) {
+            if (node is TriggerNode) {
+                output = new NodePort(Direction.Output, Port.Capacity.Single);
+            }else if (node is ActionNode) {
                 // Actions have no outputs
             } else if (node is CompositeNode) {
                 output = new NodePort(Direction.Output, Port.Capacity.Multi);
             } else if (node is DecoratorNode) {
                 output = new NodePort(Direction.Output, Port.Capacity.Single);
-            } else if (node is RootNode) {
+            }else if (node is RootNode) {
                 output = new NodePort(Direction.Output, Port.Capacity.Single);
             }
 
@@ -158,7 +167,7 @@ namespace TheKiwiCoder {
             RemoveFromClassList("running");
             RemoveFromClassList("failure");
             RemoveFromClassList("success");
-
+            
             if (Application.isPlaying) {
                 switch (node.state) {
                     case Node.State.Running:
@@ -175,5 +184,35 @@ namespace TheKiwiCoder {
                 }
             }
         }
+
+        public void UpdateDescriptionVisibility(bool visible)
+        {
+            RemoveFromClassList("show");
+            RemoveFromClassList("hide");
+
+            if (visible)
+            {
+                AddToClassList("show");
+            }
+            else
+            {
+                AddToClassList("hide");
+            }
+        }
+
+        public void UpdateErroredNode()
+        {
+            if (node.errored)
+            {
+                AddToClassList("error");
+                UpdateDescriptionVisibility(true);
+            }
+            else
+            {
+                RemoveFromClassList("error");
+            }
+        }
     }
+    
+    
 }

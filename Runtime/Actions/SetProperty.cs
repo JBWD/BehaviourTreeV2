@@ -5,6 +5,7 @@ using TheKiwiCoder;
 
 namespace TheKiwiCoder {
 
+    [BehaviourTreeNode(menuFolder = "Variable Nodes", nodeTitle = "Set Variable", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.oneTime)]
     [System.Serializable]
     public class SetProperty : ActionNode
     {
