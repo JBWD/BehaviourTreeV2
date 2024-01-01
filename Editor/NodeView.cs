@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Codice.CM.Common;
 using Codice.CM.SEIDInfo;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -17,11 +18,21 @@ namespace TheKiwiCoder {
         public Port output;
 
         public NodeView NodeParent {
+            
             get {
-                using (IEnumerator<Edge> iter = input.connections.GetEnumerator()) {
-                    iter.MoveNext();
-                    return iter.Current?.output.node as NodeView;
+                try
+                {
+                    using (IEnumerator<Edge> iter = input.connections.GetEnumerator()) {
+                        iter.MoveNext();
+                        return iter.Current?.output.node as NodeView;
+                    }
                 }
+                catch
+                {
+                    return null;
+                }
+
+                
             }
         }
 
@@ -87,7 +98,7 @@ namespace TheKiwiCoder {
             if (node is TriggerNode) {
                 
             }else if (node is ActionNode) {
-                input = new NodePort(Direction.Input, Port.Capacity.Single);
+                input = new NodePort(Direction.Input, Port.Capacity.Multi);
             } else if (node is CompositeNode) {
                 input = new NodePort(Direction.Input, Port.Capacity.Single);
             } else if (node is DecoratorNode) {
@@ -173,5 +184,35 @@ namespace TheKiwiCoder {
                 }
             }
         }
+
+        public void UpdateDescriptionVisibility(bool visible)
+        {
+            RemoveFromClassList("show");
+            RemoveFromClassList("hide");
+
+            if (visible)
+            {
+                AddToClassList("show");
+            }
+            else
+            {
+                AddToClassList("hide");
+            }
+        }
+
+        public void UpdateErroredNode()
+        {
+            if (node.errored)
+            {
+                AddToClassList("error");
+                UpdateDescriptionVisibility(true);
+            }
+            else
+            {
+                RemoveFromClassList("error");
+            }
+        }
     }
+    
+    
 }

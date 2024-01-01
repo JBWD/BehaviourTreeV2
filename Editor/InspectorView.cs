@@ -28,10 +28,10 @@ namespace TheKiwiCoder {
 
             // Auto-expand the property
             nodeProperty.isExpanded = true;
-
+            
             // Property field
             PropertyField field = new PropertyField();
-            field.label = nodeProperty.managedReferenceValue.GetType().ToString();
+            field.label = nodeProperty.managedReferenceValue.GetType().Name;
             field.BindProperty(nodeProperty);
 
             Add(field);

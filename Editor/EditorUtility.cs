@@ -74,7 +74,7 @@ namespace TheKiwiCoder
                 if (asset) {
                     try{
                         PackageManifest manifest = JsonUtility.FromJson<PackageManifest>(asset.text);
-                        if (manifest.name == "com.thekiwicoder.behaviourtreeditor") {
+                        if (manifest.name == "com.halcyonstudios.behaviourtreeeditor") {
                             return manifest;
                         }
                     }

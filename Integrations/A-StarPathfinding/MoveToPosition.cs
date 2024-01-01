@@ -4,7 +4,7 @@ using TheKiwiCoder;
 using UnityEngine;
 
 
-[BehaviourTreeNode(menuPath = "A-Star Pathfinding", nodeIcon = NodeIcons.ai, nodeTitle = "Move To Position", nodeColor = NodeColors.green)]
+[BehaviourTreeNode(menuFolder = "A-Star Pathfinding", nodeIcon = NodeIcons.ai, nodeTitle = "Move To Position", nodeColor = NodeColors.green)]
 public class MoveToPosition : ActionNode
 {
 

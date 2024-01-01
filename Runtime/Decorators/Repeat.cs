@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TheKiwiCoder {
     
-    [BehaviourTreeNode(menuPath = "Decorator Nodes", nodeColor = NodeColors.blue , nodeIcon = NodeIcons.repeat)]
+    [BehaviourTreeNode(menuFolder = "Decorator Nodes", nodeColor = NodeColors.blue , nodeIcon = NodeIcons.repeat)]
     [System.Serializable]
     public class Repeat : DecoratorNode {
 

@@ -85,11 +85,6 @@ namespace TheKiwiCoder {
                 node.OnInit();
             }
             
-            // Traverse(rootNode, node => {
-            //     node.context = context;
-            //     node.blackboard = blackboard;
-            //     node.OnInit();
-            // });
         }
 
 
@@ -100,5 +95,6 @@ namespace TheKiwiCoder {
                 node.UpdateDescription();
             }
         }
+        
     }
 }

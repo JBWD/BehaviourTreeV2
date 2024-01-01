@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace TheKiwiCoder {
@@ -113,4 +114,16 @@ namespace TheKiwiCoder {
     public class ColliderKey : BlackboardKey<Collider> {
 
     }
+
+    [System.Serializable]
+    public class TextMeshProUGUIKey : BlackboardKey<TextMeshProUGUI> {
+        
+    }
+
+    [System.Serializable]
+    public class LightKey : BlackboardKey<Light>
+    {
+        
+    }
+
 }

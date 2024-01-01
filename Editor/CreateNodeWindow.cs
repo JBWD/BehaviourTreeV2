@@ -94,19 +94,32 @@ namespace TheKiwiCoder {
 
                 if(type.IsAbstract || type == typeof( RootNode))
                     continue;
-                
 
+                if (source != null)
+                {
+                    if (isSourceParent && type.BaseType == typeof(TriggerNode))
+                    {
+                        continue;
+                    } 
+                    if(!isSourceParent && type.BaseType == typeof(ActionNode))
+                    {
+                        continue;
+                    }
+                }
+                
+                //Filters out Action nodes of all types if the source is null as actions nodes do not contain an output.
+                
                 string tag = "";
-                string nodeTitle = "";
-                    
+                string menuName = "";
+                string nodeTitle = "";    
                     
                 foreach (var attribute in type.GetCustomAttributes(true))
                 {
                     if (attribute is BehaviourTreeNodeAttribute behaviourTreeTagAttribute)
                     {
                         tag = behaviourTreeTagAttribute.GetMenuPath();
+                        menuName = behaviourTreeTagAttribute.GetMenuName();
                         nodeTitle = behaviourTreeTagAttribute.GetNodeTitle();
-                           
                     }
                 }
 
@@ -116,9 +129,14 @@ namespace TheKiwiCoder {
                 if(!tagList.Contains(tag))
                     tagList.Add(tag);
                 
-                if (nodeTitle == "")
+                if (menuName == "")
                 {
-                    nodeTitle = type.Name;
+                    menuName = nodeTitle;
+                }
+                
+                if (menuName == "")
+                {
+                    menuName = type.Name;
                 }
                 
                 try
@@ -126,7 +144,7 @@ namespace TheKiwiCoder {
                     if(!contextualList.ContainsKey(tag))
                         contextualList.Add(tag,new List<ContextualItem>());
                     
-                    contextualList[tag].Add(new ContextualItem(){contextName = nodeTitle,contextType = type});
+                    contextualList[tag].Add(new ContextualItem(){contextName = menuName,contextType = type});
                 }
                 catch (Exception e)
                 {

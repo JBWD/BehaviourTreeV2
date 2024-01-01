@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuPath = "Trigger Nodes", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuFolder = "Triggers", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [System.Serializable]
-    public abstract class TriggerNode : RootNode
+    public abstract class TriggerNode : DecoratorNode
     {
+        
         
         protected override void OnStart() {
 
@@ -17,11 +18,15 @@ namespace TheKiwiCoder
         }
 
         protected override State OnUpdate() {
-            if (child != null) {
-                return child.Update();
-            } else {
-                return State.Failure;
+            if (child != null)
+            {
+                state = child.Update();
+                
+            } else
+            {
+                state = State.Failure;
             }
+            return state;
         }
 
         

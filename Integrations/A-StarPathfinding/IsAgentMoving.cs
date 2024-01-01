@@ -6,7 +6,7 @@ using UnityEngine;
 namespace TheKiwiCoder
 {
 
-    [BehaviourTreeNode(menuPath = "A-Star Pathfinding", nodeTitle = "Is Agent Moving" ,nodeIcon = NodeIcons.condition, nodeColor = NodeColors.yellow)]
+    [BehaviourTreeNode(menuFolder = "A-Star Pathfinding", menuName = "Is Agent Moving", nodeTitle = "A-Star Pathfinding\nIs Agent Moving" ,nodeIcon = NodeIcons.condition, nodeColor = NodeColors.yellow)]
     public class IsAgentMoving : DecoratorNode
     {
         

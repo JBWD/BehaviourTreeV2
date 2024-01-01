@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TheKiwiCoder {
 
-    [BehaviourTreeNode(menuPath = "Action Nodes", nodeColor = NodeColors.green, nodeIcon = NodeIcons.none)]
+    [BehaviourTreeNode(menuFolder = "Action Nodes", nodeColor = NodeColors.green, nodeIcon = NodeIcons.none)]
     [System.Serializable]
     public abstract class ActionNode : Node {
 

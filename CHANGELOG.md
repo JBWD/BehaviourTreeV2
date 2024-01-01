@@ -6,6 +6,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 Note this package is still in very early development and in high flux. 
 
+# [0.0.21] - 29-12-2023
+
+### Added
+- Node Class Attribute that allows for modification of the title, color, display icon and menu path in the context menu.
+- Triggers nodes were added to allow for real time collisions and inputs to kick off sub tree children within the same behaviour tree. These derive from the root node have been
+    set to actions that have been implemented within the Behaviour Runner Instance.
+
+- A* Pathfinding Integration Nodes:
+    - Follow Target
+    - Move to Position
+    - Is Agent Moving
+    - Stop Movement
+    - Start Movment
+    - Change Max Speed
+
+### Changed
+- Updated descriptions to change in realtime when the inspector is refreshed. This allows for variables to be changed and update the description.
+- Switched Gizmos to use a foreach loop rather than Traversal to allow for Trigger Nodes and their children to draw Gizmos.
+- Switched OnInit to use a foreach loop during initialization of the Behaviour Runner Instance to allow for Trigger nodes and their children to be initialized.
+- Action Node's Input was switched from 'Single' to 'Multi' this will allow for multiple triggers and sequences to call the same nodes (Conflictions can occur if data is modifies in a previous tree)
+
+### Fixed
+- N/A
+
 # [0.0.20] - 29-11-2023
 
 ### Added

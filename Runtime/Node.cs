@@ -19,13 +19,16 @@ namespace TheKiwiCoder {
         [HideInInspector] public Vector2 position;
         [HideInInspector] public Context context;
         [HideInInspector] public Blackboard blackboard;
-        [HideInInspector] public string description;
+        [TextArea] public string description;
         [Tooltip("When enabled, the nodes OnDrawGizmos will be invoked")] public bool drawGizmos = false;
-
+        [HideInInspector] public bool errored = false;
         public virtual void OnInit() {
-            // Nothing to do here
+            // Used for Triggers and Global Events (Add the events)
         }
 
+        public virtual void OnDisable() {
+            // Used for Triggers and Global Events (Remove the events)
+        }
         public State Update() {
 
             if (!started) {
@@ -51,6 +54,7 @@ namespace TheKiwiCoder {
             });
         }
 
+        
         public virtual void OnDrawGizmos() { }
 
         protected abstract void OnStart();
@@ -61,10 +65,11 @@ namespace TheKiwiCoder {
             Debug.Log($"[{GetType()}]{message}");
         }
 
-
-        public virtual void UpdateDescription()
-        {
-            
-        }
+        /// <summary>
+        /// Allows for Real time Updating of the description for current variables within the node. This is also used to
+        /// change the current state of the node into an error. An error can provide context to the user on what is occuring
+        /// and how to fix the issue.
+        /// </summary>
+        public virtual void UpdateDescription() { }
     }
 }
