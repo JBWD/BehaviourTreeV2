@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 Note this package is still in very early development and in high flux. 
 
+# [0.0.22] - 01-01-2024
+
+### Added
+- Global Event System 
+- Math Nodes
+- String Nodes
+- UI Text Mesh Pro Nodes 
+- Description Visibility Button
+
+### Changed
+- Modified the way descriptions function, this changed from being only on the nodes to be both on the nodes and in the Inspector View.
+
+### Fixed
+- N/A
+
+
 # [0.0.21] - 29-12-2023
 
 ### Added
