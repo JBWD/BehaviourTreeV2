@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.Properties;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TheKiwiCoder {
 
@@ -92,5 +96,20 @@ namespace TheKiwiCoder {
             }
             return default(T);
         }
+
+        public string GetValueString(NodeProperty p)
+        {
+            if (p != null && p.reference != null)
+            {
+                MethodInfo method = typeof(Blackboard).GetMethod("GetValue");                           //Retrieving T GetValue<T>(string)
+                MethodInfo genericMethod = method.MakeGenericMethod(p.reference.underlyingType);             //Converting to Type GetValue<Type>(string)
+                return genericMethod.Invoke(this, new object[] { p.reference.name }).ToString(); //Returning value.ToString();
+            }
+
+            return "";
+        }
+        
+        
+ 
     }
 }

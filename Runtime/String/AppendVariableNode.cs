@@ -1,15 +1,16 @@
 ﻿using System;
+using UnityEngine;
 
 namespace TheKiwiCoder
 {
     
-    [BehaviourTreeNode(menuFolder = "String", nodeTitle = "Append Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
     [Serializable]
-    public class AppendFloatNode : ActionNode
+    [BehaviourTreeNode(menuFolder = "String", menuName = "(SLOW) Append Variable",nodeTitle = "(SLOW) String\nAppend Variable", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    public class AppendVariableNode : ActionNode
     {
-
+        
         public NodeProperty<string> originalString;
-        public NodeProperty<float> appendedValue;
+        public NodeProperty appendedValue;
         public NodeProperty<string> saveString;
         
         
@@ -25,7 +26,7 @@ namespace TheKiwiCoder
 
         protected override State OnUpdate()
         {
-            saveString.Value = originalString.Value + appendedValue.Value;
+            saveString.Value = originalString.Value + blackboard.GetValueString(appendedValue);
             state = State.Success;
             return state;
         }
@@ -33,7 +34,6 @@ namespace TheKiwiCoder
         public override void UpdateDescription()
         {
             
-            description = $"'{originalString.Value}{appendedValue.Value}' will be saved in '{saveString.reference.name}'";
         }
     }
 }

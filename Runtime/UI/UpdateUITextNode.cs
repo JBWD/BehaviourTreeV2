@@ -8,13 +8,18 @@ namespace TheKiwiCoder
     [System.Serializable]
     public class UpdateUITextNode: ActionNode
     {
-
+        
         [Header("Note: Needs to be overriden value in instance.")]
-        public NodeProperty<TextMeshProUGUI> textContainer;
+        
+        
+        [NodePropertyTypeSelector(typeof(TextMeshProUGUI))]
+        public NodeProperty textContainer;
         public NodeProperty<string> text;
+
+        private TextMeshProUGUI m_text;
         protected override void OnStart()
         {
-            
+            m_text = blackboard.GetValue<TextMeshProUGUI>(textContainer.reference.name);
         }
 
         protected override void OnStop()
@@ -24,13 +29,21 @@ namespace TheKiwiCoder
 
         protected override State OnUpdate()
         {
-            if (textContainer.Value == null)
+            if (textContainer.reference == null)
+            {
+                state = State.Failure;
+                return state;
+            }
+            
+            
+            
+            if (m_text == null)
             {
                 state = State.Failure;
             }
             else
             {
-                textContainer.Value.text = text.Value;
+                m_text.text = text.Value;
                 state = State.Success;
             }
 

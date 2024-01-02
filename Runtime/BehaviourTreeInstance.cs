@@ -85,6 +85,8 @@ namespace TheKiwiCoder {
 
         private void OnDisable()
         {
+            if (runtimeTree == null)
+                return;
             foreach (var node in runtimeTree.nodes)
             {
                 node.OnDisable();

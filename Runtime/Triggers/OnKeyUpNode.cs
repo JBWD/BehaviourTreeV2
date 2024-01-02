@@ -17,7 +17,7 @@ namespace TheKiwiCoder
         }
         public void CheckInput()
         {
-
+            
             if (Input.GetKeyUp(keyCode))
             {
                 OnUpdate();

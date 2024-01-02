@@ -5,7 +5,7 @@ namespace TheKiwiCoder {
     [System.Serializable]
     public class NodeProperty {
         [SerializeReference]
-        public BlackboardKey reference; 
+        public BlackboardKey reference;
     }
 
     [System.Serializable]

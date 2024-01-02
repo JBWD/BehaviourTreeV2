@@ -1,4 +1,6 @@
 ﻿using System;
+using Unity.Properties;
+using UnityEngine;
 
 namespace TheKiwiCoder
 {
@@ -7,14 +9,13 @@ namespace TheKiwiCoder
     public class ConcatenateStringNode : ActionNode
     {
 
+     
         public NodeProperty<string> baseString;
         public NodeProperty<string> addString;
         public NodeProperty<string> saveString;
         
         protected override void OnStart()
-        {
-            
-        }
+        { }
 
         protected override void OnStop()
         {
@@ -23,14 +24,24 @@ namespace TheKiwiCoder
 
         protected override State OnUpdate()
         {
-            saveString.Value = baseString.Value + addString.Value;
+            Debug.Log(Time.realtimeSinceStartup);
+            for(int i = 0;i<10000;i++)
+                saveString.Value = baseString.Value + addString.Value;
+            Debug.Log(Time.realtimeSinceStartup);
             state = State.Success;
             return state;
         }
 
         public override void UpdateDescription()
         {
-            description = $"'{baseString.Value}{addString.Value}' will be saved in '{saveString.reference.name}'";
+            if (saveString.reference != null)
+            {
+                description = $"'{baseString.Value}{addString.Value}' will be saved in '{saveString.reference.name}'";
+            }
+            else
+            {
+                description = $"'{baseString.Value}{addString.Value}' will be saved in 'saveString'";
+            }
         }
     }
 }

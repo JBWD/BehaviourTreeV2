@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEditor.UIElements;
 using System.Runtime.Remoting.Messaging;
+using Unity.VisualScripting;
 
 namespace TheKiwiCoder {
 
@@ -83,7 +84,7 @@ namespace TheKiwiCoder {
             container.Add(label);
             container.Add(defaultValueField);
             container.Add(dropdown);
-
+            
             return container;
         }
 
@@ -113,6 +114,16 @@ namespace TheKiwiCoder {
 
             SerializedProperty reference = property.FindPropertyRelative("reference");
 
+
+            System.Type selectionType = null;
+            foreach (var customAttribute in fieldInfo.GetCustomAttributes(true))
+            {
+                if (customAttribute is NodePropertyTypeSelectorAttribute selectorAttribute)
+                {
+                    selectionType = selectorAttribute.GetSelectionType();
+                }
+            }
+            
             PopupField<BlackboardKey> dropdown = new PopupField<BlackboardKey>();
             dropdown.label = property.displayName;
             dropdown.formatListItemCallback = FormatItem;
@@ -122,7 +133,14 @@ namespace TheKiwiCoder {
             dropdown.RegisterCallback<MouseEnterEvent>((evt) => {
                 dropdown.choices.Clear();
                 foreach (var key in tree.blackboard.keys) {
-                    dropdown.choices.Add(key);
+                    if (selectionType == null)
+                    {
+                        dropdown.choices.Add(key);
+                    }
+                    else if(selectionType == key.underlyingType)
+                    {
+                        dropdown.choices.Add(key);
+                    }
                 }
                 dropdown.choices.Sort((left, right) => {
                     return left.name.CompareTo(right.name);
@@ -144,5 +162,7 @@ namespace TheKiwiCoder {
                 return item.name;
             }
         }
+        
+        
     }
 }
