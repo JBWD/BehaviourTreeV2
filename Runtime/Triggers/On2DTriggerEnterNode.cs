@@ -2,7 +2,7 @@
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On 2D Trigger Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers/2D", nodeTitle = "On 2D Trigger Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class On2DTriggerEnterNode : TriggerNode
     {
         public NodeProperty<string> collisionTag;

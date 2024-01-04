@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [System.Serializable]
     public abstract class TriggerNode : DecoratorNode
     {

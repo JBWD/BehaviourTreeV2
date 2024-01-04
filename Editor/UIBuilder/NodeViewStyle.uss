@@ -187,7 +187,7 @@
 }
 
 .debug #typeIcon {
-    background-image: url('project://database/Assets/AstarPathfindingProject/ExampleScenes/Example11_RVO/Arrow.psd?fileID=2800000&guid=5de2706722ecf4e7797812f980546c1a&type=3#Arrow');
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/ICON_Setting.png?fileID=2800000&guid=9531a9131a9de3049acced6796f14d56&type=3#ICON_Setting');
     width: 75px;
     height: 75px;
     flex-grow: 1;
@@ -266,6 +266,16 @@
     justify-content: center;
 }
 
+.save #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Save%201.png?fileID=2800000&guid=b7c2956f8702d75428edb2165de360f5&type=3#Icon_Save 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
 #description {
     color: rgb(195, 195, 195);
     display: flex;
@@ -284,8 +294,162 @@
     background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Tip001Red.png?fileID=2800000&guid=f78f7b5cfe1828f4490ffccefb76e1ac&type=3#Tip001Red');
 }
 
+.error #description {
+    display: flex;
+}
+
 .error #typeIcon {
-    background-image: url('project://database/Assets/SCI-FI%20UI%20Pack%20Pro/SCI-FI%20UI%20Components/Textures/Component01/Icon_Warning.png?fileID=2800000&guid=05805ce69725418428ef9b54b3ed412d&type=3#Icon_Warning');
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Warning%201.png?fileID=2800000&guid=c5dd8c886bbb20e4ba35192198698003&type=3#Icon_Warning 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.light #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_StepTips%201.png?fileID=2800000&guid=9bd0f88bcee030c4cbc6dd7e0699279c&type=3#Icon_StepTips 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.currency #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Money1%201.png?fileID=2800000&guid=706eb9212d6660045b8e2ad6a0a2d008&type=3#Icon_Money1 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.loot #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Box%201.png?fileID=2800000&guid=87fb091ec51a3964f83897c58cca9c75&type=3#Icon_Box 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Camera1%201.png?fileID=2800000&guid=9d97377a0e714fa478a6beba430f5aca&type=3#Icon_Camera1 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.input #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Game%201.png?fileID=2800000&guid=bd395b93869d217468871e304285c3c3&type=3#Icon_Game 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.goal #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Ranking0%201.png?fileID=2800000&guid=0fbc254fa29a8214bac5e86546da6ed2&type=3#Icon_Ranking0 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.destination #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Location0%201.png?fileID=2800000&guid=85a740a5708723d4b8224261d6a5d961&type=3#Icon_Location0 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/ICON_Volume.png?fileID=2800000&guid=58ffecd3d6b76364ea5381d2c32b552f&type=3#ICON_Volume');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.idea #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_StepTips%201.png?fileID=2800000&guid=9bd0f88bcee030c4cbc6dd7e0699279c&type=3#Icon_StepTips 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.quest #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Tips1%201.png?fileID=2800000&guid=ebf5ed39ff497634ebff0ea269843f78&type=3#Icon_Tips1 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.achievement #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Mission%201.png?fileID=2800000&guid=a58d19997ebd17c4a81fc96a87d6e2bb&type=3#Icon_Mission 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_News%201.png?fileID=2800000&guid=6f75ed7b08781e84c9ced082ceb7f914&type=3#Icon_News 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Notice%201.png?fileID=2800000&guid=4e2a8b8d79e45804897a04e4d9441895&type=3#Icon_Notice 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.inventory #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_BackPack%201.png?fileID=2800000&guid=e4d8a1aa44aa67748b9303390597c95b&type=3#Icon_BackPack 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.math #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Math.png?fileID=2800000&guid=8a79619c5452d9a4f9666e87f47c916b&type=3#Math');
     width: 75px;
     height: 75px;
     flex-grow: 1;

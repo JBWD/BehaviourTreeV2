@@ -2,7 +2,7 @@
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Collision Enter", nodeColor = NodeColors.purple,
+    [BehaviourTreeNode(menuPath = "Triggers/3D", nodeTitle = "On Collision Enter", nodeColor = NodeColors.purple,
         nodeIcon = NodeIcons.trigger)]
     public class OnCollisionEnterNode : TriggerNode
     {

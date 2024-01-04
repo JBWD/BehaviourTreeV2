@@ -329,6 +329,7 @@ namespace TheKiwiCoder {
             });
         }
 
+        
         public void SelectNode(NodeView nodeView) {
             ClearSelection();
             if (nodeView != null) {
@@ -336,14 +337,20 @@ namespace TheKiwiCoder {
             }
         }
 
+        
         public void UpdateEditorNodeSelectors(bool visibility)
         {
+            
             foreach (var n in nodes)
             {
                 NodeView nodeView = n as NodeView;
-                nodeView.UpdateDescriptionVisibility(visibility);
+                
                 nodeView.UpdateErroredNode();
+                nodeView.UpdateDescriptionVisibility(visibility);
             }
+            
+            
         }
+        
     }
 }

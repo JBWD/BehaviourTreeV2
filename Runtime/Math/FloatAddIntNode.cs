@@ -2,7 +2,7 @@
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Math", menuName = "Float: Add Integer", nodeTitle = "Float Math:\nAdd Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Add Integer", nodeTitle = "Float Math:\nAdd Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
     [Serializable]
     public class FloatAddIntNode : ActionNode
     {
@@ -31,8 +31,25 @@ namespace TheKiwiCoder
 
         public override void UpdateDescription()
         {
-            description =
-                $"Adds '{baseValue.Value}' + '{addValue.Value}' and saves the total in '{saveValue.reference.name}'";
+            errored = false;
+            try
+            {
+                if (saveValue.reference != null)
+                {
+                    
+                    description =
+                        $"Adds '{baseValue.Value}' + '{addValue.Value}' and saves the total in '{saveValue.reference.name}'";
+                }
+                else
+                {
+                    description = "Does not save the value";
+                    errored = true;
+                }
+            }
+            catch
+            {
+                // ignored
+            }
         }
     }
 }

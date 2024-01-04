@@ -5,7 +5,7 @@ namespace TheKiwiCoder
 {
     
     [Serializable]
-    [BehaviourTreeNode(menuFolder = "String", menuName = "(SLOW) Append Variable",nodeTitle = "(SLOW) String\nAppend Variable", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "String", menuName = "(SLOW) Append Variable",nodeTitle = "(SLOW) String\nAppend Variable", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
     public class AppendVariableNode : ActionNode
     {
         

@@ -2,7 +2,7 @@
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Trigger Stay", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers/3D", nodeTitle = "On Trigger Stay", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class OnTriggerStayNode : TriggerNode
     {
         public NodeProperty<string> collisionTag;

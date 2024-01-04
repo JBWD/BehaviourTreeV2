@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TheKiwiCoder {
 
@@ -122,6 +123,12 @@ namespace TheKiwiCoder {
 
     [System.Serializable]
     public class LightKey : BlackboardKey<Light>
+    {
+        
+    }
+
+    [System.Serializable]
+    public class UnityEventKey : BlackboardKey<UnityEvent>
     {
         
     }

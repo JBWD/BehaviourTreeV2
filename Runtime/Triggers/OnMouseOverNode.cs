@@ -1,6 +1,6 @@
 ﻿namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Mouse Over", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers/Mouse", nodeTitle = "On Mouse Over", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class OnMouseOverNode : TriggerNode
     {
         public override void OnInit()

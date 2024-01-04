@@ -294,7 +294,7 @@ namespace TheKiwiCoder {
             inspectorView.UpdateSelection(serializer, node);
         }
 
-      
+        
         private void OnInspectorUpdate() {
             if (Application.isPlaying) {
                 treeView?.UpdateNodeStates();
@@ -310,6 +310,7 @@ namespace TheKiwiCoder {
             {
                 hideDescriptionToggle.label = "Show Description";
             }
+            
             treeView.UpdateEditorNodeSelectors(hideDescriptionToggle.value);
             tree.UpdateDescriptions();
         }

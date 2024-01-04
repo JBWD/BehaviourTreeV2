@@ -3,16 +3,17 @@ using Unity.Properties;
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Math", menuName = "Float: Add Float", nodeTitle = "Float Math:\nAdd Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Add Float", nodeTitle = "Float Math:\nAdd Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [Serializable]
     public class FloatAddFloatNode : ActionNode
     {
-
+        
         public NodeProperty<float> baseValue;
         public NodeProperty<float> addValue;
         public NodeProperty<float> saveValue;
 
 
+        
         protected override void OnStart()
         {
             

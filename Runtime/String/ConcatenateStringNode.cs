@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "String", nodeTitle = "Concatenate Strings", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "String", nodeTitle = "Concatenate Strings", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
     [Serializable]
     public class ConcatenateStringNode : ActionNode
     {

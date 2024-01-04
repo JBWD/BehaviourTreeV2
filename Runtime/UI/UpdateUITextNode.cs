@@ -4,14 +4,12 @@ using UnityEngine;
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "UI: Text Mesh Pro", menuName = "Update Text", nodeTitle = "Text Mesh Pro:\n Update Text", nodeIcon = NodeIcons.action, nodeColor = NodeColors.green)]
+    [BehaviourTreeNode(menuPath = "UI/Text Mesh Pro", menuName = "Update Text", nodeTitle = "Text Mesh Pro:\n Update Text", nodeIcon = NodeIcons.action, nodeColor = NodeColors.green)]
     [System.Serializable]
     public class UpdateUITextNode: ActionNode
     {
         
         [Header("Note: Needs to be overriden value in instance.")]
-        
-        
         [NodePropertyTypeSelector(typeof(TextMeshProUGUI))]
         public NodeProperty textContainer;
         public NodeProperty<string> text;

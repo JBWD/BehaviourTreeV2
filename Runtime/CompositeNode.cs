@@ -5,7 +5,7 @@ using Color = System.Drawing.Color;
 
 namespace TheKiwiCoder {
 
-    [BehaviourTreeNode(menuFolder = "Flow Nodes", nodeColor = NodeColors.orange)]
+    [BehaviourTreeNode(menuPath = "Flow Nodes", nodeColor = NodeColors.orange)]
     [System.Serializable]
     public abstract class CompositeNode : Node {
 

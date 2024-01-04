@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Trigger Enter\n, this is a test how does it do on wrapping the information.", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers/3D", nodeTitle = "On Trigger Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [Serializable]
     public class OnTriggerEnterNode : TriggerNode
     {

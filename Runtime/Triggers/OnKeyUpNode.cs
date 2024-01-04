@@ -2,7 +2,7 @@
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Key Up", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers/Input", nodeTitle = "On Key Up", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
     public class OnKeyUpNode : TriggerNode
     {
         public KeyCode keyCode;

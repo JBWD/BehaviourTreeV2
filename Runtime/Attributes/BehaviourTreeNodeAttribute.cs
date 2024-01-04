@@ -11,7 +11,7 @@ namespace TheKiwiCoder
         /// <summary>
         /// Name of the folder that will be used in the Context Menu (Right Clicking in the Tree View)
         /// </summary>
-        public string menuFolder = "";
+        public string menuPath = "";
         /// <summary>
         /// (Optional) If the 'menuName' is left blank the 'nodeTitle' will be used in it's place.
         /// </summary>
@@ -33,16 +33,16 @@ namespace TheKiwiCoder
         public BehaviourTreeNodeAttribute()
         {}
 
-        public BehaviourTreeNodeAttribute(string menuFolder, string menuName = "",string nodeTitle = "")
+        public BehaviourTreeNodeAttribute(string menuPath, string menuName = "",string nodeTitle = "")
         {
-            this.menuFolder = menuFolder;
+            this.menuPath = menuPath;
             this.nodeTitle = nodeTitle;
             this.menuName = menuName;
         }
 
         public string GetMenuPath()
         {
-            return menuFolder;
+            return menuPath;
         }
 
         public string GetNodeTitle()
@@ -54,7 +54,7 @@ namespace TheKiwiCoder
         {
             return menuName;
         }
-        
+
         public string GetColor()
         {
             return nodeColor.ToString();

@@ -2,10 +2,11 @@
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Key Down", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers/Input", nodeTitle = "On Key Down", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
     public class OnKeyDownNode : TriggerNode
     {
         public KeyCode keyCode;
+        
         
         public override void OnInit()
         {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TheKiwiCoder;
 using UnityEngine;
 
-[BehaviourTreeNode(menuFolder = "Global Event Activators", menuName = "On Float Change Activator",nodeTitle  = "Event Activator\nOn Float Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
+[BehaviourTreeNode(menuPath = "Global Event Activators", menuName = "On Float Change Activator",nodeTitle  = "Event Activator\nOn Float Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
 [Serializable]
 public class GE_OnFloatValueChangeActivatorNode : ActionNode
 {

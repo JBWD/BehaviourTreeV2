@@ -2,7 +2,7 @@
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuFolder = "Math", menuName = "Float: Divide Float", nodeTitle = "Float Math:\nDivide Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Divide Float", nodeTitle = "Float Math:\nDivide Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
     [Serializable]
     public class FloatDivideFloatNode : ActionNode
     {
