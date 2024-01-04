@@ -3,7 +3,8 @@
     <uie:Toolbar>
         <uie:ToolbarMenu display-tooltip-when-elided="true" text="Assets " name="ToolbarMenu" />
         <uie:ToolbarSpacer style="flex-grow: 1;" />
-        <uie:ToolbarToggle focusable="false" label="Show Descriptions" name="hideDescriptionToggle" style="width: 110px;" />
+        <uie:ToolbarToggle focusable="false" label="Show Icons" name="hideIconToggle" style="width: 80px; justify-content: flex-start;" />
+        <uie:ToolbarToggle focusable="false" label="Show Descriptions" name="hideDescriptionToggle" style="width: 115px;" />
         <ui:Label display-tooltip-when-elided="true" name="Version" />
     </uie:Toolbar>
     <TheKiwiCoder.SplitView fixed-pane-initial-dimension="300">

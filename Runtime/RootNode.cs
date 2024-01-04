@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TheKiwiCoder {
@@ -12,8 +13,9 @@ namespace TheKiwiCoder {
         [HideInInspector] 
         public Node child;
 
-        protected override void OnStart() {
-
+        protected override void OnStart()
+        {
+            description = "Node the game loop starts in.";
         }
 
         protected override void OnStop() {
@@ -27,5 +29,9 @@ namespace TheKiwiCoder {
                 return State.Failure;
             }
         }
+        
+        
     }
+    
+    
 }

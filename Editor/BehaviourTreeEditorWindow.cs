@@ -57,6 +57,7 @@ namespace TheKiwiCoder {
         public NewScriptDialogView newScriptDialog;
         public ToolbarBreadcrumbs breadcrumbs;
         public ToolbarToggle hideDescriptionToggle;
+        public ToolbarToggle hideIconToggle;
         public Label descriptionLabel;
         [SerializeField]
         public PendingScriptCreate pendingScriptCreate = new PendingScriptCreate();
@@ -104,6 +105,7 @@ namespace TheKiwiCoder {
             var styleSheet = behaviourTreeStyle;
             root.styleSheets.Add(styleSheet);
 
+            
             // Main treeview
             treeView = root.Q<BehaviourTreeView>();
             inspectorView = root.Q<InspectorView>();
@@ -114,6 +116,9 @@ namespace TheKiwiCoder {
             breadcrumbs = root.Q<ToolbarBreadcrumbs>("breadcrumbs");
             versionLabel = root.Q<Label>("Version");
             hideDescriptionToggle = root.Q<ToolbarToggle>("hideDescriptionToggle");
+            hideDescriptionToggle.value = settings.showDescriptionsOnOpen;
+            hideIconToggle = root.Q<ToolbarToggle>("hideIconToggle");
+            hideIconToggle.value = settings.showIconOnOpen;
             descriptionLabel = root.Q<Label>("description");
             
             treeView.styleSheets.Add(behaviourTreeStyle);
@@ -304,14 +309,24 @@ namespace TheKiwiCoder {
                 return;
             if (hideDescriptionToggle.value)
             {
-                hideDescriptionToggle.label = "Hide Description";
+                hideDescriptionToggle.label = "Hide Descriptions";
             }
             else
             {
-                hideDescriptionToggle.label = "Show Description";
+                hideDescriptionToggle.label = "Show Descriptions";
+            }
+
+            if (hideIconToggle.value)
+            {
+                hideIconToggle.label = "Hide Icons";
+            }
+            else
+            {
+                hideIconToggle.label = "Show Icons";
             }
             
-            treeView.UpdateEditorNodeSelectors(hideDescriptionToggle.value);
+            
+            treeView.UpdateEditorNodeSelectors(hideDescriptionToggle.value, hideIconToggle.value);
             tree.UpdateDescriptions();
         }
 

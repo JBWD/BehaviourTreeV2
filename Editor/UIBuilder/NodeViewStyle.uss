@@ -294,20 +294,6 @@
     background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Tip001Red.png?fileID=2800000&guid=f78f7b5cfe1828f4490ffccefb76e1ac&type=3#Tip001Red');
 }
 
-.error #description {
-    display: flex;
-}
-
-.error #typeIcon {
-    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Warning%201.png?fileID=2800000&guid=c5dd8c886bbb20e4ba35192198698003&type=3#Icon_Warning 1');
-    width: 75px;
-    height: 75px;
-    flex-grow: 1;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-}
-
 .light #typeIcon {
     background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_StepTips%201.png?fileID=2800000&guid=9bd0f88bcee030c4cbc6dd7e0699279c&type=3#Icon_StepTips 1');
     width: 75px;
@@ -452,6 +438,25 @@
     background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Math.png?fileID=2800000&guid=8a79619c5452d9a4f9666e87f47c916b&type=3#Math');
     width: 75px;
     height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.error #typeIcon {
+    background-image: url('project://database/Assets/BehaviourTreeV2/Editor/Icons/Icon_Warning%201.png?fileID=2800000&guid=c5dd8c886bbb20e4ba35192198698003&type=3#Icon_Warning 1');
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.hideIcon #typeIcon {
+    width: 0;
+    height: 0;
     flex-grow: 1;
     align-self: center;
     align-items: center;

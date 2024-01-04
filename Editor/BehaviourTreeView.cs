@@ -338,7 +338,7 @@ namespace TheKiwiCoder {
         }
 
         
-        public void UpdateEditorNodeSelectors(bool visibility)
+        public void UpdateEditorNodeSelectors(bool descVisibility, bool iconVisibility)
         {
             
             foreach (var n in nodes)
@@ -346,7 +346,8 @@ namespace TheKiwiCoder {
                 NodeView nodeView = n as NodeView;
                 
                 nodeView.UpdateErroredNode();
-                nodeView.UpdateDescriptionVisibility(visibility);
+                nodeView.UpdateDescriptionVisibility(descVisibility);
+                nodeView.UpdateIconVisibility(iconVisibility);
             }
             
             

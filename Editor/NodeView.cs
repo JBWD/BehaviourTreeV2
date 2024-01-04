@@ -91,6 +91,7 @@ namespace TheKiwiCoder {
                         title = behaviourTreeNodeAttribute.nodeTitle;
                 }
             }
+            AddToClassList("hideIcon");
             AddToClassList("hide");
         }
 
@@ -213,6 +214,18 @@ namespace TheKiwiCoder {
                 RemoveFromClassList("error");
             }
             
+        }
+
+        public void UpdateIconVisibility(bool iconVisibility)
+        {
+            if (!iconVisibility)
+            {
+                AddToClassList("hideIcon");
+            }
+            else
+            {
+                RemoveFromClassList("hideIcon");
+            }
         }
     }
     
