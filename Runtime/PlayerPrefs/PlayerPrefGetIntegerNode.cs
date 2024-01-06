@@ -1,4 +1,4 @@
-﻿namespace TheKiwiCoder.PlayerPrefs
+﻿namespace TheKiwiCoder
 {
     public class PlayerPrefGetIntegerNode
     {

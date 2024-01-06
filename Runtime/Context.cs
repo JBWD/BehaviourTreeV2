@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TheKiwiCoder.Integrations.Pathlist;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,6 +21,7 @@ namespace TheKiwiCoder {
         public CapsuleCollider capsuleCollider;
         public CharacterController characterController;
         public BehaviourTreeInstance behaviourTreeInstance;
+        public PathList pathList;
         // Add other game specific systems here
 
         public static Context CreateFromGameObject(GameObject gameObject) {
@@ -35,6 +37,7 @@ namespace TheKiwiCoder {
             context.capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
             context.characterController = gameObject.GetComponent<CharacterController>();
             context.behaviourTreeInstance = gameObject.GetComponent<BehaviourTreeInstance>();
+            context.pathList = gameObject.GetComponent<PathList>();
             // Add whatever else you need here...
 
             return context;

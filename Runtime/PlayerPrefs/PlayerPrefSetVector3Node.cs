@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder.PlayerPrefs
+namespace TheKiwiCoder
 {
     [BehaviourTreeNode("Player Prefs/Set", menuName = "Player Prefs: Set Vector3",nodeTitle = "Player Prefs:\nSet Vector3", nodeIcon = NodeIcons.save,nodeColor = NodeColors.green)]
     [System.Serializable]

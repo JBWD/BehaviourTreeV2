@@ -2,7 +2,7 @@
 
 namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Add Integer", nodeTitle = "Float Math:\nAdd Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Add Integer", nodeTitle = "Float Math:\nAdd Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [Serializable]
     public class FloatAddIntNode : ActionNode
     {

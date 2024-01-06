@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 namespace TheKiwiCoder {
 
-    [BehaviourTreeNode(menuPath = "NavMesh",nodeTitle = "Move To Position")]
+    [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Move To Position", nodeTitle = "NavMesh:\n Move To Position")]
     [System.Serializable]
     public class MoveToPosition : ActionNode {
 

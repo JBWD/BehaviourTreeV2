@@ -1,6 +1,6 @@
 ﻿namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Multiply Float", nodeTitle = "Float Math:\nMultiply Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Multiply Float", nodeTitle = "Float Math:\nMultiply Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [System.Serializable]
     public class FloatMultiplyFloatNode :ActionNode
     {

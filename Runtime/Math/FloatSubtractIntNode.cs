@@ -1,6 +1,6 @@
 ﻿namespace TheKiwiCoder
 {
-    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Subtract Integer", nodeTitle = "Float Math:\nSubtract Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Subtract Integer", nodeTitle = "Float Math:\nSubtract Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [System.Serializable]
     public class FloatSubtractIntNode : ActionNode
     {
