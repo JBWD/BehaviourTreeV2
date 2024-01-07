@@ -8,7 +8,7 @@ using UnityEditor.UIElements;
 using UnityEditor.Callbacks;
 
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     public class BehaviourTreeEditorWindow : EditorWindow {
 
@@ -66,7 +66,7 @@ namespace TheKiwiCoder {
         public BehaviourTree tree;
         public SerializedBehaviourTree serializer;
 
-        [MenuItem("TheKiwiCoder/BehaviourTreeEditor ...")]
+        [MenuItem("Tools/BehaviourTreeEditor")]
         public static void OpenWindow() {
             BehaviourTreeEditorWindow wnd = GetWindow<BehaviourTreeEditorWindow>();
             wnd.titleContent = new GUIContent("BehaviourTreeEditor");
@@ -234,7 +234,7 @@ namespace TheKiwiCoder {
 
         private void OnSelectionChange() {
             if (Selection.activeGameObject) {
-                BehaviourTreeInstance runner = Selection.activeGameObject.GetComponent<BehaviourTreeInstance>();
+                BehaviourTreeRunner runner = Selection.activeGameObject.GetComponent<BehaviourTreeRunner>();
                 if (runner) {
                     SelectNewTree(runner.RuntimeTree);
                 }

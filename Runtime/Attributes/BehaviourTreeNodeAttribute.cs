@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class BehaviourTreeNodeAttribute : Attribute

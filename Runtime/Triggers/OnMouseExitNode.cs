@@ -1,6 +1,6 @@
 ﻿
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers/Mouse", nodeTitle = "On Mouse Exit", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class OnMouseExitNode : TriggerNode
@@ -8,11 +8,11 @@ namespace TheKiwiCoder
         
         public override void OnInit()
         {
-            context.behaviourTreeInstance.OnMouseExitCollider += RunMouseEvent;
+            context.BehaviourTreeRunner.OnMouseExitCollider += RunMouseEvent;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.OnMouseExitCollider -= RunMouseEvent;
+            context.BehaviourTreeRunner.OnMouseExitCollider -= RunMouseEvent;
         }
         public void RunMouseEvent()
         {

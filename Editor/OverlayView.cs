@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using System;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     public class OverlayView : VisualElement {
         public new class UxmlFactory : UxmlFactory<OverlayView, UxmlTraits> { }
 

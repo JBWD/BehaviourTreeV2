@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.green,nodeIcon = NodeIcons.time)]

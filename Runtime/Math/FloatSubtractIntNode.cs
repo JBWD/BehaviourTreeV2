@@ -1,4 +1,4 @@
-﻿namespace TheKiwiCoder
+﻿namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Subtract Integer", nodeTitle = "Float Math:\nSubtract Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [System.Serializable]

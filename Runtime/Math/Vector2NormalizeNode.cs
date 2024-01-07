@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Math/Vector2", menuName = "Vector2: Normalize", nodeTitle = "Vector2 Math:\nNormalize", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [System.Serializable]

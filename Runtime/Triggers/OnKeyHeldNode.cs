@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     
-    [BehaviourTreeNode(menuPath = "Triggers/Input", nodeTitle = "On Key Held", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
+    [BehaviourTreeNode(menuPath = "Triggers/Input", menuName = "Input: On Key Held", nodeTitle = "Input:\nOn Key Held", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
     public class OnKeyHeldNode : TriggerNode
     {
 
@@ -11,11 +11,11 @@ namespace TheKiwiCoder
 
         public override void OnInit()
         {
-            context.behaviourTreeInstance.OnInputKey += CheckInput;
+            context.BehaviourTreeRunner.OnInputKey += CheckInput;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.OnInputKey -= CheckInput;
+            context.BehaviourTreeRunner.OnInputKey -= CheckInput;
         }
         public void CheckInput()
         {

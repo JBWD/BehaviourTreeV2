@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TheKiwiCoder;
+using Halcyon;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree", nodeColor = NodeColors.green, nodeIcon = NodeIcons.random)]
     public class RandomPosition : ActionNode {

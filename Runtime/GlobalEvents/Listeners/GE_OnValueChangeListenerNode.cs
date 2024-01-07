@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
 
     [BehaviourTreeNode(menuPath = "Global Event Listeners", menuName = "On Value Change Listener",nodeTitle  = "Event Listener\nOn Value Change", nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]

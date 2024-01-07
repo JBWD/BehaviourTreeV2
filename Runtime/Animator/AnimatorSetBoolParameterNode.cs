@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode("Animator","Set Bool Parameter", "Animator:\nSet Bool Parameter", nodeIcon = NodeIcons.animation, nodeColor = NodeColors.green)]
     [System.Serializable]

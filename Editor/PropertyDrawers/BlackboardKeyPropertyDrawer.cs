@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [CustomPropertyDrawer(typeof(BlackboardKey))]
     public class BlackboardKeyPropertyDrawer : PropertyDrawer {

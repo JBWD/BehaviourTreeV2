@@ -2,8 +2,8 @@ using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 
-namespace TheKiwiCoder {
-    [CustomEditor(typeof(BehaviourTreeInstance))]
+namespace Halcyon {
+    [CustomEditor(typeof(BehaviourTreeRunner))]
     public class BehaviourTreeInstanceEditor : Editor {
 
         public override VisualElement CreateInspectorGUI() {
@@ -11,13 +11,13 @@ namespace TheKiwiCoder {
             VisualElement container = new VisualElement();
 
             PropertyField treeField = new PropertyField();
-            treeField.bindingPath = nameof(BehaviourTreeInstance.behaviourTree);
+            treeField.bindingPath = nameof(BehaviourTreeRunner.behaviourTree);
 
             PropertyField validateField = new PropertyField();
-            validateField.bindingPath = nameof(BehaviourTreeInstance.validate);
+            validateField.bindingPath = nameof(BehaviourTreeRunner.validate);
 
             PropertyField publicKeys = new PropertyField();
-            publicKeys.bindingPath = nameof(BehaviourTreeInstance.blackboardOverrides);
+            publicKeys.bindingPath = nameof(BehaviourTreeRunner.blackboardOverrides);
 
             container.Add(treeField);
             container.Add(validateField);

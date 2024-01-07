@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree", nodeColor = NodeColors.green, nodeIcon = NodeIcons.random)]
     public class RandomFailure : ActionNode {

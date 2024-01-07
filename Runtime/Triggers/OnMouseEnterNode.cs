@@ -1,15 +1,15 @@
-﻿namespace TheKiwiCoder
+﻿namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers/Mouse", nodeTitle = "On Mouse Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class OnMouseEnterNode : TriggerNode
     {
         public override void OnInit()
         {
-            context.behaviourTreeInstance.OnMouseEnterCollider += RunMouseEvent;
+            context.BehaviourTreeRunner.OnMouseEnterCollider += RunMouseEvent;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.OnMouseEnterCollider -= RunMouseEvent;
+            context.BehaviourTreeRunner.OnMouseEnterCollider -= RunMouseEvent;
         }
         public void RunMouseEvent()
         {

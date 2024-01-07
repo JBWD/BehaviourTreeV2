@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TheKiwiCoder;
+using Halcyon;
 using System.IO;
 using UnityEngine.AI;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Move To Position", nodeTitle = "NavMesh:\n Move To Position")]
     [System.Serializable]

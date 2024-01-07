@@ -1,4 +1,4 @@
-﻿namespace TheKiwiCoder
+﻿namespace Halcyon
 {
     public enum NodeColors
     {

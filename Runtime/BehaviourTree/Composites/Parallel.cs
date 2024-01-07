@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange)]
     public class Parallel : CompositeNode {

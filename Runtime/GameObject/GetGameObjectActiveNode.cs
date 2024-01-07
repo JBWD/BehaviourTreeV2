@@ -1,7 +1,7 @@
 ﻿using Unity.Properties;
 using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "GameObject", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "Get Active")]
     public class GetGameObjectActiveNode: ActionNode

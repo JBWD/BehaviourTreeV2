@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers/2D", nodeTitle = "On 2D Collision Exit", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class On2DCollisionExitNode : TriggerNode
@@ -11,11 +11,11 @@ namespace TheKiwiCoder
 
         public override void OnInit()
         {
-            context.behaviourTreeInstance.On2DCollisionExit += SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On2DCollisionExit += SaveCollisionAndRunNode;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.On2DCollisionExit-= SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On2DCollisionExit-= SaveCollisionAndRunNode;
         }
         public void SaveCollisionAndRunNode(Collision2D collision)
         {

@@ -2,7 +2,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "UI/Text Mesh Pro", menuName = "Update Text", nodeTitle = "Text Mesh Pro:\n Update Text", nodeIcon = NodeIcons.action, nodeColor = NodeColors.green)]
     [System.Serializable]

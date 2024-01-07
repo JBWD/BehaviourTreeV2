@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [System.Serializable]
     public class NodeProperty {

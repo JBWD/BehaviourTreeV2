@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers/3D", nodeTitle = "On Trigger Exit", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class OnTriggerExitNode: TriggerNode
@@ -11,11 +11,11 @@ namespace TheKiwiCoder
 
         public override void OnInit()
         {
-            context.behaviourTreeInstance.On3DTriggerExit += SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On3DTriggerExit += SaveCollisionAndRunNode;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.On3DTriggerExit -= SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On3DTriggerExit -= SaveCollisionAndRunNode;
         }
         public void SaveCollisionAndRunNode(Collider collider)
         {

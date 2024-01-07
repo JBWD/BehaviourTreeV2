@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [BehaviourTreeNode(nodeColor = NodeColors.red, nodeTitle = "Root Node")]
     [System.Serializable]

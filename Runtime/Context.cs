@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using TheKiwiCoder.Integrations.Pathlist;
+using Halcyon.Integrations.Pathlist;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     // The context is a shared object every node has access to.
     // Commonly used components and subsytems should be stored here
@@ -20,7 +20,7 @@ namespace TheKiwiCoder {
         public BoxCollider boxCollider;
         public CapsuleCollider capsuleCollider;
         public CharacterController characterController;
-        public BehaviourTreeInstance behaviourTreeInstance;
+        public BehaviourTreeRunner BehaviourTreeRunner;
         public PathList pathList;
         // Add other game specific systems here
 
@@ -36,7 +36,7 @@ namespace TheKiwiCoder {
             context.boxCollider = gameObject.GetComponent<BoxCollider>();
             context.capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
             context.characterController = gameObject.GetComponent<CharacterController>();
-            context.behaviourTreeInstance = gameObject.GetComponent<BehaviourTreeInstance>();
+            context.BehaviourTreeRunner = gameObject.GetComponent<BehaviourTreeRunner>();
             context.pathList = gameObject.GetComponent<PathList>();
             // Add whatever else you need here...
 

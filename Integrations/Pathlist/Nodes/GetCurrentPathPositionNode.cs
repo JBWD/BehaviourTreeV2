@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder.Integrations.Pathlist
+namespace Halcyon.Integrations.Pathlist
 {
     [BehaviourTreeNode(menuPath = "Integrations/PathList", menuName = "PathList: Get Position", nodeTitle = "PathList:\nGet Position", nodeColor = NodeColors.green, nodeIcon = NodeIcons.destination)]
     [System.Serializable]

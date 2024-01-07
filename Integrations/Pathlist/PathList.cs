@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TheKiwiCoder.Integrations.Pathlist
+namespace Halcyon.Integrations.Pathlist
 {
     public class PathList: MonoBehaviour
     {

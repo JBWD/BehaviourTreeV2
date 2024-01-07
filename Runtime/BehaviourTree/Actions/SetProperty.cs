@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TheKiwiCoder;
+using Halcyon;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [BehaviourTreeNode(menuPath = "Behaviour Tree", nodeTitle = "Set Property", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.oneTime)]
     [System.Serializable]

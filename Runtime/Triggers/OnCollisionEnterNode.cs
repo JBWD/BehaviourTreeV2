@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers/3D", nodeTitle = "On Collision Enter", nodeColor = NodeColors.purple,
         nodeIcon = NodeIcons.trigger)]
@@ -12,11 +12,11 @@ namespace TheKiwiCoder
 
         public override void OnInit()
         {
-            context.behaviourTreeInstance.On3DCollisionEnter += SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On3DCollisionEnter += SaveCollisionAndRunNode;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.On3DCollisionEnter-= SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On3DCollisionEnter-= SaveCollisionAndRunNode;
         }
         public void SaveCollisionAndRunNode(Collision collision)
         {

@@ -7,7 +7,7 @@ using UnityEditor.UIElements;
 using System.Runtime.Remoting.Messaging;
 using Unity.VisualScripting;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [CustomPropertyDrawer(typeof(NodeProperty<>))]
     public class GenericNodePropertyPropertyDrawer : PropertyDrawer {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class NodePropertyTypeSelectorAttribute : Attribute

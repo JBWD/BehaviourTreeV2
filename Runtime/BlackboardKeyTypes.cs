@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [System.Serializable]
     public class BooleanKey : BlackboardKey<bool> {

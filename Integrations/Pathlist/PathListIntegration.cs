@@ -1,8 +1,8 @@
-﻿using TheKiwiCoder.Integrations.Pathlist;
+﻿using Halcyon.Integrations.Pathlist;
 using UnityEngine;
 
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     public partial class Context
     {

@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     public class BlackboardView : VisualElement {
 
         public new class UxmlFactory : UxmlFactory<BlackboardView, VisualElement.UxmlTraits> { }

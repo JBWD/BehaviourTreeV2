@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     [CreateAssetMenu()]
     public class BehaviourTree : ScriptableObject {
 

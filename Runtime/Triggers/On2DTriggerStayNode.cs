@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers/2D", nodeTitle = "On 2D Trigger Stay", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class On2DTriggerStayNode : TriggerNode
@@ -11,11 +11,11 @@ namespace TheKiwiCoder
 
         public override void OnInit()
         {
-            context.behaviourTreeInstance.On2DTriggerStay += SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On2DTriggerStay += SaveCollisionAndRunNode;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.On2DTriggerStay-= SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On2DTriggerStay-= SaveCollisionAndRunNode;
         }
         public void SaveCollisionAndRunNode(Collider2D collider)
         {

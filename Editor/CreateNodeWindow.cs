@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEditor.Experimental.GraphView;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     public class CreateNodeWindow : ScriptableObject, ISearchWindowProvider {
 

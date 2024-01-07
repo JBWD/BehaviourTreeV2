@@ -7,7 +7,7 @@ using UnityEditor.UIElements;
 using UnityEditor.Search;
 using System.Linq;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     public static class EditorUtility
     {

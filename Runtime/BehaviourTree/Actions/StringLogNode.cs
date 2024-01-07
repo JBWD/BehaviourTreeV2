@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.WSA;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree/Debug", nodeTitle = "Debug: Log", nodeColor = NodeColors.green, nodeIcon = NodeIcons.debug)]
     public class StringLogNode : ActionNode {

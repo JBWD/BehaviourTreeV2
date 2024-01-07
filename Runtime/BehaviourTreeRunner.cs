@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
-    [AddComponentMenu("TheKiwiCoder/BehaviourTreeInstance")]
-    public class BehaviourTreeInstance : MonoBehaviour {
+    [AddComponentMenu("Halcyon/BehaviourTreeRunner")]
+    public class BehaviourTreeRunner : MonoBehaviour {
 
 
 

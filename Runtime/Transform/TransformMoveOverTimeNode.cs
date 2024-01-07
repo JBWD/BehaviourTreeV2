@@ -2,11 +2,14 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode("Transform/OverTime", "Transform: Rotate Over Time", "Transform:\n Rotate Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
-    public class TransformRotateOverTimeNode : ActionNode
+    [BehaviourTreeNode("Transform/OverTime", "Transform: Move Over Time", "Transform:\nMove Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
+    public class TransformMoveOverTimeNode : ActionNode
     {
-        public NodeProperty<Vector3> rotation;
-        public NodeProperty<float> rotationsPerSecond;
+
+        public NodeProperty<Vector3> movementSpeedDirection;
+
+
+
         protected override void OnStart()
         {
             
@@ -15,16 +18,19 @@ namespace Halcyon
         protected override void OnStop()
         {
             
-            
         }
 
         protected override State OnUpdate()
         {
             if (context.transform == null)
+            {
                 state = State.Failure;
+            }
             else
             {
-                context.transform.Rotate(rotationsPerSecond.Value * Time.deltaTime * rotation.Value);
+                context.transform.Translate(Time.deltaTime * movementSpeedDirection.Value);
+                
+                
                 state = State.Success;
             }
 

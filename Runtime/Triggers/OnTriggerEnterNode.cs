@@ -2,7 +2,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers/3D", nodeTitle = "On Trigger Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [Serializable]
@@ -21,12 +21,12 @@ namespace TheKiwiCoder
             {
                 collisionTag.Value = "";
             }
-            context.behaviourTreeInstance.On3DTriggerEnter += SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On3DTriggerEnter += SaveCollisionAndRunNode;
         }
 
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.On3DTriggerEnter -= SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On3DTriggerEnter -= SaveCollisionAndRunNode;
         }
 
         public void SaveCollisionAndRunNode(Collider collider)

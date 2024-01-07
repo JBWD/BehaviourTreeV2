@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     // This is a WIP class for generating behaviour trees dynamically at runtime.
     public class BehaviourTreeBuilder {

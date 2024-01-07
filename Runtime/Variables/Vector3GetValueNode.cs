@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Vector3: To Floats", nodeTitle = "Vector3 Conversion:\nTo Floats", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
     [System.Serializable]

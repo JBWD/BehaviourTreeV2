@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TheKiwiCoder;
+using Halcyon;
 using System;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree", nodeColor = NodeColors.green, nodeTitle = "Run Subtree")]
