@@ -7,6 +7,7 @@ namespace TheKiwiCoder
     public class SetGameObjectActiveNode : ActionNode
     {
         public NodeProperty<GameObject> gameObject;
+        public bool self;
         public NodeProperty<bool> activityState;
         
         protected override void OnStart()
@@ -20,7 +21,12 @@ namespace TheKiwiCoder
 
         protected override State OnUpdate()
         {
-            if (gameObject.Value != null)
+            if (self)
+            {
+                context.gameObject.SetActive(activityState.Value);
+                state =State.Success;
+            }
+            else if (gameObject.Value != null)
             {
                 gameObject.Value.SetActive(activityState.Value);
                 state = State.Success;
