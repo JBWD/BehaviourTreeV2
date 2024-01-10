@@ -10,18 +10,22 @@ namespace Halcyon {
 
         [Tooltip("Amount of time to wait before returning success")] public float duration = 1;
         float startTime;
-
+        public bool restartAfterComplete = false;
+        
         protected override void OnStart() {
             startTime = Time.time;
+            Debug.Log("Starting");
         }
 
         protected override void OnStop() {
+            
         }
 
         protected override State OnUpdate() {
             
             float timeRemaining = Time.time - startTime;
-            if (timeRemaining > duration) {
+            if (timeRemaining > duration)
+            {
                 return State.Success;
             }
             return State.Running;

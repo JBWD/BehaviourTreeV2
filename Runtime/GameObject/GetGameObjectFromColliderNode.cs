@@ -6,12 +6,12 @@ namespace Halcyon
     public class GetGameObjectFromColliderNode : ActionNode
     {
         public NodeProperty<Collider> retrieveFrom;
+        
         public NodeProperty<GameObject> saveTo;
         
         
         protected override void OnStart()
         {
-            
         }
 
         protected override void OnStop()

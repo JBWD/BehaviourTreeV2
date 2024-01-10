@@ -9,6 +9,7 @@ namespace Halcyon
 
         public NodeProperty<float> baseValue;
         public NodeProperty<float> divideValue = new NodeProperty<float>(){Value = 1};
+        [BlackboardValueOnly]
         public NodeProperty<float> saveValue;
 
 

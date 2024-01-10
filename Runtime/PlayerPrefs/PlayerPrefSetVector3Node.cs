@@ -45,13 +45,7 @@ namespace Halcyon
 
         public override void UpdateDescription()
         {
-
-          
-               
-                description =
-                    "Saves the Vector3 value to PlayerPrefs."; 
-            
-            
+            description = "Saves the value value to PlayerPrefs.";
         }
     }
 }

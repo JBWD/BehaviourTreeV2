@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Halcyon
 {
     [BehaviourTreeNode("Transform/OverTime", "Transform: Move Over Time", "Transform:\nMove Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
+    [Serializable]
     public class TransformMoveOverTimeNode : ActionNode
     {
 
         public NodeProperty<Vector3> movementSpeedDirection;
-
-
+        
 
         protected override void OnStart()
         {

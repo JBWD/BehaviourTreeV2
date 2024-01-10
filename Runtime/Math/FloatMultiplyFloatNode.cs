@@ -7,6 +7,7 @@
 
         public NodeProperty<float> baseValue;
         public NodeProperty<float> multiplyValue = new NodeProperty<float>(){Value = 1};
+        [BlackboardValueOnly]
         public NodeProperty<float> saveValue;
 
 

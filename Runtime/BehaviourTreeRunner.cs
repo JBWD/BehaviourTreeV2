@@ -110,7 +110,7 @@ namespace Halcyon {
                 runtimeTree.Update();
             }
             UpdateKeyBoardInputs();
-
+            
         }
 
         Context CreateBehaviourTreeContext() {
@@ -221,7 +221,6 @@ namespace Halcyon {
             }
             return default(T);
         }
-        
         
         
         

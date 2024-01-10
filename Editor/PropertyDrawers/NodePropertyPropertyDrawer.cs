@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEditor.UIElements;
 using System.Runtime.Remoting.Messaging;
+using Codice.CM.Common;
 using Unity.VisualScripting;
 
 namespace Halcyon {
@@ -18,7 +19,17 @@ namespace Halcyon {
 
             var genericTypes = fieldInfo.FieldType.GenericTypeArguments;
             var propertyType = genericTypes[0];
-
+            var attributes = fieldInfo.GetCustomAttributes(true);
+            var isReferenceOnly = false;
+            foreach (var attribute in attributes)
+            {
+                if (attribute is BlackboardValueOnlyAttribute)
+                    isReferenceOnly = true;
+            }
+            
+            
+            
+            
             SerializedProperty reference = property.FindPropertyRelative("reference");
 
             Label label = new Label();
@@ -34,7 +45,10 @@ namespace Halcyon {
 
             PopupField<BlackboardKey> dropdown = new PopupField<BlackboardKey>();
             dropdown.label = "";
-            dropdown.formatListItemCallback = FormatItem;
+            
+            if(!isReferenceOnly)
+                dropdown.formatListItemCallback = FormatItem;
+            
             dropdown.formatSelectedValueCallback = FormatSelectedItem;
             dropdown.value = reference.managedReferenceValue as BlackboardKey;
             dropdown.tooltip = "Bind value to a BlackboardKey";
@@ -74,8 +88,8 @@ namespace Halcyon {
                 }
             });
 
-            defaultValueField.style.display = dropdown.value == null ? DisplayStyle.Flex : DisplayStyle.None;
-            dropdown.style.flexGrow = dropdown.value == null ? 0.0f : 1.0f;
+            defaultValueField.style.display = dropdown.value == null && !isReferenceOnly? DisplayStyle.Flex : DisplayStyle.None;
+            dropdown.style.flexGrow = dropdown.value == null && !isReferenceOnly ? 0.0f : 1.0f;
 
             VisualElement container = new VisualElement();
             container.AddToClassList("unity-base-field");
@@ -108,22 +122,15 @@ namespace Halcyon {
     [CustomPropertyDrawer(typeof(NodeProperty))]
     public class NodePropertyPropertyDrawer : PropertyDrawer {
 
+        
+        
         public override VisualElement CreatePropertyGUI(SerializedProperty property) {
             
             BehaviourTree tree = property.serializedObject.targetObject as BehaviourTree;
 
             SerializedProperty reference = property.FindPropertyRelative("reference");
-
-
-            System.Type selectionType = null;
-            foreach (var customAttribute in fieldInfo.GetCustomAttributes(true))
-            {
-                if (customAttribute is NodePropertyTypeSelectorAttribute selectorAttribute)
-                {
-                    selectionType = selectorAttribute.GetSelectionType();
-                }
-            }
             
+
             PopupField<BlackboardKey> dropdown = new PopupField<BlackboardKey>();
             dropdown.label = property.displayName;
             dropdown.formatListItemCallback = FormatItem;
@@ -132,16 +139,6 @@ namespace Halcyon {
 
             dropdown.RegisterCallback<MouseEnterEvent>((evt) => {
                 dropdown.choices.Clear();
-                foreach (var key in tree.blackboard.keys) {
-                    if (selectionType == null)
-                    {
-                        dropdown.choices.Add(key);
-                    }
-                    else if(selectionType == key.underlyingType)
-                    {
-                        dropdown.choices.Add(key);
-                    }
-                }
                 dropdown.choices.Sort((left, right) => {
                     return left.name.CompareTo(right.name);
                 });

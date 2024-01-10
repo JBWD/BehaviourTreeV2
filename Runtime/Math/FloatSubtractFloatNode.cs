@@ -7,6 +7,7 @@
 
         public NodeProperty<float> baseValue;
         public NodeProperty<float> subtractValue;
+        [BlackboardValueOnly]
         public NodeProperty<float> saveValue;
 
 

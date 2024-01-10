@@ -54,8 +54,8 @@ namespace Halcyon {
                 node.OnStop();
             });
         }
-
         
+
         public virtual void OnDrawGizmos() { }
 
         protected abstract void OnStart();

@@ -10,12 +10,9 @@ namespace Halcyon {
 
         [SerializeReference]
         public RootNode rootNode;
-
         [SerializeReference]
         public List<Node> nodes = new List<Node>();
-
         public Node.State treeState = Node.State.Running;
-
         public Blackboard blackboard = new Blackboard();
 
         #region  EditorProperties 

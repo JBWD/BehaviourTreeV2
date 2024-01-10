@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Halcyon
 {
 
-    [BehaviourTreeNode(menuPath = "Global Event Listeners", menuName = "On Value Change Listener",nodeTitle  = "Event Listener\nOn Value Change", nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Global Event/Listener", menuName = "Event Listener: On Float Change",nodeTitle  = "Event Listener:\nOn Float Change", nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]
     [Serializable]
     public class GE_OnValueChangeListenerNode : TriggerNode
     {

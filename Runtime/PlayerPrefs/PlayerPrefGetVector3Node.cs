@@ -10,8 +10,8 @@ namespace Halcyon
 
 
         public NodeProperty<string> playerPrefName;
-
-        public NodeProperty<Vector3> saveVector3Value;
+        [BlackboardValueOnly]
+        public NodeProperty<Vector3> saveValue;
         
         
         protected override void OnStart()
@@ -33,7 +33,7 @@ namespace Halcyon
                 var y = UnityEngine.PlayerPrefs.GetFloat($"{playerPrefName}.y");
                 var z = UnityEngine.PlayerPrefs.GetFloat($"{playerPrefName}.z");
 
-                saveVector3Value.Value = new Vector3(x, y, z);
+                saveValue.Value = new Vector3(x, y, z);
                 state = State.Success;
             }
             catch
@@ -48,7 +48,7 @@ namespace Halcyon
         public override void UpdateDescription()
         {
 
-            if (saveVector3Value.reference == null)
+            if (saveValue.reference == null)
             {
                 errored = true;
                 description = "Unable to save value.";
@@ -57,7 +57,7 @@ namespace Halcyon
             {
                 errored = false;
                 description =
-                    "Tries to retrieve the Vector3 value from PlayerPrefs, if successful, saves the value in 'saveVector3Value'."; 
+                    "Tries to retrieve the Vector3 value from PlayerPrefs, if successful, saves the value in 'saveValue'."; 
             }
             
         }

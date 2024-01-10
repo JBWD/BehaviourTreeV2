@@ -10,14 +10,11 @@ namespace Halcyon
     {
         
         [Header("Note: Needs to be overriden value in instance.")]
-        [NodePropertyTypeSelector(typeof(TextMeshProUGUI))]
-        public NodeProperty textContainer;
+        [BlackboardValueOnly]
+        public NodeProperty<TextMeshProUGUI> textContainer;
         public NodeProperty<string> text;
-
-        private TextMeshProUGUI m_text;
         protected override void OnStart()
         {
-            m_text = blackboard.GetValue<TextMeshProUGUI>(textContainer.reference.name);
         }
 
         protected override void OnStop()
@@ -33,15 +30,13 @@ namespace Halcyon
                 return state;
             }
             
-            
-            
-            if (m_text == null)
+            if (textContainer.Value == null)
             {
                 state = State.Failure;
             }
             else
             {
-                m_text.text = text.Value;
+                textContainer.Value.text = text.Value;
                 state = State.Success;
             }
 

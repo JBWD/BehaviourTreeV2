@@ -10,6 +10,7 @@ namespace Halcyon
         
         public NodeProperty<float> baseValue;
         public NodeProperty<float> addValue;
+        [BlackboardValueOnly]
         public NodeProperty<float> saveValue;
 
 

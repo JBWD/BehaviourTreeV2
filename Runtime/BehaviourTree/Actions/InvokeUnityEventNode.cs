@@ -3,26 +3,35 @@ using UnityEngine.Events;
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "UI")]
+    [BehaviourTreeNode(menuPath = "")]
+    [System.Serializable]
     public class InvokeUnityEventNode : ActionNode
     {
 
-        [NodePropertyTypeSelector(typeof(UnityEvent))]
+        [BlackboardValueOnly]
         [Header("Note: Needs to be overriden value in instance.")]
-        public NodeProperty unityEvent;
+        public NodeProperty<UnityEvent> unityEvent;
+
+       
+        public override void OnInit()
+        {
+            
+        }
+
         protected override void OnStart()
         {
-            throw new System.NotImplementedException();
         }
 
         protected override void OnStop()
         {
-            throw new System.NotImplementedException();
+           
         }
 
         protected override State OnUpdate()
         {
-            throw new System.NotImplementedException();
+            unityEvent.Value.Invoke();
+            state = State.Success;
+            return state;
         }
     }
 }

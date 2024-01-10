@@ -6,6 +6,7 @@ namespace Halcyon
     {
 
         public NodeProperty<Vector3> baseValue;
+        [BlackboardValueOnly]
         public NodeProperty<Vector3> saveValue;
         
         

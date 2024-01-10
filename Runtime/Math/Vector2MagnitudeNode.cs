@@ -8,6 +8,7 @@ namespace Halcyon
     {
 
         public NodeProperty<Vector2> baseValue;
+        [BlackboardValueOnly]
         public NodeProperty<float> saveValue;
 
 
