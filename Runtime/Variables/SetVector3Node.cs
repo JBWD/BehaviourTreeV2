@@ -2,6 +2,9 @@
 
 namespace Halcyon
 {
+    [BehaviourTreeNode(menuPath = "Variable",menuName = "Variable: Set Vector 3", nodeTitle = "Variables:\nSet Vector3",
+        nodeIcon = NodeIcons.save, nodeColor = NodeColors.pink)]
+    [System.Serializable]
     public class SetVector3Node : ActionNode
     {
 

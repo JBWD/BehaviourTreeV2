@@ -3,6 +3,7 @@
 namespace Halcyon
 {
     [BehaviourTreeNode("Transform/OverTime", "Transform: Rotate Over Time", "Transform:\n Rotate Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
+    [System.Serializable]
     public class TransformRotateOverTimeNode : ActionNode
     {
         public NodeProperty<Vector3> rotation;

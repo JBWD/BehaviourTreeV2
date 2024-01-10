@@ -4,6 +4,7 @@ namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Raycasting", menuName = "Raycasting: Camera to Mouse Point", nodeTitle = "Raycasting:\nCamera to Mouse Point",
         nodeColor =  NodeColors.green, nodeIcon = NodeIcons.destination)]
+    [System.Serializable]
     public class RaycastCameraToMousePositionNode : ActionNode
     {
         [BlackboardValueOnly]

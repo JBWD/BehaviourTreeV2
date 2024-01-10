@@ -4,6 +4,7 @@ namespace Halcyon
 {
     
     [BehaviourTreeNode(menuPath = "GameObject", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "Set Active")]
+    [System.Serializable]
     public class SetGameObjectActiveNode : ActionNode
     {
         public NodeProperty<GameObject> gameObject;

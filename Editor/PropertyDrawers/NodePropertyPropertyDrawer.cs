@@ -48,9 +48,9 @@ namespace Halcyon {
 
             if (!isReferenceOnly)
                 dropdown.formatListItemCallback = FormatItem;
-            else
-                dropdown.formatListItemCallback = ReferenceOnlyMessage;
-            
+            // else
+            //     dropdown.formatListItemCallback = ReferenceOnlyMessage;
+            //
             dropdown.formatSelectedValueCallback = FormatSelectedItem;
             dropdown.value = reference.managedReferenceValue as BlackboardKey;
             dropdown.tooltip = "Bind value to a BlackboardKey";

@@ -2,8 +2,9 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "GameObject", menuName = "GameObject: Get GameObject from Collider", nodeColor = NodeColors.pink,
-        nodeIcon = NodeIcons.save, nodeTitle = "GameObject:\nGet GameObject from Collider")]
+    [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Collider to GameObject", nodeColor = NodeColors.pink,
+        nodeIcon = NodeIcons.save, nodeTitle = "Conversion:\nCollider to GameObject")]
+    [System.Serializable]
     public class GetGameObjectFromColliderNode : ActionNode
     {
         [BlackboardValueOnly]
@@ -12,7 +13,7 @@ namespace Halcyon
         public NodeProperty<GameObject> saveValue;
         
         
-        protected override void OnStart()
+        protected override void OnStart()   
         {
             
         }

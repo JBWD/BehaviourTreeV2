@@ -3,6 +3,7 @@
 namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/Input", menuName = "Input: On Key Down", nodeTitle = "Input:\nOn Key Down", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
+    [System.Serializable]
     public class OnKeyDownNode : TriggerNode
     {
         public KeyCode keyCode;

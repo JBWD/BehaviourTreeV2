@@ -2,6 +2,8 @@
 
 namespace Halcyon
 {
+    [BehaviourTreeNode("Player Prefs/Get", menuName = "Player Prefs: Get Float", nodeTitle = "Player Prefs:\nGet Float", nodeIcon = NodeIcons.save,nodeColor = NodeColors.green)]
+    [System.Serializable]
     public class PlayerPrefGetFloatNode : ActionNode
     {
         public NodeProperty<string> playerPrefName;

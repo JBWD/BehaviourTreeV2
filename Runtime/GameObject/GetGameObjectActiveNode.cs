@@ -4,6 +4,7 @@ using UnityEngine;
 namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "GameObject", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "Get Active")]
+    [System.Serializable]
     public class GetGameObjectActiveNode: ActionNode
     {
         public NodeProperty<GameObject> gameObject;

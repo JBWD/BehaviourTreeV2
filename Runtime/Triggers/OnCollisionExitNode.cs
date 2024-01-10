@@ -3,6 +3,7 @@
 namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/3D", nodeTitle = "On Collision Exit", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [System.Serializable]
     public class OnCollisionExitNode: TriggerNode
     {
         public NodeProperty<string> collisionTag;

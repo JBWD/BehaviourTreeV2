@@ -1,6 +1,7 @@
 ﻿namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/Mouse", nodeTitle = "On Mouse Up", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [System.Serializable]
     public class OnMouseUpNode : TriggerNode
     {
         public override void OnInit()

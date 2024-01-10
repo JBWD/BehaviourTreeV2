@@ -2,13 +2,15 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Vector2: To Floats", nodeTitle = "Vector2 Conversion:\nTo Floats", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Vector2 to Floats", nodeTitle = "Conversion:\nVector2 to Floats", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.action)]
     [System.Serializable]
     public class Vector2ToFloatsNode: ActionNode
     {
 
         public NodeProperty<Vector2> baseValue;
+        [BlackboardValueOnly]
         public NodeProperty<float> xSaveFloatValue;
+        [BlackboardValueOnly]
         public NodeProperty<float> ySaveFloatValue;
         
 
