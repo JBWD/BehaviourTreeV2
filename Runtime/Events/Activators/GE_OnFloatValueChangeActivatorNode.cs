@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Halcyon;
 using UnityEngine;
 
-[BehaviourTreeNode(menuPath = "Global Event/Activator", menuName = "On Float Change Activator",nodeTitle  = "Event Activator\nOn Float Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
+[BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "On Float Change Activator",nodeTitle  = "Event Activator\nOn Float Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
 [Serializable]
 public class GE_OnFloatValueChangeActivatorNode : ActionNode
 {

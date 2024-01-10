@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "")]
+    [BehaviourTreeNode(menuPath = "Triggers & Events", menuName = "Unity Event: Invoke Event", nodeTitle = "Unity Event\nInvoke Event", nodeColor = NodeColors.green, nodeIcon = NodeIcons.trigger)]
     [System.Serializable]
     public class InvokeUnityEventNode : ActionNode
     {

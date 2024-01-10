@@ -2,7 +2,7 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Triggers/3D", nodeTitle = "On Trigger Stay", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers & Events/3D", nodeTitle = "On Trigger Stay", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class OnTriggerStayNode : TriggerNode
     {
         public NodeProperty<string> collisionTag;

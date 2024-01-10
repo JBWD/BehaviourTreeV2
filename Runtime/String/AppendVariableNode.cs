@@ -26,7 +26,7 @@ namespace Halcyon
 
         protected override State OnUpdate()
         {
-            //saveString.Value = originalString.Value + blackboard.GetValueString(appendedValue);
+            saveString.Value = originalString.Value + blackboard.GetValueString(appendedValue);
             state = State.Success;
             return state;
         }

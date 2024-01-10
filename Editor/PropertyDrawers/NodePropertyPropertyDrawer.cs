@@ -45,9 +45,11 @@ namespace Halcyon {
 
             PopupField<BlackboardKey> dropdown = new PopupField<BlackboardKey>();
             dropdown.label = "";
-            
-            if(!isReferenceOnly)
+
+            if (!isReferenceOnly)
                 dropdown.formatListItemCallback = FormatItem;
+            else
+                dropdown.formatListItemCallback = ReferenceOnlyMessage;
             
             dropdown.formatSelectedValueCallback = FormatSelectedItem;
             dropdown.value = reference.managedReferenceValue as BlackboardKey;
@@ -108,6 +110,11 @@ namespace Halcyon {
             } else {
                 return item.name;
             }
+        }
+
+        private string ReferenceOnlyMessage(BlackboardKey item)
+        {
+            return "Create BlackBoard Variable";
         }
 
         private string FormatSelectedItem(BlackboardKey item) {

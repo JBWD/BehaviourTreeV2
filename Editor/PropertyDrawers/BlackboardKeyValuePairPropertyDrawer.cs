@@ -38,6 +38,7 @@ namespace Halcyon {
                 foreach (var key in tree.blackboard.keys) {
                     dropdown.choices.Add(key);
                 }
+                
             });
 
             dropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) => {

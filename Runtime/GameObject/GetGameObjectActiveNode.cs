@@ -7,6 +7,7 @@ namespace Halcyon
     public class GetGameObjectActiveNode: ActionNode
     {
         public NodeProperty<GameObject> gameObject;
+        [BlackboardValueOnly]
         public NodeProperty<bool> activityState;
         
         protected override void OnStart()

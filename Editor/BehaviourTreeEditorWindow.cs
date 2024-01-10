@@ -331,10 +331,26 @@ namespace Halcyon {
         }
 
         void OnToolbarNewAsset() {
-            BehaviourTree tree = EditorUtility.CreateNewTree("New Behaviour Tree", settings.newTreePath);
-            if (tree) {
-                SelectNewTree(tree);
+            
+            var settings = BehaviourTreeEditorWindow.Instance.settings;
+
+            string savePath = UnityEditor.EditorUtility.SaveFilePanel("Create New", settings.newTreePath, "New Behavior Tree", "asset");
+            if (string.IsNullOrEmpty(savePath)) {
+                return;
             }
+
+            string name = System.IO.Path.GetFileNameWithoutExtension(savePath);
+            string folder = System.IO.Path.GetDirectoryName(savePath);
+            folder = folder.Substring(folder.IndexOf("Assets"));
+
+            //System.IO.Directory.CreateDirectory(folder);
+            BehaviourTree tree = EditorUtility.CreateNewTree(name, folder);
+
+
+            if (tree) {
+                SelectTree(tree);
+            }
+            
         }
 
         public void PushSubTreeView(SubTree subtreeNode) {

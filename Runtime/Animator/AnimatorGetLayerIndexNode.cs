@@ -8,6 +8,7 @@ namespace Halcyon
     {
 
         public NodeProperty<string> layerName;
+        [BlackboardValueOnly]
         public NodeProperty<int> saveIndex;
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Triggers/3D", nodeTitle = "On Trigger Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers & Events/3D", nodeTitle = "On Trigger Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [Serializable]
     public class OnTriggerEnterNode : TriggerNode
     {
@@ -12,9 +12,6 @@ namespace Halcyon
         public NodeProperty<string> collisionTag;
         public NodeProperty<Collider> collider;
         
-        
-        
-
         public override void OnInit()
         {
             if (collisionTag.Value == null)

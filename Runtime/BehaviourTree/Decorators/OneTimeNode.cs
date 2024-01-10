@@ -1,5 +1,7 @@
 ﻿namespace Halcyon
 {
+    [System.Serializable]
+    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.blue)]
     public class OneTimeNode : DecoratorNode
     {
         private bool nodeRan = false;

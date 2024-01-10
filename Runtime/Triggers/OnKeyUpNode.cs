@@ -2,7 +2,7 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Triggers/Input", menuName = "Input: On Key Up", nodeTitle = "Input:\nOn Key Up", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
+    [BehaviourTreeNode(menuPath = "Triggers & Events/Input", menuName = "Input: On Key Up", nodeTitle = "Input:\nOn Key Up", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
     public class OnKeyUpNode : TriggerNode
     {
         public KeyCode keyCode;

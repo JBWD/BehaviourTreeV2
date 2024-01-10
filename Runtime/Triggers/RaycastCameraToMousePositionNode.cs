@@ -2,17 +2,16 @@
 
 namespace Halcyon
 {
+    [BehaviourTreeNode(menuPath = "Raycasting", menuName = "Raycasting: Camera to Mouse Point", nodeTitle = "Raycasting:\nCamera to Mouse Point",
+        nodeColor =  NodeColors.green, nodeIcon = NodeIcons.destination)]
     public class RaycastCameraToMousePositionNode : ActionNode
     {
-        public NodeProperty<Vector3> mouseHitPosition;
-        public NodeProperty<Collider> hitCollider;
-        public NodeProperty<GameObject> hitGameObject;
-            
-        
-        
-        
-        
-        
+        [BlackboardValueOnly]
+        public NodeProperty<Vector3> saveHitPosition;
+        [BlackboardValueOnly]
+        public NodeProperty<Collider> saveHitCollider;
+        [BlackboardValueOnly]
+        public NodeProperty<GameObject> saveHitGameObject;
         
         protected override void OnStart()
         {
@@ -33,9 +32,9 @@ namespace Halcyon
                 if (raycasthit.collider != null)
                 {
                     Debug.Log(raycasthit.point);
-                    hitCollider.Value = raycasthit.collider;
-                    hitGameObject.Value = raycasthit.collider.gameObject;
-                    mouseHitPosition.Value = raycasthit.point;
+                    saveHitCollider.Value = raycasthit.collider;
+                    saveHitGameObject.Value = raycasthit.collider.gameObject;
+                    saveHitPosition.Value = raycasthit.point;
                     state = State.Success;
                 }
             }

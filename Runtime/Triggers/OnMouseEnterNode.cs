@@ -1,6 +1,6 @@
 ﻿namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Triggers/Mouse", nodeTitle = "On Mouse Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers & Events/Mouse", nodeTitle = "On Mouse Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     public class OnMouseEnterNode : TriggerNode
     {
         public override void OnInit()

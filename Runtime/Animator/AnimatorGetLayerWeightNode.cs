@@ -7,6 +7,7 @@ namespace Halcyon
     public class AnimatorGetLayerWeightNode : ActionNode
     {
         public NodeProperty<int> layerIndex;
+        [BlackboardValueOnly]
         public NodeProperty<float> saveWeight;
 
 

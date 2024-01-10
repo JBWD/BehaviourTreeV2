@@ -24,10 +24,8 @@ namespace Halcyon
 
         protected override State OnUpdate()
         {
-            Debug.Log(Time.realtimeSinceStartup);
-            for(int i = 0;i<10000;i++)
-                saveString.Value = baseString.Value + addString.Value;
-            Debug.Log(Time.realtimeSinceStartup);
+            
+            saveString.Value = baseString.Value + addString.Value;
             state = State.Success;
             return state;
         }

@@ -2,16 +2,19 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "GameObject", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "Save GameObject From Collider")]
+    [BehaviourTreeNode(menuPath = "GameObject", menuName = "GameObject: Get GameObject from Collider", nodeColor = NodeColors.pink,
+        nodeIcon = NodeIcons.save, nodeTitle = "GameObject:\nGet GameObject from Collider")]
     public class GetGameObjectFromColliderNode : ActionNode
     {
-        public NodeProperty<Collider> retrieveFrom;
-        
-        public NodeProperty<GameObject> saveTo;
+        [BlackboardValueOnly]
+        public NodeProperty<Collider> collider;
+        [BlackboardValueOnly]
+        public NodeProperty<GameObject> saveValue;
         
         
         protected override void OnStart()
         {
+            
         }
 
         protected override void OnStop()
@@ -20,9 +23,9 @@ namespace Halcyon
 
         protected override State OnUpdate()
         {
-            if (retrieveFrom.Value != null)
+            if (collider.Value != null)
             {
-                saveTo.Value = retrieveFrom.Value.gameObject;
+                saveValue.Value = collider.Value.gameObject;
                 state = State.Success;
             }
             else
@@ -31,6 +34,11 @@ namespace Halcyon
             }
 
             return state;
+        }
+
+        public override void UpdateDescription()
+        {
+            description = "Retrieves the GameObject that the collider is attached to.";
         }
     }
 }

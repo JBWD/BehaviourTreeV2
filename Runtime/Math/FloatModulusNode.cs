@@ -7,6 +7,7 @@
 
         public NodeProperty<float> baseValue;
         public NodeProperty<int> modulusValue = new NodeProperty<int>(){Value = 1};
+        [BlackboardValueOnly]
         public NodeProperty<float> saveValue;
 
 
