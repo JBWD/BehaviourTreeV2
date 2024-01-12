@@ -133,4 +133,10 @@ namespace Halcyon {
         
     }
 
+    [System.Serializable]
+    public class TransformKey : BlackboardKey<Transform>
+    {
+        
+    }
+
 }

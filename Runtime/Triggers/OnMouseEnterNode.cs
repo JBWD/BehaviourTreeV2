@@ -17,5 +17,10 @@
             OnUpdate();
         }
 
+        public override void UpdateDescription()
+        {
+            description =
+                "When the mouse starts hovering over the GameObject, all children nodes are invoked, this does not repeat like the main loop.";
+        }
     }
 }

@@ -31,5 +31,18 @@ namespace Halcyon
             state = State.Success;
             return state;
         }
+        public override void UpdateDescription()
+        {
+            errored = false;
+            if (saveValue.reference == null)
+            {
+                description = "Does not save any of the values";
+                errored = true;
+            }
+            else
+            {
+                description = "Sets the 'SaveValue' to the same value or reference as 'BaseValue'";
+            }
+        }
     }
 }

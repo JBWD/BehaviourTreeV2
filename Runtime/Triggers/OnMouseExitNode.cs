@@ -22,7 +22,8 @@ namespace Halcyon
 
         public override void UpdateDescription()
         {
-            description = "Fires when the mouse stops hovering the GameObject.";
+            description =
+                "When the mouse exits hovering over the GameObject, all children nodes are invoked, this does not repeat like the main loop.";
         }
     }
 }

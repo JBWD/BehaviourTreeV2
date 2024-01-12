@@ -14,7 +14,7 @@ namespace Halcyon {
         public GameObject gameObject;
         public Transform transform;
         public Animator animator;
-        public Rigidbody physics;
+        public Rigidbody rigidBody;
         public NavMeshAgent agent;
         public SphereCollider sphereCollider;
         public BoxCollider boxCollider;
@@ -30,7 +30,7 @@ namespace Halcyon {
             context.gameObject = gameObject;
             context.transform = gameObject.transform;
             context.animator = gameObject.GetComponentInChildren<Animator>();
-            context.physics = gameObject.GetComponent<Rigidbody>();
+            context.rigidBody = gameObject.GetComponent<Rigidbody>();
             context.agent = gameObject.GetComponent<NavMeshAgent>();
             context.sphereCollider = gameObject.GetComponent<SphereCollider>();
             context.boxCollider = gameObject.GetComponent<BoxCollider>();

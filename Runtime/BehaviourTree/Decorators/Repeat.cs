@@ -57,6 +57,9 @@ namespace Halcyon {
 
         public override void UpdateDescription()
         {
+            
+            
+            
             description = "Repeats all children";
             
             if (maxRepeats == 0)

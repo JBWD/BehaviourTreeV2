@@ -7,6 +7,7 @@ namespace Halcyon
     public class On2DTriggerExitNode : TriggerNode
     {
         public NodeProperty<string> collisionTag;
+        [BlackboardValueOnly]
         public NodeProperty<Collider2D> collider;
         
 
@@ -30,7 +31,8 @@ namespace Halcyon
 
         public override void UpdateDescription()
         {
-            
+            description =
+                "When a collision occurs, all children nodes are invoked, this does not repeat like the main loop.";
         }
         
 

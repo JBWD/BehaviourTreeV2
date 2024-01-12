@@ -19,5 +19,12 @@
             OnUpdate();
         }
 
+        
+        public override void UpdateDescription()
+        {
+            description =
+                "When the GameObject is click down and up, all children nodes are invoked, this does not repeat like the main loop.";
+        }
+        
     }
 }

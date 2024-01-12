@@ -6,7 +6,7 @@ namespace Halcyon.Integrations.Pathlist
     [System.Serializable]
     public class AddPathPositionNode : ActionNode
     {
-        public NodeProperty<Vector3> position;
+        public NodeProperty<Vector3> positionValue;
         
         public override void OnInit()
         {
@@ -31,11 +31,12 @@ namespace Halcyon.Integrations.Pathlist
             }
             else
             {
-                context.pathlist.AddPathPosition(position.Value);
+                context.pathlist.AddPathPosition(positionValue.Value);
                 state = State.Success;
             }
 
             return state;
         }
+        
     }
 }

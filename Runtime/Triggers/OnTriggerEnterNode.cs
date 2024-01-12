@@ -10,6 +10,7 @@ namespace Halcyon
     {
         [Tooltip("This is a test")]
         public NodeProperty<string> collisionTag;
+        [BlackboardValueOnly]
         public NodeProperty<Collider> collider;
         
         public override void OnInit()
@@ -37,11 +38,11 @@ namespace Halcyon
         }
         
 
-        public override void OnDrawGizmos()
+        public override void UpdateDescription()
         {
-            Gizmos.DrawCube(context.gameObject.transform.position, new Vector3(1,1,1));
+            description =
+                "When a collision occurs, all children nodes are invoked, this does not repeat like the main loop.";
         }
-        
         
     }
 }

@@ -3,11 +3,10 @@ using UnityEngine;
 
 namespace Halcyon
 {
-    [BehaviourTreeNode("Transform/OverTime", "Transform: Move Over Time", "Transform:\nMove Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
+    [BehaviourTreeNode("Transform", "Transform: Move Over Time", "Transform:\nMove Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
     [Serializable]
     public class TransformMoveOverTimeNode : ActionNode
     {
-
         public NodeProperty<Vector3> movementSpeedDirection;
         
 
@@ -36,6 +35,12 @@ namespace Halcyon
             }
 
             return state;
+        }
+        
+        public override void UpdateDescription()
+        {
+            description = $"Translates the object {movementSpeedDirection.Value} per second.";
+
         }
     }
 }

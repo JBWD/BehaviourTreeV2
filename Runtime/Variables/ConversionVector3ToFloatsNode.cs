@@ -2,17 +2,19 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Vector2 to Floats", nodeTitle = "Conversion:\nVector2 to Floats", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Vector3 To Floats", nodeTitle = "Conversion:\nVector3 To Floats", 
+        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.repeat)]
     [System.Serializable]
-    public class Vector2ToFloatsNode: ActionNode
+    public class ConversionVector3ToFloatsNode: ActionNode
     {
 
-        public NodeProperty<Vector2> baseValue;
+        public NodeProperty<Vector3> baseValue;
         [BlackboardValueOnly]
         public NodeProperty<float> xSaveFloatValue;
         [BlackboardValueOnly]
         public NodeProperty<float> ySaveFloatValue;
-        
+        [BlackboardValueOnly]
+        public NodeProperty<float> zSaveFloatValue;
 
         protected override void OnStart()
         {
@@ -23,12 +25,13 @@ namespace Halcyon
         {
             
         }
+
         
         protected override State OnUpdate()
         {
             xSaveFloatValue.Value = baseValue.Value.x;
             ySaveFloatValue.Value = baseValue.Value.y;
-            
+            xSaveFloatValue.Value = baseValue.Value.z;
             state = State.Success;
             return state;
         }
@@ -36,9 +39,9 @@ namespace Halcyon
         public override void UpdateDescription()
         {
             errored = false;
-            try 
+            try
             {
-                if (xSaveFloatValue.reference != null || ySaveFloatValue.reference != null)
+                if (xSaveFloatValue.reference != null || ySaveFloatValue.reference != null || zSaveFloatValue.reference != null )
                 {
                     
                     description =
@@ -55,6 +58,7 @@ namespace Halcyon
                 // ignored
             }
         }
+        
     }
     
 }

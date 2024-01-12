@@ -8,6 +8,7 @@ namespace Halcyon
     public class OnCollisionEnterNode : TriggerNode
     {
         public NodeProperty<string> collisionTag;
+        [BlackboardValueOnly]
         public NodeProperty<Collider> collider;
 
 
@@ -31,8 +32,8 @@ namespace Halcyon
 
         public override void UpdateDescription()
         {
-            description = $"Activates when a trigger enters this GameObject's collider and has a tag of: " +
-                          $"'{collisionTag.Value}' and will save the collider.";
+            description =
+                "When a collision occurs, all children nodes are invoked, this does not repeat like the main loop.";
         }
 
     }

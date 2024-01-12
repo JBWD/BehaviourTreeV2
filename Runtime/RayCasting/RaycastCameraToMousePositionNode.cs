@@ -7,6 +7,8 @@ namespace Halcyon
     [System.Serializable]
     public class RaycastCameraToMousePositionNode : ActionNode
     {
+        
+        
         [BlackboardValueOnly]
         public NodeProperty<Vector3> saveHitPosition;
         [BlackboardValueOnly]
@@ -47,5 +49,7 @@ namespace Halcyon
 
             return state;
         }
+        
+        
     }
 }

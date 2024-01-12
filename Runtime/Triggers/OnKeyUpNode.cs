@@ -25,5 +25,11 @@ namespace Halcyon
             }
         }
 
+        
+        public override void UpdateDescription()
+        {
+            description =
+                "When the specified InputKeyUp occurs, all children nodes are invoked, this does not repeat like the main loop.";
+        }
     }
 }

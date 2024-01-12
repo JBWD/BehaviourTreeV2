@@ -3,7 +3,7 @@
 namespace Halcyon
 {
     [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Collider to GameObject", nodeColor = NodeColors.pink,
-        nodeIcon = NodeIcons.save, nodeTitle = "Conversion:\nCollider to GameObject")]
+        nodeIcon = NodeIcons.repeat, nodeTitle = "Conversion:\nCollider to GameObject")]
     [System.Serializable]
     public class GetGameObjectFromColliderNode : ActionNode
     {
@@ -39,7 +39,20 @@ namespace Halcyon
 
         public override void UpdateDescription()
         {
-            description = "Retrieves the GameObject that the collider is attached to.";
-        }
+            errored = false;
+            
+            if (saveValue.reference != null && collider.Value != null)
+            {
+
+                description =
+                    $"Saves the GameObject of 'TransformValue' in '{saveValue.reference.name}'.";
+            }
+            else
+            {
+                description = "Does not save the value";
+                errored = true;
+            }
+            
+        } 
     }
 }

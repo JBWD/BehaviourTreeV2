@@ -14,7 +14,6 @@ namespace Halcyon {
         
         protected override void OnStart() {
             startTime = Time.time;
-            Debug.Log("Starting");
         }
 
         protected override void OnStop() {
@@ -22,6 +21,8 @@ namespace Halcyon {
         }
 
         protected override State OnUpdate() {
+            
+            
             
             float timeRemaining = Time.time - startTime;
             if (timeRemaining > duration)

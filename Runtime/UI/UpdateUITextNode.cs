@@ -15,6 +15,7 @@ namespace Halcyon
         public NodeProperty<string> text;
         protected override void OnStart()
         {
+            
         }
 
         protected override void OnStop()
