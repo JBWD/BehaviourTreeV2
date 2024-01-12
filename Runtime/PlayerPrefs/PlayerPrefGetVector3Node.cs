@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Halcyon
 {
-    [BehaviourTreeNode("Player Prefs/Get", menuName = "Player Prefs: Get Vector3", nodeTitle = "Player Prefs:\nGet Vector3", nodeIcon = NodeIcons.save,nodeColor = NodeColors.green)]
+    [BehaviourTreeNode("Player Prefs/Get", menuName = "Player Prefs: Get Vector3", nodeTitle = "Player Prefs:\nGet Vector3", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
     [System.Serializable]
     public class PlayerPrefGetVector3Node : ActionNode
     {

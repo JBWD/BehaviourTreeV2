@@ -2,7 +2,7 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode("Player Prefs/Set", menuName = "Player Prefs: Set String", nodeTitle = "Player Prefs:\nSet String", nodeIcon = NodeIcons.save,nodeColor = NodeColors.green)]
+    [BehaviourTreeNode("Player Prefs/Set", menuName = "Player Prefs: Set String", nodeTitle = "Player Prefs:\nSet String", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
     [System.Serializable]
     public class PlayerPrefSetStringNode : ActionNode
     {

@@ -2,7 +2,7 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode("Player Prefs/Get", menuName = "Player Prefs: Delete Keys", nodeTitle = "Player Prefs:\nDelete Keys", nodeIcon = NodeIcons.save,nodeColor = NodeColors.green)]
+    [BehaviourTreeNode("Player Prefs", menuName = "Player Prefs: Delete Key", nodeTitle = "Player Prefs:\nDelete Key", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
     [System.Serializable]
     public class PlayerPrefDeleteKeyNode : ActionNode
     {
@@ -26,4 +26,5 @@ namespace Halcyon
             return state;
         }
     }
+    
 }

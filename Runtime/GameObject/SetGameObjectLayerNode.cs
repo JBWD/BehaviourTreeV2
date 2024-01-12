@@ -2,7 +2,8 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "GameObject", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "Set Layer")]
+    [BehaviourTreeNode(menuPath = "GameObject/Set", menuName = "GameObject: Set Layer", nodeColor = NodeColors.pink,
+        nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nSet Layer")]
     [System.Serializable]
     public class SetGameObjectLayerNode : ActionNode
     {

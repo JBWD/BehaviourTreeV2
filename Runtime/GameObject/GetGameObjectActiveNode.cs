@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "GameObject", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "Get Active")]
+    [BehaviourTreeNode(menuPath = "GameObject/Get", menuName = "GameObject: Get Active", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nGet Active")]
     [System.Serializable]
     public class GetGameObjectActiveNode: ActionNode
     {
