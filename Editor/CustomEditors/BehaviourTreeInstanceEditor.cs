@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
-using UnityEngine;
 
 namespace Halcyon {
     [CustomEditor(typeof(BehaviourTreeRunner))]
@@ -9,6 +8,7 @@ namespace Halcyon {
     {
 
         public int currentCount = 0;
+        
         public override VisualElement CreateInspectorGUI() {
             
             VisualElement container = new VisualElement();
@@ -29,6 +29,8 @@ namespace Halcyon {
             container.Add(treeField);
             container.Add(validateField);
             container.Add(publicKeys);
+          
+            
             return container;
         }
 
@@ -36,17 +38,16 @@ namespace Halcyon {
         {
             BehaviourTreeRunner runner = target as BehaviourTreeRunner;
 
-            if (currentCount < runner.blackboardOverrides.Count)
+            for (int i = currentCount; i < runner.blackboardOverrides.Count; i++)
             {
-                for (int i = currentCount; i < runner.blackboardOverrides.Count; i++)
-                {
-                    runner.blackboardOverrides[i].value = null;
-                }
-
-                currentCount = runner.blackboardOverrides.Count;
+                runner.blackboardOverrides[i].value = default;
+                
             }
-            Repaint();
+
+            currentCount = runner.blackboardOverrides.Count;
         }
-        
+
+        public override bool RequiresConstantRepaint() => true;
+
     }
 }
