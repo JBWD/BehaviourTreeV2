@@ -34,5 +34,11 @@ namespace Halcyon
 
             return state;
         }
+        
+        public override void UpdateDescription()
+        {
+            
+            description = $"Retrieves the gameObjects LayerMask and saves it in [ActivityState].";
+        }
     }
 }

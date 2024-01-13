@@ -1,26 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
-using UnityEngine;
 
 namespace Halcyon
 {
 
     [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Listener", menuName = "Event Listener: On Float Change",nodeTitle  = "Event Listener:\nOn Float Change", nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]
-    [Serializable]
-    public class GE_OnValueChangeListenerNode : TriggerNode
+    [System.Serializable]
+    public class GE_OnFloatValueChangeListenerNode : TriggerNode
     {
         public override void OnInit()
         {
             base.OnInit();
 
-            GlobalEvents.OnValueChange += OnValueChange;
+            GlobalEvents.OnFloatValueChange += OnValueChange;
         }
 
         public override void OnDisable()
         {
-            GlobalEvents.OnValueChange -= OnValueChange;
+            GlobalEvents.OnFloatValueChange -= OnValueChange;
         }
 
 
@@ -39,6 +34,11 @@ namespace Halcyon
             }
 
            
+        }
+        public override void UpdateDescription()
+        {
+            description =
+                $"Listens to the Float Value Change Global Event to be called with the activation name: {activationName.Value}.";
         }
     }
 }

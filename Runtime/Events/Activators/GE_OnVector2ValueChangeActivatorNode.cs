@@ -1,17 +1,15 @@
-using System;
+﻿using UnityEngine;
 
 namespace Halcyon
 {
-
-
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Float Change",
-        nodeTitle = "Event Activator:\nOn Float Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
-    [Serializable]
-    public class GE_OnFloatValueChangeActivatorNode : ActionNode
+    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Vector2 Change",
+        nodeTitle = "Event Activator:\nOn Vector2 Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
+    [System.Serializable]
+    public class GE_OnVector2ValueChangeActivatorNode : ActionNode
     {
 
         public NodeProperty<string> activationName;
-        public NodeProperty<float> activationValue;
+        public NodeProperty<Vector2> activationValue;
 
         protected override void OnStart()
         {
@@ -25,7 +23,7 @@ namespace Halcyon
 
         protected override State OnUpdate()
         {
-            GlobalEvents.OnFloatValueChange.Invoke(activationName.Value, activationValue.Value);
+            GlobalEvents.OnVector2ValueChange.Invoke(activationName.Value, activationValue.Value);
             state = State.Success;
             return state;
         }

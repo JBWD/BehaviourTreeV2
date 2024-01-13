@@ -32,5 +32,11 @@ namespace Halcyon
 
             return state;
         }
+        
+        public override void UpdateDescription()
+        {
+            
+            description = $"Sets the 'GameObject's active state to '{tag.Value}'.";
+        }
     }
 }

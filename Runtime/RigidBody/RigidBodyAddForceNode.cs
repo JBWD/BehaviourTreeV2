@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Halcyon.RigidBody
 {
+    [BehaviourTreeNode]
     [System.Serializable]
     public class RigidBodyAddForceNode : ActionNode
     {

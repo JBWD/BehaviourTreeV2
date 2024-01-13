@@ -9,7 +9,7 @@ namespace Halcyon
     {
         
         public NodeProperty<GameObject> gameObject;
-        public NodeProperty<LayerMask> layer;
+        public NodeProperty<LayerMask> layerMask;
         
         protected override void OnStart()
         {
@@ -24,7 +24,7 @@ namespace Halcyon
         {
             if (gameObject.Value != null)
             {
-                gameObject.Value.layer = layer.Value.value;
+                gameObject.Value.layer = layerMask.Value;
                 state = State.Success;
             }
             else
@@ -33,6 +33,11 @@ namespace Halcyon
             }
 
             return state;
+        }
+        public override void UpdateDescription()
+        {
+            
+            description = $"Sets the 'GameObject's active state to '{layerMask.Value}'.";
         }
     }
 }

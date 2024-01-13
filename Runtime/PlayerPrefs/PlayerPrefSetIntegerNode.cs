@@ -7,7 +7,7 @@ namespace Halcyon
     public class PlayerPrefSetIntegerNode : ActionNode
     {
         public NodeProperty<string> playerPrefName;
-        [BlackboardValueOnly] public NodeProperty<int> saveValue;
+        public NodeProperty<int> saveValue;
         
        
         protected override void OnStart()

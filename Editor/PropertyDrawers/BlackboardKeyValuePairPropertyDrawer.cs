@@ -25,7 +25,7 @@ namespace Halcyon {
         public override VisualElement CreatePropertyGUI(SerializedProperty property) {
             SerializedProperty first = property.FindPropertyRelative(nameof(BlackboardKeyValuePair.key));
             SerializedProperty second = property.FindPropertyRelative(nameof(BlackboardKeyValuePair.value));
-
+            
             PopupField<BlackboardKey> dropdown = new PopupField<BlackboardKey>();
             dropdown.label = first.displayName;
             dropdown.formatListItemCallback = FormatItem;

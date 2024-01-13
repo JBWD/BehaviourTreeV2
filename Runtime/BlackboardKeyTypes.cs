@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Halcyon {
 
@@ -139,4 +140,9 @@ namespace Halcyon {
         
     }
 
+    [System.Serializable]
+    public class ButtonKey: BlackboardKey<Button>
+    {
+        
+    }
 }

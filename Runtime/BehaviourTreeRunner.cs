@@ -27,10 +27,9 @@ namespace Halcyon {
 
         [Tooltip("Run behaviour tree validation at startup (Can be disabled for release)")]
         public bool validate = true;
-
         // These values override the keys in the blackboard
         public List<BlackboardKeyValuePair> blackboardOverrides = new List<BlackboardKeyValuePair>();
-        
+
         
         
         // Storage container object to hold game object subsystems
@@ -76,8 +75,9 @@ namespace Halcyon {
                 context = CreateBehaviourTreeContext();
                 runtimeTree = behaviourTree.Clone();
                 runtimeTree.Bind(context);
-
                 ApplyBlackboardOverrides();
+                runtimeTree.InitializeNodes();
+                
             } else {
                 runtimeTree = null;
             }
@@ -94,13 +94,16 @@ namespace Halcyon {
         }
 
         void ApplyBlackboardOverrides() {
+            Debug.Log(blackboardOverrides.Count);
             foreach (var pair in blackboardOverrides) {
                 // Find the key from the new behaviour tree instance
                 var targetKey = runtimeTree.blackboard.Find(pair.key.name);
                 var sourceKey = pair.value;
                 if (targetKey != null && sourceKey != null) {
                     targetKey.CopyFrom(sourceKey);
+                    Debug.Log("Copied");
                 }
+                
             }
         }
 

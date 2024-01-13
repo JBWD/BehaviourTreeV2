@@ -1,17 +1,13 @@
-using System;
-
-namespace Halcyon
+﻿namespace Halcyon
 {
-
-
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Float Change",
-        nodeTitle = "Event Activator:\nOn Float Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
-    [Serializable]
-    public class GE_OnFloatValueChangeActivatorNode : ActionNode
+    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Integer Change",
+        nodeTitle = "Event Activator:\nOn Integer Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
+    [System.Serializable]
+    public class GE_OnIntegerValueChangeActivatorNode : ActionNode
     {
 
         public NodeProperty<string> activationName;
-        public NodeProperty<float> activationValue;
+        public NodeProperty<int> activationValue;
 
         protected override void OnStart()
         {
@@ -25,7 +21,7 @@ namespace Halcyon
 
         protected override State OnUpdate()
         {
-            GlobalEvents.OnFloatValueChange.Invoke(activationName.Value, activationValue.Value);
+            GlobalEvents.OnIntegerValueChange.Invoke(activationName.Value, activationValue.Value);
             state = State.Success;
             return state;
         }

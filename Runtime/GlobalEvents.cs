@@ -7,14 +7,18 @@ namespace Halcyon
 {
     public static class GlobalEvents
     {
-        /// <summary>
-        /// On Value change uses a string identifier to allow for multiple nodes to listen to the same event and choose
-        /// when they want to use the value provided.
-        /// </summary>
-        public static Action<string, float> OnValueChange;
 
-
-
+        
+        // Global Events are used by listeners and Activators within the behaviour trees to communicate between trees.
+        // Example of Use: OnBaseEvent: Player Died -> (Send Message to the following) -> Update UI, Pause Game, Open Death Screen.
+        
+        
+        public static Action<string> OnBaseEvent;
+        public static Action<string, float> OnFloatValueChange;
+        public static Action<string, int> OnIntegerValueChange;
+        public static Action<string, Vector2> OnVector2ValueChange;
+        public static Action<string, Vector3> OnVector3ValueChange;
+        public static Action<string, string> OnStringValueChange;
 
     }
 }

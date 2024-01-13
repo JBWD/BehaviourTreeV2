@@ -79,9 +79,16 @@ namespace Halcyon {
             {
                 node.context = context;
                 node.blackboard = blackboard;
-                node.OnInit();
             }
             
+        }
+
+        public void InitializeNodes()
+        {
+            foreach (var node in nodes)
+            {
+                node.OnInit();
+            }
         }
 
 

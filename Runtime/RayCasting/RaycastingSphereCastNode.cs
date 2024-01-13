@@ -1,15 +1,15 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Raycasting", menuName = "Raycasting: Camera to Mouse Point", nodeTitle = "Raycasting:\nCamera to Mouse Point",
-        nodeColor =  NodeColors.green, nodeIcon = NodeIcons.destination)]
-    [System.Serializable]
-    public class RaycastCameraToMousePositionNode : ActionNode
+    public class RaycastingSphereCastNode:ActionNode
     {
-        
         public LayerMask hitLayers;
 
+        public float sphereRadius;
+        public Vector3 positionOffset;
+        public float castDistance = 1f;
         
         [BlackboardValueOnly]
         public NodeProperty<Vector3> saveHitPosition;
@@ -17,7 +17,7 @@ namespace Halcyon
         public NodeProperty<Collider> saveHitCollider;
         [BlackboardValueOnly]
         public NodeProperty<GameObject> saveHitGameObject;
-        
+
         protected override void OnStart()
         {
             
@@ -31,13 +31,14 @@ namespace Halcyon
         protected override State OnUpdate()
         {
             state = State.Failure;
-            if (Camera.main != null)
+            if (context.transform != null)
             {
-                var ray=  Camera.main.ScreenPointToRay(Input.mousePosition,Camera.MonoOrStereoscopicEye.Mono);
-                Physics.Raycast(ray, out RaycastHit raycasthit);
+                
+                Physics.SphereCast(new Ray(context.transform.position + positionOffset, context.transform.forward * castDistance)
+                    ,sphereRadius, out RaycastHit raycasthit, castDistance);
                 if (raycasthit.collider != null)
                 {
-                    
+                    Debug.Log(raycasthit.collider.name);
                     if ((hitLayers & (1 << raycasthit.collider.gameObject.layer)) != 0)
                     {
                         saveHitCollider.Value = raycasthit.collider;
@@ -52,7 +53,15 @@ namespace Halcyon
 
             return state;
         }
-        
+
+        public override void OnDrawGizmos()
+        {
+            if (context.transform != null)
+            {
+                Gizmos.DrawWireSphere(context.transform.position + positionOffset, sphereRadius);
+            }
+            
+        }
         
     }
 }
