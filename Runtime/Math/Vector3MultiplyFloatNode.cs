@@ -2,14 +2,14 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Math/Vector3", menuName = "Vector3: Subtract Vector3", nodeTitle = "Vector3 Math:\nSubtract Vector3", 
+    [BehaviourTreeNode(menuPath = "Math/Vector3", menuName = "Vector3: Multiply Float", nodeTitle = "Vector3 Math:\nMultiply Float", 
         nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [System.Serializable]
-    public class Vector3SubtractVector3Node : ActionNode
+    public class Vector3MultiplyFloatNode : ActionNode
     {
 
         public NodeProperty<Vector3> baseValue;
-        public NodeProperty<Vector3> subtractValue;
+        public NodeProperty<float> multiplyValue;
         [BlackboardValueOnly]
         public NodeProperty<Vector3> saveValue;
 
@@ -26,7 +26,7 @@ namespace Halcyon
 
         protected override State OnUpdate()
         {
-            saveValue.Value = baseValue.Value - subtractValue.Value;
+            saveValue.Value = baseValue.Value * multiplyValue.Value;
             state = State.Success;
             return state;
         }
@@ -40,7 +40,7 @@ namespace Halcyon
                 {
                     
                     description =
-                        $"Subtracts '{baseValue.Value}' - '{subtractValue.Value}' and saves the total in '{saveValue.reference.name}'";
+                        $"Multiplies '{baseValue.Value}' * '{multiplyValue.Value}' and saves the total in '{saveValue.reference.name}'";
                 }
                 else
                 {

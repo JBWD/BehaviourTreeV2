@@ -29,7 +29,7 @@ namespace Halcyon
             else
             {
                 context.transform.Translate(Time.deltaTime * movementSpeedDirection.Value);
-                
+                Debug.Log(movementSpeedDirection.Value);
                 
                 state = State.Success;
             }

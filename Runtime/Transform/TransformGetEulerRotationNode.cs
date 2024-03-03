@@ -2,7 +2,7 @@
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Transform/Get", menuName = "Transform: Get Position", nodeTitle = "Transform:\nGet Position",
+    [BehaviourTreeNode(menuPath = "Transform/Get", menuName = "Transform: Get Euler Rotation", nodeTitle = "Transform:\nGet Euler Rotation",
         nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
     [System.Serializable]
     public class TransformGetEulerRotationNode : ActionNode

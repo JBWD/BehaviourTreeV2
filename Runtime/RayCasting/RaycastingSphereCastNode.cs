@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Halcyon
 {
+    [System.Serializable]
     public class RaycastingSphereCastNode:ActionNode
     {
         public LayerMask hitLayers;

@@ -11,7 +11,7 @@ namespace Halcyon
         [Tooltip("This is a test")]
         public NodeProperty<string> collisionTag;
         [BlackboardValueOnly]
-        public NodeProperty<Collider> collider;
+        public NodeProperty<Collider> saveCollider;
         
         public override void OnInit()
         {
@@ -31,7 +31,7 @@ namespace Halcyon
         {
             if (collider.tag == collisionTag.Value)
             {
-                this.collider.Value = collider;
+                this.saveCollider.Value = collider;
                 OnUpdate();
             }
             

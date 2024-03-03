@@ -145,4 +145,10 @@ namespace Halcyon {
     {
         
     }
+
+    [System.Serializable]
+    public class QuaternionKey : BlackboardKey<Quaternion>
+    {
+        
+    }
 }

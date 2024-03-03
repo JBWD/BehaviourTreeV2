@@ -1,17 +1,15 @@
-﻿using System;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Halcyon
 {
     [BehaviourTreeNode(menuName = "GameObject: Instantiate", menuPath = "GameObject", nodeTitle = "GameObject:\nInstantiate", nodeColor = NodeColors.green, nodeIcon = NodeIcons.destination)]
-    [Serializable]
+    [System.Serializable]
     public class GameObjectInstantiateNode : ActionNode
     {
 
         public NodeProperty<GameObject> objectPrefab;
         public NodeProperty<Vector3> spawnPosition;
-        public NodeProperty<Vector3> spawnRotation;
+        public NodeProperty<Quaternion> spawnRotation;
         [BlackboardValueOnly]
         public NodeProperty<Transform> parent;
         [BlackboardValueOnly]
@@ -39,14 +37,15 @@ namespace Halcyon
             }
             else
             {
-                var gameObject = MonoBehaviour.Instantiate(objectPrefab.Value, spawnPosition.Value, Quaternion.Euler(spawnRotation.Value));
+                var gameObject = MonoBehaviour.Instantiate(objectPrefab.Value, spawnPosition.Value, Quaternion.identity);
+                gameObject.transform.rotation = spawnRotation.Value;
                 saveGameObject.Value = gameObject;
                 saveTransform.Value = gameObject.transform;
                 if (parent.Value != null)
                 {
                     gameObject.transform.SetParent(parent.Value);
                     gameObject.transform.localPosition = spawnPosition.Value;
-                    gameObject.transform.localRotation = Quaternion.Euler(spawnRotation.Value);
+                    gameObject.transform.localRotation = spawnRotation.Value;
                 }
 
                 state = State.Success;
@@ -63,7 +62,7 @@ namespace Halcyon
 
             description =
                 $"Creates a clone of [ObjectPrefab] at the specified location and will save the created object in the corresponding fields.";
-            if (objectPrefab.Value == null)
+            if (objectPrefab.reference == null && objectPrefab.Value == null)
             {
                 errored = true;
                 description = "Object not found, please assign an [ObjectPrefab].";

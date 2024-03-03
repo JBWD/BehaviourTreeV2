@@ -9,7 +9,7 @@ namespace Halcyon
     public class SetGameObjectActiveNode : ActionNode
     {
         public NodeProperty<GameObject> gameObject;
-        public bool self;
+        public bool self = true;
         public NodeProperty<bool> activityState;
         
         protected override void OnStart()

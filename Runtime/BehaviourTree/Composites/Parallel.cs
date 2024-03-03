@@ -22,7 +22,7 @@ namespace Halcyon {
                 child.Update();
             }
 
-            return State.Success;
+            return State.Running;
         }
 
         public override void UpdateDescription()

@@ -94,14 +94,12 @@ namespace Halcyon {
         }
 
         void ApplyBlackboardOverrides() {
-            Debug.Log(blackboardOverrides.Count);
             foreach (var pair in blackboardOverrides) {
                 // Find the key from the new behaviour tree instance
                 var targetKey = runtimeTree.blackboard.Find(pair.key.name);
                 var sourceKey = pair.value;
                 if (targetKey != null && sourceKey != null) {
                     targetKey.CopyFrom(sourceKey);
-                    Debug.Log("Copied");
                 }
                 
             }
