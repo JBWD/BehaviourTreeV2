@@ -8,9 +8,6 @@
 <br>
 <br>
     <h1>Behaviour Tree Editor</h1>
-    <img src="Documentation/Images/thekiwicoder_profile_square_noborder_512_512.png" width = "64" />
-    <br>
-    Created by TheKiwiCoder
 </div>
 
 ## Table of Contents
