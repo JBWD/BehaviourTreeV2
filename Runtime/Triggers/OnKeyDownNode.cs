@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Key Down", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers & Events/Input", menuName = "Input: On Key Down", nodeTitle = "Input:\nOn Key Down", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
+    [System.Serializable]
     public class OnKeyDownNode : TriggerNode
     {
         public KeyCode keyCode;
         
+        
+        
+        
         public override void OnInit()
         {
-            context.behaviourTreeInstance.OnInputKeyDown += CheckInput;
+            context.BehaviourTreeRunner.OnInputKeyDown += CheckInput;
         }
 
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.OnInputKeyDown -= CheckInput;
+            context.BehaviourTreeRunner.OnInputKeyDown -= CheckInput;
         }
 
         public void CheckInput()
@@ -28,7 +32,11 @@ namespace TheKiwiCoder
             }
         }
 
-       
+        public override void UpdateDescription()
+        {
+            description =
+                "When the specified InputKeyDown occurs, all children nodes are invoked, this does not repeat like the main loop.";
+        }
 
         
     }

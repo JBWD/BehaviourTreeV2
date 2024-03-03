@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEditor.Experimental.GraphView;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     public class CreateNodeWindow : ScriptableObject, ISearchWindowProvider {
 
@@ -73,20 +73,15 @@ namespace TheKiwiCoder {
             }
         }
 
-        public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context) {
-
+        public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context) 
+        {
             var tree = new List<SearchTreeEntry>
             {
                 new SearchTreeGroupEntry(new GUIContent("Create Node"), 0),
             };
 
-            //This will need to be modified to include all Nodes of type Node. Since these will have custom Properties
-            //attached to them to be used as the colors and such.
-
-            //Retrieving all node types with the BehaviourTreeNodeAttribute
-            Dictionary<string, List<ContextualItem>> contextualList = new Dictionary<string, List<ContextualItem>>();
-            List<string> tagList = new List<string>();
-            
+        
+            List<ContextualItem> items = new List<ContextualItem>();
             var collectionTypes = TypeCache.GetTypesDerivedFrom<Node>();
             
             foreach (var type in collectionTypes)
@@ -109,26 +104,20 @@ namespace TheKiwiCoder {
                 
                 //Filters out Action nodes of all types if the source is null as actions nodes do not contain an output.
                 
-                string tag = "";
                 string menuName = "";
-                string nodeTitle = "";    
-                    
+                string nodeTitle = "";
+                string folderpath = "";
                 foreach (var attribute in type.GetCustomAttributes(true))
                 {
                     if (attribute is BehaviourTreeNodeAttribute behaviourTreeTagAttribute)
                     {
-                        tag = behaviourTreeTagAttribute.GetMenuPath();
+                        
                         menuName = behaviourTreeTagAttribute.GetMenuName();
                         nodeTitle = behaviourTreeTagAttribute.GetNodeTitle();
+                        folderpath = behaviourTreeTagAttribute.GetMenuPath();
                     }
                 }
 
-                if (tag == "")
-                    tag = "Custom Node";
-                    
-                if(!tagList.Contains(tag))
-                    tagList.Add(tag);
-                
                 if (menuName == "")
                 {
                     menuName = nodeTitle;
@@ -139,67 +128,61 @@ namespace TheKiwiCoder {
                     menuName = type.Name;
                 }
                 
-                try
-                {
-                    if(!contextualList.ContainsKey(tag))
-                        contextualList.Add(tag,new List<ContextualItem>());
-                    
-                    contextualList[tag].Add(new ContextualItem(){contextName = menuName,contextType = type});
-                }
-                catch (Exception e)
-                {
-                    Debug.Log(e);
-                }
-                
+                items.Add(new ContextualItem(){contextName = folderpath+"/" + menuName,contextType = type});
             }
-            tagList.Sort(); 
-            
-            foreach (var tag in tagList)
+
+            items.Sort((a, b) =>
             {
-                contextualList[tag].Sort();
-                    
-                tree.Add(new SearchTreeGroupEntry(new GUIContent(tag)) { level = 1 });
-                foreach (var item in contextualList[tag])
+               
+                string[] split1 = a.contextName.Split('/');
+                string[] split2 = b.contextName.Split('/');
+
+                for (int i = 0; i < split1.Length; i++)
                 {
-                    System.Action invoke = () => CreateNode(item.contextType, context);
-                    tree.Add(new SearchTreeEntry(new GUIContent($"{item.contextName}")) {level = 2,userData = invoke });
+                    if (i >= split2.Length)
+                    {
+                        return 1;
+                    }
+
+                    int value = split1[i].CompareTo(split2[i]);
+                    if (value != 0)
+                    {
+                        if (split1.Length != split2.Length && (i == split1.Length - 1 || i == split2.Length - 1))
+                        {
+                            return split1.Length < split2.Length ? 1 : -1;
+                        }
+
+                        return value;
+                    }
                 }
+                return 0;
+            });
+    
+            List<string> groups = new List<string>();
+            foreach (var item in items)
+            {
+                string[] entryTitle = item.contextName.Split('/');
+                string groupname = "";
+                for (int i = 0; i < entryTitle.Length - 1; i++)
+                {
+                    groupname += entryTitle[i];
+                    if (!groups.Contains(groupname))
+                    {
+                        tree.Add(new SearchTreeGroupEntry(new GUIContent(entryTitle[i]), i+1));
+                        groups.Add(groupname);
+                    }
+
+                    groupname += "/";
+                }
+
+                var entry = new SearchTreeEntry(new GUIContent(entryTitle.Last()));
+                entry.level = entryTitle.Length;
+                System.Action invoke = () => CreateNode(item.contextType, context);
+                entry.userData = invoke;
+                tree.Add(entry);
             }
-
-             //Action nodes can only be added as children
-            // if (isSourceParent || source == null)
-            // {
-            //     
-            //     tree.Add(new SearchTreeGroupEntry(new GUIContent("Actions")) { level = 1 });
-            //     var types = TypeCache.GetTypesDerivedFrom<ActionNode>();
-            //     foreach (var type in types) {
-            //         System.Action invoke = () => CreateNode(type, context);
-            //         tree.Add(new SearchTreeEntry(new GUIContent($"{type.Name}")) {level = 2,userData = invoke });
-            //     }
-            // }
-            //
-            // {
-            //     tree.Add(new SearchTreeGroupEntry(new GUIContent("Composites")) { level = 1 });
-            //     {
-            //         var types = TypeCache.GetTypesDerivedFrom<CompositeNode>();
-            //         foreach (var type in types) {
-            //             System.Action invoke = () => CreateNode(type, context);
-            //             tree.Add(new SearchTreeEntry(new GUIContent($"{type.Name}")) { level = 2, userData = invoke });
-            //         }
-            //     }
-            // }
-            //
-            // {
-            //     tree.Add(new SearchTreeGroupEntry(new GUIContent("Decorators")) { level = 1 });
-            //     {
-            //         var types = TypeCache.GetTypesDerivedFrom<DecoratorNode>();
-            //         foreach (var type in types) {
-            //             System.Action invoke = () => CreateNode(type, context);
-            //             tree.Add(new SearchTreeEntry(new GUIContent($"{type.Name}")) {level = 2, userData = invoke});
-            //         }
-            //     }
-            // }
-
+    
+              
             {
                 tree.Add(new SearchTreeGroupEntry(new GUIContent("New Script...")) { level = 1 });
 
@@ -214,6 +197,7 @@ namespace TheKiwiCoder {
             }
             return tree;
         }
+        
 
         public bool OnSelectEntry(SearchTreeEntry searchTreeEntry, SearchWindowContext context) {
             System.Action invoke = (System.Action)searchTreeEntry.userData;
@@ -262,5 +246,13 @@ namespace TheKiwiCoder {
             SearchWindowContext windowContext = new SearchWindowContext(screenPoint, 240, 320);
             SearchWindow.Open(windowContext, searchWindowProvider);
         }
+
+ 
+
+
+        
+        
+
+
     }
 }

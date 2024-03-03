@@ -1,18 +1,20 @@
 ﻿using System;
 using Unity.Properties;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
-    [BehaviourTreeNode(menuFolder = "Math", menuName = "Float: Add Float", nodeTitle = "Float Math:\nAdd Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Add Float", nodeTitle = "Float Math:\nAdd Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [Serializable]
     public class FloatAddFloatNode : ActionNode
     {
-
+        
         public NodeProperty<float> baseValue;
         public NodeProperty<float> addValue;
+        [BlackboardValueOnly]
         public NodeProperty<float> saveValue;
 
 
+        
         protected override void OnStart()
         {
             

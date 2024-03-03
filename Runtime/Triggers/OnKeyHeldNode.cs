@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
     
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Key Held", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers & Events/Input", menuName = "Input: On Key Held", nodeTitle = "Input:\nOn Key Held", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
+    [System.Serializable]
     public class OnKeyHeldNode : TriggerNode
     {
 
@@ -11,11 +12,11 @@ namespace TheKiwiCoder
 
         public override void OnInit()
         {
-            context.behaviourTreeInstance.OnInputKey += CheckInput;
+            context.BehaviourTreeRunner.OnInputKey += CheckInput;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.OnInputKey -= CheckInput;
+            context.BehaviourTreeRunner.OnInputKey -= CheckInput;
         }
         public void CheckInput()
         {
@@ -24,6 +25,14 @@ namespace TheKiwiCoder
                 OnUpdate();
         }
 
+        public override void UpdateDescription()
+        {
+            description =
+                "When the specified InputKey is held, all children nodes are invoked, this does not repeat like the main loop.";
+        }        
+        
     }
+    
+    
     
 }

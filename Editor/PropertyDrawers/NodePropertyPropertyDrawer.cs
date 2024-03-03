@@ -5,8 +5,10 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEditor.UIElements;
 using System.Runtime.Remoting.Messaging;
+using Codice.CM.Common;
+using Unity.VisualScripting;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [CustomPropertyDrawer(typeof(NodeProperty<>))]
     public class GenericNodePropertyPropertyDrawer : PropertyDrawer {
@@ -17,6 +19,35 @@ namespace TheKiwiCoder {
 
             var genericTypes = fieldInfo.FieldType.GenericTypeArguments;
             var propertyType = genericTypes[0];
+            var attributes = fieldInfo.GetCustomAttributes(true);
+            var isReferenceOnly = false;
+            string tooltip = "";
+            foreach (var attribute in attributes)
+            {
+                if (attribute is TooltipAttribute)
+                {
+                    tooltip = ((TooltipAttribute)attribute).tooltip;
+                }
+                if (attribute is BlackboardValueOnlyAttribute)
+                {
+                    isReferenceOnly = true;
+                    
+                }
+                
+            }
+
+            //Modifying Blackboard only tooltips
+            if (isReferenceOnly)
+            {
+                if (tooltip.Length <= 0)
+                {
+                    tooltip = "This is a Blackboard only value.";
+                }
+                else
+                {
+                    tooltip += "\nThis is a blackboard only value.";
+                }
+            }
 
             SerializedProperty reference = property.FindPropertyRelative("reference");
 
@@ -25,6 +56,7 @@ namespace TheKiwiCoder {
             label.AddToClassList("unity-property-field__label");
             label.AddToClassList("unity-property-field");
             label.text = property.displayName;
+            label.tooltip = tooltip;
 
             PropertyField defaultValueField = new PropertyField();
             defaultValueField.label = "";
@@ -33,7 +65,12 @@ namespace TheKiwiCoder {
 
             PopupField<BlackboardKey> dropdown = new PopupField<BlackboardKey>();
             dropdown.label = "";
-            dropdown.formatListItemCallback = FormatItem;
+
+            if (!isReferenceOnly)
+                dropdown.formatListItemCallback = FormatItem;
+            // else
+            //     dropdown.formatListItemCallback = ReferenceOnlyMessage;
+            //
             dropdown.formatSelectedValueCallback = FormatSelectedItem;
             dropdown.value = reference.managedReferenceValue as BlackboardKey;
             dropdown.tooltip = "Bind value to a BlackboardKey";
@@ -73,8 +110,8 @@ namespace TheKiwiCoder {
                 }
             });
 
-            defaultValueField.style.display = dropdown.value == null ? DisplayStyle.Flex : DisplayStyle.None;
-            dropdown.style.flexGrow = dropdown.value == null ? 0.0f : 1.0f;
+            defaultValueField.style.display = dropdown.value == null && !isReferenceOnly? DisplayStyle.Flex : DisplayStyle.None;
+            dropdown.style.flexGrow = dropdown.value == null && !isReferenceOnly ? 0.0f : 1.0f;
 
             VisualElement container = new VisualElement();
             container.AddToClassList("unity-base-field");
@@ -82,8 +119,9 @@ namespace TheKiwiCoder {
             container.style.flexDirection = FlexDirection.Row;
             container.Add(label);
             container.Add(defaultValueField);
-            container.Add(dropdown);
-
+            container.Add(dropdown);;
+            
+            
             return container;
         }
 
@@ -93,6 +131,11 @@ namespace TheKiwiCoder {
             } else {
                 return item.name;
             }
+        }
+
+        private string ReferenceOnlyMessage(BlackboardKey item)
+        {
+            return "Create BlackBoard Variable";
         }
 
         private string FormatSelectedItem(BlackboardKey item) {
@@ -107,11 +150,14 @@ namespace TheKiwiCoder {
     [CustomPropertyDrawer(typeof(NodeProperty))]
     public class NodePropertyPropertyDrawer : PropertyDrawer {
 
+        
+        
         public override VisualElement CreatePropertyGUI(SerializedProperty property) {
             
             BehaviourTree tree = property.serializedObject.targetObject as BehaviourTree;
 
             SerializedProperty reference = property.FindPropertyRelative("reference");
+            
 
             PopupField<BlackboardKey> dropdown = new PopupField<BlackboardKey>();
             dropdown.label = property.displayName;
@@ -121,9 +167,6 @@ namespace TheKiwiCoder {
 
             dropdown.RegisterCallback<MouseEnterEvent>((evt) => {
                 dropdown.choices.Clear();
-                foreach (var key in tree.blackboard.keys) {
-                    dropdown.choices.Add(key);
-                }
                 dropdown.choices.Sort((left, right) => {
                     return left.name.CompareTo(right.name);
                 });
@@ -144,5 +187,7 @@ namespace TheKiwiCoder {
                 return item.name;
             }
         }
+        
+        
     }
 }

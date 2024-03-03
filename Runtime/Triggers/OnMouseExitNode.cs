@@ -1,18 +1,19 @@
 ﻿
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Mouse Exit", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers & Events/Mouse", nodeTitle = "On Mouse Exit", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [System.Serializable]
     public class OnMouseExitNode : TriggerNode
     {
         
         public override void OnInit()
         {
-            context.behaviourTreeInstance.OnMouseExitCollider += RunMouseEvent;
+            context.BehaviourTreeRunner.OnMouseExitCollider += RunMouseEvent;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.OnMouseExitCollider -= RunMouseEvent;
+            context.BehaviourTreeRunner.OnMouseExitCollider -= RunMouseEvent;
         }
         public void RunMouseEvent()
         {
@@ -21,7 +22,8 @@ namespace TheKiwiCoder
 
         public override void UpdateDescription()
         {
-            description = "Fires when the mouse stops hovering the GameObject.";
+            description =
+                "When the mouse exits hovering over the GameObject, all children nodes are invoked, this does not repeat like the main loop.";
         }
     }
 }

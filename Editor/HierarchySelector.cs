@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.Experimental.GraphView;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     public class HierarchySelector : MouseManipulator {
 
         protected override void RegisterCallbacksOnTarget() {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     // This is a helper class which wraps a serialized object for finding properties on the behaviour.
     // It's best to modify the behaviour tree via SerializedObjects and SerializedProperty interfaces
@@ -21,7 +21,7 @@ namespace TheKiwiCoder {
         const string sPropRootNode = nameof(BehaviourTree.rootNode);
         const string sPropNodes = nameof(BehaviourTree.nodes);
         const string sPropBlackboard = nameof(BehaviourTree.blackboard);
-        const string sPropBlackboardKeys = nameof(TheKiwiCoder.Blackboard.keys);
+        const string sPropBlackboardKeys = nameof(Halcyon.Blackboard.keys);
         const string sPropGuid = nameof(Node.guid);
         const string sPropChild = nameof(DecoratorNode.child);
         const string sPropChildren = nameof(CompositeNode.children);

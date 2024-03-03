@@ -1,22 +1,24 @@
 ﻿using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeTitle = "On Collision Enter", nodeColor = NodeColors.purple,
+    [BehaviourTreeNode(menuPath = "Triggers & Events/3D", nodeTitle = "On Collision Enter", nodeColor = NodeColors.purple,
         nodeIcon = NodeIcons.trigger)]
+    [System.Serializable]
     public class OnCollisionEnterNode : TriggerNode
     {
         public NodeProperty<string> collisionTag;
+        [BlackboardValueOnly]
         public NodeProperty<Collider> collider;
 
 
         public override void OnInit()
         {
-            context.behaviourTreeInstance.On3DCollisionEnter += SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On3DCollisionEnter += SaveCollisionAndRunNode;
         }
         public override void OnDisable()
         {
-            context.behaviourTreeInstance.On3DCollisionEnter-= SaveCollisionAndRunNode;
+            context.BehaviourTreeRunner.On3DCollisionEnter-= SaveCollisionAndRunNode;
         }
         public void SaveCollisionAndRunNode(Collision collision)
         {
@@ -30,8 +32,8 @@ namespace TheKiwiCoder
 
         public override void UpdateDescription()
         {
-            description = $"Activates when a trigger enters this GameObject's collider and has a tag of: " +
-                          $"'{collisionTag.Value}' and will save the collider.";
+            description =
+                "When a collision occurs, all children nodes are invoked, this does not repeat like the main loop.";
         }
 
     }

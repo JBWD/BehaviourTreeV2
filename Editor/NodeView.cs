@@ -9,7 +9,7 @@ using UnityEditor.UIElements;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     public class NodeView : UnityEditor.Experimental.GraphView.Node {
         public Action<NodeView> OnNodeSelected;
@@ -91,6 +91,8 @@ namespace TheKiwiCoder {
                         title = behaviourTreeNodeAttribute.nodeTitle;
                 }
             }
+            AddToClassList("hideIcon");
+            AddToClassList("hide");
         }
 
         private void CreateInputPorts() {
@@ -187,32 +189,46 @@ namespace TheKiwiCoder {
 
         public void UpdateDescriptionVisibility(bool visible)
         {
-            RemoveFromClassList("show");
-            RemoveFromClassList("hide");
-
-            if (visible)
+            if (visible && ClassListContains("hide"))
             {
+                RemoveFromClassList("hide");
                 AddToClassList("show");
             }
-            else
+            else if(!visible && ClassListContains("show"))
             {
+                RemoveFromClassList("show");
                 AddToClassList("hide");
             }
+            
         }
 
         public void UpdateErroredNode()
         {
+            
             if (node.errored)
             {
                 AddToClassList("error");
-                UpdateDescriptionVisibility(true);
             }
-            else
+            else 
             {
                 RemoveFromClassList("error");
             }
+            
+        }
+
+        public void UpdateIconVisibility(bool iconVisibility)
+        {
+            if (!iconVisibility)
+            {
+                AddToClassList("hideIcon");
+            }
+            else
+            {
+                RemoveFromClassList("hideIcon");
+            }
         }
     }
+    
     
     
 }

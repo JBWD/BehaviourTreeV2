@@ -1,14 +1,15 @@
 ﻿using System;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
-    [BehaviourTreeNode(menuFolder = "Math", menuName = "Float: Divide Float", nodeTitle = "Float Math:\nDivide Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Divide Float", nodeTitle = "Float Math:\nDivide Float", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [Serializable]
     public class FloatDivideFloatNode : ActionNode
     {
 
         public NodeProperty<float> baseValue;
         public NodeProperty<float> divideValue = new NodeProperty<float>(){Value = 1};
+        [BlackboardValueOnly]
         public NodeProperty<float> saveValue;
 
 

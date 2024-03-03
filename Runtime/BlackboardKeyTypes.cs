@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [System.Serializable]
     public class BooleanKey : BlackboardKey<bool> {
@@ -126,4 +128,27 @@ namespace TheKiwiCoder {
         
     }
 
+    [System.Serializable]
+    public class UnityEventKey : BlackboardKey<UnityEvent>
+    {
+        
+    }
+
+    [System.Serializable]
+    public class TransformKey : BlackboardKey<Transform>
+    {
+        
+    }
+
+    [System.Serializable]
+    public class ButtonKey: BlackboardKey<Button>
+    {
+        
+    }
+
+    [System.Serializable]
+    public class QuaternionKey : BlackboardKey<Quaternion>
+    {
+        
+    }
 }

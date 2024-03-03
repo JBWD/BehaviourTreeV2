@@ -7,7 +7,7 @@ using UnityEditor.Experimental.GraphView;
 using System;
 using System.Linq;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     public class BehaviourTreeView : GraphView {
         public new class UxmlFactory : UxmlFactory<BehaviourTreeView, GraphView.UxmlTraits> { }
 
@@ -329,6 +329,7 @@ namespace TheKiwiCoder {
             });
         }
 
+        
         public void SelectNode(NodeView nodeView) {
             ClearSelection();
             if (nodeView != null) {
@@ -336,14 +337,21 @@ namespace TheKiwiCoder {
             }
         }
 
-        public void UpdateEditorNodeSelectors(bool visibility)
+        
+        public void UpdateEditorNodeSelectors(bool descVisibility, bool iconVisibility)
         {
+            
             foreach (var n in nodes)
             {
                 NodeView nodeView = n as NodeView;
-                nodeView.UpdateDescriptionVisibility(visibility);
+                
                 nodeView.UpdateErroredNode();
+                nodeView.UpdateDescriptionVisibility(descVisibility);
+                nodeView.UpdateIconVisibility(iconVisibility);
             }
+            
+            
         }
+        
     }
 }

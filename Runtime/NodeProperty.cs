@@ -1,11 +1,11 @@
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [System.Serializable]
     public class NodeProperty {
         [SerializeReference]
-        public BlackboardKey reference; 
+        public BlackboardKey reference;
     }
 
     [System.Serializable]

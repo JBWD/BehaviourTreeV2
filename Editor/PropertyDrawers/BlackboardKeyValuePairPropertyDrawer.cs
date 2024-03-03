@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEditor.UIElements;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     [CustomPropertyDrawer(typeof(BlackboardKeyValuePair))]
     public class BlackboardKeyValuePairPropertyDrawer : PropertyDrawer {
@@ -15,7 +15,7 @@ namespace TheKiwiCoder {
         BehaviourTree GetBehaviourTree(SerializedProperty property) {
             if (property.serializedObject.targetObject is BehaviourTree tree) {
                 return tree;
-            } else if (property.serializedObject.targetObject is BehaviourTreeInstance instance) {
+            } else if (property.serializedObject.targetObject is BehaviourTreeRunner instance) {
                 return instance.RuntimeTree;
             }
             Debug.LogError("Could not find behaviour tree this is referencing");
@@ -25,7 +25,7 @@ namespace TheKiwiCoder {
         public override VisualElement CreatePropertyGUI(SerializedProperty property) {
             SerializedProperty first = property.FindPropertyRelative(nameof(BlackboardKeyValuePair.key));
             SerializedProperty second = property.FindPropertyRelative(nameof(BlackboardKeyValuePair.value));
-
+            
             PopupField<BlackboardKey> dropdown = new PopupField<BlackboardKey>();
             dropdown.label = first.displayName;
             dropdown.formatListItemCallback = FormatItem;
@@ -38,6 +38,7 @@ namespace TheKiwiCoder {
                 foreach (var key in tree.blackboard.keys) {
                     dropdown.choices.Add(key);
                 }
+                
             });
 
             dropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) => {

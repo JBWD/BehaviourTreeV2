@@ -1,4 +1,4 @@
-﻿namespace TheKiwiCoder
+﻿namespace Halcyon
 {
     public enum NodeIcons
     {
@@ -15,6 +15,23 @@
         animation,
         action,
         light,
-        
+        currency,
+        loot,
+        combat,
+        camera,
+        input,
+        goal,
+        destination,
+        save,
+        audio,
+        idea,
+        quest,
+        achievement,
+        dialog,
+        notification,
+        inventory,
+        math,
+
+
     }
 }

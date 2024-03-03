@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     public class BlackboardView : VisualElement {
 
         public new class UxmlFactory : UxmlFactory<BlackboardView, VisualElement.UxmlTraits> { }
@@ -38,15 +38,27 @@ namespace TheKiwiCoder {
             newKeyTypeField.formatSelectedValueCallback = FormatItem;
 
             var types = TypeCache.GetTypesDerivedFrom<BlackboardKey>();
-            foreach(var type in types) {
-                if (type.IsGenericType) {
-                    continue;
-                }
-                newKeyTypeField.choices.Add(type);
-                if (newKeyTypeField.value == null) {
-                    newKeyTypeField.value = type;
+            List<string> names = new List<string>();
+            foreach (var type in types)
+            {
+                names.Add(type.ToString());
+            }
+            names.Sort();
+            
+            foreach (var itemName in names)
+            {
+                foreach(var type in types) {
+                    if (type.IsGenericType || itemName != type.ToString()) {
+                        continue;
+                    }
+                    newKeyTypeField.choices.Add(type);
+                    if (newKeyTypeField.value == null) {
+                        newKeyTypeField.value = type;
+                    }
                 }
             }
+            
+            
             popupContainer.Clear();
             popupContainer.Add(newKeyTypeField);
 

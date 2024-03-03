@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Color = System.Drawing.Color;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
-    [BehaviourTreeNode(menuFolder = "Flow Nodes", nodeColor = NodeColors.orange)]
+    [BehaviourTreeNode(menuPath = "Flow Nodes", nodeColor = NodeColors.orange)]
     [System.Serializable]
     public abstract class CompositeNode : Node {
 

@@ -1,9 +1,9 @@
 ﻿using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-namespace TheKiwiCoder
+namespace Halcyon
 {
-    [BehaviourTreeNode(menuFolder = "Triggers", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [BehaviourTreeNode(menuPath = "Triggers", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [System.Serializable]
     public abstract class TriggerNode : DecoratorNode
     {

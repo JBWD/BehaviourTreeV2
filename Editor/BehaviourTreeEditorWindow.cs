@@ -8,7 +8,7 @@ using UnityEditor.UIElements;
 using UnityEditor.Callbacks;
 
 
-namespace TheKiwiCoder {
+namespace Halcyon {
 
     public class BehaviourTreeEditorWindow : EditorWindow {
 
@@ -57,6 +57,7 @@ namespace TheKiwiCoder {
         public NewScriptDialogView newScriptDialog;
         public ToolbarBreadcrumbs breadcrumbs;
         public ToolbarToggle hideDescriptionToggle;
+        public ToolbarToggle hideIconToggle;
         public Label descriptionLabel;
         [SerializeField]
         public PendingScriptCreate pendingScriptCreate = new PendingScriptCreate();
@@ -65,7 +66,7 @@ namespace TheKiwiCoder {
         public BehaviourTree tree;
         public SerializedBehaviourTree serializer;
 
-        [MenuItem("TheKiwiCoder/BehaviourTreeEditor ...")]
+        [MenuItem("Tools/BehaviourTreeEditor")]
         public static void OpenWindow() {
             BehaviourTreeEditorWindow wnd = GetWindow<BehaviourTreeEditorWindow>();
             wnd.titleContent = new GUIContent("BehaviourTreeEditor");
@@ -104,6 +105,7 @@ namespace TheKiwiCoder {
             var styleSheet = behaviourTreeStyle;
             root.styleSheets.Add(styleSheet);
 
+            
             // Main treeview
             treeView = root.Q<BehaviourTreeView>();
             inspectorView = root.Q<InspectorView>();
@@ -114,6 +116,9 @@ namespace TheKiwiCoder {
             breadcrumbs = root.Q<ToolbarBreadcrumbs>("breadcrumbs");
             versionLabel = root.Q<Label>("Version");
             hideDescriptionToggle = root.Q<ToolbarToggle>("hideDescriptionToggle");
+            hideDescriptionToggle.value = settings.showDescriptionsOnOpen;
+            hideIconToggle = root.Q<ToolbarToggle>("hideIconToggle");
+            hideIconToggle.value = settings.showIconOnOpen;
             descriptionLabel = root.Q<Label>("description");
             
             treeView.styleSheets.Add(behaviourTreeStyle);
@@ -229,7 +234,7 @@ namespace TheKiwiCoder {
 
         private void OnSelectionChange() {
             if (Selection.activeGameObject) {
-                BehaviourTreeInstance runner = Selection.activeGameObject.GetComponent<BehaviourTreeInstance>();
+                BehaviourTreeRunner runner = Selection.activeGameObject.GetComponent<BehaviourTreeRunner>();
                 if (runner) {
                     SelectNewTree(runner.RuntimeTree);
                 }
@@ -294,7 +299,7 @@ namespace TheKiwiCoder {
             inspectorView.UpdateSelection(serializer, node);
         }
 
-      
+        
         private void OnInspectorUpdate() {
             if (Application.isPlaying) {
                 treeView?.UpdateNodeStates();
@@ -304,21 +309,48 @@ namespace TheKiwiCoder {
                 return;
             if (hideDescriptionToggle.value)
             {
-                hideDescriptionToggle.label = "Hide Description";
+                hideDescriptionToggle.label = "Hide Descriptions";
             }
             else
             {
-                hideDescriptionToggle.label = "Show Description";
+                hideDescriptionToggle.label = "Show Descriptions";
             }
-            treeView.UpdateEditorNodeSelectors(hideDescriptionToggle.value);
+
+            if (hideIconToggle.value)
+            {
+                hideIconToggle.label = "Hide Icons";
+            }
+            else
+            {
+                hideIconToggle.label = "Show Icons";
+            }
+            
+            
+            treeView.UpdateEditorNodeSelectors(hideDescriptionToggle.value, hideIconToggle.value);
             tree.UpdateDescriptions();
         }
 
         void OnToolbarNewAsset() {
-            BehaviourTree tree = EditorUtility.CreateNewTree("New Behaviour Tree", settings.newTreePath);
-            if (tree) {
-                SelectNewTree(tree);
+            
+            var settings = BehaviourTreeEditorWindow.Instance.settings;
+
+            string savePath = UnityEditor.EditorUtility.SaveFilePanel("Create New", settings.newTreePath, "New Behavior Tree", "asset");
+            if (string.IsNullOrEmpty(savePath)) {
+                return;
             }
+
+            string name = System.IO.Path.GetFileNameWithoutExtension(savePath);
+            string folder = System.IO.Path.GetDirectoryName(savePath);
+            folder = folder.Substring(folder.IndexOf("Assets"));
+
+            //System.IO.Directory.CreateDirectory(folder);
+            BehaviourTree tree = EditorUtility.CreateNewTree(name, folder);
+
+
+            if (tree) {
+                SelectTree(tree);
+            }
+            
         }
 
         public void PushSubTreeView(SubTree subtreeNode) {

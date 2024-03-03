@@ -4,18 +4,15 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace TheKiwiCoder {
+namespace Halcyon {
     [CreateAssetMenu()]
     public class BehaviourTree : ScriptableObject {
 
         [SerializeReference]
         public RootNode rootNode;
-
         [SerializeReference]
         public List<Node> nodes = new List<Node>();
-
         public Node.State treeState = Node.State.Running;
-
         public Blackboard blackboard = new Blackboard();
 
         #region  EditorProperties 
@@ -82,9 +79,16 @@ namespace TheKiwiCoder {
             {
                 node.context = context;
                 node.blackboard = blackboard;
-                node.OnInit();
             }
             
+        }
+
+        public void InitializeNodes()
+        {
+            foreach (var node in nodes)
+            {
+                node.OnInit();
+            }
         }
 
 
