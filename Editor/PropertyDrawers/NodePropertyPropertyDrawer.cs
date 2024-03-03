@@ -21,15 +21,34 @@ namespace Halcyon {
             var propertyType = genericTypes[0];
             var attributes = fieldInfo.GetCustomAttributes(true);
             var isReferenceOnly = false;
+            string tooltip = "";
             foreach (var attribute in attributes)
             {
+                if (attribute is TooltipAttribute)
+                {
+                    tooltip = ((TooltipAttribute)attribute).tooltip;
+                }
                 if (attribute is BlackboardValueOnlyAttribute)
+                {
                     isReferenceOnly = true;
+                    
+                }
+                
             }
-            
-            
-            
-            
+
+            //Modifying Blackboard only tooltips
+            if (isReferenceOnly)
+            {
+                if (tooltip.Length <= 0)
+                {
+                    tooltip = "This is a Blackboard only value.";
+                }
+                else
+                {
+                    tooltip += "\nThis is a blackboard only value.";
+                }
+            }
+
             SerializedProperty reference = property.FindPropertyRelative("reference");
 
             Label label = new Label();
@@ -37,6 +56,7 @@ namespace Halcyon {
             label.AddToClassList("unity-property-field__label");
             label.AddToClassList("unity-property-field");
             label.text = property.displayName;
+            label.tooltip = tooltip;
 
             PropertyField defaultValueField = new PropertyField();
             defaultValueField.label = "";
@@ -99,7 +119,8 @@ namespace Halcyon {
             container.style.flexDirection = FlexDirection.Row;
             container.Add(label);
             container.Add(defaultValueField);
-            container.Add(dropdown);
+            container.Add(dropdown);;
+            
             
             return container;
         }

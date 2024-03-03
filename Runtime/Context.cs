@@ -11,15 +11,33 @@ namespace Halcyon {
     // It will be somewhat specfic to your game exactly what to add here.
     // Feel free to extend this class 
     public partial class Context {
+        /// <summary>
+        /// Local GameObject
+        /// </summary>
         public GameObject gameObject;
+        /// <summary>
+        /// Local Transform
+        /// </summary>
         public Transform transform;
+        /// <summary>
+        /// Local Animator
+        /// </summary>
         public Animator animator;
+        /// <summary>
+        /// Local RigidBody
+        /// </summary>
         public Rigidbody rigidBody;
+        /// <summary>
+        /// Local Navmesh Agent
+        /// </summary>
         public NavMeshAgent agent;
         public SphereCollider sphereCollider;
         public BoxCollider boxCollider;
         public CapsuleCollider capsuleCollider;
         public CharacterController characterController;
+        /// <summary>
+        /// Local Behaviour Tree Runner
+        /// </summary>
         public BehaviourTreeRunner BehaviourTreeRunner;
         public PathList pathList;
         // Add other game specific systems here
