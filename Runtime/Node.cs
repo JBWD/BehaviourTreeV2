@@ -71,6 +71,7 @@ namespace Halcyon {
         /// change the current state of the node into an error. An error can provide context to the user on what is occuring
         /// and how to fix the issue.
         /// </summary>
-        public virtual void UpdateDescription() { }
+        public virtual void UpdateDescription()
+        { }
     }
 }

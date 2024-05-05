@@ -222,9 +222,12 @@ namespace Halcyon {
             }
             return default(T);
         }
-        
-        
-        
+
+        private void OnDestroy()
+        {
+            runtimeTree.hasBeenDestroyed = true;
+        }
+
         #region Triggers Calling
         public void UpdateKeyBoardInputs()
         {

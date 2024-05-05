@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Halcyon
 {
-    [BehaviourTreeNode("Triggers and Events", menuName = "UI Button: On Button Click", nodeTitle = "UI Button:\nOn Button Click",
+    [BehaviourTreeNode("Triggers & Events", menuName = "UI Button: On Button Click", nodeTitle = "UI Button:\nOn Button Click",
         nodeIcon = NodeIcons.trigger,nodeColor = NodeColors.purple)]
     [System.Serializable]
     public class OnButtonClickNode : TriggerNode

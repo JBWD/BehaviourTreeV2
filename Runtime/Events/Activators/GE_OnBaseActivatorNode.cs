@@ -20,7 +20,7 @@
 
         protected override State OnUpdate()
         {
-            GlobalEvents.OnBaseEvent.Invoke(activationName.Value);
+            GlobalEvents.OnBaseEvent?.Invoke(activationName.Value);
             state = State.Success;
             return state;
         }

@@ -6,8 +6,9 @@ using UnityEngine;
 
 namespace Halcyon {
     [CreateAssetMenu()]
-    public class BehaviourTree : ScriptableObject {
-
+    public class BehaviourTree : ScriptableObject
+    {
+        public bool hasBeenDestroyed = false;
         [SerializeReference]
         public RootNode rootNode;
         [SerializeReference]
@@ -94,8 +95,11 @@ namespace Halcyon {
 
         public void UpdateDescriptions()
         {
+            
             foreach (var node in nodes)
             {
+                if (hasBeenDestroyed)
+                    return;
                 node.UpdateDescription();
             }
         }

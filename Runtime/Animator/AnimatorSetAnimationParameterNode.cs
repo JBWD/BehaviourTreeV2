@@ -62,6 +62,8 @@ namespace Halcyon
 
         public override void UpdateDescription()
         {
+            base.UpdateDescription();
+            
             errored = false;
             if (Application.isPlaying)
             {
