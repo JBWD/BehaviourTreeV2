@@ -13,11 +13,17 @@ namespace Halcyon {
         [Tooltip("Behaviour tree asset to run as a subtree")] public BehaviourTree treeAsset;
         [HideInInspector] public BehaviourTree treeInstance;
 
+     
+
         public override void OnInit() {
             if (treeAsset) {
                 treeInstance = treeAsset.Clone();
+                //Might want to look into having a cloned blackboard or a scriptable object blackboard that can be used instead.
+                //Might have to be changed as the subtree may have other variables that need to be used. As 2 blackboards will be used.
                 treeInstance.Bind(context);
             }
+            
+            
         }
 
         protected override void OnStart() {

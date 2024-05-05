@@ -7,8 +7,9 @@ namespace Halcyon
     [System.Serializable]
     public class NavMeshFollowTarget : ActionNode
     {
-        [BlackboardValueOnly]
+        
         [Tooltip("Transform the Navmesh will try to follow or move close to.")]
+        [BlackboardValueOnly]
         public NodeProperty<Transform> transformToFollow;
 
         [Tooltip("Distance between this object and the target to which the path will be recalculated.")] 

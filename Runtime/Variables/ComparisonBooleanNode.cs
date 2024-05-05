@@ -26,7 +26,8 @@
             if (firstValue.Value == secondValue.Value)
             {
                 state = State.Success;
-                child.Update();
+                if(child != null)
+                    child.Update();
             }
             else
             {

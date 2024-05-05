@@ -1,18 +1,18 @@
 ﻿using System;
-using UnityEditor;
+using UnityEngine;
 
 namespace Halcyon
 {
-    [BehaviourTreeNode(menuPath = "Variable", menuName = "Variable: Compare Floats",
-        nodeTitle = "Variables:\nCompare Floats",
+     [BehaviourTreeNode(menuPath = "Variable", menuName = "Variable: Compare Integers",
+        nodeTitle = "Variables:\nCompare Integers",
         nodeIcon = NodeIcons.condition, nodeColor = NodeColors.yellow)]
     [System.Serializable]
-    public class ComparisonFloatNode : DecoratorNode
+    public class ComparisonIntegerNode : DecoratorNode
     {
 
         public ComparisionOperator operation;
-        public NodeProperty<float> firstValue;
-        public NodeProperty<float> secondValue;
+        public NodeProperty<int> firstValue;
+        public NodeProperty<int> secondValue;
 
 
         protected override void OnStart()
@@ -25,7 +25,7 @@ namespace Halcyon
 
         }
 
-        
+
         protected override State OnUpdate()
         {
             state = State.Success;
@@ -108,6 +108,6 @@ namespace Halcyon
                 
             }
 
-        }
+        }  
     }
 }

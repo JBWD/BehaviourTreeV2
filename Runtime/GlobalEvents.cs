@@ -15,6 +15,7 @@ namespace Halcyon
         
         public static Action<string> OnBaseEvent;
         public static Action<string, float> OnFloatValueChange;
+        public static Action<string, bool> OnBoolValueChange;
         public static Action<string, int> OnIntegerValueChange;
         public static Action<string, Vector2> OnVector2ValueChange;
         public static Action<string, Vector3> OnVector3ValueChange;

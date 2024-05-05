@@ -77,16 +77,17 @@ namespace Halcyon {
         {
             var tree = new List<SearchTreeEntry>
             {
+                //Creating the Root
                 new SearchTreeGroupEntry(new GUIContent("Create Node"), 0),
             };
 
         
             List<ContextualItem> items = new List<ContextualItem>();
-            var collectionTypes = TypeCache.GetTypesDerivedFrom<Node>();
+            //Gets all classes of type Node
+            var collectionTypes = TypeCache.GetTypesDerivedFrom<Node>(); 
             
             foreach (var type in collectionTypes)
             {
-
                 if(type.IsAbstract || type == typeof( RootNode))
                     continue;
 
@@ -163,7 +164,7 @@ namespace Halcyon {
             {
                 string[] entryTitle = item.contextName.Split('/');
                 string groupname = "";
-                for (int i = 0; i < entryTitle.Length - 1; i++)
+                for (int i = 0; i < entryTitle.Length - 1; i++) //The Minus 1 reduces the size to only include groups not the final button
                 {
                     groupname += entryTitle[i];
                     if (!groups.Contains(groupname))
