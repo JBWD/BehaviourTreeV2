@@ -6,9 +6,11 @@ namespace Halcyon {
 
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.green,nodeIcon = NodeIcons.time)]
-    public class Wait : ActionNode {
+    public class Wait : ActionNode
+    {
 
-        [Tooltip("Amount of time to wait before returning success")] public float duration = 1;
+        [Tooltip("Amount of time to wait before returning success")]
+        public NodeProperty<float> duration;
         float startTime;
 
         protected override void OnStart() {
@@ -22,7 +24,7 @@ namespace Halcyon {
         protected override State OnUpdate() {
             
             float timeRemaining = Time.time - startTime;
-            if (timeRemaining > duration)
+            if (timeRemaining > duration.Value)
             {
                 return State.Success;
             }

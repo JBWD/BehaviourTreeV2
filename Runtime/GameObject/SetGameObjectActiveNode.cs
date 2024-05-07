@@ -26,7 +26,7 @@ namespace Halcyon
             if (self)
             {
                 context.gameObject.SetActive(activityState.Value);
-                state =State.Success;
+                state = State.Success;
             }
             else if (gameObject.Value != null)
             {

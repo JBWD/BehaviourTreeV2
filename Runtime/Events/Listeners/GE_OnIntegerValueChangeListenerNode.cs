@@ -20,15 +20,16 @@
 
         public NodeProperty<string> activationName;
 
-        public NodeProperty<int> saveFloatValue;
+        public NodeProperty<int> saveIntegerValue;
         
         
         
         public void OnValueChange(string activationName, int activationValue)
         {
-            if (this.activationName.Value == activationName)
+            
+            if (this.activationName.Value == activationName && saveIntegerValue.Value  == activationValue)
             {
-                saveFloatValue.Value = activationValue;
+                
                 OnUpdate();
             }
 
