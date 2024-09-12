@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class BlackboardValueOnlyAttribute : Attribute

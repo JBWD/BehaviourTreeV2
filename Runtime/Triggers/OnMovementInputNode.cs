@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/Input", menuName = "Input: On Movement Input", nodeTitle = "Input:\nOn Movement Input",
         nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]

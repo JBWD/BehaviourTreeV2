@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
      [BehaviourTreeNode(menuPath = "Variable", menuName = "Variable: Compare Integers",
         nodeTitle = "Variables:\nCompare Integers",

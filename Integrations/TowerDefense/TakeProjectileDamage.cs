@@ -1,7 +1,8 @@
-﻿using Halcyon;
+﻿using Halcyon.BT;
+using Halcyon.BT.Integrations.Combat;
 using UnityEngine;
 
-namespace Addons.TowerDefense
+namespace Halcyon.BT.Integrations.TowerDefense
 {
     [BehaviourTreeNode(menuName = "Tower Defense: Take Projectile Damage", menuPath = "Tower Defense", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action, nodeTitle = "Tower Defense:\nTake Projectile Damage")]
     public class TakeProjectileDamage : ActionNode
@@ -26,7 +27,7 @@ namespace Addons.TowerDefense
             Projectile projectile = projectileGameObject.Value.GetComponent<Projectile>();
             if (projectile != null)
             {
-                currentHealth.Value -= projectile.GetDamage();
+                currentHealth.Value -= (int)projectile.GetDamage();
                 
             }
             else

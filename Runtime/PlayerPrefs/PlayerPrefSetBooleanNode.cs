@@ -1,7 +1,7 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode("Player Prefs/Set", menuName = "Player Prefs: Set Boolean", nodeTitle = "Player Prefs:\nSet Boolean", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
     [System.Serializable]

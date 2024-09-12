@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [CustomPropertyDrawer(typeof(AnimationProperty))]
     public class AnimationPropertyDrawer : PropertyDrawer

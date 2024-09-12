@@ -1,4 +1,4 @@
-﻿namespace Addons.TowerDefense
+﻿namespace Halcyon.BT.Integrations.TowerDefense
 {
     public class RemoveFromTargetListNode
     {

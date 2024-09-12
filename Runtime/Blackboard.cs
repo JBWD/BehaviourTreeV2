@@ -6,7 +6,7 @@ using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     // The Blackboard stores a set of keys which can be used to pass values between different nodes in the behaviour tree.
     // Nodes can read and write to blackboard keys to share data.

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     
     [BehaviourTreeNode(menuPath = "NavMesh", menuName = "NavMesh: Is Agent Moving", nodeTitle = "NavMesh:\n Is Agent Moving", nodeColor = NodeColors.yellow, nodeIcon = NodeIcons.condition)]
@@ -36,5 +36,20 @@ namespace Halcyon
 
             return state = State.Failure;
         }
+        public override void UpdateDescription()
+        {
+            if (desiredState.Value)
+            {
+                conditionState = ConditionState.True;
+                description = $"(Moving) Runs the child if the agent is currently moving.";
+            }
+            else
+            {
+                conditionState = ConditionState.False;
+                description = $"(Not Moving) Runs the child if the agent is currently not moving.";
+            }
+            
+        }
+        
     }
 }

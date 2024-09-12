@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     [AddComponentMenu("Halcyon/BehaviourTreeRunner")]
     public class BehaviourTreeRunner : MonoBehaviour {
@@ -33,7 +33,7 @@ namespace Halcyon {
         
         
         // Storage container object to hold game object subsystems
-        Context context;
+        public Context context;
 
         
         //Actions the trigger nodes are subscribed to.

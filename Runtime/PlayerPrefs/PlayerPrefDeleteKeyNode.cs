@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode("Player Prefs", menuName = "Player Prefs: Delete Key", nodeTitle = "Player Prefs:\nDelete Key", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
     [System.Serializable]

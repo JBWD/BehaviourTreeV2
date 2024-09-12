@@ -6,17 +6,16 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 
-namespace Halcyon {
-    public class BlackboardView : VisualElement {
+namespace Halcyon.BT {
+    [UxmlElement]
+    public partial class BlackboardView : VisualElement {
 
-        public new class UxmlFactory : UxmlFactory<BlackboardView, VisualElement.UxmlTraits> { }
+        //public new class UxmlFactory : UxmlFactory<BlackboardView, VisualElement.UxmlTraits> { }
 
         private SerializedBehaviourTree behaviourTree;
-
         private ListView listView;
         private TextField newKeyTextField;
         private PopupField<Type> newKeyTypeField;
-
         private Button createButton;
 
         internal void Bind(SerializedBehaviourTree behaviourTree) {

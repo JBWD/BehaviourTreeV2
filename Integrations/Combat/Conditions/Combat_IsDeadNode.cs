@@ -1,12 +1,14 @@
-﻿using Halcyon;
+﻿using Halcyon.BT;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Addons.TowerDefense
+namespace Halcyon.BT.Integrations.Combat
 {
-    public class IsDead : DecoratorNode
+    [BehaviourTreeNode(menuPath = "Combat/Condition", menuName = "Combat: Is Dead",
+        nodeTitle = "Combat:\n Is Dead", nodeColor = NodeColors.yellow, nodeIcon = NodeIcons.condition)]
+    public class Combat_IsDeadNode : DecoratorNode
     {
-        [BlackboardValueOnly] public NodeProperty<int> currentHealth;
+        [BlackboardValueOnly] public NodeProperty<float> currentHealth;
         public NodeProperty<bool> desiredCondition;
 
         protected override void OnStart()
@@ -35,10 +37,12 @@ namespace Addons.TowerDefense
         {
             if (desiredCondition.Value)
             {
+                conditionState = ConditionState.True;
                 description = $"(Dead) Runs the child if the current health is less than or equal to 0";
             }
             else
             {
+                conditionState = ConditionState.False;
                 description = $"(Alive) Runs the child if the current health is greater than 0";
             }
             

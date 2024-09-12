@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Variable",menuName = "Variable: Set String", nodeTitle = "Variables:\nSet String",
         nodeIcon = NodeIcons.save, nodeColor = NodeColors.pink)]

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode("Transform", "Transform: Rotate Over Time", "Transform:\n Rotate Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
     [System.Serializable]

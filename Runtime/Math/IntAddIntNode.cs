@@ -1,7 +1,7 @@
 ﻿using System;
 using Unity.Properties;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Math/Integer", menuName = "Integer: Add Integer", nodeTitle = "Float Integer:\nAdd Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [Serializable]

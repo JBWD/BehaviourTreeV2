@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Divide Integer", nodeTitle = "Float Math:\nDivide Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [System.Serializable]

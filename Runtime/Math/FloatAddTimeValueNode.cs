@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Add Time", nodeTitle = "Float Math:\nAdd Time", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [System.Serializable]

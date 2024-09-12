@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Listener",
         menuName = "Event Listener: On Base Event", nodeTitle = "Event Listener:\nOn Base Event",

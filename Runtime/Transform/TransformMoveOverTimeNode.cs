@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode("Transform", "Transform: Move Over Time", "Transform:\nMove Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
     [Serializable]

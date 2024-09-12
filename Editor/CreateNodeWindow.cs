@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEditor.Experimental.GraphView;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     public class CreateNodeWindow : ScriptableObject, ISearchWindowProvider {
 

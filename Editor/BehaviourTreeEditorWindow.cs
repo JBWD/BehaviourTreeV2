@@ -8,7 +8,7 @@ using UnityEditor.UIElements;
 using UnityEditor.Callbacks;
 
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     public class BehaviourTreeEditorWindow : EditorWindow {
 

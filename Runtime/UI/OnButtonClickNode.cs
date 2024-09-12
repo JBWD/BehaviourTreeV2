@@ -1,7 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode("Triggers & Events", menuName = "UI Button: On Button Click", nodeTitle = "UI Button:\nOn Button Click",
         nodeIcon = NodeIcons.trigger,nodeColor = NodeColors.purple)]

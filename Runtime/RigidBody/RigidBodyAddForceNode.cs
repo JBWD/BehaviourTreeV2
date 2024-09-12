@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using UnityEngine;
 
-namespace Halcyon.RigidBody
+namespace Halcyon.BT.RigidBody
 {
     [BehaviourTreeNode]
     [System.Serializable]

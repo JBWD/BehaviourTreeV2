@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Variable",menuName = "Variable: Set Vector 2", nodeTitle = "Variables:\nSet Vector2",
         nodeIcon = NodeIcons.save, nodeColor = NodeColors.pink)]

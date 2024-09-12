@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Boolean Change",
         nodeTitle = "Event Activator:\nOn Boolean Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]

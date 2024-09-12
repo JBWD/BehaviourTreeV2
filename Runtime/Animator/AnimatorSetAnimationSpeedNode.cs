@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     
     [BehaviourTreeNode(menuPath = "Animator", menuName = "Animator: Set Playback Speed",nodeTitle = "Animator:\nSet Playback Speed", nodeColor = NodeColors.green,nodeIcon = NodeIcons.animation)]

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     [System.Serializable]
     
@@ -13,6 +13,13 @@ namespace Halcyon {
             Success
         }
 
+        public enum ConditionState
+        {
+            None,
+            True,
+            False
+        }
+        
         [HideInInspector] public State state = State.Running;
         [HideInInspector] public bool started = false;
         [HideInInspector] public string guid = System.Guid.NewGuid().ToString();
@@ -23,6 +30,7 @@ namespace Halcyon {
         [TextArea] public string description;
         [Tooltip("When enabled, the nodes OnDrawGizmos will be invoked")] public bool drawGizmos = false;
         [HideInInspector] public bool errored = false;
+        [HideInInspector] public ConditionState conditionState = ConditionState.None;
         public virtual void OnInit() {
             // Used for Triggers and Global Events (Add the events)
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Math/Integer", menuName = "Integer: Divide Integer", nodeTitle = "Integer Math:\nDivide Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [Serializable]

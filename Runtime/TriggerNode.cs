@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [System.Serializable]

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/2D", nodeTitle = "On 2D Collision Stay", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [System.Serializable]

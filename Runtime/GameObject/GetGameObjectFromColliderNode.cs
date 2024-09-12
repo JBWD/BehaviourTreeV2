@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Collider to GameObject", nodeColor = NodeColors.pink,
         nodeIcon = NodeIcons.repeat, nodeTitle = "Conversion:\nCollider to GameObject")]

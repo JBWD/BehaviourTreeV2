@@ -5,9 +5,10 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEditor.UIElements;
 
-namespace Halcyon {
-    public class NewScriptDialogView : VisualElement {
-        public new class UxmlFactory : UxmlFactory<NewScriptDialogView, UxmlTraits> { }
+namespace Halcyon.BT {
+    [UxmlElement]
+    public partial class NewScriptDialogView : VisualElement {
+        //public new class UxmlFactory : UxmlFactory<NewScriptDialogView, UxmlTraits> { }
 
         EditorUtility.ScriptTemplate scriptTemplate;
         TextField textField;

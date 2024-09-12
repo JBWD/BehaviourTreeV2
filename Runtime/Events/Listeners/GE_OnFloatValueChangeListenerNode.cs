@@ -1,5 +1,5 @@
 
-namespace Halcyon
+namespace Halcyon.BT
 {
 
     [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Listener", menuName = "Event Listener: On Float Change",nodeTitle  = "Event Listener:\nOn Float Change", nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]

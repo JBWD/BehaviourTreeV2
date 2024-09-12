@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Halcyon.BT.Integrations.Combat;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     [System.Serializable]
     public class BooleanKey : BlackboardKey<bool> {
@@ -151,4 +152,7 @@ namespace Halcyon {
     {
         
     }
+
+    
+    
 }

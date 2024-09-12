@@ -4,9 +4,9 @@ using UnityEngine;
 
 
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
-    [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Move To Position", nodeTitle = "NavMesh:\n Move To Position", nodeColor = NodeColors.green)]
+    [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Move To Position", nodeTitle = "NavMesh:\n Move To Position", nodeColor = NodeColors.green,nodeIcon = NodeIcons.destination)]
     [System.Serializable]
     public class NavMeshMoveToPosition : ActionNode {
 
@@ -18,6 +18,13 @@ namespace Halcyon {
 
         protected override void OnStart()
         {
+            if (context.agent == null)
+            {
+                Debug.Log($"Game object {context.gameObject.name} is missing NavMeshAgent component");
+            }
+            if (!context.agent.enabled) {
+                Debug.Log($"NavMeshAgent component on {context.gameObject.name} was disabled");
+            }
         }
 
         protected override void OnStop() {
@@ -28,15 +35,7 @@ namespace Halcyon {
         }
 
         protected override State OnUpdate() {
-            if (context.agent == null) {
-                Debug.Log($"Game object {context.gameObject.name} is missing NavMeshAgent component");
-                return state =State.Failure;
-            }
-
-            if (!context.agent.enabled) {
-                Debug.Log($"NavMeshAgent component on {context.gameObject.name} was disabled");
-                return state =State.Failure;
-            }
+            
 
 
             if (targetPosition.Value != context.agent.destination)

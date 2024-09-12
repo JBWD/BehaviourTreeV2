@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     
     [BehaviourTreeNode(menuPath = "Triggers & Events/Input", menuName = "Input: On Key Held", nodeTitle = "Input:\nOn Key Held", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]

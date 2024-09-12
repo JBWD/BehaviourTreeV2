@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Math/Vector3", menuName = "Vector3: Subtract Vector3", nodeTitle = "Vector3 Math:\nSubtract Vector3", 
         nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]

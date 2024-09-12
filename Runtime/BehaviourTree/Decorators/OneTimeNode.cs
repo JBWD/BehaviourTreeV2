@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.blue)]

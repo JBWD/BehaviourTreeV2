@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     public static class GlobalEvents
     {

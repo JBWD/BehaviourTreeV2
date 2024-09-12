@@ -6,9 +6,10 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEditor.UIElements;
 
-namespace Halcyon {
-    public class InspectorView : VisualElement {
-        public new class UxmlFactory : UxmlFactory<InspectorView, VisualElement.UxmlTraits> { }
+namespace Halcyon.BT {
+    [UxmlElement]
+    public partial class InspectorView : VisualElement {
+        //public new class UxmlFactory : UxmlFactory<InspectorView, VisualElement.UxmlTraits> { }
 
         public InspectorView() {
 

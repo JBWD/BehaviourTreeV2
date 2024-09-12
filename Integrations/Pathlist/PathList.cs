@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Halcyon.Integrations.Pathlist
+namespace Halcyon.BT.Integrations.Pathlist
 {
     public class PathList: MonoBehaviour
     {

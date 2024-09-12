@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon.Integrations.Pathlist
+namespace Halcyon.BT.Integrations.Pathlist
 {
     [BehaviourTreeNode(menuPath = "Integrations/PathList", menuName = "PathList: Add Position", nodeTitle = "PathList:\nAdd Position", nodeColor = NodeColors.green, nodeIcon = NodeIcons.destination)]
     [System.Serializable]

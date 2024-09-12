@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     public class StringListSearchProvider :ScriptableObject, ISearchWindowProvider
     {

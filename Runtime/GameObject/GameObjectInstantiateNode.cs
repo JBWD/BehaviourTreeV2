@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuName = "GameObject: Instantiate", menuPath = "GameObject", nodeTitle = "GameObject:\nInstantiate", nodeColor = NodeColors.green, nodeIcon = NodeIcons.destination)]
     [System.Serializable]
@@ -8,6 +8,7 @@ namespace Halcyon
     {
 
         public NodeProperty<GameObject> objectPrefab;
+        public bool spawnInWorldSpace = false;
         public NodeProperty<Vector3> spawnPosition;
         public NodeProperty<Quaternion> spawnRotation;
         [BlackboardValueOnly]
@@ -37,7 +38,9 @@ namespace Halcyon
             }
             else
             {
-                var gameObject = MonoBehaviour.Instantiate(objectPrefab.Value, spawnPosition.Value, Quaternion.identity);
+                var gameObject = spawnInWorldSpace
+                    ? Object.Instantiate(objectPrefab.Value, spawnPosition.Value, Quaternion.identity)
+                    : Object.Instantiate(objectPrefab.Value, context.transform.position + spawnPosition.Value, Quaternion.identity);
                 gameObject.transform.rotation = spawnRotation.Value;
                 saveGameObject.Value = gameObject;
                 saveTransform.Value = gameObject.transform;

@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-namespace Halcyon {
+namespace Halcyon.BT {
     [CreateAssetMenu()]
     public class BehaviourTree : ScriptableObject
     {

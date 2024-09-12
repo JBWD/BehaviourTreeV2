@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [System.Serializable]
     public class RaycastingSphereCastNode:ActionNode

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
-    [BehaviourTreeNode(nodeColor = NodeColors.red, nodeTitle = "Root Node")]
+    [BehaviourTreeNode(nodeColor = NodeColors.red, nodeTitle = "Update Node", nodeIcon = NodeIcons.repeat)]
     [System.Serializable]
     public class RootNode : Node {
 
@@ -23,11 +23,10 @@ namespace Halcyon {
         }
 
         protected override State OnUpdate() {
-            if (child != null) {
-                return child.Update();
-            } else {
-                return State.Failure;
-            }
+            
+            if (child != null) 
+                child.Update();
+            return State.Running;
         }
         
         

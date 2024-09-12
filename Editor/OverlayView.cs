@@ -4,9 +4,12 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using System;
 
-namespace Halcyon {
-    public class OverlayView : VisualElement {
-        public new class UxmlFactory : UxmlFactory<OverlayView, UxmlTraits> { }
+namespace Halcyon.BT {
+    [UxmlElement]
+    public partial class OverlayView : VisualElement {
+        
+        
+       // public new class UxmlFactory : UxmlFactory<OverlayView, UxmlTraits> { }
 
         public Action<BehaviourTree> OnTreeSelected;
 

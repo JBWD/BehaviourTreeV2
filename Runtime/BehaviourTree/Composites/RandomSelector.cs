@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace Halcyon {
+namespace Halcyon.BT {
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange, nodeIcon = NodeIcons.random)]
     public class RandomSelector : CompositeNode {

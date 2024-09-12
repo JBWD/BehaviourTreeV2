@@ -2,7 +2,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/3D", nodeTitle = "On Trigger Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
     [Serializable]
@@ -31,7 +31,7 @@ namespace Halcyon
             context.BehaviourTreeRunner.On3DTriggerEnter -= SaveCollisionAndRunNode;
         }
 
-        public void SaveCollisionAndRunNode(Collider collider)
+        public virtual void SaveCollisionAndRunNode(Collider collider)
         {
             if (collider.tag == collisionTag.Value)
             {

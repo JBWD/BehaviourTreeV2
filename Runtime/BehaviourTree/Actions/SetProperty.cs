@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Halcyon;
+using Halcyon.BT;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     [BehaviourTreeNode(menuPath = "Behaviour Tree", nodeTitle = "Set Property", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.oneTime)]
     [System.Serializable]

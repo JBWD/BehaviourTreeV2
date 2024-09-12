@@ -1,7 +1,7 @@
 ﻿using Unity.Properties;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "GameObject/Get", menuName = "GameObject: Get Active", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nGet Active")]
     [System.Serializable]

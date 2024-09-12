@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Math/Vector2", menuName = "Vector2: Multiply Float",
         nodeTitle = "Vector2 Math:\nMultiply Float",

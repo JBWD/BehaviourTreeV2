@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Transform", menuName = "Transform: Scale Over Time", nodeTitle = "Transform:\nScale Over Time",
         nodeColor = NodeColors.pink, nodeIcon = NodeIcons.time)]

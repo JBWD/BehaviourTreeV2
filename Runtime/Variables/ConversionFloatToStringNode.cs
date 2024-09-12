@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Float to String", 
         nodeTitle = "Conversion:\nFloat to String", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.repeat)]

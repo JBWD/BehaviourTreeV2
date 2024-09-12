@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "GameObject/Set", menuName = "GameObject: Set Tag", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nSet Tag")]
     [System.Serializable]

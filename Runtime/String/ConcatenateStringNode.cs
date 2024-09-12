@@ -2,7 +2,7 @@
 using Unity.Properties;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "String", nodeTitle = "Concatenate Strings", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
     [Serializable]

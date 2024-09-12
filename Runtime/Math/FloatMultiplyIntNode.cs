@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Multiply Integer", nodeTitle = "Float Math:\nMultiply Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [System.Serializable]

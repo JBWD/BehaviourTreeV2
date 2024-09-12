@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: GameObject to Transform", 
         nodeTitle = "Conversion:\nGameObject to Transform", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.repeat)]

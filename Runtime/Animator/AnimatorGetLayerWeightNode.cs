@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Animator",menuName = "Animator: Get Layer Weight", nodeTitle = "Animator:\nGet Layer Weight", nodeColor = NodeColors.green, nodeIcon = NodeIcons.animation)]
     [System.Serializable]

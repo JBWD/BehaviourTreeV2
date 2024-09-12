@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Listener", menuName = "Event Listener: On Vector2 Change",
         nodeTitle  = "Event Listener:\nOn Vector2 Change", nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]

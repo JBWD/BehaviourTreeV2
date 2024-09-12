@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     public class NodePort : Port {
 

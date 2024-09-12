@@ -1,4 +1,4 @@
-﻿namespace Halcyon.RigidBody
+﻿namespace Halcyon.BT.RigidBody
 {
     [System.Serializable]
     public class RigidBodyAddTorqueNode

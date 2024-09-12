@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Vector3 To Floats", nodeTitle = "Conversion:\nVector3 To Floats", 
         nodeColor = NodeColors.pink, nodeIcon = NodeIcons.repeat)]

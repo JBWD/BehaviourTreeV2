@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace Halcyon {
+namespace Halcyon.BT {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange)]
+    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange, nodeIcon = NodeIcons.sequence)]
     public class Parallel : CompositeNode {
 
         protected override void OnStart() {

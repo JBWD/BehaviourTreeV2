@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Listener", menuName = "Event Listener: On Boolean Change",nodeTitle  = "Event Listener:\nOn Boolean Change", 
         nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]

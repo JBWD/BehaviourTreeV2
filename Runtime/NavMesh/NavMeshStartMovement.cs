@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Start Movement", nodeTitle = "NavMesh:\n Start Movement")]
     [System.Serializable]

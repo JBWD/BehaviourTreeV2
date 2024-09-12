@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEditor.UIElements;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     [CustomPropertyDrawer(typeof(BlackboardKeyValuePair))]
     public class BlackboardKeyValuePairPropertyDrawer : PropertyDrawer {

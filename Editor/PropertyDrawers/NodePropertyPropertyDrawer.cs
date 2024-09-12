@@ -8,7 +8,7 @@ using System.Runtime.Remoting.Messaging;
 using Codice.CM.Common;
 using Unity.VisualScripting;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     [CustomPropertyDrawer(typeof(NodeProperty<>))]
     public class GenericNodePropertyPropertyDrawer : PropertyDrawer {

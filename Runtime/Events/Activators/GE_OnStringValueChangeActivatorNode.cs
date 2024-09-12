@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On String Change",
         nodeTitle = "Event Activator:\nOn String Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]

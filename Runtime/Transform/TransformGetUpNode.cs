@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Transform/Get", menuName = "Transform: Get Up", nodeTitle = "Transform:\nGet Up",
         nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]

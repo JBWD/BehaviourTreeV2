@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Variable", menuName = "Variable: Compare Booleans",
         nodeTitle = "Variables:\nCompare Booleans",

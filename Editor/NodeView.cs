@@ -9,7 +9,7 @@ using UnityEditor.UIElements;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     public class NodeView : UnityEditor.Experimental.GraphView.Node {
         public Action<NodeView> OnNodeSelected;
@@ -225,6 +225,19 @@ namespace Halcyon {
             else
             {
                 RemoveFromClassList("hideIcon");
+            }
+        }
+
+        public void UpdateConditional()
+        {
+            RemoveFromClassList("trueCondition");
+            RemoveFromClassList("falseCondition");
+
+            if (node.conditionState == Node.ConditionState.True) {
+                AddToClassList("trueCondition");
+            }
+            else if (node.conditionState == Node.ConditionState.False){
+                AddToClassList("falseCondition");
             }
         }
     }

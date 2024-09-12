@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     // This is a special type to represent a key binding, with a value.
     // The BlackboardKeyValuePairPropertyDrawer takes care of updating the rendered value field

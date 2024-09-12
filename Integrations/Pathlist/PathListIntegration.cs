@@ -1,8 +1,8 @@
-﻿using Halcyon.Integrations.Pathlist;
+﻿using Halcyon.BT.Integrations.Pathlist;
 using UnityEngine;
 
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     public partial class Context
     {

@@ -7,7 +7,7 @@ using UnityEditor.UIElements;
 using UnityEditor.Search;
 using System.Linq;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     public static class EditorUtility
     {

@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [CustomPropertyDrawer(typeof(KeyCode))]
     public class KeyCodeDrawer :PropertyDrawer

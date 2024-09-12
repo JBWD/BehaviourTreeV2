@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events", menuName = "Unity Event: Invoke Event", nodeTitle = "Unity Event\nInvoke Event", nodeColor = NodeColors.green, nodeIcon = NodeIcons.trigger)]
     [System.Serializable]

@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 
-namespace Halcyon {
+namespace Halcyon.BT {
     [CustomEditor(typeof(BehaviourTreeRunner))]
     public class BehaviourTreeInstanceEditor : Editor
     {

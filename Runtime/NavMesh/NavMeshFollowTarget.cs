@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
 
     [BehaviourTreeNode(menuPath = "NavMesh", menuName = "NavMesh: Follow Target", nodeTitle = "NavMesh:\n Follow Target")]

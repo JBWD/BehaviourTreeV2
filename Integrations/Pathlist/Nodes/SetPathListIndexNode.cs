@@ -1,4 +1,4 @@
-﻿namespace Halcyon.Integrations.Pathlist
+﻿namespace Halcyon.BT.Integrations.Pathlist
 {
     [BehaviourTreeNode(menuPath = "Integrations/PathList", menuName = "PathList: Set Index", nodeTitle = "PathList:\nSet Index", nodeColor = NodeColors.green, nodeIcon = NodeIcons.destination)]
     [System.Serializable]

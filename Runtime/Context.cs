@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Halcyon.Integrations.Pathlist;
+using Halcyon.BT.Integrations.Pathlist;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     // The context is a shared object every node has access to.
     // Commonly used components and subsytems should be stored here
@@ -39,7 +40,7 @@ namespace Halcyon {
         /// Local Behaviour Tree Runner
         /// </summary>
         public BehaviourTreeRunner BehaviourTreeRunner;
-        public PathList pathList;
+        
         // Add other game specific systems here
 
         public static Context CreateFromGameObject(GameObject gameObject) {
@@ -55,8 +56,7 @@ namespace Halcyon {
             context.capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
             context.characterController = gameObject.GetComponent<CharacterController>();
             context.BehaviourTreeRunner = gameObject.GetComponent<BehaviourTreeRunner>();
-            context.pathList = gameObject.GetComponent<PathList>();
-            // Add whatever else you need here...
+            // To add more to the context, add a partial class as an extension and look for components in Init() on the node itself.
 
             return context;
         }

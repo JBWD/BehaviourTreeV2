@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Halcyon {
+namespace Halcyon.BT {
 
     [System.Serializable]
     public class NodeProperty {

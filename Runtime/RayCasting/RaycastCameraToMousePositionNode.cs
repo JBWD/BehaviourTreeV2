@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Raycasting", menuName = "Raycasting: Camera to Mouse Point", nodeTitle = "Raycasting:\nCamera to Mouse Point",
         nodeColor =  NodeColors.green, nodeIcon = NodeIcons.destination)]

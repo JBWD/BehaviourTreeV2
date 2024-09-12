@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Halcyon {
+namespace Halcyon.BT {
     [System.Serializable]
     [BehaviourTreeNode(menuPath = "Behaviour Tree", nodeColor = NodeColors.green, nodeIcon = NodeIcons.random)]
     public class RandomFailure : ActionNode {

@@ -7,9 +7,10 @@ using UnityEditor.Experimental.GraphView;
 using System;
 using System.Linq;
 
-namespace Halcyon {
-    public class BehaviourTreeView : GraphView {
-        public new class UxmlFactory : UxmlFactory<BehaviourTreeView, GraphView.UxmlTraits> { }
+namespace Halcyon.BT {
+    [UxmlElement]
+    public partial class BehaviourTreeView : GraphView {
+        //public new class UxmlFactory : UxmlFactory<BehaviourTreeView, GraphView.UxmlTraits> { }
 
         // Node positions snap to 15 pixels
         public static int gridSnapSize = 15;
@@ -345,6 +346,7 @@ namespace Halcyon {
             {
                 NodeView nodeView = n as NodeView;
                 
+                nodeView.UpdateConditional();
                 nodeView.UpdateErroredNode();
                 nodeView.UpdateDescriptionVisibility(descVisibility);
                 nodeView.UpdateIconVisibility(iconVisibility);

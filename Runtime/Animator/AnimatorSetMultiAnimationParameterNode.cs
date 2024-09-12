@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Animator", menuName = "Animator: Set Multi Parameter", nodeColor = NodeColors.green,nodeIcon = NodeIcons.animation,nodeTitle = "Animator:\nSet Multi Parameter")]
     [System.Serializable]

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Math/Float", menuName = "Float: Add Integer", nodeTitle = "Float Math:\nAdd Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
     [Serializable]

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Transform/Get", menuName = "Transform: Get Euler Rotation", nodeTitle = "Transform:\nGet Euler Rotation",
         nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]

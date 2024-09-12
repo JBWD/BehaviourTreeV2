@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Base Event",
         nodeTitle = "Event Activator:\nOn Base Event", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]

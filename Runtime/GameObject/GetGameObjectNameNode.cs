@@ -1,4 +1,4 @@
-﻿namespace Halcyon
+﻿namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "GameObject/Get", menuName = "GameObject: Get Name", nodeColor = NodeColors.pink,
         nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nGet Name")]

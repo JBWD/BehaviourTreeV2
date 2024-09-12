@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Halcyon
+namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Update Agent", nodeTitle = "NavMesh:\n Update Agent", nodeColor = NodeColors.green)]
+    [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Update Agent", nodeTitle = "NavMesh:\n Update Agent", nodeColor = NodeColors.green, nodeIcon = NodeIcons.destination)]
     [System.Serializable]
     public class NavMeshUpdateAgent : ActionNode {
 

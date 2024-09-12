@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-namespace Halcyon
+namespace Halcyon.BT
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class BehaviourTreeNodeAttribute : Attribute
