@@ -4,6 +4,10 @@ using UnityEngine;
 namespace Halcyon.BT
 {
     [System.Serializable]
+    [NodeMenuPath("Raycasting")]
+    [NodeTitle("Raycasting:\n Sphere Cast")]
+    [NodeMenuName("Raycasting: Sphere Cast")]
+    [NodeIcon(NodeIcons.achievement)]
     public class RaycastingSphereCastNode:ActionNode
     {
         public LayerMask hitLayers;
@@ -34,9 +38,9 @@ namespace Halcyon.BT
             state = State.Failure;
             if (context.transform != null)
             {
-                
-                Physics.SphereCast(new Ray(context.transform.position + positionOffset, context.transform.forward * castDistance)
-                    ,sphereRadius, out RaycastHit raycasthit, castDistance);
+                Physics.SphereCast(new Ray(context.transform.position + positionOffset,
+                        context.transform.forward * castDistance)
+                    , sphereRadius, out RaycastHit raycasthit, castDistance);
                 if (raycasthit.collider != null)
                 {
                     Debug.Log(raycasthit.collider.name);
@@ -49,9 +53,6 @@ namespace Halcyon.BT
                     }
                 }
             }
-            
-
-
             return state;
         }
 
@@ -61,7 +62,6 @@ namespace Halcyon.BT
             {
                 Gizmos.DrawWireSphere(context.transform.position + positionOffset, sphereRadius);
             }
-            
         }
         
     }

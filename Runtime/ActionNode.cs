@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Halcyon.BT {
 
-    [BehaviourTreeNode(menuPath = "Action Nodes", nodeColor = NodeColors.green, nodeIcon = NodeIcons.none)]
+    [NodeColor(NodeColors.green), NodeIcon(NodeIcons.action)]
     [System.Serializable]
     public abstract class ActionNode : Node {
 

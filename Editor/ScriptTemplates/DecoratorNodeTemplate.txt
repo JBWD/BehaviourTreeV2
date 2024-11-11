@@ -1,17 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Halcyon.BT;
 
 [System.Serializable]
+[NodeMenuPath("Decorator Nodes/Custom")]
+[NodeMenuName("#SCRIPTNAME#")]
+[NodeTitle("#SCRIPTNAME#")]
+[NodeIcon(NodeIcons.none)]
+[NodeColor(NodeColors.blue)]
 public class #SCRIPTNAME# : DecoratorNode
 {
+    /// <summary>
+    /// Called when the node is called and was not Running last frame.
+    /// </summary>
     protected override void OnStart() {
     }
-
+    
+    /// <summary>
+    /// Called when the node completes and was not Running last frame.
+    /// </summary>
     protected override void OnStop() {
     }
 
+    /// <summary>
+    /// Runs every frame the node is called or is in the Running State.
+    /// </summary>
+    /// <returns>Current State of the Node</returns>
     protected override State OnUpdate() {
         return State.Success;
+    }
+    
+    /// <summary>
+    /// Updates the Description Every Frame, Use to display errors and or realtime blackboard value changes.
+    /// </summary>
+    public override void UpdateDescription()
+    {
+        //The description updates every refresh frame within the editor. 
+        description = "Custom Action Node";
+
+        //Errored can be used to show the user an error message that something wasn't initialized or set correctly.
+        errored = false;
     }
 }

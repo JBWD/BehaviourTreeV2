@@ -2,19 +2,17 @@
 using UnityEngine;
 
 namespace Halcyon.BT
-{
-    [BehaviourTreeNode(menuPath = "Animator", menuName = "Animator: Set Multi Parameter", nodeColor = NodeColors.green,nodeIcon = NodeIcons.animation,nodeTitle = "Animator:\nSet Multi Parameter")]
+{ 
+    [NodeMenuPath("Animator")]
+    [NodeMenuName("Animator: Set Multi Parameter")]
+    [NodeTitle("Animator:\nSet Multi Parameter")]
+    [NodeIcon(NodeIcons.animation)]
     [System.Serializable]
     public class AnimatorSetMultiAnimationParameterNode: ActionNode
     {
         public List<AnimationProperty> animationProperties;
         
-        public override void OnInit()
-        {
-
-        }
-
-
+    
         protected override void OnStart()
         {
             

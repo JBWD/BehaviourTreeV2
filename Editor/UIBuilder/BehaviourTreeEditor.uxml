@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/BehaviourTreeV2/Editor/UIBuilder/BehaviourTreeEditorStyle.uss?fileID=7433441132597879392&amp;guid=8781ca2a6e79ccf4da2e234c8c123d2f&amp;type=3#BehaviourTreeEditorStyle" />
+    <Style src="project://database/Assets/Plugins/BehaviourTreeV2/Editor/UIBuilder/BehaviourTreeEditorStyle.uss?fileID=7433441132597879392&amp;guid=8781ca2a6e79ccf4da2e234c8c123d2f&amp;type=3#BehaviourTreeEditorStyle" />
     <uie:Toolbar>
         <uie:ToolbarMenu display-tooltip-when-elided="true" text="Assets " name="ToolbarMenu" />
         <uie:ToolbarSpacer style="flex-grow: 1;" />
@@ -35,13 +35,14 @@
             <Halcyon.BT.BehaviourTreeView focusable="true" style="flex-grow: 1; border-top-width: 2px; border-top-color: rgb(0, 0, 0);" />
         </ui:VisualElement>
     </Halcyon.BT.SplitView>
-    <Halcyon.BT.OverlayView name="OverlayView" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5); visibility: visible;">
-        <ui:VisualElement name="ProjectView" style="flex-grow: 0; background-color: rgb(56, 56, 56); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; flex-shrink: 0; width: 500px; display: flex; min-height: 400px; max-height: 800px;">
+    <Halcyon.BT.OverlayView name="OverlayView" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5); visibility: visible; height: auto;">
+        <ui:VisualElement name="ProjectView" style="flex-grow: 0; background-color: rgb(56, 56, 56); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; flex-shrink: 0; width: 500px; display: flex; min-height: 450px; max-height: 450px; height: auto;">
             <ui:Label tabindex="-1" text="Open Behaviour Tree" display-tooltip-when-elided="true" name="Title" style="font-size: 25px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; -unity-font-style: bold; -unity-text-align: upper-left; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" />
-            <ui:VisualElement style="flex-grow: 1; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; background-color: rgb(56, 56, 56);">
-                <ui:ScrollView name="ListViewContainer" style="min-height: 50px;" />
+            <ui:TextField placeholder-text="Enter Tree Name..." name="SearchField" style="margin-top: 1px; margin-right: 5px; margin-bottom: 1px; margin-left: 5px; background-size: 100% 100%; font-size: 12px; -unity-text-align: upper-left;" />
+            <ui:VisualElement style="flex-grow: 1; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; background-color: rgb(56, 56, 56); max-height: 295px;">
+                <ui:ScrollView name="ListViewContainer" style="min-height: 50px; max-height: none;" />
             </ui:VisualElement>
-            <ui:VisualElement style="align-items: flex-start; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">
+            <ui:VisualElement style="align-items: flex-start; margin-left: 10px; margin-right: 10px; margin-top: 1px; margin-bottom: 1px;">
                 <ui:Button text="Create New Tree" display-tooltip-when-elided="true" name="CreateButton" style="align-items: flex-start; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; -unity-text-align: middle-center; width: 150px; min-height: 40px;" />
             </ui:VisualElement>
         </ui:VisualElement>
@@ -50,7 +51,7 @@
         <ui:VisualElement name="Background" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5);" />
         <ui:VisualElement focusable="true" style="flex-grow: 0; background-color: rgb(56, 56, 56); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; flex-shrink: 0; width: 250px; height: 115px;">
             <ui:Label tabindex="-1" text="New Script" display-tooltip-when-elided="true" name="Title" style="font-size: 20px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; -unity-font-style: bold; justify-content: flex-end; -unity-text-align: upper-left;" />
-            <ui:TextField picking-mode="Ignore" value="asd" text="Enter name..." name="FileName" style="font-size: 15px; -unity-text-align: upper-center; align-items: auto; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
+            <ui:TextField picking-mode="Ignore" value="Enter name..." name="FileName" style="font-size: 15px; -unity-text-align: upper-center; align-items: auto; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
             <ui:Button text="OK" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; margin-left: 60px; margin-right: 60px;" />
         </ui:VisualElement>
     </Halcyon.BT.NewScriptDialogView>

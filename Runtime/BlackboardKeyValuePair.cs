@@ -16,6 +16,8 @@ namespace Halcyon.BT {
         [SerializeReference]
         public BlackboardKey value;
 
+        
+        
         public void WriteValue() {
             if (key != null && value != null) {
                 key.CopyFrom(value);

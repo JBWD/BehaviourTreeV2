@@ -3,8 +3,16 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
 using System;
+using System.Linq;
+using Unity.VisualScripting;
 
 namespace Halcyon.BT {
+    
+    /// <summary>
+    /// Overlay that opens in a behaviour tree is not currently selected. A txt file provides the last 10 behaviours opened in order.
+    ///
+    /// Search List contains a list of all behaviours and will adjust the search results according to the name matches.
+    /// </summary>
     [UxmlElement]
     public partial class OverlayView : VisualElement {
         
@@ -14,12 +22,14 @@ namespace Halcyon.BT {
         public Action<BehaviourTree> OnTreeSelected;
 
         Button createButton;
+        TextField searchFilterText;
         VisualElement listViewContainer;
         MultiColumnListView projectListView;
-
+        
         string NameColumn = "Name";
         string PathColumn = "Path";
         List<string> assetPaths;
+        List<string> filteredAssets = new List<string>();
 
         Column CreateColumn(string name) {
             var column = new Column();
@@ -53,17 +63,32 @@ namespace Halcyon.BT {
             return listView;
         }
 
+        public void FilterListView(string filter)
+        {
+            List<string> filterKeys = filter.Split(" ").ToList();
+            filteredAssets = assetPaths.Where(item => filterKeys.Any(key => item.ToLower().Contains(key.ToLower()))).ToList();
+            
+            if (filteredAssets.Count <= 0)
+            {
+                filteredAssets.Add("No Items Found");   
+            };
+            projectListView.viewController.itemsSource = filteredAssets;    
+            projectListView.Rebuild();
+            
+        }
+        
+        
         private void BindName(VisualElement element, int index) {
             Label label = element as Label;
             label.style.unityTextAlign = TextAnchor.MiddleLeft;
-            var fileName = System.IO.Path.GetFileNameWithoutExtension(assetPaths[index]);
+            var fileName = System.IO.Path.GetFileNameWithoutExtension(filteredAssets[index]);
             label.text = fileName;
         }
 
         private void BindPath(VisualElement element, int index) {
             Label label = element as Label;
             label.style.unityTextAlign = TextAnchor.MiddleLeft;
-            label.text = assetPaths[index];
+            label.text = filteredAssets[index];
         }
 
         public void Show() {
@@ -72,16 +97,24 @@ namespace Halcyon.BT {
 
             // Configure fields
             createButton = this.Q<Button>("CreateButton");
+            searchFilterText = this.Q<TextField>("SearchField");
             listViewContainer = this.Q<VisualElement>("ListViewContainer");
 
             // Find all behaviour tree assets
             assetPaths = EditorUtility.GetAssetPaths<BehaviourTree>();
             assetPaths.Sort();
 
+            foreach (string str in assetPaths)
+            {
+                filteredAssets.Add(str);
+            }
+
             // Configure create asset button
             createButton.clicked -= OnCreateAsset;
             createButton.clicked += OnCreateAsset;
 
+            searchFilterText.RegisterValueChangedCallback(evt => FilterListView(searchFilterText.value));
+            
             projectListView = CreateListView();
             listViewContainer.Clear();
             listViewContainer.Add(projectListView);
@@ -107,8 +140,12 @@ namespace Halcyon.BT {
         }
 
         void OnOpenAsset() {
+            
+            
             var path = assetPaths[projectListView.selectedIndex];
-
+            Debug.Log(path);
+            if (path == "No Items Found")
+                return;
             BehaviourTree tree = AssetDatabase.LoadAssetAtPath<BehaviourTree>(path);
             if (tree) {
                 TreeSelected(tree);

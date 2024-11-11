@@ -154,6 +154,8 @@ namespace Halcyon.BT {
             // Overlay view
             overlayView.OnTreeSelected -= SelectTree;
             overlayView.OnTreeSelected += SelectTree;
+            
+            
 
             // New Script Dialog
             newScriptDialog.style.visibility = Visibility.Hidden;

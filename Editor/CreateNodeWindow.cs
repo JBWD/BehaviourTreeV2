@@ -11,6 +11,9 @@ using UnityEditor.Experimental.GraphView;
 
 namespace Halcyon.BT {
 
+    /// <summary>
+    /// Context Menu created by right clicking on the graph view.
+    /// </summary>
     public class CreateNodeWindow : ScriptableObject, ISearchWindowProvider {
 
         Texture2D icon;
@@ -107,15 +110,32 @@ namespace Halcyon.BT {
                 
                 string menuName = "";
                 string nodeTitle = "";
-                string folderpath = "";
+                string menuPath = "";
                 foreach (var attribute in type.GetCustomAttributes(true))
                 {
                     if (attribute is BehaviourTreeNodeAttribute behaviourTreeTagAttribute)
                     {
-                        
+
                         menuName = behaviourTreeTagAttribute.GetMenuName();
                         nodeTitle = behaviourTreeTagAttribute.GetNodeTitle();
-                        folderpath = behaviourTreeTagAttribute.GetMenuPath();
+                        menuPath = behaviourTreeTagAttribute.GetMenuPath();
+                    }
+                }
+                foreach (var attribute in type.GetCustomAttributes(true))
+                {
+                    if (attribute is NodeMenuNameAttribute menuNameAttribute)
+                    {
+                        menuName = menuNameAttribute.GetMenuName();
+                    }
+
+                    if (attribute is NodeTitleAttribute nodeTitleAttribute)
+                    {
+                        nodeTitle = nodeTitleAttribute.GetTitle();
+                    }
+
+                    if (attribute is NodeMenuPathAttribute menuPathAttribute)
+                    {
+                        menuPath = menuPathAttribute.GetMenuPath();
                     }
                 }
 
@@ -129,7 +149,7 @@ namespace Halcyon.BT {
                     menuName = type.Name;
                 }
                 
-                items.Add(new ContextualItem(){contextName = folderpath+"/" + menuName,contextType = type});
+                items.Add(new ContextualItem(){contextName = menuPath+"/" + menuName,contextType = type});
             }
 
             items.Sort((a, b) =>

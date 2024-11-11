@@ -3,7 +3,11 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs/Set", menuName = "Player Prefs: Set Boolean", nodeTitle = "Player Prefs:\nSet Boolean", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeMenuPath("Player Prefs/Set")]
+    [NodeMenuName("Player Prefs: Set Boolean")]
+    [NodeTitle("Player Prefs:\nSet Boolean")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
     [System.Serializable]
     public class PlayerPrefSetBooleanNode : ActionNode
     {

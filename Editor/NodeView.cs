@@ -79,18 +79,44 @@ namespace Halcyon.BT {
             }
         }
 
-        private void SetupClasses() {
-            
+        private void SetupClasses()
+        {
+            string oldColor = "";
+            string oldIcon = "";
             foreach (var attribute in node.GetType().GetCustomAttributes(true))
             {
                 if (attribute is BehaviourTreeNodeAttribute behaviourTreeNodeAttribute)
                 {
                     AddToClassList(behaviourTreeNodeAttribute.nodeColor.ToString());
+                    oldColor = behaviourTreeNodeAttribute.nodeColor.ToString();
                     AddToClassList(behaviourTreeNodeAttribute.nodeIcon.ToString());
+                    oldIcon = behaviourTreeNodeAttribute.nodeIcon.ToString();
                     if(behaviourTreeNodeAttribute.nodeTitle != "")
                         title = behaviourTreeNodeAttribute.nodeTitle;
                 }
             }
+            foreach (var attribute in node.GetType().GetCustomAttributes(true))
+            {
+                if (attribute is NodeTitleAttribute nodeTitleAttribute)
+                {
+                    title = nodeTitleAttribute.GetTitle();
+                }
+
+                if (attribute is NodeColorAttribute nodeColorAttribute)
+                {
+                    if (oldColor != "") 
+                        RemoveFromClassList(oldColor);
+                    AddToClassList(nodeColorAttribute.GetNodeColor());
+                }
+
+                if (attribute is NodeIconAttribute nodeIconAttribute)
+                {
+                    if(oldIcon != "")
+                        RemoveFromClassList(oldIcon);
+                    AddToClassList(nodeIconAttribute.GetNodeIcon());
+                }
+            }
+            
             AddToClassList("hideIcon");
             AddToClassList("hide");
         }

@@ -6,6 +6,8 @@ namespace Halcyon.BT {
     
     
     [System.Serializable]
+    [NodeMenuPath("Behaviour Tree/Flow")]
+    [NodeColor(NodeColors.green)]
     [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.green)]
     public class Breakpoint : ActionNode
     {

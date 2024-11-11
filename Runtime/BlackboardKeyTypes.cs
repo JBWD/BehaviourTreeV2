@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Halcyon.BT.Integrations.Combat;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
