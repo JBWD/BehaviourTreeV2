@@ -137,7 +137,7 @@ namespace Halcyon.BT {
             }
 
             BehaviourTree tree = behaviourTree.Blackboard.serializedObject.targetObject as BehaviourTree;
-            bool keyExists = tree.blackboard.Find(newKeyTextField.text) != null;
+            bool keyExists = tree.blackboard.Find(text) != null;
             return !keyExists;
         }
 
@@ -151,7 +151,7 @@ namespace Halcyon.BT {
 
         void CreateNewKey(string name, Type type)
         {
-            if (ValidateKeyText(name) || type == null)
+            if (!ValidateKeyText(name) || type == null)
                 return;
             behaviourTree.CreateBlackboardKey(name,type);
         }
