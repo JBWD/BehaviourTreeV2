@@ -44,11 +44,12 @@ namespace Halcyon.BT {
     // Note: Subtrees have their own unique copy of the blackboard.
     // 
     [System.Serializable]
-    public class Blackboard {
+    public class Blackboard  {
 
         [SerializeReference]
         public List<BlackboardKey> keys = new List<BlackboardKey>();
-
+        
+        
         // Finds the first key which matches keyName
         public BlackboardKey Find(string keyName) {
             return keys.Find((key) => {

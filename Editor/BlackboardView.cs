@@ -17,7 +17,7 @@ namespace Halcyon.BT {
         private TextField newKeyTextField;
         private PopupField<Type> newKeyTypeField;
         private Button createButton;
-
+        private ObjectField blackboardTemplateField;
         internal void Bind(SerializedBehaviourTree behaviourTree) {
             
             this.behaviourTree = behaviourTree;
@@ -27,6 +27,7 @@ namespace Halcyon.BT {
             VisualElement popupContainer = this.Q<VisualElement>("PopupField_Placeholder");
             
             createButton = this.Q<Button>("Button_KeyCreate");
+            blackboardTemplateField = this.Q<ObjectField>("Blackboard_Template_Field");
 
             // ListView
             listView.Bind(behaviourTree.serializedObject);
@@ -70,7 +71,50 @@ namespace Halcyon.BT {
             createButton.clicked -= CreateNewKey;
             createButton.clicked += CreateNewKey;
 
+            blackboardTemplateField.SetValueWithoutNotify(null);
+            blackboardTemplateField.RegisterValueChangedCallback(evt =>
+            {
+                var template = evt.newValue as BlackboardTemplateSO;
+                AddTemplateInformation(template);
+            });
             ValidateButton();
+        }
+
+        private void AddTemplateInformation(BlackboardTemplateSO template)
+        {
+            if (template == null)
+                return;
+            foreach (var item in template.variables)
+            {
+                CreateNewKey(item.name, GetKeyType(item.type.type));
+            }
+            blackboardTemplateField.SetValueWithoutNotify(null);
+        }
+
+        private Type GetKeyType(string itemType)
+        {
+            Dictionary<string,Type> names = new Dictionary<string, Type>();
+            var types = TypeCache.GetTypesDerivedFrom<BlackboardKey>();
+            
+            for (var index = 0; index < types.Count; index++)
+            {
+                var type = types[index];
+                if (type.IsAbstract)
+                    continue;
+                string stringType = type.ToString();
+                string[] n = stringType.Split('.');
+                stringType = n[n.Length - 1].Replace("Key", "");
+                names.Add(stringType,type);
+                
+            }
+
+            if (names.ContainsKey(itemType))
+            {
+                return names[itemType];
+            }
+
+            return null;
+
         }
 
         private string FormatItem(Type arg) {
@@ -105,11 +149,20 @@ namespace Halcyon.BT {
             ValidateButton();
         }
 
+        void CreateNewKey(string name, Type type)
+        {
+            if (ValidateKeyText(name) || type == null)
+                return;
+            behaviourTree.CreateBlackboardKey(name,type);
+        }
+
         public void ClearView() {
             this.behaviourTree = null;
             if (listView != null) {
                 listView.Unbind();
             }
         }
+
+      
     }
 }

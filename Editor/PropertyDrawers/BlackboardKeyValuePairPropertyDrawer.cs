@@ -22,7 +22,9 @@ namespace Halcyon.BT {
             return null;
         }
 
-        public override VisualElement CreatePropertyGUI(SerializedProperty property) {
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
+        {
+            
             SerializedProperty first = property.FindPropertyRelative(nameof(BlackboardKeyValuePair.key));
             SerializedProperty second = property.FindPropertyRelative(nameof(BlackboardKeyValuePair.value));
             
@@ -85,5 +87,7 @@ namespace Halcyon.BT {
                 return item.name;
             }
         }
+
+
     }
 }

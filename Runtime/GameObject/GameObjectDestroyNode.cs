@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "GameObject/Get", menuName = "GameObject: Destroy", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nDestroy")]
+    [BehaviourTreeNode(menuPath = "GameObject", menuName = "GameObject: Destroy", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nDestroy")]
     [System.Serializable]
     public class GameObjectDestroyNode: ActionNode
     {
@@ -12,11 +13,12 @@ namespace Halcyon.BT
         
         protected override void OnStart()
         {
-            
+         
         }
 
         protected override void OnStop()
         {
+            
         }
 
         protected override State OnUpdate()

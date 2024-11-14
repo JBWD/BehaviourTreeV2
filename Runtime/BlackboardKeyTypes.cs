@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Halcyon.BT {
@@ -152,6 +153,10 @@ namespace Halcyon.BT {
         
     }
 
-    
+    [System.Serializable]
+    public class SceneKey : BlackboardKey<Scene>
+    {
+        
+    }
     
 }
