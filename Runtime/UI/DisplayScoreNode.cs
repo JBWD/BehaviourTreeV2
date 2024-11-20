@@ -1,30 +1,29 @@
 ﻿using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Halcyon.BT
 {
     [NodeColor(NodeColors.green),
      NodeIcon(NodeIcons.dialog),
-     NodeTitle("Text Mesh Pro:\n Update Text"),
-     NodeMenuName("TMP: Update Text"),
+     NodeTitle("TMP:\n Update Score Text"),
+     NodeMenuName("TMP: Update Score Text"),
      NodeMenuPath("UI/Text Mesh Pro")]
     [System.Serializable]
-    public class UpdateUITextNode: ActionNode
+    public class DisplayScoreNode: ActionNode
     {
         
         [Header("Note: Needs to be overriden value in instance.")]
         [BlackboardValueOnly]
         public NodeProperty<TextMeshProUGUI> textContainer;
         public NodeProperty<string> text;
+        public bool scoreIsPrefix = false;
+        public NumericProperty score;
         protected override void OnStart()
         {
-            
         }
 
         protected override void OnStop()
         {
-            
         }
 
         protected override State OnUpdate()
@@ -41,7 +40,14 @@ namespace Halcyon.BT
             }
             else
             {
-                textContainer.Value.text = text.Value;
+                if (scoreIsPrefix)
+                {
+                    textContainer.Value.text =  score.IntegerValue + text.Value;
+                }
+                else
+                {
+                    textContainer.Value.text = text.Value + score.IntegerValue;
+                }
                 state = State.Success;
             }
 

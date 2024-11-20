@@ -1,5 +1,6 @@
 ﻿using System;
 using Unity.Properties;
+using UnityEngine;
 
 namespace Halcyon.BT
 {
@@ -8,13 +9,19 @@ namespace Halcyon.BT
     public class FloatAddFloatNode : ActionNode
     {
         
+        /*
         public NodeProperty<float> baseValue;
         public NodeProperty<float> addValue;
         [BlackboardValueOnly]
-        public NodeProperty<float> saveValue;
-
+        public NodeProperty<float> saveValue;*/
 
         
+        [Space]
+        public NumericProperty baseNumericValue;
+        public NumericProperty addNumericValue;
+        public NumericProperty saveNumericValue;
+        
+
         protected override void OnStart()
         {
             
@@ -27,7 +34,8 @@ namespace Halcyon.BT
 
         protected override State OnUpdate()
         {
-            saveValue.Value = baseValue.Value + addValue.Value;
+            saveNumericValue.SetValue(baseNumericValue.FloatValue + addNumericValue.FloatValue);
+            //saveValue.Value = baseValue.Value + addValue.Value;
             state = State.Success;
             return state;
         }
@@ -37,11 +45,11 @@ namespace Halcyon.BT
             errored = false;
             try
             {
-                if (saveValue.reference != null)
+                if (saveNumericValue.Reference() != null)
                 {
                     
                     description =
-                        $"Adds '{baseValue.Value}' + '{addValue.Value}' and saves the total in '{saveValue.reference.name}'";
+                        $"Adds '{baseNumericValue.FloatValue}' + '{addNumericValue.FloatValue}' and saves the total in '{saveNumericValue.Reference().name}'";
                 }
                 else
                 {

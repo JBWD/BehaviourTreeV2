@@ -23,6 +23,7 @@ namespace Halcyon.BT {
         protected override void UnregisterCallbacksFromTarget() {
             target.UnregisterCallback<MouseDownEvent>(OnMouseDown);
         }
+        
 
         private void OnMouseDown(MouseDownEvent evt) {
             if (!CanStopManipulation(evt))

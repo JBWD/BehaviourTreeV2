@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEditor.UIElements;
-using System.Runtime.Remoting.Messaging;
 using Codice.CM.Common;
 using Unity.VisualScripting;
 
@@ -31,13 +30,10 @@ namespace Halcyon.BT {
                 if (attribute is BlackboardValueOnlyAttribute)
                 {
                     isReferenceOnly = true;
-                    
                 }
-                
             }
-
             //Modifying Blackboard only tooltips
-            if (isReferenceOnly)
+            if (isReferenceOnly )
             {
                 if (tooltip.Length <= 0)
                 {
@@ -120,7 +116,6 @@ namespace Halcyon.BT {
             container.Add(label);
             container.Add(defaultValueField);
             container.Add(dropdown);;
-            
             
             return container;
         }

@@ -12,8 +12,9 @@ namespace Halcyon.BT {
     public class NodeProperty<T> : NodeProperty {
 
         public T defaultValue = default(T);
+        [SerializeReference]
         private BlackboardKey<T> _typedKey = null;
-
+        
         private BlackboardKey<T> typedKey {
             get {
                 if (_typedKey == null && reference != null) {

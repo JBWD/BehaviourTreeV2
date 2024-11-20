@@ -1,7 +1,11 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Integer Change",
-        nodeTitle = "Event Activator:\nOn Integer Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
+    
+    [NodeColor(NodeColors.grey)]
+    [NodeIcon(NodeIcons.trigger)]
+    [NodeTitle("Event Activator:\nOn Integer Change")]
+    [NodeMenuPath("Triggers & Events/Global Events/Activator")]
+    [NodeMenuName("Event Activator: On Integer Change")]
     [System.Serializable]
     public class GE_OnIntegerValueChangeActivatorNode : ActionNode
     {

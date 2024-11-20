@@ -1,14 +1,17 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Listener", menuName = "Event Listener: On Integer Change",nodeTitle  = "Event Listener:\nOn Integer Change", 
-        nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]
+   
+    [NodeIcon(NodeIcons.trigger)]
+    [NodeColor(NodeColors.white)]
+    [NodeMenuName("Event Listener: On Integer Change")]
+    [NodeTitle( "Event Listener:\nOn Integer Change")]
+    [NodeMenuPath("Triggers & Events/Global Events/Listener")]
     [System.Serializable]
     public class GE_OnIntegerValueChangeListenerNode : TriggerNode
     {
         public override void OnInit()
         {
             base.OnInit();
-
             GlobalEvents.OnIntegerValueChange += OnValueChange;
         }
 
@@ -17,19 +20,16 @@
             GlobalEvents.OnIntegerValueChange -= OnValueChange;
         }
 
-
         public NodeProperty<string> activationName;
 
         public NodeProperty<int> saveIntegerValue;
-        
-        
-        
-        public void OnValueChange(string activationName, int activationValue)
+
+        public void OnValueChange(string activationN, int activationValue)
         {
             
-            if (this.activationName.Value == activationName && saveIntegerValue.Value  == activationValue)
-            {
-                
+            if (this.activationName.Value == activationN){
+                if(saveIntegerValue != null)
+                    saveIntegerValue.Value = activationValue;
                 OnUpdate();
             }
 

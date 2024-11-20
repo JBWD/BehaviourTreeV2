@@ -1,7 +1,11 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Variable",menuName = "Variable: Set Integer", nodeTitle = "Variables:\nSet Integer",
-        nodeIcon = NodeIcons.save, nodeColor = NodeColors.pink)]
+    
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.save)]
+    [NodeTitle("Variable:\nSet Integer")]
+    [NodeMenuPath("Variable/Set")]
+    [NodeMenuName("Variable: Set Integer")]
     [System.Serializable]
     public class SetIntegerNode : ActionNode
     {

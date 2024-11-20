@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Halcyon.BT.Integrations.Pathlist;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -158,5 +159,8 @@ namespace Halcyon.BT {
     {
         
     }
-    
+
+    public class PathListKey : BlackboardKey<PathListProperty>
+    {
+    }
 }

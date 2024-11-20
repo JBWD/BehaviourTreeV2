@@ -329,7 +329,6 @@ namespace Halcyon.BT {
                 view.UpdateState();
             });
         }
-
         
         public void SelectNode(NodeView nodeView) {
             ClearSelection();
@@ -337,7 +336,6 @@ namespace Halcyon.BT {
                 AddToSelection(nodeView);
             }
         }
-
         
         public void UpdateEditorNodeSelectors(bool descVisibility, bool iconVisibility)
         {
@@ -351,8 +349,6 @@ namespace Halcyon.BT {
                 nodeView.UpdateDescriptionVisibility(descVisibility);
                 nodeView.UpdateIconVisibility(iconVisibility);
             }
-            
-            
         }
         
     }

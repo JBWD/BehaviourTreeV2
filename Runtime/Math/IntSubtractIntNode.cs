@@ -1,6 +1,9 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Math/Integer", menuName = "Integer: Subtract Integer", nodeTitle = "Integer Math:\nSubtract Integer", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
+    [NodeIcon(NodeIcons.math)]
+    [NodeTitle("Integer Math:\nSubtract Integer")]
+    [NodeMenuPath("Math/Integer")]
+    [NodeMenuName("Integer: Subtract Integer")]
     [System.Serializable]
     public class IntSubtractIntNode : ActionNode
     {

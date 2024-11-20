@@ -83,6 +83,8 @@ namespace Halcyon.BT {
             }
         }
 
+     
+
         private void OnDisable()
         {
             if (runtimeTree == null)
@@ -101,8 +103,8 @@ namespace Halcyon.BT {
                 if (targetKey != null && sourceKey != null) {
                     targetKey.CopyFrom(sourceKey);
                 }
-                
             }
+            
         }
 
         // Update is called once per frame

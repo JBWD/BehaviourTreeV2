@@ -17,11 +17,23 @@ MonoBehaviour:
     rid: 794795486275436618
   nodes:
   - rid: 794795486275436618
+  - rid: 794795486275436619
+  - rid: 794795486275436622
+  - rid: 794795513687048448
+  - rid: 794795621881479228
+  - rid: 794795621881479231
+  - rid: 794795621881479236
+  - rid: 794795621881479238
   treeState: 0
   blackboard:
-    keys: []
-  viewPosition: {x: 600, y: 300, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+    keys:
+    - rid: 794795513687048449
+    - rid: 794795486275436621
+    - rid: 794795513687048253
+    - rid: 794795621881479229
+    - rid: 794795621881479230
+  viewPosition: {x: 596, y: 416, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -33,7 +45,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 43a073cc-5f04-4d04-ad94-d5a4aa3d6aa6
-        position: {x: 0, y: 0}
+        position: {x: 510, y: -270}
         blackboard:
           keys: []
         description: 
@@ -42,3 +54,225 @@ MonoBehaviour:
         conditionState: 0
         child:
           rid: -2
+    - rid: 794795486275436619
+      type: {class: GE_OnIntegerValueChangeListenerNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 18f32d27e70e8e249bb501d9255d2592
+        position: {x: -240, y: -255}
+        blackboard:
+          keys: []
+        description: 'Listens to the Integer Value Change Global Event to be called
+          with the activation name: Coin Picked Up.'
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 794795486275436622
+        activationName:
+          reference:
+            rid: -2
+          defaultValue: Coin Picked Up
+          _typedKey:
+            rid: -2
+        saveIntegerValue:
+          reference:
+            rid: 794795513687048253
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 794795486275436621
+      type: {class: TextMeshProUGUIKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: CoinText
+        typeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 794795486275436622
+      type: {class: Parallel, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 96a786e9f8da98a419ea52f31bf371d3
+        position: {x: -225, y: -15}
+        blackboard:
+          keys: []
+        description: Runs all children whether they are successful, failed, or are
+          running.
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 794795621881479231
+        - rid: 794795621881479228
+    - rid: 794795513687048253
+      type: {class: IntKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: UpdateValue
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 794795513687048254
+      type: {class: FloatKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: CurrentValue
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 794795513687048448
+      type: {class: OnButtonClickNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: f5828312032995e46af3f4367db95ce2
+        position: {x: -810, y: -255}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 794795621881479236
+        buttonValue:
+          reference:
+            rid: 794795513687048449
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+    - rid: 794795513687048449
+      type: {class: ButtonKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: TestButton
+        typeName: UnityEngine.UI.Button, UnityEngine.UI, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 794795621881479228
+      type: {class: DisplayScoreNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 7759f1ebac9f7e040a8fdb0994c7255a
+        position: {x: -150, y: 195}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        textContainer:
+          reference:
+            rid: 794795486275436621
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        text:
+          reference:
+            rid: 794795621881479230
+          defaultValue: 'Coins: '
+          _typedKey:
+            rid: -2
+        scoreIsPrefix: 1
+        score:
+          parameterType: 0
+          integerValue:
+            reference:
+              rid: 794795621881479229
+            defaultValue: 0
+            _typedKey:
+              rid: -2
+          floatValue:
+            reference:
+              rid: 794795513687048254
+            defaultValue: 0
+            _typedKey:
+              rid: -2
+          doubleValue:
+            reference:
+              rid: -2
+            defaultValue: 0
+            _typedKey:
+              rid: -2
+    - rid: 794795621881479229
+      type: {class: IntKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: CurrentCoins
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 794795621881479230
+      type: {class: StringKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: ScoreText
+        typeName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: ' Coins'
+    - rid: 794795621881479231
+      type: {class: IntAddIntNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 108345ec895fb6045a2c7e7e1836e516
+        position: {x: -345, y: 195}
+        blackboard:
+          keys: []
+        description: Adds '0' + '0' and saves the total in 'CurrentCoins'
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        baseValue:
+          reference:
+            rid: 794795513687048253
+          defaultValue: 0
+          _typedKey:
+            rid: 794795513687048253
+        addValue:
+          reference:
+            rid: 794795621881479229
+          defaultValue: 0
+          _typedKey:
+            rid: 794795621881479229
+        saveValue:
+          reference:
+            rid: 794795621881479229
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 794795621881479236
+      type: {class: GE_OnIntegerValueChangeActivatorNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 894757148238cae479098f493af24e42
+        position: {x: -825, y: -30}
+        blackboard:
+          keys: []
+        description: 'Activates a value change event for Coin Picked Up and sends
+          the value: 3'
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        activationName:
+          reference:
+            rid: -2
+          defaultValue: Coin Picked Up
+          _typedKey:
+            rid: -2
+        activationValue:
+          reference:
+            rid: -2
+          defaultValue: 3
+          _typedKey:
+            rid: -2
+    - rid: 794795621881479238
+      type: {class: OnStartNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 967ad11e02defbb408f11efa3fa6ea40
+        position: {x: 0, y: -30}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 794795621881479228
