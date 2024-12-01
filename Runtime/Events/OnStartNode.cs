@@ -1,7 +1,9 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events", menuName = "On Start Node",
-        nodeTitle = "Start Node", nodeColor = NodeColors.red, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Triggers/Unity")]
+    [NodeTitle("Unity:\nOn Start")]
+    [NodeMenuName("Unity: On Start")] 
+    [NodeColor(NodeColors.red)]
     public class OnStartNode : TriggerNode
     {
         public override void OnInit()

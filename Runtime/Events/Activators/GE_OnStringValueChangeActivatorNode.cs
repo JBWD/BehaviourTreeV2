@@ -1,7 +1,9 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On String Change",
-        nodeTitle = "Event Activator:\nOn String Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Events/Activator")]
+    [NodeTitle("Activator:\nString Event")]
+    [NodeMenuName("Activator: String Event")] 
+    [NodeColor(NodeColors.grey)]
     [System.Serializable]
     public class GE_OnStringValueChangeActivatorNode : ActionNode
     {

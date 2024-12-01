@@ -1,11 +1,10 @@
 ﻿namespace Halcyon.BT
 {
    
-    [NodeIcon(NodeIcons.trigger)]
+    [NodeMenuPath("Events/Listener")]
+    [NodeTitle("Listener:\nInteger Event")]
+    [NodeMenuName("Listener: Integer Event")] 
     [NodeColor(NodeColors.white)]
-    [NodeMenuName("Event Listener: On Integer Change")]
-    [NodeTitle( "Event Listener:\nOn Integer Change")]
-    [NodeMenuPath("Triggers & Events/Global Events/Listener")]
     [System.Serializable]
     public class GE_OnIntegerValueChangeListenerNode : TriggerNode
     {

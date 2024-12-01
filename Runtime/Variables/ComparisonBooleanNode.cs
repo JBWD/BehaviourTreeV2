@@ -40,7 +40,6 @@
         public override void UpdateDescription()
         {
             errored = false;
-
             description = "Checks to see if the boolean values are equal to each other.";
 
         }

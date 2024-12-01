@@ -3,29 +3,51 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Input", menuName = "Input: On Movement Input", nodeTitle = "Input:\nOn Movement Input",
-        nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
+    [NodeMenuPath("Triggers/Input")]
+    [NodeTitle("Input:\nOn Movement Input")]
+    [NodeMenuName("Input: On Movement Input")] 
     [System.Serializable]
     public class OnMovementInputNode : TriggerNode
     {
         public MovementInputType inputType;
         [BlackboardValueOnly] public NodeProperty<Vector2> vector2Value;
+        public enum V3SaveMode
+        {
+            XY,
+            XZ,
+            YZ,
+        }
 
+        public V3SaveMode v3SaveMode = V3SaveMode.XZ;
+        [BlackboardValueOnly] public NodeProperty<Vector3> vector3Value;
+
+
+        private Vector2 _inputSystemValue;
         public override void OnInit()
         {
             context.BehaviourTreeRunner.OnInputKey += OnInput;
+            context.BehaviourTreeRunner.OnMovementInputAction += OnMovement;
         }
-
+        
         public override void OnDisable()
         {
             context.BehaviourTreeRunner.OnInputKey -= OnInput;
+            context.BehaviourTreeRunner.OnMovementInputAction -= OnMovement;
         }
 
+        public void OnMovement(Vector2 direction)
+        {
+            _inputSystemValue = direction;
+            OnUpdate();
+        }
+
+     
         public enum MovementInputType
         {
             WASD,
             Arrows,
             Joystick,
+            InputSystem,
         }
 
         public void OnInput()
@@ -38,6 +60,20 @@ namespace Halcyon.BT
         {
 
             vector2Value.Value = GetInputValue().normalized;
+            switch (v3SaveMode)
+            {
+                case V3SaveMode.XY:
+                    vector3Value.Value = vector2Value.Value;
+                    break;
+                case V3SaveMode.XZ:
+                    vector3Value.Value = new Vector3(vector2Value.Value.x, 0,vector2Value.Value.y);
+                    break;
+                case V3SaveMode.YZ:
+                    vector3Value.Value = new Vector3(0,vector2Value.Value.x,vector2Value.Value.y);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
             return child.Update();;
         }
 
@@ -51,6 +87,8 @@ namespace Halcyon.BT
                     return GetArrowInput();
                 case MovementInputType.Joystick:
                     return GetJoyStickInput();
+                case MovementInputType.InputSystem:
+                    return _inputSystemValue;
             }
             return Vector2.zero;
         }

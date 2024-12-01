@@ -1,7 +1,9 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Base Event",
-        nodeTitle = "Event Activator:\nOn Base Event", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Events/Activator")]
+    [NodeTitle("Activator:\nBase Event")]
+    [NodeMenuName("Activator: Base Event")] 
+    [NodeColor(NodeColors.grey)]
     [System.Serializable]
     public class GE_OnBaseActivatorNode : ActionNode
     {

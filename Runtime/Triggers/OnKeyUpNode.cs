@@ -2,7 +2,9 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Input", menuName = "Input: On Key Up", nodeTitle = "Input:\nOn Key Up", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
+    [NodeMenuPath("Triggers/Input")]
+    [NodeTitle("Input:\nOn Key Up")]
+    [NodeMenuName("Input: On Key Up")] 
     [System.Serializable]
     public class OnKeyUpNode : TriggerNode
     {

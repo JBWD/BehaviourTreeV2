@@ -10,8 +10,9 @@ using UnityEditor.Callbacks;
 
 namespace Halcyon.BT {
 
-    public class BehaviourTreeEditorWindow : EditorWindow {
-
+    public class BehaviourTreeEditorWindow : EditorWindow
+    {
+        
         [System.Serializable]
         public class PendingScriptCreate {
             public bool pendingCreate = false;
@@ -71,6 +72,7 @@ namespace Halcyon.BT {
             BehaviourTreeEditorWindow wnd = GetWindow<BehaviourTreeEditorWindow>();
             wnd.titleContent = new GUIContent("BehaviourTreeEditor");
             wnd.minSize = new Vector2(800, 600);
+            
         }
 
         public static void OpenWindow(BehaviourTree tree) {
@@ -130,13 +132,19 @@ namespace Halcyon.BT {
                 toolbarMenu.menu.MenuItems().Clear();
                 var behaviourTrees = EditorUtility.GetAssetPaths<BehaviourTree>();
                 
-                //Probably Remove this as it just creates bloat or create a file that keeps track of the past 10 files opened.
+                /*//Probably Remove this as it just creates bloat or create a file that keeps track of the past 10 files opened.
                 behaviourTrees.ForEach(path => {
                     var fileName = System.IO.Path.GetFileName(path);
                     toolbarMenu.menu.AppendAction($"{fileName}", (a) => {
                         var tree = AssetDatabase.LoadAssetAtPath<BehaviourTree>(path);
                         SelectNewTree(tree);
                     });
+                });*/
+                toolbarMenu.menu.AppendAction("Open Existing Tree",(a)=>
+                {
+                    ClearBreadcrumbs();
+                    ClearSelection();
+                    ShowOverlay();
                 });
                 toolbarMenu.menu.AppendSeparator();
                 toolbarMenu.menu.AppendAction("New Tree...", (a) => OnToolbarNewAsset());
@@ -379,6 +387,16 @@ namespace Halcyon.BT {
 
         public void ClearBreadcrumbs() {
             PopToSubtree(0, null);
+        }
+
+        public void ShowOverlay()
+        {
+            overlayView?.Show();
+        }
+
+        public void HideOverlay()
+        {
+            overlayView?.Hide();
         }
     }
 }

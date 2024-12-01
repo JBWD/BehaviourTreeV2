@@ -2,7 +2,9 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/3D", nodeTitle = "On Trigger Exit", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Triggers/Physics")]
+    [NodeTitle("On Trigger Exit")]
+    [NodeMenuName("Physics: On Trigger Exit")] 
     [System.Serializable]
     public class OnTriggerExitNode: TriggerNode
     {

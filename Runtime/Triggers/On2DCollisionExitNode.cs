@@ -2,7 +2,9 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/2D", nodeTitle = "On 2D Collision Exit", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Triggers/Physics")]
+    [NodeTitle("On 2D Collision Exit")]
+    [NodeMenuName("Physics: On 2D Collision Exit")]
     [System.Serializable]
     public class On2DCollisionExitNode : TriggerNode
     {

@@ -93,7 +93,8 @@ namespace Halcyon.BT {
 
         public void Show() {
             // Hidden in UIBuilder while editing..
-            style.visibility = Visibility.Visible;
+            style.visibility= Visibility.Visible;
+            
 
             // Configure fields
             createButton = this.Q<Button>("CreateButton");
@@ -140,10 +141,8 @@ namespace Halcyon.BT {
         }
 
         void OnOpenAsset() {
-            
-            
-            var path = assetPaths[projectListView.selectedIndex];
-            Debug.Log(path);
+            var path = filteredAssets[projectListView.selectedIndex];
+            //Debug.Log(path + " : " + projectListView.selectedIndex);
             if (path == "No Items Found")
                 return;
             BehaviourTree tree = AssetDatabase.LoadAssetAtPath<BehaviourTree>(path);

@@ -4,7 +4,9 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/3D", nodeTitle = "On Trigger Enter", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Triggers/Physics")]
+    [NodeTitle("On Trigger Enter")]
+    [NodeMenuName("Physics: On Trigger Enter")] 
     [Serializable]
     public class OnTriggerEnterNode : TriggerNode
     {

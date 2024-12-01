@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Halcyon.BT {
 
@@ -64,8 +66,11 @@ namespace Halcyon.BT {
         public Action OnMouseUpCollider;
         public Action OnMouseDownCollider;
         public Action OnMouseButtonCollider;
-        
-        
+
+        public Action OnDisableEvent;
+        public Action OnEnableEvent;
+
+        public Action<Vector2> OnMovementInputAction;
         
         // Start is called before the first frame update
         void OnEnable() {
@@ -81,6 +86,7 @@ namespace Halcyon.BT {
             } else {
                 runtimeTree = null;
             }
+            OnEnableEvent?.Invoke();
         }
 
      
@@ -93,6 +99,7 @@ namespace Halcyon.BT {
             {
                 node.OnDisable();
             }
+            OnDisableEvent?.Invoke();
         }
 
         void ApplyBlackboardOverrides() {
@@ -227,7 +234,8 @@ namespace Halcyon.BT {
 
         private void OnDestroy()
         {
-            runtimeTree.hasBeenDestroyed = true;
+            if(runtimeTree!= null)
+                runtimeTree.hasBeenDestroyed = true;
         }
 
         #region Triggers Calling
@@ -327,6 +335,11 @@ namespace Halcyon.BT {
             On2DCollisionStay?.Invoke(col);
         }
 
+        public void OnMovement(InputValue value)
+        {
+            OnMovementInputAction?.Invoke(value.Get<Vector2>());
+        }
+        
         #endregion
     }
 }

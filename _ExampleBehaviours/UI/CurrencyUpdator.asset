@@ -24,6 +24,7 @@ MonoBehaviour:
   - rid: 794795621881479231
   - rid: 794795621881479236
   - rid: 794795621881479238
+  - rid: 2229934950381256774
   treeState: 0
   blackboard:
     keys:
@@ -32,8 +33,8 @@ MonoBehaviour:
     - rid: 794795513687048253
     - rid: 794795621881479229
     - rid: 794795621881479230
-  viewPosition: {x: 596, y: 416, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: 803, y: 420, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -64,7 +65,7 @@ MonoBehaviour:
         blackboard:
           keys: []
         description: 'Listens to the Integer Value Change Global Event to be called
-          with the activation name: Coin Picked Up.'
+          with the activation name: CoinPickedUp.'
         drawGizmos: 0
         errored: 0
         conditionState: 0
@@ -73,7 +74,7 @@ MonoBehaviour:
         activationName:
           reference:
             rid: -2
-          defaultValue: Coin Picked Up
+          defaultValue: CoinPickedUp
           _typedKey:
             rid: -2
         saveIntegerValue:
@@ -171,7 +172,7 @@ MonoBehaviour:
           defaultValue: 'Coins: '
           _typedKey:
             rid: -2
-        scoreIsPrefix: 1
+        scoreIsPrefix: 0
         score:
           parameterType: 0
           integerValue:
@@ -241,18 +242,18 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 894757148238cae479098f493af24e42
-        position: {x: -825, y: -30}
+        position: {x: -810, y: -60}
         blackboard:
           keys: []
-        description: 'Activates a value change event for Coin Picked Up and sends
-          the value: 3'
+        description: 'Activates a value change event for CoinPickedUp and sends the
+          value: 3'
         drawGizmos: 0
         errored: 0
         conditionState: 0
         activationName:
           reference:
             rid: -2
-          defaultValue: Coin Picked Up
+          defaultValue: CoinPickedUp
           _typedKey:
             rid: -2
         activationValue:
@@ -276,3 +277,19 @@ MonoBehaviour:
         conditionState: 0
         child:
           rid: 794795621881479228
+    - rid: 2229934950381256774
+      type: {class: OnMouseButtonNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: f70f620821b493c40a43b7bb80addbdb
+        position: {x: -486.0165, y: -520.2158}
+        blackboard:
+          keys: []
+        description: When the GameObject is click down and up, all children nodes
+          are invoked, this does not repeat like the main loop.
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: -2

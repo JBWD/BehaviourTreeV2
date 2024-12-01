@@ -1,0 +1,310 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: InputSystem_Character
+  m_EditorClassIdentifier: 
+  hasBeenDestroyed: 0
+  rootNode:
+    rid: 2229934950381256964
+  nodes:
+  - rid: 2229934950381256964
+  - rid: 2229934950381256968
+  - rid: 2229934950381256973
+  - rid: 2229934950381256974
+  - rid: 2229934950381256976
+  - rid: 2229934950381256977
+  - rid: 2229934950381256978
+  - rid: 2229934950381256979
+  - rid: 2229934950381256980
+  - rid: 2229934950381256982
+  treeState: 0
+  blackboard:
+    keys:
+    - rid: 2229934950381256966
+    - rid: 2229934950381256969
+    - rid: 2229934950381256975
+  viewPosition: {x: 1155, y: 47, z: 0}
+  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2229934950381256964
+      type: {class: RootNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 7c22d122-7caa-4a2d-8bde-e724905182af
+        position: {x: 90, y: 0}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 2229934950381256978
+    - rid: 2229934950381256966
+      type: {class: Vector3Key, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: MovementInput
+        typeName: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0, z: 0}
+    - rid: 2229934950381256968
+      type: {class: TransformFaceMovementDirectionNode, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 10c8ce9b89d56b148878c239f5c2063f
+        position: {x: -135, y: 375}
+        blackboard:
+          keys: []
+        description: Rotates the transform to match the input direction provided.
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        self: 0
+        model:
+          reference:
+            rid: 2229934950381256969
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        movementDirection:
+          reference:
+            rid: 2229934950381256966
+          defaultValue: {x: 0, y: 0, z: 0}
+          _typedKey:
+            rid: -2
+        rotationSpeed:
+          reference:
+            rid: -2
+          defaultValue:
+            parameterType: 1
+            integerValue:
+              reference:
+                rid: -2
+              defaultValue: 0
+              _typedKey:
+                rid: -2
+            floatValue:
+              reference:
+                rid: -2
+              defaultValue: 10
+              _typedKey:
+                rid: -2
+            doubleValue:
+              reference:
+                rid: -2
+              defaultValue: 0
+              _typedKey:
+                rid: -2
+          _typedKey:
+            rid: -2
+    - rid: 2229934950381256969
+      type: {class: TransformKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: Model
+        typeName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 2229934950381256973
+      type: {class: Vector3MagnitudeNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 789591818139cae4796449ce36c31d96
+        position: {x: -1305, y: 390}
+        blackboard:
+          keys: []
+        description: Retrieves the magnitude of '(0.00, 0.00, 0.00)' and saves the
+          total in 'MovementMagnitude'
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        baseValue:
+          reference:
+            rid: 2229934950381256966
+          defaultValue: {x: 0, y: 0, z: 0}
+          _typedKey:
+            rid: 2229934950381256966
+        saveValue:
+          reference:
+            rid: 2229934950381256975
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 2229934950381256974
+      type: {class: Parallel, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 8dce8c60bc7515047b611395b19f5a77
+        position: {x: -1155, y: 165}
+        blackboard:
+          keys: []
+        description: Runs all children whether they are successful, failed, or are
+          running.
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 2229934950381256973
+        - rid: 2229934950381256976
+        - rid: 2229934950381256980
+    - rid: 2229934950381256975
+      type: {class: FloatKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: MovementMagnitude
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 2229934950381256976
+      type: {class: ComparisonFloatNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: da8f319440aca8f4ab8755c949119cf3
+        position: {x: -1155, y: 390}
+        blackboard:
+          keys: []
+        description: Checks if [FirstValue] is greater than [SecondValue].
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 2229934950381256977
+        operation: 1
+        firstValue:
+          reference:
+            rid: 2229934950381256975
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+        secondValue:
+          reference:
+            rid: -2
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 2229934950381256977
+      type: {class: AnimatorSetAnimationParameterNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 9f66ebf79d5745741a3c274093401c48
+        position: {x: -1155, y: 585}
+        blackboard:
+          keys: []
+        description: Setting boolean parameter  to 'True'
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        animationProperty:
+          parameterType: 0
+          animationName: IsMoving
+          floatParameter: 0
+          integerParameter: 0
+          booleanParameter: 1
+    - rid: 2229934950381256978
+      type: {class: Parallel, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 90085710914f0fb4cb91a33256d52904
+        position: {x: 90, y: 165}
+        blackboard:
+          keys: []
+        description: Runs all children whether they are successful, failed, or are
+          running.
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 2229934950381256968
+    - rid: 2229934950381256979
+      type: {class: AnimatorSetAnimationParameterNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 0499a6fb589602642aba8957a949248a
+        position: {x: -1005, y: 585}
+        blackboard:
+          keys: []
+        description: Setting boolean parameter  to 'False'
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        animationProperty:
+          parameterType: 0
+          animationName: IsMoving
+          floatParameter: 0
+          integerParameter: 0
+          booleanParameter: 0
+    - rid: 2229934950381256980
+      type: {class: ComparisonFloatNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 562805d2376ca774c89b31ebfc430d5d
+        position: {x: -1005, y: 390}
+        blackboard:
+          keys: []
+        description: Checks if [FirstValue] is equal to [SecondValue].
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 2229934950381256979
+        operation: 2
+        firstValue:
+          reference:
+            rid: 2229934950381256975
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+        secondValue:
+          reference:
+            rid: -2
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 2229934950381256982
+      type: {class: OnMovementInputNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: bc9d1514e3cca3a44a2be5520982d1e9
+        position: {x: -1170, y: -45}
+        blackboard:
+          keys: []
+        description: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 2229934950381256974
+        inputType: 0
+        vector2Value:
+          reference:
+            rid: -2
+          defaultValue: {x: 0, y: 0}
+          _typedKey:
+            rid: -2
+        v3SaveMode: 1
+        vector3Value:
+          reference:
+            rid: 2229934950381256966
+          defaultValue: {x: 0, y: 0, z: 0}
+          _typedKey:
+            rid: -2

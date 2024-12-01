@@ -135,6 +135,11 @@ namespace Halcyon.BT {
         }
 
         void OnViewTransformChanged(GraphView graphView) {
+            if (serializer == null)
+            {
+                BehaviourTreeEditorWindow.Instance.ShowOverlay();
+                return;
+            }
             Vector3 position = contentViewContainer.transform.position;
             Vector3 scale = contentViewContainer.transform.scale;
             serializer.SetViewTransform(position, scale);
@@ -243,12 +248,21 @@ namespace Halcyon.BT {
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt) {
             //base.BuildContextualMenu(evt); // Disable default cut/copy/paste context menu options.. who uses those anyway?
-
+            if (serializer == null)
+            {
+                BehaviourTreeEditorWindow.Instance.ShowOverlay();
+                return;
+            }
             CreateNodeWindow.Show(evt.mousePosition, null);
         }
 
         public NodeView CreateNode(System.Type type, Vector2 position, NodeView parentView) {
 
+            if (serializer == null)
+            {
+                BehaviourTreeEditorWindow.Instance.ShowOverlay();
+                return null;
+            }
             serializer.BeginBatch();
 
             // Update model

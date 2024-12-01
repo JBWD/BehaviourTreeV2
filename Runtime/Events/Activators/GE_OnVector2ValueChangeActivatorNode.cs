@@ -2,8 +2,10 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Vector2 Change",
-        nodeTitle = "Event Activator:\nOn Vector2 Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Events/Activator")]
+    [NodeTitle("Activator:\nVector2 Event")]
+    [NodeMenuName("Activator: Vector2 Event")] 
+    [NodeColor(NodeColors.grey)]
     [System.Serializable]
     public class GE_OnVector2ValueChangeActivatorNode : ActionNode
     {

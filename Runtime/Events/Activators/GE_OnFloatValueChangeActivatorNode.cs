@@ -4,8 +4,10 @@ namespace Halcyon.BT
 {
 
 
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Activator", menuName = "Event Activator: On Float Change",
-        nodeTitle = "Event Activator:\nOn Float Change", nodeColor = NodeColors.grey, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Events/Activator")]
+    [NodeTitle("Activator:\nFloat Event")]
+    [NodeMenuName("Activator: Float Event")] 
+    [NodeColor(NodeColors.grey)]
     [Serializable]
     public class GE_OnFloatValueChangeActivatorNode : ActionNode
     {

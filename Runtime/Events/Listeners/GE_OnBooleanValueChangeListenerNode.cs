@@ -1,7 +1,9 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Listener", menuName = "Event Listener: On Boolean Change",nodeTitle  = "Event Listener:\nOn Boolean Change", 
-        nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Events/Listener")]
+    [NodeTitle("Listener:\nBoolean Event")]
+    [NodeMenuName("Listener: Boolean Event")] 
+    [NodeColor(NodeColors.white)]
     [System.Serializable]
     public class GE_OnBooleanValueChangeListenerNode : TriggerNode
     {

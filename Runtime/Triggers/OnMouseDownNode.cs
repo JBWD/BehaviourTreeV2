@@ -1,6 +1,8 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Mouse", nodeTitle = "On Mouse Down", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Triggers/Mouse")]
+    [NodeTitle("Mouse:\nOn Mouse Button Down")]
+    [NodeMenuName("Mouse: On Mouse Button Down")] 
     [System.Serializable]
     public class OnMouseDownNode : TriggerNode
     {

@@ -2,7 +2,9 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Mouse", nodeTitle = "On Mouse Exit", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Triggers/Mouse")]
+    [NodeTitle("Mouse:\nOn Mouse Exit")]
+    [NodeMenuName("Mouse: On Mouse Exit")] 
     [System.Serializable]
     public class OnMouseExitNode : TriggerNode
     {

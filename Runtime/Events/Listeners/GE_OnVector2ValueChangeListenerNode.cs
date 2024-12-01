@@ -2,8 +2,10 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Global Events/Listener", menuName = "Event Listener: On Vector2 Change",
-        nodeTitle  = "Event Listener:\nOn Vector2 Change", nodeColor = NodeColors.white, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Events/Listener")]
+    [NodeTitle("Listener:\nVector2 Event")]
+    [NodeMenuName("Listener: Vector2 Event")] 
+    [NodeColor(NodeColors.white)]
     [System.Serializable]
     public class GE_OnVector2ValueChangeListenerNode : TriggerNode
     {

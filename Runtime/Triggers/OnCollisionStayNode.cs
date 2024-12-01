@@ -2,7 +2,9 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers & Events/3D", nodeTitle = "On Collision Stay", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Triggers/Physics")]
+    [NodeTitle("On Collision Stay")]
+    [NodeMenuName("Physics: On Collision Stay")] 
     [System.Serializable]
     public class OnCollisionStayNode :TriggerNode
     {

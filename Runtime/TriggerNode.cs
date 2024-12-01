@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Triggers", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.trigger)]
+    [NodeMenuPath("Triggers")]
+    [NodeIcon(NodeIcons.trigger)]
+    [NodeColor(NodeColors.purple)]
     [System.Serializable]
     public abstract class TriggerNode : DecoratorNode
     {
-        
-        
         protected override void OnStart() {
 
         }
@@ -28,8 +28,5 @@ namespace Halcyon.BT
             }
             return state;
         }
-
-        
-        
     }
 }

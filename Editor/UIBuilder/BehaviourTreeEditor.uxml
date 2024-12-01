@@ -36,7 +36,7 @@
             <Halcyon.BT.BehaviourTreeView focusable="true" style="flex-grow: 1; border-top-width: 2px; border-top-color: rgb(0, 0, 0);" />
         </ui:VisualElement>
     </Halcyon.BT.SplitView>
-    <Halcyon.BT.OverlayView name="OverlayView" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5); visibility: visible; height: auto; display: none;">
+    <Halcyon.BT.OverlayView name="OverlayView" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5); visibility: hidden; height: auto; display: flex;">
         <ui:VisualElement name="ProjectView" style="flex-grow: 0; background-color: rgb(56, 56, 56); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; flex-shrink: 0; width: 500px; display: flex; min-height: 450px; max-height: 450px; height: auto;">
             <ui:Label tabindex="-1" text="Open Behaviour Tree" display-tooltip-when-elided="true" name="Title" style="font-size: 25px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; -unity-font-style: bold; -unity-text-align: upper-left; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" />
             <ui:TextField placeholder-text="Enter Tree Name..." name="SearchField" style="margin-top: 1px; margin-right: 5px; margin-bottom: 1px; margin-left: 5px; background-size: 100% 100%; font-size: 12px; -unity-text-align: upper-left;" />

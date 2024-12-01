@@ -2,8 +2,9 @@
 
 namespace Halcyon.BT
 {
-    
-    [BehaviourTreeNode(menuPath = "Triggers & Events/Input", menuName = "Input: On Key Held", nodeTitle = "Input:\nOn Key Held", nodeColor = NodeColors.purple, nodeIcon = NodeIcons.input)]
+    [NodeMenuPath("Triggers/Input")]
+    [NodeTitle("Input:\nOn Key Held")]
+    [NodeMenuName("Input: On Key Held")] 
     [System.Serializable]
     public class OnKeyHeldNode : TriggerNode
     {

@@ -26,7 +26,7 @@ MonoBehaviour:
   blackboard:
     keys:
     - rid: 794795621881479462
-  viewPosition: {x: 496, y: 300, z: 0}
+  viewPosition: {x: 366, y: 493, z: 0}
   viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
@@ -157,7 +157,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e3f9b1cd334f9274fa8f716edf8bb4a4
-        position: {x: 405, y: -135}
+        position: {x: 390, y: -150}
         blackboard:
           keys: []
         description: 
