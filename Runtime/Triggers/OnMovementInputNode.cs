@@ -74,7 +74,15 @@ namespace Halcyon.BT
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            return child.Update();;
+
+            if (child != null)
+            {
+                return child.Update();
+            }
+            else
+            {
+                return State.Failure;
+            }
         }
 
         public Vector2 GetInputValue()

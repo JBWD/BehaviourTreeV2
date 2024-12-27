@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEditor;
 
@@ -149,15 +150,25 @@ namespace Halcyon.BT {
                 ApplyChanges();
                 return;
             }
-
+            
             // Composite nodes
             var childrenProperty = parentProperty.FindPropertyRelative(sPropChildren);
+            // Derives from Composite
+            if (parent is ComparisonNode comparisonNode)
+            {
+                if (comparisonNode.children.Count == 2)
+                {
+                    RemoveChild(parent, comparisonNode.children[1]);
+                }
+            }
+
             if (childrenProperty != null) {
                 SerializedProperty newChild = AppendArrayElement(childrenProperty);
                 newChild.managedReferenceValue = child;
                 ApplyChanges();
-                return;
+                //return;
             }
+           
         }
 
         public void RemoveChild(Node parent, Node child) {

@@ -1,22 +1,24 @@
 ﻿using System;
 using UnityEditor;
+using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Deprecated/Variable", menuName = "Deprecated: Compare Floats",
-        nodeTitle = "Deprecated:\nCompare Floats",
-        nodeIcon = NodeIcons.condition, nodeColor = NodeColors.red)]
+    [BehaviourTreeNode(menuPath = "Variable", menuName = "Variable: Compare Numerics",
+        nodeTitle = "Variables:\nCompare Numerics",
+        nodeIcon = NodeIcons.condition, nodeColor = NodeColors.yellow)]
     [System.Serializable]
-    public class ComparisonFloatNode : DecoratorNode
+    public class ComparisonNumericNode : DecoratorNode
     {
 
         public ComparisionOperator operation;
-        public NodeProperty<float> firstValue;
-        public NodeProperty<float> secondValue;
+        public NodeProperty<NumericProperty> firstValue;
+        public NodeProperty<NumericProperty> secondValue;
 
         protected override void OnStart()
         {
 
+            
         }
 
         protected override void OnStop()
@@ -31,7 +33,7 @@ namespace Halcyon.BT
             switch (operation)
             {
                 case ComparisionOperator.LessThan:
-                    if (firstValue.Value < secondValue.Value)
+                    if (firstValue.Value.FloatValue < secondValue.Value.FloatValue)
                     {
                         if (child != null)
                             child.Update();
@@ -40,7 +42,7 @@ namespace Halcyon.BT
                         state = State.Failure;
                     break;
                 case ComparisionOperator.GreaterThan:
-                    if (firstValue.Value > secondValue.Value)
+                    if (firstValue.Value.FloatValue > secondValue.Value.FloatValue)
                     {
                         if (child != null)
                             child.Update();
@@ -49,7 +51,8 @@ namespace Halcyon.BT
                         state = State.Failure;
                     break;
                 case ComparisionOperator.Equal:
-                    if (firstValue.Value == secondValue.Value)
+                    
+                    if (firstValue.Value.IntegerValue == secondValue.Value.IntegerValue)
                     {
                         if (child != null)
                             child.Update();
@@ -58,7 +61,7 @@ namespace Halcyon.BT
                         state = State.Failure;
                     break;
                 case ComparisionOperator.LessThanOrEqual:
-                    if (firstValue.Value <= secondValue.Value)
+                    if (firstValue.Value.FloatValue <= secondValue.Value.FloatValue)
                     {
                         if (child != null)
                             child.Update();
@@ -67,7 +70,7 @@ namespace Halcyon.BT
                         state = State.Failure;
                     break;
                 case ComparisionOperator.GreaterThanOrEqual:
-                    if (firstValue.Value >= secondValue.Value)
+                    if (firstValue.Value.FloatValue >= secondValue.Value.FloatValue)
                     {
                         if (child != null)
                             child.Update();

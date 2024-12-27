@@ -2,18 +2,16 @@
 
 namespace Halcyon.BT
 {
-    [NodeMenuPath("Math/Vector3")]
-    [NodeTitle("Math:\nVector3 Magnitude")]
-    [NodeMenuName("Math: Vector3 Magnitude")] 
-    [NodeIcon(NodeIcons.math)]
+    [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Numeric to Vector2", 
+        nodeTitle = "Conversion:\nNumeric to Vector2", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.repeat)]
     [System.Serializable]
-    public class Vector3MagnitudeNode: ActionNode
+    public class ConversionNumericToVector2Node: ActionNode
     {
-
-        public NodeProperty<Vector3> baseValue;
+        
+        public NodeProperty<float> xValue;
+        public NodeProperty<float> yValue;
         [BlackboardValueOnly]
-        public NodeProperty<NumericProperty> saveValue;
-
+        public NodeProperty<Vector2> saveValue;
 
         protected override void OnStart()
         {
@@ -24,11 +22,10 @@ namespace Halcyon.BT
         {
             
         }
-
         
         protected override State OnUpdate()
         {
-            saveValue.Value.FloatValue += baseValue.Value.magnitude;
+            saveValue.Value = new Vector2(xValue.Value, yValue.Value);
             state = State.Success;
             return state;
         }
@@ -36,13 +33,13 @@ namespace Halcyon.BT
         public override void UpdateDescription()
         {
             errored = false;
-            try
+            try 
             {
                 if (saveValue.reference != null)
                 {
-                    
+
                     description =
-                        $"Retrieves the magnitude of '{baseValue.Value}' and saves the total in '{saveValue.reference.name}'";
+                        $"Saves X:'{xValue.Value}' and Y:'{yValue.Value}' in the 'SaveValue'.";
                 }
                 else
                 {
@@ -56,5 +53,4 @@ namespace Halcyon.BT
             }
         }
     }
-    
 }

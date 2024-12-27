@@ -2,8 +2,8 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Floats to Vector2", 
-        nodeTitle = "Conversion:\nFloats to Vector2", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.repeat)]
+    [BehaviourTreeNode(menuPath = "Deprecated/Variable/Conversion", menuName = "Deprecated: Floats to Vector2", 
+        nodeTitle = "Deprecated:\nFloats to Vector2", nodeColor = NodeColors.red, nodeIcon = NodeIcons.repeat)]
     [System.Serializable]
     public class ConversionFloatsToVector2Node: ActionNode
     {

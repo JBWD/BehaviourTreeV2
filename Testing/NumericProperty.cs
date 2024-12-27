@@ -7,99 +7,19 @@ namespace Halcyon.BT
     public class NumericProperty
     {
         [SerializeField]
-        private NumericParameterType parameterType;
-        [SerializeField]
-        private NodeProperty<int> integerValue;
-        [SerializeField]
-        private NodeProperty<float> floatValue;
-        [SerializeField]
-        private NodeProperty<double> doubleValue;
-        //public NodeProperty<long> longValue;
-        
-        public Type GetNumericType()
-        {
-            switch (parameterType)
-            {
-                case NumericParameterType.Integer:
-                    return typeof(int);
-                case NumericParameterType.Float:
-                    return typeof(float);
-                case NumericParameterType.Double:
-                    return typeof(double);
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
+        private double doubleValue = 0;
 
-        public void SetValue(float value)
-        {
-            switch (parameterType)
-            {
-                case NumericParameterType.Integer:
-                    integerValue.Value = (int)value;
-                    break;
-                case NumericParameterType.Float:
-                    floatValue.Value = (float)value;
-                    break;
-                case NumericParameterType.Double:
-                    doubleValue.Value = (double)value;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-        
-        public void SetValue(int value)
-        {
-            switch (parameterType)
-            {
-                case NumericParameterType.Integer:
-                    integerValue.Value = (int)value;
-                    break;
-                case NumericParameterType.Float:
-                    floatValue.Value = (float)value;
-                    break;
-                case NumericParameterType.Double:
-                    doubleValue.Value = (double)value;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-        public void SetValue(double value)
-        {
-            switch (parameterType)
-            {
-                case NumericParameterType.Integer:
-                    integerValue.Value = (int)value;
-                    break;
-                case NumericParameterType.Float:
-                    floatValue.Value = (float)value;
-                    break;
-                case NumericParameterType.Double:
-                    doubleValue.Value = (double)value;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-        
-        
         public float FloatValue
         {
             get
             {
-                switch (parameterType)
-                {
-                    case NumericParameterType.Integer:
-                        return integerValue.Value;
-                    case NumericParameterType.Float:
-                        return floatValue.Value;
-                    case NumericParameterType.Double:
-                        return Convert.ToInt32(doubleValue.Value);   
-                    default:
-                        return 0;
-                }
+                return (float)doubleValue;
+            }
+            set
+            {
+
+                doubleValue = (double)value;
+
             }
         }
         
@@ -107,17 +27,11 @@ namespace Halcyon.BT
         {
             get
             {
-                switch (parameterType)
-                {
-                    case NumericParameterType.Integer:
-                        return integerValue.Value;
-                    case NumericParameterType.Float:
-                        return floatValue.Value;
-                    case NumericParameterType.Double:
-                        return doubleValue.Value;   
-                    default:
-                        return 0;
-                }
+                return doubleValue;
+            }
+            set
+            {
+                doubleValue = (double)value;
             }
         }
         
@@ -126,104 +40,98 @@ namespace Halcyon.BT
         {
             get
             {
-                switch (parameterType)
-                {
-                    case NumericParameterType.Integer:
-                        return integerValue.Value;
-                    case NumericParameterType.Float:
-                        return (int)floatValue.Value;
-                    case NumericParameterType.Double:
-                        return (int)doubleValue.Value;   
-                    default:
-                        return 0;
-                }
+                return (int)doubleValue;
             }
-        }
-
-        public BlackboardKey Reference()
-        {
-            switch (parameterType)
+            set
             {
-                case NumericParameterType.Integer:
-                    return integerValue.reference;
-                case NumericParameterType.Float:
-                    return floatValue.reference;    
-                case NumericParameterType.Double:
-                    return doubleValue.reference;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                doubleValue = (double)value;
+
             }
         }
         
-        public void AddValue(NumericProperty property)
+        
+        /*public void AddValue(NumericProperty property)
         {
-            switch (parameterType)
-            {
-                case NumericParameterType.Integer:
-                    integerValue.Value += property.IntegerValue;
-                    break;
-                case NumericParameterType.Float:
-                    floatValue.Value += property.FloatValue;
-                    break;
-                case NumericParameterType.Double:
-                    doubleValue.Value += property.DoubleValue; 
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            property.doubleValue += doubleValue;
         }
+        public void AddValue(float value)
+        {
+            floatValue += value;
+        }
+        public void AddValue(double value)
+        {
+            doubleValue += value;
+        }
+        public void AddValue(int value)
+        {
+            integerValue += value;
+        }
+        public void AddValue(long value)
+        {
+            longValue += value;
+        }
+        
+        
         public void SubtractValue(NumericProperty property)
         {
-            switch (parameterType)
-            {
-                case NumericParameterType.Integer:
-                    integerValue.Value -= property.IntegerValue;
-                    break;
-                case NumericParameterType.Float:
-                    floatValue.Value -= property.FloatValue;
-                    break;
-                case NumericParameterType.Double:
-                    doubleValue.Value -= property.DoubleValue; 
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            property.doubleValue -= doubleValue;
+        }
+        public void SubtractValue(float value)
+        {
+            floatValue -= value;
+        }
+        public void SubtractValue(double value)
+        {
+            doubleValue -= value;
+        }
+        public void SubtractValue(int value)
+        {
+            integerValue -= value;
+        }
+        public void SubtractValue(long value)
+        {
+            longValue -= value;
         }
         public void MultiplyValue(NumericProperty property)
         {
-            switch (parameterType)
-            {
-                case NumericParameterType.Integer:
-                    integerValue.Value *= property.IntegerValue;
-                    break;
-                case NumericParameterType.Float:
-                    floatValue.Value *= property.FloatValue;
-                    break;
-                case NumericParameterType.Double:
-                    doubleValue.Value *= property.DoubleValue; 
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            property.doubleValue *= doubleValue;
         }
-        
+        public void MultiplyValue(float value)
+        {
+            floatValue *= value;
+        }
+        public void MultiplyValue(double value)
+        {
+            doubleValue*= value;
+        }
+        public void MultiplyValue(int value)
+        {
+            integerValue*= value;
+        }
+        public void MultiplyValue(long value)
+        {
+            longValue *= value;
+        }
         public void DivideValue(NumericProperty property)
         {
-            switch (parameterType)
-            {
-                case NumericParameterType.Integer:
-                    integerValue.Value /= property.IntegerValue;
-                    break;
-                case NumericParameterType.Float:
-                    floatValue.Value /= property.FloatValue;
-                    break;
-                case NumericParameterType.Double:
-                    doubleValue.Value /= property.DoubleValue; 
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            property.doubleValue /= doubleValue;
         }
+        public void DivideValue(float value)
+        {
+            floatValue /= value;
+        }
+        public void DivideValue(double value)
+        {
+            doubleValue/= value;
+        }
+        public void DivideValue(int value)
+        {
+            integerValue/= value;
+        }
+        public void DivideValue(long value)
+        {
+            longValue /= value;
+        }*/
     }
 }
 

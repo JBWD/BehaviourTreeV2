@@ -17,9 +17,9 @@ namespace Halcyon.BT
 
         
         [Space]
-        public NumericProperty baseNumericValue;
-        public NumericProperty addNumericValue;
-        public NumericProperty saveNumericValue;
+        public NodeProperty<NumericProperty> baseNumericValue;
+        public NodeProperty<NumericProperty> addNumericValue;
+        public NodeProperty<NumericProperty> saveNumericValue;
         
 
         protected override void OnStart()
@@ -34,7 +34,7 @@ namespace Halcyon.BT
 
         protected override State OnUpdate()
         {
-            saveNumericValue.SetValue(baseNumericValue.FloatValue + addNumericValue.FloatValue);
+            saveNumericValue.Value.FloatValue += addNumericValue.Value.FloatValue;
             //saveValue.Value = baseValue.Value + addValue.Value;
             state = State.Success;
             return state;
@@ -45,11 +45,11 @@ namespace Halcyon.BT
             errored = false;
             try
             {
-                if (saveNumericValue.Reference() != null)
+                if (saveNumericValue != null)
                 {
                     
                     description =
-                        $"Adds '{baseNumericValue.FloatValue}' + '{addNumericValue.FloatValue}' and saves the total in '{saveNumericValue.Reference().name}'";
+                        $"Adds '{baseNumericValue.Value.FloatValue}' + '{addNumericValue}' and saves the total in '{saveNumericValue}'";
                 }
                 else
                 {

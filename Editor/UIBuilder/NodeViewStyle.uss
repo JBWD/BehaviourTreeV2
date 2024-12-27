@@ -441,26 +441,6 @@
     justify-content: center;
 }
 
-.trueCondition #typeIcon {
-    background-image: url("project://database/Assets/Plugins/BehaviourTreeV2/Editor/Icons/Icon_True.png?fileID=2800000&guid=9a67a81114f9d3b45a119856db98c75b&type=3#Icon_True");
-    width: 75px;
-    height: 75px;
-    flex-grow: 1;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.falseCondition #typeIcon {
-    background-image: url("project://database/Assets/Plugins/BehaviourTreeV2/Editor/Icons/Icon_False.png?fileID=2800000&guid=1a3006e60a93cb842b57f148e2be0774&type=3#Icon_False");
-    width: 75px;
-    height: 75px;
-    flex-grow: 1;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-}
-
 .hideIcon #typeIcon {
     width: 0;
     height: 0;
@@ -571,4 +551,32 @@
 
 .show #description {
     display: flex;
+}
+
+.trueCondition #label-true {
+    display: flex;
+    visibility: visible;
+}
+
+.trueCondition #label-false {
+    display: flex;
+    visibility: hidden;
+}
+
+.falseCondition #label-false {
+    display: flex;
+    visibility: visible;
+}
+
+.falseCondition #label-true {
+    display: flex;
+    visibility: hidden;
+}
+
+.hideCondition #label-false {
+    visibility: hidden;
+}
+
+.hideCondition #label-true {
+    visibility: hidden;
 }

@@ -33,6 +33,7 @@ MonoBehaviour:
     - rid: 794795513687048253
     - rid: 794795621881479229
     - rid: 794795621881479230
+    - rid: 2229935471056912422
   viewPosition: {x: 803, y: 420, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
@@ -61,11 +62,11 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 18f32d27e70e8e249bb501d9255d2592
-        position: {x: -240, y: -255}
+        position: {x: -45, y: -225}
         blackboard:
           keys: []
         description: 'Listens to the Integer Value Change Global Event to be called
-          with the activation name: CoinPickedUp.'
+          with the activation name: .'
         drawGizmos: 0
         errored: 0
         conditionState: 0
@@ -73,10 +74,10 @@ MonoBehaviour:
           rid: 794795486275436622
         activationName:
           reference:
-            rid: -2
+            rid: 2229935471056912422
           defaultValue: CoinPickedUp
           _typedKey:
-            rid: -2
+            rid: 2229935471056912422
         saveIntegerValue:
           reference:
             rid: 794795513687048253
@@ -96,7 +97,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 96a786e9f8da98a419ea52f31bf371d3
-        position: {x: -225, y: -15}
+        position: {x: -30, y: 15}
         blackboard:
           keys: []
         description: Runs all children whether they are successful, failed, or are
@@ -125,7 +126,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f5828312032995e46af3f4367db95ce2
-        position: {x: -810, y: -255}
+        position: {x: -750, y: -210}
         blackboard:
           keys: []
         description: 
@@ -153,7 +154,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7759f1ebac9f7e040a8fdb0994c7255a
-        position: {x: -150, y: 195}
+        position: {x: 30, y: 210}
         blackboard:
           keys: []
         description: 
@@ -211,7 +212,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 108345ec895fb6045a2c7e7e1836e516
-        position: {x: -345, y: 195}
+        position: {x: -165, y: 210}
         blackboard:
           keys: []
         description: Adds '0' + '0' and saves the total in 'CurrentCoins'
@@ -242,20 +243,19 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 894757148238cae479098f493af24e42
-        position: {x: -810, y: -60}
+        position: {x: -750, y: -15}
         blackboard:
           keys: []
-        description: 'Activates a value change event for CoinPickedUp and sends the
-          value: 3'
+        description: 'Activates a value change event for  and sends the value: 3'
         drawGizmos: 0
         errored: 0
         conditionState: 0
         activationName:
           reference:
-            rid: -2
+            rid: 2229935471056912422
           defaultValue: CoinPickedUp
           _typedKey:
-            rid: -2
+            rid: 2229935471056912422
         activationValue:
           reference:
             rid: -2
@@ -268,7 +268,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 967ad11e02defbb408f11efa3fa6ea40
-        position: {x: 0, y: -30}
+        position: {x: 225, y: -30}
         blackboard:
           keys: []
         description: 
@@ -283,7 +283,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f70f620821b493c40a43b7bb80addbdb
-        position: {x: -486.0165, y: -520.2158}
+        position: {x: -405, y: -225}
         blackboard:
           keys: []
         description: When the GameObject is click down and up, all children nodes
@@ -293,3 +293,9 @@ MonoBehaviour:
         conditionState: 0
         child:
           rid: -2
+    - rid: 2229935471056912422
+      type: {class: StringKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: EventActivationName
+        typeName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 

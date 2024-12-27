@@ -26,7 +26,7 @@ MonoBehaviour:
   blackboard:
     keys:
     - rid: 794795621881479462
-  viewPosition: {x: 366, y: 493, z: 0}
+  viewPosition: {x: 635, y: 582, z: 0}
   viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
@@ -40,8 +40,10 @@ MonoBehaviour:
         started: 0
         guid: ac55e36b-28bd-4b27-aea6-a8ab64d8827f
         position: {x: -255, y: -60}
+        size: {x: 150, y: 156}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
         description: 
         drawGizmos: 0
         errored: 0
@@ -55,8 +57,10 @@ MonoBehaviour:
         started: 0
         guid: 4005c433b0f76814c909fbf5d8684a74
         position: {x: -30, y: -135}
+        size: {x: 150, y: 178}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
         description: 'Listens to the Base Global Event to be called with the activation
           name: OpenUI.'
         drawGizmos: 0
@@ -77,8 +81,10 @@ MonoBehaviour:
         started: 0
         guid: 3be79ec6f063702468ab7b64960fb588
         position: {x: 225, y: -135}
+        size: {x: 150, y: 178}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
         description: 'Listens to the Base Global Event to be called with the activation
           name: CloseUI.'
         drawGizmos: 0
@@ -99,8 +105,10 @@ MonoBehaviour:
         started: 0
         guid: 7d8bc7bb47e86ce43baafd590381987a
         position: {x: -30, y: 75}
+        size: {x: 150, y: 79}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
         description: Sets the 'GameObject's active state to 'True'.
         drawGizmos: 0
         errored: 0
@@ -125,8 +133,10 @@ MonoBehaviour:
         started: 0
         guid: 0338b4c1bee702a41a45226c12b41ac2
         position: {x: 225, y: 75}
+        size: {x: 150, y: 79}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
         description: Sets the 'GameObject's active state to 'False'.
         drawGizmos: 0
         errored: 0
@@ -158,8 +168,10 @@ MonoBehaviour:
         started: 0
         guid: e3f9b1cd334f9274fa8f716edf8bb4a4
         position: {x: 390, y: -150}
+        size: {x: 150, y: 178}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
         description: 
         drawGizmos: 0
         errored: 0

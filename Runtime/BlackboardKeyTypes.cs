@@ -163,4 +163,8 @@ namespace Halcyon.BT {
     public class PathListKey : BlackboardKey<PathListProperty>
     {
     }
+
+    public class NumberKey : BlackboardKey<NumericProperty>
+    {
+    }
 }

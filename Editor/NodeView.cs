@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Codice.CM.Common;
 using Codice.CM.SEIDInfo;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Halcyon.BT {
 
     public class NodeView : UnityEditor.Experimental.GraphView.Node {
         public Action<NodeView> OnNodeSelected;
-        public Node node;
+        public Node node { get; private set; }
         public Port input;
         public Port output;
 
@@ -31,24 +32,9 @@ namespace Halcyon.BT {
                 {
                     return null;
                 }
-
-                
             }
         }
 
-        public List<NodeView> NodeChildren {
-            get {
-                // This is untested and may not work. Possibly output should be input.
-                List<NodeView> children = new List<NodeView>();
-                foreach(var edge in output.connections) {
-                    NodeView child = edge.output.node as NodeView;
-                    if (child != null) {
-                        children.Add(child);
-                    }
-                }
-                return children;
-            }
-        }
 
         public NodeView(Node node, VisualTreeAsset nodeXml) : base(AssetDatabase.GetAssetPath(nodeXml)) {
             this.capabilities &= ~(Capabilities.Snappable); // Disable node snapping
@@ -58,7 +44,7 @@ namespace Halcyon.BT {
 
             style.left = node.position.x;
             style.top = node.position.y;
-
+            
             CreateInputPorts();
             CreateOutputPorts();
             SetupClasses();
@@ -143,8 +129,11 @@ namespace Halcyon.BT {
         }
 
         private void CreateOutputPorts() {
-            if (node is TriggerNode) {
+            if (node is TriggerNode)
+            {
                 output = new NodePort(Direction.Output, Port.Capacity.Single);
+            }else if (node is ComparisonNode) {
+                output = new NodePort(Direction.Output, Port.Capacity.Multi, 2);
             }else if (node is ActionNode) {
                 // Actions have no outputs
             } else if (node is CompositeNode) {
@@ -152,7 +141,7 @@ namespace Halcyon.BT {
             } else if (node is DecoratorNode) {
                 output = new NodePort(Direction.Output, Port.Capacity.Single);
             }else if (node is RootNode) {
-                output = new NodePort(Direction.Output, Port.Capacity.Single);
+                output = new NodePort(Direction.Output, Port.Capacity.Single) ;
             }
 
             if (output != null) {
@@ -183,6 +172,17 @@ namespace Halcyon.BT {
         public void SortChildren() {
             if (node is CompositeNode composite) {
                 composite.children.Sort(SortByHorizontalPosition);
+            }
+
+            if (node is ComparisonNode comparison)
+            {
+                
+                if (comparison.children.Count == 1)
+                {
+                    comparison.onlyChildIsTrue = comparison.position.x + (int)(comparison.size.x * .5f) > comparison.children[0].position.x + (int)(comparison.children[0].size.x * .5f);
+                }
+
+                
             }
         }
 
@@ -258,13 +258,48 @@ namespace Halcyon.BT {
         {
             RemoveFromClassList("trueCondition");
             RemoveFromClassList("falseCondition");
+            RemoveFromClassList("hideCondition");
+           
+            
+            if (node is ComparisonNode comparison)
+            {
+                if (comparison.children.Count == 1)
+                {
+                    switch (comparison.onlyChildIsTrue)
+                    {
+                        case true:
+                            comparison.children[0].conditionState = Node.ConditionState.True;
+                            break;
+                        default:
+                            comparison.children[0].conditionState = Node.ConditionState.False;
+                            break;
+                    }
+                }
 
+                if (comparison.children.Count == 2)
+                {
+                    comparison.children[0].conditionState = Node.ConditionState.True;
+                    comparison.children[1].conditionState = Node.ConditionState.False;
+                }
+            }
             if (node.conditionState == Node.ConditionState.True) {
                 AddToClassList("trueCondition");
             }
             else if (node.conditionState == Node.ConditionState.False){
                 AddToClassList("falseCondition");
             }
+            else
+            {
+                AddToClassList("hideCondition");
+            }
+            
+            node.conditionState = Node.ConditionState.None; //If not a conditional node or a child of a conditional node it will turn off.
+        }
+
+        public void UpdateSize()
+        {
+
+            node.size = new Vector2(GetPosition().width, GetPosition().height);
         }
     }
     

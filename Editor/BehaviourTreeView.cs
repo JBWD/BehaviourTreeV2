@@ -198,9 +198,8 @@ namespace Halcyon.BT {
             if (dontUpdateModel) {
                 return graphViewChange;
             }
-
+            
             List<GraphElement> blockedDeletes = new List<GraphElement>();
-
             if (graphViewChange.elementsToRemove != null) {
                 graphViewChange.elementsToRemove.ForEach(elem => {
                     NodeView nodeView = elem as NodeView;
@@ -223,7 +222,7 @@ namespace Halcyon.BT {
                     }
                 });
             }
-
+            
             if (graphViewChange.edgesToCreate != null) {
                 graphViewChange.edgesToCreate.ForEach(edge => {
                     NodeView parentView = edge.output.node as NodeView;
@@ -232,16 +231,16 @@ namespace Halcyon.BT {
                 });
             }
 
+
+            foreach(var elem in blockedDeletes) {
+                graphViewChange.elementsToRemove.Remove(elem);  
+            }
             nodes.ForEach((n) => {
                 NodeView view = n as NodeView;
                 // Need to rebind description labels as the serialized properties will be invalidated after removing from array
                 view.SetupDataBinding();
                 view.SortChildren();
             });
-
-            foreach(var elem in blockedDeletes) {
-                graphViewChange.elementsToRemove.Remove(elem);  
-            }
           
             return graphViewChange;
         }
@@ -271,6 +270,7 @@ namespace Halcyon.BT {
                 serializer.AddChild(parentView.node, node);
             }
 
+            
             // Update View
             NodeView nodeView = CreateNodeView(node);
             if (parentView != null) {
@@ -320,6 +320,11 @@ namespace Halcyon.BT {
                 RemoveElements(parentView.output.connections);
             }
 
+            if (parentView.node is ComparisonNode && parentView.output.connections.Count() > 1)
+            {
+                RemoveElement(parentView.output.connections.Last());
+            }
+
             // Delete previous child's parent
             RemoveElements(childView.input.connections);
 
@@ -327,6 +332,7 @@ namespace Halcyon.BT {
         }
 
         void CreateEdgeView(NodeView parentView, NodeView childView) {
+            
             Edge edge = parentView.output.ConnectTo(childView.input);
             AddElement(edge);
         }
@@ -357,11 +363,11 @@ namespace Halcyon.BT {
             foreach (var n in nodes)
             {
                 NodeView nodeView = n as NodeView;
-                
                 nodeView.UpdateConditional();
                 nodeView.UpdateErroredNode();
                 nodeView.UpdateDescriptionVisibility(descVisibility);
                 nodeView.UpdateIconVisibility(iconVisibility);
+                nodeView.UpdateSize();
             }
         }
         

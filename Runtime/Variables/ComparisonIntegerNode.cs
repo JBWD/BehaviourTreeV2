@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-     [BehaviourTreeNode(menuPath = "Variable", menuName = "Variable: Compare Integers",
-        nodeTitle = "Variables:\nCompare Integers",
-        nodeIcon = NodeIcons.condition, nodeColor = NodeColors.yellow)]
+     [BehaviourTreeNode(menuPath = "Deprecated/Variable", menuName = "Deprecated: Compare Integers",
+        nodeTitle = "Deprecated:\nCompare Integers",
+        nodeIcon = NodeIcons.condition, nodeColor = NodeColors.red)]
     [System.Serializable]
     public class ComparisonIntegerNode : DecoratorNode
     {

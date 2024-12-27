@@ -17,7 +17,7 @@ namespace Halcyon.BT
         public NodeProperty<TextMeshProUGUI> textContainer;
         public NodeProperty<string> text;
         public bool scoreIsPrefix = false;
-        public NumericProperty score;
+        public NodeProperty<NumericProperty> score;
         protected override void OnStart()
         {
         }
@@ -42,11 +42,11 @@ namespace Halcyon.BT
             {
                 if (scoreIsPrefix)
                 {
-                    textContainer.Value.text =  score.IntegerValue + text.Value;
+                    textContainer.Value.text =  score.Value.IntegerValue + text.Value;
                 }
                 else
                 {
-                    textContainer.Value.text = text.Value + score.IntegerValue;
+                    textContainer.Value.text = text.Value + score.Value.IntegerValue;
                 }
                 state = State.Success;
             }

@@ -4,8 +4,8 @@ namespace Halcyon.BT
 {
     
     [NodeMenuName("Transform: Is Null")]
-    [NodeMenuPath("Transform/Is Null")]
-    [NodeTitle("Transform \n Is Null")]
+    [NodeMenuPath("Transform")]
+    [NodeTitle("Transform:\n Is Null")]
     public class TransformIsNull : ComparisonNode
     {
         [BlackboardValueOnly]
@@ -23,13 +23,15 @@ namespace Halcyon.BT
 
         public override bool CheckComparison()
         {
-            return ((TransformProperty == null) == DesiredState.Value);
+            if (TransformProperty == null)
+                return false;
+            return TransformProperty.Value != null;
         }
 
         public override void UpdateDescription()
         {
             description = "Checks if the transform is null then compares to the desired state";
-            conditionState = DesiredState.Value? ConditionState.True : ConditionState.False;
+            
         }
     }
 }

@@ -71,6 +71,7 @@ namespace Halcyon.BT {
         public Action OnEnableEvent;
 
         public Action<Vector2> OnMovementInputAction;
+        public Action OnJumpInputAction;
         
         // Start is called before the first frame update
         void OnEnable() {
@@ -339,7 +340,11 @@ namespace Halcyon.BT {
         {
             OnMovementInputAction?.Invoke(value.Get<Vector2>());
         }
-        
+
+        public void OnJump(InputValue value)
+        {
+            OnJumpInputAction?.Invoke();
+        }
         #endregion
     }
 }

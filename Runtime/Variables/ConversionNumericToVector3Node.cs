@@ -2,18 +2,17 @@
 
 namespace Halcyon.BT
 {
-    [NodeMenuPath("Math/Vector3")]
-    [NodeTitle("Math:\nVector3 Magnitude")]
-    [NodeMenuName("Math: Vector3 Magnitude")] 
-    [NodeIcon(NodeIcons.math)]
+    [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Numeric to Vector3", 
+        nodeTitle = "Conversion:\nNumeric to Vector3", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.repeat)]
     [System.Serializable]
-    public class Vector3MagnitudeNode: ActionNode
+    public class ConversionNumericToVector3Node: ActionNode
     {
-
-        public NodeProperty<Vector3> baseValue;
+        
+        public NodeProperty<NumericProperty> xValue;
+        public NodeProperty<NumericProperty> yValue;
+        public NodeProperty<NumericProperty> zValue;
         [BlackboardValueOnly]
-        public NodeProperty<NumericProperty> saveValue;
-
+        public NodeProperty<Vector3> saveValue;
 
         protected override void OnStart()
         {
@@ -24,11 +23,10 @@ namespace Halcyon.BT
         {
             
         }
-
         
         protected override State OnUpdate()
         {
-            saveValue.Value.FloatValue += baseValue.Value.magnitude;
+            saveValue.Value = new Vector3(xValue.Value.FloatValue, yValue.Value.FloatValue, zValue.Value.FloatValue);
             state = State.Success;
             return state;
         }
@@ -36,13 +34,13 @@ namespace Halcyon.BT
         public override void UpdateDescription()
         {
             errored = false;
-            try
+            try 
             {
                 if (saveValue.reference != null)
                 {
-                    
+
                     description =
-                        $"Retrieves the magnitude of '{baseValue.Value}' and saves the total in '{saveValue.reference.name}'";
+                        $"Saves X:'{xValue.Value}', Y:'{yValue.Value}' and Z:'{yValue.Value}' in the 'SaveValue'.";
                 }
                 else
                 {
@@ -56,5 +54,4 @@ namespace Halcyon.BT
             }
         }
     }
-    
 }
