@@ -37,19 +37,19 @@ namespace Halcyon.BT
             switch (animationProperty.parameterType)
             {
                 case AnimationParameterType.Boolean:
-                    context.animator.SetBool(animationProperty.animationName, animationProperty.booleanParameter);
+                    context.animator.SetBool(animationProperty.parameterName, animationProperty.booleanParameter);
                     state = State.Success;
                     break;
                 case AnimationParameterType.Float:
-                    context.animator.SetFloat(animationProperty.animationName, animationProperty.floatParameter);
+                    context.animator.SetFloat(animationProperty.parameterName, animationProperty.floatParameter);
                     state = State.Success;
                     break;
                 case AnimationParameterType.Integer:
-                    context.animator.SetInteger(animationProperty.animationName, animationProperty.integerParameter);
+                    context.animator.SetInteger(animationProperty.parameterName, animationProperty.integerParameter);
                     state = State.Success;
                     break;
                 case AnimationParameterType.Trigger:
-                    context.animator.SetTrigger(animationProperty.animationName);
+                    context.animator.SetTrigger(animationProperty.parameterName);
                     state = State.Success;
                     break;
                 default:
@@ -77,7 +77,7 @@ namespace Halcyon.BT
             }
             else
             {
-                if (animationProperty.animationName == "")
+                if (animationProperty.parameterName == "")
                 {
                     description = "Parameter Name is not value";
                     errored = true;
@@ -91,14 +91,14 @@ namespace Halcyon.BT
                             $"Setting boolean parameter  to '{animationProperty.booleanParameter}'";
                         break;
                     case AnimationParameterType.Float:
-                        description = $"Setting float parameter '{animationProperty.animationName}' to '{animationProperty.floatParameter}'";
+                        description = $"Setting float parameter '{animationProperty.parameterName}' to '{animationProperty.floatParameter}'";
                         break;
                     case AnimationParameterType.Integer:
                         description =
-                            $"Setting integer parameter '{animationProperty.animationName}' to '{animationProperty.integerParameter}'";
+                            $"Setting integer parameter '{animationProperty.parameterName}' to '{animationProperty.integerParameter}'";
                         break;
                     case AnimationParameterType.Trigger:
-                        description = $"Firing trigger parameter '{animationProperty.animationName}'";
+                        description = $"Firing trigger parameter '{animationProperty.parameterName}'";
                         break;
                 }
             }

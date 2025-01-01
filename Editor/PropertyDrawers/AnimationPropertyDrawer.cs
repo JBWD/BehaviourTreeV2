@@ -11,7 +11,7 @@ namespace Halcyon.BT
             var parameterType = property.FindPropertyRelative("parameterType");
             
             EditorGUILayout.PropertyField(parameterType);
-            EditorGUILayout.PropertyField(property.FindPropertyRelative("animationName"));
+            EditorGUILayout.PropertyField(property.FindPropertyRelative("parameterName"));
             switch (parameterType.enumValueIndex)
             {
                 case 0:

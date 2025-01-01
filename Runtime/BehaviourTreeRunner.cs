@@ -36,7 +36,7 @@ namespace Halcyon.BT {
         
         // Storage container object to hold game object subsystems
         public Context context;
-
+        
         
         //Actions the trigger nodes are subscribed to.
         public Action OnInputKeyDown;

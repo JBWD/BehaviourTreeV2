@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.Serialization;
 
 
 namespace Halcyon.BT
@@ -24,7 +25,7 @@ namespace Halcyon.BT
     public class AnimationProperty
     {
         public AnimationParameterType parameterType;
-        public string animationName;
+        public string parameterName;
         public float floatParameter;
         public int integerParameter;
         public bool booleanParameter;

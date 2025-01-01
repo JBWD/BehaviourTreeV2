@@ -40,6 +40,21 @@ namespace Halcyon.BT {
         /// Local Behaviour Tree Runner
         /// </summary>
         public BehaviourTreeRunner BehaviourTreeRunner;
+
+        
+        //Navmesh AI Information and Triggers
+        public AIPhases CurrentPhase;
+        public AIStates CurrentState;
+        public AIConditions CurrentConditions;
+        
+        public Action OnDeath;
+        public Action OnTakeDamage;
+        public Action OnHeal;
+        public Action<AIPhases> OnPhaseChange;
+        public Action<AIStates> OnStateChange;
+        public Action<AIConditions> OnConditionAdd;
+        public Action<AIConditions> OnConditionRemove;
+
         
         // Add other game specific systems here
 
@@ -60,5 +75,7 @@ namespace Halcyon.BT {
 
             return context;
         }
+
+        
     }
 }

@@ -36,20 +36,20 @@ namespace Halcyon.BT
                 switch (animationProperty.parameterType)
                 {
                     case AnimationParameterType.Boolean:
-                        context.animator.SetBool(animationProperty.animationName, animationProperty.booleanParameter);
+                        context.animator.SetBool(animationProperty.parameterName, animationProperty.booleanParameter);
                         state = State.Success;
                         break;
                     case AnimationParameterType.Float:
-                        context.animator.SetFloat(animationProperty.animationName, animationProperty.floatParameter);
+                        context.animator.SetFloat(animationProperty.parameterName, animationProperty.floatParameter);
                         state = State.Success;
                         break;
                     case AnimationParameterType.Integer:
-                        context.animator.SetInteger(animationProperty.animationName,
+                        context.animator.SetInteger(animationProperty.parameterName,
                             animationProperty.integerParameter);
                         state = State.Success;
                         break;
                     case AnimationParameterType.Trigger:
-                        context.animator.SetTrigger(animationProperty.animationName);
+                        context.animator.SetTrigger(animationProperty.parameterName);
                         state = State.Success;
                         break;
                     default:
@@ -79,7 +79,7 @@ namespace Halcyon.BT
             for (var index = 0; index < animationProperties.Count; index++)
             {
                 var animationProperty = animationProperties[index];
-                if (animationProperty.animationName == "")
+                if (animationProperty.parameterName == "")
                 {
                     description += $"[{index}] ";
                     errored = true;
