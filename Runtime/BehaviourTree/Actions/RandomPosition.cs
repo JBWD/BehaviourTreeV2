@@ -5,9 +5,14 @@ using Halcyon.BT;
 
 namespace Halcyon.BT {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree", nodeColor = NodeColors.green, nodeIcon = NodeIcons.random)]
+    [NodeMenuPath("Behaviour Tree")]
+    [NodeTitle("Random Position")]
+    [NodeMenuName("Random Position")]
+    [NodeIcon(NodeIcons.random)]
     public class RandomPosition : ActionNode {
 
+        
+        
         [Tooltip("Minimum bounds to generate point")] 
         public Vector2 min = Vector2.one * -10;
 

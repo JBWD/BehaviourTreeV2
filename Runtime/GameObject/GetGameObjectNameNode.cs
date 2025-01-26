@@ -2,8 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "GameObject/Get", menuName = "GameObject: Get Name", nodeColor = NodeColors.pink,
-        nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nGet Name")]
+    [NodeMenuPath( "GameObject/Get")]
+    [NodeTitle("GameObject:\nGet GameObject Name")]
+    [NodeMenuName("GameObject: Get GameObject Name")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.save)]
+    [CreateBBVariable("GameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("NameValue", BBVariableType.String)]
 
     [System.Serializable]
     public class GetGameObjectNameNode: ActionNode

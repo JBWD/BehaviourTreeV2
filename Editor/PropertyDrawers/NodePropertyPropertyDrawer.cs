@@ -78,6 +78,10 @@ namespace Halcyon.BT {
                         dropdown.choices.Add(key);
                     }
                 }
+
+                //Add Blackboard information from the scriptable object that may be attached.
+                
+                
                 dropdown.choices.Add(null);
 
                 dropdown.choices.Sort((left, right) => {

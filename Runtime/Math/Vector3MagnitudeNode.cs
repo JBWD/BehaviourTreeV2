@@ -2,10 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [NodeMenuPath("Math/Vector3")]
+    [NodeMenuPath( "Math/Vector3")]
     [NodeTitle("Math:\nVector3 Magnitude")]
-    [NodeMenuName("Math: Vector3 Magnitude")] 
+    [NodeMenuName("Math: Vector3 Magnitude")]
+    [NodeColor(NodeColors.pink)]
     [NodeIcon(NodeIcons.math)]
+    [CreateBBVariable("BaseVector3Value", BBVariableType.Vector3)]
+    [CreateBBVariable("SaveNumericValue", BBVariableType.Number)]
     [System.Serializable]
     public class Vector3MagnitudeNode: ActionNode
     {

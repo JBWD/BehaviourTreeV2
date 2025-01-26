@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Codice.CM.Common;
 using Codice.CM.SEIDInfo;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor;
+using Edge = UnityEditor.Experimental.GraphView.Edge;
 
 namespace Halcyon.BT {
 
@@ -17,7 +19,7 @@ namespace Halcyon.BT {
         public Node node { get; private set; }
         public Port input;
         public Port output;
-
+        public Type derivedType;
         public NodeView NodeParent {
             
             get {
@@ -40,6 +42,7 @@ namespace Halcyon.BT {
             this.capabilities &= ~(Capabilities.Snappable); // Disable node snapping
             this.node = node;
             this.title = node.GetType().Name;
+            derivedType = node.GetType();
             this.viewDataKey = node.guid;
 
             style.left = node.position.x;
@@ -80,9 +83,6 @@ namespace Halcyon.BT {
                     if(behaviourTreeNodeAttribute.nodeTitle != "")
                         title = behaviourTreeNodeAttribute.nodeTitle;
                 }
-            }
-            foreach (var attribute in node.GetType().GetCustomAttributes(true))
-            {
                 if (attribute is NodeTitleAttribute nodeTitleAttribute)
                 {
                     title = nodeTitleAttribute.GetTitle();
@@ -263,23 +263,29 @@ namespace Halcyon.BT {
             
             if (node is ComparisonNode comparison)
             {
-                if (comparison.children.Count == 1)
+                if (comparison.children.Count == 1 && comparison.children[0] != null)
                 {
-                    switch (comparison.onlyChildIsTrue)
-                    {
-                        case true:
-                            comparison.children[0].conditionState = Node.ConditionState.True;
-                            break;
-                        default:
-                            comparison.children[0].conditionState = Node.ConditionState.False;
-                            break;
-                    }
+                    
+                        switch (comparison.onlyChildIsTrue)
+                        {
+
+                            case true:
+                                comparison.children[0].conditionState = Node.ConditionState.True;
+                                break;
+                            default:
+                                comparison.children[0].conditionState = Node.ConditionState.False;
+                                break;
+                        }
+                    
                 }
 
                 if (comparison.children.Count == 2)
                 {
-                    comparison.children[0].conditionState = Node.ConditionState.True;
-                    comparison.children[1].conditionState = Node.ConditionState.False;
+                    if (comparison.children[0] != null && comparison.children[1] != null)
+                    {
+                        comparison.children[0].conditionState = Node.ConditionState.True;
+                        comparison.children[1].conditionState = Node.ConditionState.False;
+                    }
                 }
             }
             if (node.conditionState == Node.ConditionState.True) {

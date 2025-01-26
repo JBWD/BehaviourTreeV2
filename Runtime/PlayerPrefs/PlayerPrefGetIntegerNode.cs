@@ -2,14 +2,20 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs/Get", menuName = "Player Prefs: Get Integer", nodeTitle = "Player Prefs:\nGet Integer", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeTitle("Player Prefs:\n Get Integer")]
+    [NodeMenuName("Player Prefs: Get Integer")]
+    [NodeMenuPath("Player Prefs/Get")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("PlayerPrefName", BBVariableType.String)]
+    [CreateBBVariable("SaveNumericValue", BBVariableType.Number)]
     [System.Serializable]
 
     public class PlayerPrefGetIntegerNode : ActionNode
     {
         
         public NodeProperty<string> playerPrefName;
-        [BlackboardValueOnly] public NodeProperty<int> saveValue;
+        [BlackboardValueOnly] public NodeProperty<NumericProperty> saveValue;
         
         
         protected override void OnStart()
@@ -25,7 +31,7 @@ namespace Halcyon.BT
         protected override State OnUpdate()
         {
             state = State.Success;
-            saveValue.Value = PlayerPrefs.GetInt(playerPrefName.Value, -1);
+            saveValue.Value.IntegerValue = PlayerPrefs.GetInt(playerPrefName.Value, -1);
             
             
             return state;

@@ -3,7 +3,14 @@ using UnityEngine.SceneManagement;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "GameObject", menuName = "GameObject: Destroy", nodeColor = NodeColors.pink,nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nDestroy")]
+    
+    [NodeMenuPath( "GameObject" )]
+    [NodeTitle("GameObject:\nDestroy")]
+    [NodeMenuName("GameObject: Destroy")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.none)]
+    [CreateBBVariable("GameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("DelayInSeconds", BBVariableType.Number)]
     [System.Serializable]
     public class GameObjectDestroyNode: ActionNode
     {

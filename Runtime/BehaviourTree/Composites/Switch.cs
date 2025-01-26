@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Halcyon.BT {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
+    [CreateBBVariable("Index",BBVariableType.Number)]
     public class Switch : CompositeNode
     {
         public NodeProperty<int> index;

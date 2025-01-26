@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.AppUI.Core;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using UnityEditor.Callbacks;
+using VisualElementExtensions = Unity.AppUI.UI.VisualElementExtensions;
 
 
 namespace Halcyon.BT {
@@ -59,6 +63,7 @@ namespace Halcyon.BT {
         public ToolbarBreadcrumbs breadcrumbs;
         public ToolbarToggle hideDescriptionToggle;
         public ToolbarToggle hideIconToggle;
+        public Button CreateVariableButton;
         public Label descriptionLabel;
         [SerializeField]
         public PendingScriptCreate pendingScriptCreate = new PendingScriptCreate();
@@ -122,6 +127,7 @@ namespace Halcyon.BT {
             hideIconToggle = root.Q<ToolbarToggle>("hideIconToggle");
             hideIconToggle.value = settings.showIconOnOpen;
             descriptionLabel = root.Q<Label>("description");
+            CreateVariableButton = root.Q<Button>("CreateVariableButton");
             
             treeView.styleSheets.Add(behaviourTreeStyle);
 
@@ -163,8 +169,8 @@ namespace Halcyon.BT {
             overlayView.OnTreeSelected -= SelectTree;
             overlayView.OnTreeSelected += SelectTree;
             
-            
-
+            CreateVariableButton.clicked += CreateVariableButtonOnClick;
+          // CreateVariableButton.visible = false;
             // New Script Dialog
             newScriptDialog.style.visibility = Visibility.Hidden;
 
@@ -180,8 +186,25 @@ namespace Halcyon.BT {
             }
         }
 
+        private void CreateVariableButtonOnClick()
+        {
+            var node = inspectorView.currentNode;
+            BlackboardTemplateSO template =  ScriptableObject.CreateInstance<BlackboardTemplateSO>();
+            foreach (var attribute in node.GetType().GetCustomAttributes(true))
+            {
+                if (attribute is CreateBBVariableAttribute)
+                {
+                    var variable = (CreateBBVariableAttribute)attribute;
+                   
+                    var selectorType = new BlackboardTemplateSO.BlackBoardSelectorType() { type = variable.GetVariableType()};
+                    template.variables.Add(new BlackboardTemplateSO.Variable(){name = variable.GetVariableName(), type = selectorType});
+                }
+            }
+            
+            blackboardView.AddTemplateInformation(template);
+        }
         
-        
+
         void CreatePendingScriptNode() {
 
             // #TODO: Unify this with CreateNodeWindow.CreateNode
@@ -305,7 +328,20 @@ namespace Halcyon.BT {
             }
         }
 
+        
         void OnNodeSelectionChanged(NodeView node) {
+
+            CreateVariableButton.SetEnabled(false);
+            if (node != null)
+            {
+                foreach (var attribute in node.derivedType.GetCustomAttributes(true))
+                {
+                    if (attribute is CreateBBVariableAttribute)
+                    {
+                        CreateVariableButton.SetEnabled(true);
+                    }
+                }
+            }
             inspectorView.UpdateSelection(serializer, node);
         }
 

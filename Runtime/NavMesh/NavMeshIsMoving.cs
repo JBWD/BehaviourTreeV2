@@ -3,7 +3,9 @@
 namespace Halcyon.BT
 {
     
-    [BehaviourTreeNode(menuPath = "NavMesh", menuName = "NavMesh: Is Agent Moving", nodeTitle = "NavMesh:\n Is Agent Moving", nodeColor = NodeColors.yellow, nodeIcon = NodeIcons.condition)]
+    [NodeTitle("NavMesh:\n Is Moving")]
+    [NodeMenuName("NavMesh: Is Moving")]
+    [NodeMenuPath("NavMesh")] 
     [System.Serializable]
     public class NavMeshIsMoving : ComparisonNode
     {

@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Animator", menuName = "Animator: Set Parameter", nodeColor = NodeColors.green,nodeIcon = NodeIcons.animation,nodeTitle = "Animator:\nSet Parameter")]
+  
+    [NodeTitle("Animator:\nSet Parameter")]
+    [NodeMenuName("Animator: Set Parameter")]
+    [NodeMenuPath("Animator")]
     [System.Serializable]
     public class AnimatorSetAnimationParameterNode: ActionNode
     {

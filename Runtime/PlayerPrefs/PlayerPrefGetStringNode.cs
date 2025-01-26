@@ -2,7 +2,14 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs/Get", menuName = "Player Prefs: Get String", nodeTitle = "Player Prefs:\nGet String", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeTitle("Player Prefs:\n Get String")]
+    [NodeMenuName("Player Prefs: Get String")]
+    [NodeMenuPath("Player Prefs/Get")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("PlayerPrefName", BBVariableType.String)]
+    [CreateBBVariable("SaveStringValue", BBVariableType.String)]
+    
     [System.Serializable]
 
     public class PlayerPrefGetStringNode : ActionNode

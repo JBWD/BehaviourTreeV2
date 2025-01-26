@@ -1,10 +1,20 @@
-﻿namespace Halcyon.BT
+﻿using UnityEngine;
+
+namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "GameObject/Get", menuName = "GameObject: Get Tag", nodeColor = NodeColors.pink,
-        nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nGet Tag")]
+    [NodeMenuPath( "GameObject/Get" )]
+    [NodeTitle("GameObject:\nGet GameObject Tag")]
+    [NodeMenuName("GameObject: Get GameObject Tag")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.save)]
+    [CreateBBVariable("GameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("TagValue", BBVariableType.String)]
     [System.Serializable]
     public class GetGameObjectTagNode :ActionNode
     {
+        [BlackboardValueOnly]
+        public NodeProperty<GameObject> gameObject;
+        public bool self = true;
         [BlackboardValueOnly]
         public NodeProperty<string> tagValue;
         
@@ -19,6 +29,20 @@
 
         protected override State OnUpdate()
         {
+            state = State.Failure;
+            if(!self)
+            {
+                if(gameObject != null)
+                {
+                    tagValue.Value = gameObject.Value.tag;
+                    state = State.Success;
+                }
+            }
+            
+            if (state == State.Success)
+                return state;
+            
+            
             if (context.gameObject != null)
             {
                 tagValue.Value = context.gameObject.tag;

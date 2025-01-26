@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 
 namespace Halcyon.BT {
@@ -35,6 +36,8 @@ namespace Halcyon.BT {
             dropdown.value = first.managedReferenceValue as BlackboardKey;
 
             BehaviourTree tree = GetBehaviourTree(property);
+            
+           
             dropdown.RegisterCallback<MouseEnterEvent>((evt) => {
                 dropdown.choices.Clear();
                 foreach (var key in tree.blackboard.keys) {

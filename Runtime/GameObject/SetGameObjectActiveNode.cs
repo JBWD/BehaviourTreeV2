@@ -7,9 +7,12 @@ namespace Halcyon.BT
     [NodeTitle("GameObject:\nSet Active")]
     [NodeMenuPath("GameObject/Set")]
     [NodeMenuName("GameObject: Set Active")]
+    [CreateBBVariable("GameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("ActivityState", BBVariableType.Boolean)]
     [System.Serializable]
     public class SetGameObjectActiveNode : ActionNode
     {
+        [BlackboardValueOnly]
         public NodeProperty<GameObject> gameObject;
         public bool self = true;
         public NodeProperty<bool> activityState;

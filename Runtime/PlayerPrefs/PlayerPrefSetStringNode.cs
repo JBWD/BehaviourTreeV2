@@ -2,7 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs/Set", menuName = "Player Prefs: Set String", nodeTitle = "Player Prefs:\nSet String", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeTitle("Player Prefs:\n Set Float")]
+    [NodeMenuName("Player Prefs: Set Float")]
+    [NodeMenuPath("Player Prefs/Set")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("PlayerPrefName", BBVariableType.String)]
+    [CreateBBVariable("StringValue", BBVariableType.String)]
     [System.Serializable]
     public class PlayerPrefSetStringNode : ActionNode
     {

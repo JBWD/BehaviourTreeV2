@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Halcyon.BT;
 using UnityEngine;
 
@@ -6,7 +7,10 @@ namespace Halcyon.BT
 {
     [NodeMenuName("Transform: Move to Target"), NodeMenuPath("Transform")]
     [NodeTitle("Transform:\nMove To Target")]
-
+    [NodeIcon(NodeIcons.destination)]
+    [CreateBBVariable("Target", BBVariableType.Transform)]
+    [CreateBBVariable("MoveSpeed", BBVariableType.Number)]
+    [CreateBBVariable("StoppingDistance", BBVariableType.Number)]
     public class TransformMoveToTarget : ActionNode
     {
         [BlackboardValueOnly]

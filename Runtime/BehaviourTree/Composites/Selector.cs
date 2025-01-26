@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Halcyon.BT {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
     public class Selector : CompositeNode {
         protected int current;
 

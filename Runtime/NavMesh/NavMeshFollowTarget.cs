@@ -3,7 +3,12 @@
 namespace Halcyon.BT
 {
 
-    [BehaviourTreeNode(menuPath = "NavMesh", menuName = "NavMesh: Follow Target", nodeTitle = "NavMesh:\n Follow Target")]
+    [NodeTitle("NavMesh:\n Follow Target")]
+    [NodeMenuName("NavMesh: Follow Target")]
+    [NodeMenuPath("NavMesh")]
+    [NodeIcon(NodeIcons.ai)]
+    [CreateBBVariable("TransformToFollow", BBVariableType.Transform)]
+    [CreateBBVariable("RecalculationDistance", BBVariableType.Number)]
     [System.Serializable]
     public class NavMeshFollowTarget : ActionNode
     {
@@ -12,8 +17,8 @@ namespace Halcyon.BT
         [BlackboardValueOnly]
         public NodeProperty<Transform> transformToFollow;
 
-        [Tooltip("Distance between this object and the target to which the path will be recalculated.")] 
-        public float recalcDistance = 1f;
+        [Tooltip("Distance between this object and the target to which the path will be recalculated.")]
+        public NodeProperty<NumericProperty> recalculationDistance = new NodeProperty<NumericProperty>() {Value =  new NumericProperty(){DoubleValue = 1}};
         
         protected override void OnStart()
         {
@@ -37,7 +42,7 @@ namespace Halcyon.BT
                 return state = State.Failure;
 
             
-            if(Vector3.Distance(transformToFollow.Value.position, context.transform.position) > recalcDistance)
+            if(Vector3.Distance(transformToFollow.Value.position, context.transform.position) > recalculationDistance.Value.FloatValue)
                 context.agent.SetDestination(transformToFollow.Value.position);
             
             return state = State.Success;

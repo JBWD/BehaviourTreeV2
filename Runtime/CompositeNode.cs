@@ -5,7 +5,8 @@ using Color = System.Drawing.Color;
 
 namespace Halcyon.BT {
 
-    [BehaviourTreeNode(menuPath = "Flow Nodes", nodeColor = NodeColors.orange)]
+    [NodeMenuPath("Composite")]
+    [NodeColor(NodeColors.orange)]
     [System.Serializable]
     public abstract class CompositeNode : Node {
 

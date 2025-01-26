@@ -4,7 +4,9 @@ using UnityEngine;
 namespace Halcyon.BT
 {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange ,nodeIcon = NodeIcons.time)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
+    [NodeIcon(NodeIcons.time)]
+    [CreateBBVariable("Duration", BBVariableType.Number)]
     public class Delay : CompositeNode
     {
         [Tooltip("Amount of time to wait before returning success")]

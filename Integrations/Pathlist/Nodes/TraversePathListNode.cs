@@ -2,7 +2,7 @@ using Halcyon.BT;
 using Halcyon.BT.Integrations.Pathlist;
 using UnityEngine;
 
-namespace Halcyon.BT
+namespace Halcyon.BT.Integrations.Pathlist
 {
     
     [NodeTitle("PathList:\n Traverse Path List")]
@@ -12,7 +12,7 @@ namespace Halcyon.BT
     public class TraversePathListNode : ActionNode
     {
         public NodeProperty<bool> loop = new NodeProperty<bool>() {Value = true};
-        public NodeProperty<PathListProperty> pathList;
+        public NodeProperty<PathList> pathList;
         private int currentPathIndex = 0;
         private float timeDelayed = 0;
         
@@ -30,7 +30,7 @@ namespace Halcyon.BT
 
         protected override State OnUpdate()
         {
-            PathListProperty.PathPoint pathPoint = pathList.Value.PathPoints[currentPathIndex];
+            /*PathList.PathPoint pathPoint = pathList.Value.PathPoints[currentPathIndex];
             Vector3 newPosition = Vector3.MoveTowards(context.transform.position, pathPoint.point, Time.deltaTime * pathPoint.moveSpeed);
             
             context.transform.position = newPosition;
@@ -57,7 +57,7 @@ namespace Halcyon.BT
                         }
                     }
                 }
-            }
+            }*/
             
             return State.Running;
         }

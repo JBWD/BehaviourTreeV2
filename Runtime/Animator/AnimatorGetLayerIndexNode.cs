@@ -2,14 +2,19 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Animator",menuName = "Animator: Get Layer Index", nodeTitle = "Animator:\nGet Layer Index", nodeColor = NodeColors.green, nodeIcon = NodeIcons.animation)]
+    [NodeMenuPath("Animator")]
+    [NodeMenuName("Animator: Get Layer Index")]
+    [NodeTitle("Animator:\nGet Layer Index")]
+    [NodeIcon(NodeIcons.animation)]
+    [CreateBBVariable("LayerName", BBVariableType.String)]
+    [CreateBBVariable("LayerIndex", BBVariableType.Number)]
     [System.Serializable]
     public class AnimatorGetLayerIndexNode : ActionNode
     {
 
         public NodeProperty<string> layerName;
         [BlackboardValueOnly]
-        public NodeProperty<int> saveIndex;
+        public NodeProperty<NumericProperty> saveIndex;
 
 
 
@@ -33,7 +38,7 @@ namespace Halcyon.BT
                 return state;
             }
 
-            saveIndex.Value = context.animator.GetLayerIndex(layerName.Value);
+            saveIndex.Value.IntegerValue = context.animator.GetLayerIndex(layerName.Value);
             return state;
         }
 

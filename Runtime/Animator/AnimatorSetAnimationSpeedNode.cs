@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Halcyon.BT
 {
     
-    [BehaviourTreeNode(menuPath = "Animator", menuName = "Animator: Set Playback Speed",nodeTitle = "Animator:\nSet Playback Speed", nodeColor = NodeColors.green,nodeIcon = NodeIcons.animation)]
+   
+    [NodeTitle("Animator:\nSet Playback Speed")]
+    [NodeMenuName("Animator: Set Playback Speed")]
+    [NodeMenuPath("Animator")]
+    [CreateBBVariable("PlaybackSpeed", BBVariableType.Number)]
     [System.Serializable]
     public class AnimatorSetAnimationSpeedNode:ActionNode
     {
-        public NodeProperty<float> playBackSpeed;
+        public NodeProperty<NumericProperty> playbackSpeed;
 
 
 
@@ -30,7 +35,7 @@ namespace Halcyon.BT
                 return state;
             }
 
-            context.animator.speed = playBackSpeed.Value;
+            context.animator.speed = playbackSpeed.Value.FloatValue;
             state = State.Success;
             return state;
         }
@@ -51,7 +56,7 @@ namespace Halcyon.BT
             }
             else
             {
-                description = $"Sets the animation playback speed to: '{playBackSpeed.Value}'";
+                description = $"Sets the animation playback speed to: '{playbackSpeed.Value}'";
             }
         }
 #endif

@@ -2,7 +2,17 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuName = "GameObject: Instantiate", menuPath = "GameObject", nodeTitle = "GameObject:\nInstantiate", nodeColor = NodeColors.green, nodeIcon = NodeIcons.destination)]
+    [NodeMenuPath( "GameObject" )]
+    [NodeTitle("GameObject:\nInstantiate")]
+    [NodeMenuName("GameObject: Instantiate")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.none)]
+    [CreateBBVariable("ObjectPrefab", BBVariableType.GameObject)]
+    [CreateBBVariable("Parent", BBVariableType.Transform)]
+    [CreateBBVariable("SpawnPosition", BBVariableType.Vector3)]
+    [CreateBBVariable("SpawnRotation", BBVariableType.Quaternion)]
+    [CreateBBVariable("SaveGameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("SaveTransform", BBVariableType.Transform)]
     [System.Serializable]
     public class GameObjectInstantiateNode : ActionNode
     {

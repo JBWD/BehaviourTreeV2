@@ -7,10 +7,13 @@ using System;
 namespace Halcyon.BT {
 
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree", nodeColor = NodeColors.green, nodeTitle = "Run Subtree")]
+    [NodeMenuPath("Deprecated")]
+    [NodeTitle("Run Sub Tree")]
+    [NodeMenuName("Run Sub Tree")]
     public class SubTree : ActionNode {
         
-        [Tooltip("Behaviour tree asset to run as a subtree")] public BehaviourTree treeAsset;
+        [Tooltip("Behaviour tree asset to run as a subtree")]
+        public BehaviourTree treeAsset;
         [HideInInspector] public BehaviourTree treeInstance;
 
      

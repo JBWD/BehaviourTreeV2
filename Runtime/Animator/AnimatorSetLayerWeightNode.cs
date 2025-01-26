@@ -2,12 +2,17 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Animator",menuName = "Animator: Set Layer Weight", nodeTitle = "Animator:\nSet Layer Weight", nodeColor = NodeColors.green, nodeIcon = NodeIcons.animation)]
+    [NodeMenuPath("Animator")]
+    [NodeMenuName("Animator: Set Layer Weight")]
+    [NodeTitle("Animator:\nSet Layer Weight")]
+    [NodeIcon(NodeIcons.animation)]
+    [CreateBBVariable("LayerIndex", BBVariableType.Number)]
+    [CreateBBVariable("LayerWeight", BBVariableType.Number)]
     [System.Serializable]
     public class AnimatorSetLayerWeightNode : ActionNode
     {
-        public NodeProperty<int> layerIndex;
-        public NodeProperty<float> layerWeight;
+        public NodeProperty<NumericProperty> layerIndex;
+        public NodeProperty<NumericProperty> layerWeight;
 
 
 
@@ -30,7 +35,7 @@ namespace Halcyon.BT
                 return state;
             }
 
-            context.animator.SetLayerWeight(layerIndex.Value, layerWeight.Value);
+            context.animator.SetLayerWeight(layerIndex.Value.IntegerValue, layerWeight.Value.FloatValue);
             return state;
         }
         
@@ -50,7 +55,7 @@ namespace Halcyon.BT
             }
             else
             {
-                description = $"Sets the layer '{layerIndex.Value}' to a weight of {layerWeight.Value}'";
+                description = $"Sets the layer '{layerIndex.Value.IntegerValue}' to a weight of {layerWeight.Value.FloatValue}'";
             }
         }
     }

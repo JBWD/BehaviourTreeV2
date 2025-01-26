@@ -1,7 +1,9 @@
 ﻿namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Stop Movement", nodeTitle = "NavMesh:\n Stop Movement", nodeColor = NodeColors.green, nodeIcon = NodeIcons.destination)]
-    
+    [NodeTitle("NavMesh:\n Stop Movement")]
+    [NodeMenuName("NavMesh: Stop Movement")]
+    [NodeMenuPath("NavMesh")]
+    [NodeIcon(NodeIcons.ai)]
     [System.Serializable]
     public class NavMeshStopMovement : ActionNode
     {

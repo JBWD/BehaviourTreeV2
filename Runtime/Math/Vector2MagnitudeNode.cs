@@ -2,14 +2,20 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Math/Vector2", menuName = "Vector2: Magnitude", nodeTitle = "Vector2 Math:\nMagnitude", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
+    [NodeMenuPath( "Math/Vector2")]
+    [NodeTitle("Math:\nVector2 Normalize")]
+    [NodeMenuName("Math: Vector2 Normalize")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.math)]
+    [CreateBBVariable("BaseVector2Value", BBVariableType.Vector2)]
+    [CreateBBVariable("SaveNumericValue", BBVariableType.Number)]
     [System.Serializable]
     public class Vector2MagnitudeNode: ActionNode
     {
 
         public NodeProperty<Vector2> baseValue;
         [BlackboardValueOnly]
-        public NodeProperty<float> saveValue;
+        public NodeProperty<NumericProperty> saveValue;
 
 
         protected override void OnStart()
@@ -25,7 +31,7 @@ namespace Halcyon.BT
         
         protected override State OnUpdate()
         {
-            saveValue.Value = baseValue.Value.magnitude;
+            saveValue.Value.FloatValue = baseValue.Value.magnitude;
             state = State.Success;
             return state;
         }

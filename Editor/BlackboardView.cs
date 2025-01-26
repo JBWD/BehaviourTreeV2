@@ -80,7 +80,7 @@ namespace Halcyon.BT {
             ValidateButton();
         }
 
-        private void AddTemplateInformation(BlackboardTemplateSO template)
+        public void AddTemplateInformation(BlackboardTemplateSO template)
         {
             if (template == null)
                 return;

@@ -8,6 +8,8 @@ namespace Halcyon.BT
     [NodeTitle("Player Prefs:\nSet Boolean")]
     [NodeIcon(NodeIcons.save)]
     [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("PlayerPrefName", BBVariableType.String)]
+    [CreateBBVariable("BooleanValue", BBVariableType.Boolean)]
     [System.Serializable]
     public class PlayerPrefSetBooleanNode : ActionNode
     {

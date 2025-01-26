@@ -2,7 +2,11 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs", menuName = "Player Prefs: Save", nodeTitle = "Player Prefs:\nSave", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeTitle("Player Prefs:\n Save Keys")]
+    [NodeMenuName("Player Prefs: Save Keys")]
+    [NodeMenuPath("Player Prefs")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
     [System.Serializable]
 
     public class PlayerPrefSaveNode : ActionNode

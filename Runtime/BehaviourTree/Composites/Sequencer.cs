@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace Halcyon.BT {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange, nodeIcon = NodeIcons.sequence)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
+    [NodeIcon(NodeIcons.sequence)]
     public class Sequencer : CompositeNode {
+        
         protected int current;
 
         protected override void OnStart() {

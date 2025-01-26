@@ -2,7 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Math/Vector3", menuName = "Vector3: Normalize", nodeTitle = "Vector3 Math:\nNormalize", nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
+    [NodeMenuPath( "Math/Vector3")]
+    [NodeTitle("Math:\nVector3 Normalize")]
+    [NodeMenuName("Math: Vector3 Normalize")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.math)]
+    [CreateBBVariable("BaseVector3Value", BBVariableType.Vector3)]
+    [CreateBBVariable("SaveVector3Value", BBVariableType.Vector3)]
     [System.Serializable]
     public class Vector3NormalizeNode: ActionNode
     {

@@ -13,6 +13,7 @@
                 <ui:VisualElement name="inspector-container" style="background-color: rgb(56, 56, 56);">
                     <ui:Label text="Inspector" display-tooltip-when-elided="true" style="background-color: rgb(37, 37, 37);" />
                     <Halcyon.BT.InspectorView style="background-color: rgb(56, 56, 56);" />
+                    <ui:Button text="Create Variables" name="CreateVariableButton" style="align-content: flex-end; translate: 0 150%; height: 25px; -unity-text-align: middle-center;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="blackboard-container" style="background-color: rgb(56, 56, 56);">
                     <ui:Label text="Blackboard" display-tooltip-when-elided="true" style="background-color: rgb(37, 37, 37);" />

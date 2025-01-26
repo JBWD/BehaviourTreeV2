@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Halcyon.BT {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange, nodeIcon = NodeIcons.sequence)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
     public class Parallel : CompositeNode {
 
         protected override void OnStart() {

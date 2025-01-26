@@ -6,6 +6,10 @@ using Halcyon.BT;
 namespace Halcyon.BT {
 
     [BehaviourTreeNode(menuPath = "Behaviour Tree", nodeTitle = "Set Property", nodeColor = NodeColors.pink, nodeIcon = NodeIcons.oneTime)]
+    [NodeMenuPath("Behaviour Tree")]
+    [NodeMenuName("Set Property")]
+    [NodeTitle("Set Property")]
+    [NodeIcon(NodeIcons.save)]
     [System.Serializable]
     public class SetProperty : ActionNode
     {

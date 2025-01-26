@@ -5,6 +5,8 @@ namespace Halcyon.BT
     [NodeTitle("Animator:\nPlay Animation")]
     [NodeMenuName("Animator: Play Animation")]
     [NodeMenuPath("Animator")]
+    [CreateBBVariable("AnimationName", BBVariableType.String)]
+    [CreateBBVariable("LayerIndex", BBVariableType.Number)]
     public class AnimatorPlayAnimationByNameNode : ActionNode
     {
         public NodeProperty<NumericProperty> layerIndex;
@@ -45,7 +47,7 @@ namespace Halcyon.BT
 
             if (context.animator.HasState(layerIndex.Value.IntegerValue, stateID))
 
-
+                context.animator.StopPlayback();
                 context.animator.Play(animationName.Value, layerIndex.Value.IntegerValue);
 
             return State.Success;

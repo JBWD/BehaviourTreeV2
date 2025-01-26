@@ -2,12 +2,18 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs/Set", menuName = "Player Prefs: Set Integer", nodeTitle = "Player Prefs:\nSet Integer", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeTitle("Player Prefs:\n Set Integer")]
+    [NodeMenuName("Player Prefs: Set Integer")]
+    [NodeMenuPath("Player Prefs/Set")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("PlayerPrefName", BBVariableType.String)]
+    [CreateBBVariable("NumericValue", BBVariableType.Number)]
     [System.Serializable]
     public class PlayerPrefSetIntegerNode : ActionNode
     {
         public NodeProperty<string> playerPrefName;
-        public NodeProperty<int> saveValue;
+        public NodeProperty<NumericProperty> saveValue;
         
        
         protected override void OnStart()
@@ -25,7 +31,7 @@ namespace Halcyon.BT
             state = State.Success;
 
 
-            PlayerPrefs.SetInt(playerPrefName.Value, saveValue.Value);
+            PlayerPrefs.SetInt(playerPrefName.Value, saveValue.Value.IntegerValue);
             
             return state;
         }

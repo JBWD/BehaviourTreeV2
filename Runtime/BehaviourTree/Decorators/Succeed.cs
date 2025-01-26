@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Halcyon.BT {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.blue)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
     public class Succeed : DecoratorNode {
         protected override void OnStart() {
         }

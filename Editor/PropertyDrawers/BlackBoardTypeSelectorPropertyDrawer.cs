@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 
 namespace Halcyon.BT
 {
@@ -37,7 +38,6 @@ namespace Halcyon.BT
             {
                selectedIndex = names.IndexOf(typeString.stringValue);
             }
-            
             EditorGUILayout.LabelField("Type");
             selectedIndex = EditorGUILayout.Popup(selectedIndex, names.ToArray());
             typeString.stringValue = names[selectedIndex];

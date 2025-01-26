@@ -6,10 +6,11 @@ namespace Halcyon.BT
     [NodeMenuName("Transform: Is Null")]
     [NodeMenuPath("Transform")]
     [NodeTitle("Transform:\n Is Null")]
+    [CreateBBVariable("Transform Value", BBVariableType.Transform)]
     public class TransformIsNull : ComparisonNode
     {
         [BlackboardValueOnly]
-        public NodeProperty<Transform> TransformProperty;
+        public NodeProperty<Transform> TransformValue;
         
         protected override void OnStart()
         {
@@ -23,9 +24,9 @@ namespace Halcyon.BT
 
         public override bool CheckComparison()
         {
-            if (TransformProperty == null)
+            if (TransformValue == null)
                 return false;
-            return TransformProperty.Value != null;
+            return TransformValue.Value == null;
         }
 
         public override void UpdateDescription()

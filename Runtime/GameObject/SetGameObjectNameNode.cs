@@ -1,14 +1,22 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "GameObject/Set", menuName = "GameObject: Set Name", nodeColor = NodeColors.pink,
-        nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nSet Name")]
+    [NodeMenuPath( "GameObject/Set" )]
+    [NodeTitle("GameObject:\nSet GameObject Name")]
+    [NodeMenuName("GameObject: Set GameObject Name")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.save)]
+    [CreateBBVariable("GameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("NameValue", BBVariableType.String)]
     [System.Serializable]
     public class SetGameObjectNameNode : ActionNode
     {
+        [BlackboardValueOnly]
         public NodeProperty<GameObject> gameObject;
-        public NodeProperty<string> name;
+        public bool self = true;
+        public NodeProperty<string> nameValue;
         
         protected override void OnStart()
         {
@@ -21,9 +29,22 @@ namespace Halcyon.BT
 
         protected override State OnUpdate()
         {
+            state = State.Failure;
+            if(!self)
+            {
+                if(gameObject != null)
+                {
+                    nameValue.Value = gameObject.Value.name;
+                    state = State.Success;
+                }
+            }
+            
+            if (state == State.Success)
+                return state;
+
             if (gameObject.Value != null)
             {
-                gameObject.Value.name = name.Value;
+                gameObject.Value.name = nameValue.Value;
                 state = State.Success;
             }
             else
@@ -37,7 +58,7 @@ namespace Halcyon.BT
         public override void UpdateDescription()
         {
             
-            description = $"Sets the 'GameObject's active state to '{name.Value}'.";
+            description = $"Sets the 'GameObject's active state to '{nameValue.Value}'.";
         }
     }
 }

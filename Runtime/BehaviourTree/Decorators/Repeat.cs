@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Halcyon.BT {
     
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.blue , nodeIcon = NodeIcons.repeat)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
+    [NodeIcon(NodeIcons.repeat)]
     [System.Serializable]
     public class Repeat : DecoratorNode {
         [Tooltip("Restarts the subtree on success")] public bool restartOnSuccess = true;

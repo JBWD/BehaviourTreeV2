@@ -159,11 +159,12 @@ namespace Halcyon.BT {
     {
         
     }
-
-    public class PathListKey : BlackboardKey<PathListProperty>
+    [System.Serializable]
+    public class PathListKey : BlackboardKey<PathList>
     {
     }
-
+    
+    [System.Serializable]
     public class NumberKey : BlackboardKey<NumericProperty>
     {
     }

@@ -2,15 +2,20 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Math/Vector2", menuName = "Vector2: Multiply Float",
-        nodeTitle = "Vector2 Math:\nMultiply Float",
-        nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
+    [NodeMenuPath( "Math/Vector2")]
+    [NodeTitle("Math:\nVector2 Multiply Numeric")]
+    [NodeMenuName("Math: Vector2 Multiply Numeric")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.math)]
+    [CreateBBVariable("BaseVector2Value", BBVariableType.Vector2)]
+    [CreateBBVariable("MultiplyNumericValue", BBVariableType.Number)]
+    [CreateBBVariable("SaveVector2Value", BBVariableType.Vector2)]
     [System.Serializable]
     public class Vector2MultiplyFloatNode : ActionNode
     {
 
         public NodeProperty<Vector2> baseValue;
-        public NodeProperty<float> multiplyValue;
+        public NodeProperty<NumericProperty> multiplyValue;
         [BlackboardValueOnly] public NodeProperty<Vector2> saveValue;
 
 
@@ -26,7 +31,7 @@ namespace Halcyon.BT
 
         protected override State OnUpdate()
         {
-            saveValue.Value = baseValue.Value * multiplyValue.Value;
+            saveValue.Value = baseValue.Value * multiplyValue.Value.FloatValue;
             state = State.Success;
             return state;
         }
@@ -40,7 +45,7 @@ namespace Halcyon.BT
                 {
 
                     description =
-                        $"Multiplies '{baseValue.Value}' * '{multiplyValue.Value}' and saves the total in '{saveValue.reference.name}'";
+                        $"Multiplies '{baseValue.Value}' * '{multiplyValue.Value.FloatValue}' and saves the total in '{saveValue.reference.name}'";
                 }
                 else
                 {

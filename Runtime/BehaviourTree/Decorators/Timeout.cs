@@ -4,9 +4,11 @@ using UnityEngine;
 
 namespace Halcyon.BT {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.blue)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
+    [CreateBBVariable("Duration", BBVariableType.Number)]
     public class Timeout : DecoratorNode {
-        [Tooltip("Returns failure after this amount of time if the subtree is still running.")] public float duration = 1.0f;
+        [Tooltip("Returns failure after this amount of time if the subtree is still running.")] 
+        public NodeProperty<NumericProperty> duration = new NodeProperty<NumericProperty>() { Value = new NumericProperty() { DoubleValue = 1}};
         float startTime;
 
         protected override void OnStart() {
@@ -21,7 +23,7 @@ namespace Halcyon.BT {
                 return State.Failure;
             }
 
-            if (Time.time - startTime > duration) {
+            if (Time.time - startTime > duration.Value.FloatValue) {
                 return State.Failure;
             }
 

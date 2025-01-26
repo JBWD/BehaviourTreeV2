@@ -6,7 +6,11 @@ using UnityEngine;
 
 namespace Halcyon.BT {
 
-    [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Move To Position", nodeTitle = "NavMesh:\n Move To Position", nodeColor = NodeColors.green,nodeIcon = NodeIcons.destination)]
+    [NodeTitle("NavMesh:\n Move To Position")]
+    [NodeMenuName("NavMesh: Move To Position")]
+    [NodeMenuPath("NavMesh")]
+    [NodeIcon(NodeIcons.destination)]
+    [CreateBBVariable("TargetPosition", BBVariableType.Vector3)]
     [System.Serializable]
     public class NavMeshMoveToPosition : ActionNode {
 

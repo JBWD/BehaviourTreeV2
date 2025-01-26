@@ -4,6 +4,14 @@ namespace Halcyon.BT
 {
     [BehaviourTreeNode(menuPath = "Raycasting", menuName = "Raycasting: Camera to Mouse Point", nodeTitle = "Raycasting:\nCamera to Mouse Point",
         nodeColor =  NodeColors.green, nodeIcon = NodeIcons.destination)]
+    [NodeTitle("Raycasting:\nCamera to Mouse Point")]
+    [NodeMenuName("Raycasting: Camera to Mouse Point")]
+    [NodeMenuPath("Raycasting")]
+    [NodeIcon(NodeIcons.destination)]
+    [CreateBBVariable("SaveHitPosition", BBVariableType.Vector3)]
+    [CreateBBVariable("SaveHitCollider", BBVariableType.Collider)]
+    [CreateBBVariable("SaveHitGameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("SaveHitTransform", BBVariableType.Transform)]
     [System.Serializable]
     public class RaycastCameraToMousePositionNode : ActionNode
     {
@@ -17,6 +25,8 @@ namespace Halcyon.BT
         public NodeProperty<Collider> saveHitCollider;
         [BlackboardValueOnly]
         public NodeProperty<GameObject> saveHitGameObject;
+        [BlackboardValueOnly]
+        public NodeProperty<Transform> saveHitTransform;
         
         protected override void OnStart()
         {
@@ -43,6 +53,7 @@ namespace Halcyon.BT
                         saveHitCollider.Value = raycasthit.collider;
                         saveHitGameObject.Value = raycasthit.collider.gameObject;
                         saveHitPosition.Value = raycasthit.point;
+                        saveHitTransform.Value = raycasthit.collider.transform;
                         state = State.Success;
                     }
                 }

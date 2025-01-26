@@ -71,8 +71,8 @@ namespace Halcyon.BT {
             context.capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
             context.characterController = gameObject.GetComponent<CharacterController>();
             context.BehaviourTreeRunner = gameObject.GetComponent<BehaviourTreeRunner>();
-            // To add more to the context, add a partial class as an extension and look for components in Init() on the node itself.
-
+            
+           
             return context;
         }
 

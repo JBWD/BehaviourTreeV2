@@ -5,12 +5,14 @@ using UnityEngine;
 namespace Halcyon.BT {
 
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.green,nodeIcon = NodeIcons.time)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
+    [NodeIcon(NodeIcons.time)]
+    [CreateBBVariable("Duration",BBVariableType.Number)]
     public class Wait : ActionNode
     {
 
         [Tooltip("Amount of time to wait before returning success")]
-        public NodeProperty<float> duration;
+        public NodeProperty<NumericProperty> duration;
         float startTime;
 
         protected override void OnStart() {
@@ -24,7 +26,7 @@ namespace Halcyon.BT {
         protected override State OnUpdate() {
             
             float timeRemaining = Time.time - startTime;
-            if (timeRemaining > duration.Value)
+            if (timeRemaining > duration.Value.FloatValue)
             {
                 return State.Success;
             }

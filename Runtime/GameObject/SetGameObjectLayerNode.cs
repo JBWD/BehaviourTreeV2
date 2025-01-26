@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "GameObject/Set", menuName = "GameObject: Set Layer", nodeColor = NodeColors.pink,
-        nodeIcon = NodeIcons.none, nodeTitle = "GameObject:\nSet Layer")]
+    [NodeMenuPath( "GameObject/Get" )]
+    [NodeTitle("GameObject:\nSet Layer")]
+    [NodeMenuName("GameObject: Set Layer")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.save)]
+    [CreateBBVariable("GameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("LayerIndex", BBVariableType.Number)]
     [System.Serializable]
     public class SetGameObjectLayerNode : ActionNode
     {
-        
-        public NodeProperty<GameObject> gameObject;
-        public NodeProperty<LayerMask> layerMask;
+        [BlackboardValueOnly]
+        public NodeProperty<GameObject> gameObject; 
+        public bool self = true;
+        public NodeProperty<NumericProperty> LayerIndex;
         
         protected override void OnStart()
         {
@@ -22,9 +29,22 @@ namespace Halcyon.BT
 
         protected override State OnUpdate()
         {
+            state = State.Failure;
+            if(!self)
+            {
+                if(gameObject != null)
+                {
+                    LayerIndex.Value.IntegerValue = gameObject.Value.layer;
+                    state = State.Success;
+                }
+            }
+            
+            if (state == State.Success)
+                return state;
+
             if (gameObject.Value != null)
             {
-                gameObject.Value.layer = layerMask.Value;
+                gameObject.Value.layer = LayerIndex.Value.IntegerValue;
                 state = State.Success;
             }
             else
@@ -37,7 +57,7 @@ namespace Halcyon.BT
         public override void UpdateDescription()
         {
             
-            description = $"Sets the 'GameObject's active state to '{layerMask.Value}'.";
+            description = $"Sets the 'GameObject's active state to '{LayerIndex.Value.IntegerValue}'.";
         }
     }
 }

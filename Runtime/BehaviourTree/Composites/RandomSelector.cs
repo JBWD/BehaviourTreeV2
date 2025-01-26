@@ -5,7 +5,8 @@ using System.Linq;
 
 namespace Halcyon.BT {
     [System.Serializable]
-    [BehaviourTreeNode(menuPath = "Behaviour Tree/Flow", nodeColor = NodeColors.orange, nodeIcon = NodeIcons.random)]
+    [NodeMenuPath("Behaviour Tree/Flow")]
+    [NodeIcon(NodeIcons.random)]
     public class RandomSelector : CompositeNode {
         protected int current;
 

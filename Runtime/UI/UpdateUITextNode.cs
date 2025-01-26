@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace Halcyon.BT
         [Header("Note: Needs to be overriden value in instance.")]
         [BlackboardValueOnly]
         public NodeProperty<TextMeshProUGUI> textContainer;
+
         public NodeProperty<string> text;
         protected override void OnStart()
         {
@@ -41,7 +43,12 @@ namespace Halcyon.BT
             }
             else
             {
-                textContainer.Value.text = text.Value;
+                string textToDisplay = "";
+                //foreach (var t in text)
+                {
+                    textToDisplay += text.Value.Trim();
+                }
+                textContainer.Value.text = textToDisplay;
                 state = State.Success;
             }
 

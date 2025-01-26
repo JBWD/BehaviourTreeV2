@@ -3,7 +3,13 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs/Get", menuName = "Player Prefs: Get Vector3", nodeTitle = "Player Prefs:\nGet Vector3", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeTitle("Player Prefs:\n Get Vector3")]
+    [NodeMenuName("Player Prefs: Get Vector3")]
+    [NodeMenuPath("Player Prefs/Get")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("PlayerPrefName", BBVariableType.String)]
+    [CreateBBVariable("SaveVector3Value", BBVariableType.Vector3)]
     [System.Serializable]
     public class PlayerPrefGetVector3Node : ActionNode
     {

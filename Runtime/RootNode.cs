@@ -5,7 +5,10 @@ using UnityEngine;
 
 namespace Halcyon.BT {
 
-    [BehaviourTreeNode(nodeColor = NodeColors.red, nodeTitle = "Update Node", nodeIcon = NodeIcons.repeat)]
+    
+    [NodeTitle("Unity:\nUpdate")]
+    [NodeIcon(NodeIcons.repeat)]
+    [NodeColor(NodeColors.red)]
     [System.Serializable]
     public class RootNode : Node {
 

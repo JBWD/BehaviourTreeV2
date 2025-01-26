@@ -2,12 +2,18 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs/Get", menuName = "Player Prefs: Get Float", nodeTitle = "Player Prefs:\nGet Float", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeTitle("Player Prefs:\n Get Float")]
+    [NodeMenuName("Player Prefs: Get Float")]
+    [NodeMenuPath("Player Prefs/Get")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("PlayerPrefName", BBVariableType.String)]
+    [CreateBBVariable("SaveNumericValue", BBVariableType.Number)]
     [System.Serializable]
     public class PlayerPrefGetFloatNode : ActionNode
     {
         public NodeProperty<string> playerPrefName;
-        [BlackboardValueOnly] public NodeProperty<float> saveValue;
+        [BlackboardValueOnly] public NodeProperty<NumericProperty> saveValue;
 
 
 
@@ -25,7 +31,7 @@ namespace Halcyon.BT
         protected override State OnUpdate()
         {
             state = State.Success;
-            saveValue.Value = PlayerPrefs.GetFloat(playerPrefName.Value, -1);
+            saveValue.Value.FloatValue = PlayerPrefs.GetFloat(playerPrefName.Value, -1);
             
             
             return state;

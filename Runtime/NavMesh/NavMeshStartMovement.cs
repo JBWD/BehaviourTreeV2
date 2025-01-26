@@ -2,7 +2,10 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "NavMesh",menuName = "NavMesh: Start Movement", nodeTitle = "NavMesh:\n Start Movement")]
+    [NodeTitle("NavMesh:\n Start Movement")]
+    [NodeMenuName("NavMesh: Start Movement")]
+    [NodeMenuPath("NavMesh")]
+    [NodeIcon(NodeIcons.ai)]
     [System.Serializable]
     public class NavMeshStartMovement : ActionNode
     {

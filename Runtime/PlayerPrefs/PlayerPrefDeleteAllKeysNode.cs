@@ -2,7 +2,11 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs", menuName = "Player Prefs: Delete All Keys", nodeTitle = "Player Prefs:\nDelete All Keys", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeTitle("Player Prefs:\n Delete All Keys")]
+    [NodeMenuName("Player Prefs: Delete All Keys")]
+    [NodeMenuPath("Player Prefs")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
     [System.Serializable]
     public class PlayerPrefDeleteAllKeysNode :ActionNode
     {

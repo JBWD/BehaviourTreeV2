@@ -2,13 +2,18 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Animator",menuName = "Animator: Get Layer Name", nodeTitle = "Animator:\nGet Layer Name", nodeColor = NodeColors.green, nodeIcon = NodeIcons.animation)]
+    [NodeMenuPath("Animator")]
+    [NodeMenuName("Animator: Get Layer Name")]
+    [NodeTitle("Animator:\nGet Layer Name")]
+    [NodeIcon(NodeIcons.animation)]
+    [CreateBBVariable("LayerName", BBVariableType.String)]
+    [CreateBBVariable("LayerIndex", BBVariableType.Number)]
     [System.Serializable]
     public class AnimatorGetLayerNameNode : ActionNode
     {
         
         
-        public NodeProperty<int> layerIndex;
+        public NodeProperty<NumericProperty> layerIndex;
         [BlackboardValueOnly]
         public NodeProperty<string> saveName;
 
@@ -34,7 +39,7 @@ namespace Halcyon.BT
                 return state;
             }
 
-            saveName.Value = context.animator.GetLayerName(layerIndex.Value);
+            saveName.Value = context.animator.GetLayerName(layerIndex.Value.IntegerValue);
             return state;
         }
 
@@ -56,7 +61,7 @@ namespace Halcyon.BT
                 if (saveName.reference != null)
                 {
                     description =
-                        $"Retrieves the layer '{layerIndex.Value}' name and saves the value in '{saveName.reference.name}'";
+                        $"Retrieves the layer '{layerIndex.Value.IntegerValue}' name and saves the value in '{saveName.reference.name}'";
                 }
                 else
                 {

@@ -2,8 +2,14 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Math/Vector3", menuName = "Vector3: Subtract Vector3", nodeTitle = "Vector3 Math:\nSubtract Vector3", 
-        nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
+    [NodeMenuPath( "Math/Vector3")]
+    [NodeTitle("Math:\nVector3 Subtract")]
+    [NodeMenuName("Math: Vector3 Subtract")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.math)]
+    [CreateBBVariable("BaseVector3Value", BBVariableType.Vector3)]
+    [CreateBBVariable("SubtractVector3Value", BBVariableType.Vector3)]
+    [CreateBBVariable("SaveVector3Value", BBVariableType.Vector3)]
     [System.Serializable]
     public class Vector3SubtractVector3Node : ActionNode
     {

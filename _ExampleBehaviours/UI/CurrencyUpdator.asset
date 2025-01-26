@@ -24,7 +24,8 @@ MonoBehaviour:
   - rid: 794795621881479231
   - rid: 794795621881479236
   - rid: 794795621881479238
-  - rid: 2229934950381256774
+  - rid: 3449633504209141894
+  - rid: 3449633504209141902
   treeState: 0
   blackboard:
     keys:
@@ -34,8 +35,11 @@ MonoBehaviour:
     - rid: 794795621881479229
     - rid: 794795621881479230
     - rid: 2229935471056912422
-  viewPosition: {x: 803, y: 420, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+    - rid: 3449633504209141905
+    - rid: 3449633504209141906
+    - rid: 3449633504209141907
+  viewPosition: {x: 938, y: 394, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -48,8 +52,11 @@ MonoBehaviour:
         started: 0
         guid: 43a073cc-5f04-4d04-ad94-d5a4aa3d6aa6
         position: {x: 510, y: -270}
+        size: {x: 150, y: 156}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
         description: 
         drawGizmos: 0
         errored: 0
@@ -63,8 +70,11 @@ MonoBehaviour:
         started: 0
         guid: 18f32d27e70e8e249bb501d9255d2592
         position: {x: -45, y: -225}
+        size: {x: 150, y: 178}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
         description: 'Listens to the Integer Value Change Global Event to be called
           with the activation name: .'
         drawGizmos: 0
@@ -98,8 +108,11 @@ MonoBehaviour:
         started: 0
         guid: 96a786e9f8da98a419ea52f31bf371d3
         position: {x: -30, y: 15}
+        size: {x: 150, y: 156}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
         description: Runs all children whether they are successful, failed, or are
           running.
         drawGizmos: 0
@@ -114,21 +127,18 @@ MonoBehaviour:
         name: UpdateValue
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 0
-    - rid: 794795513687048254
-      type: {class: FloatKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
-      data:
-        name: CurrentValue
-        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 0
     - rid: 794795513687048448
       type: {class: OnButtonClickNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
       data:
         state: 0
         started: 0
         guid: f5828312032995e46af3f4367db95ce2
-        position: {x: -750, y: -210}
+        position: {x: -690, y: -60}
+        size: {x: 150, y: 178}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
         description: 
         drawGizmos: 0
         errored: 0
@@ -154,9 +164,12 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7759f1ebac9f7e040a8fdb0994c7255a
-        position: {x: 30, y: 210}
+        position: {x: 90, y: 270}
+        size: {x: 177, y: 154}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
         description: 
         drawGizmos: 0
         errored: 0
@@ -175,25 +188,12 @@ MonoBehaviour:
             rid: -2
         scoreIsPrefix: 0
         score:
-          parameterType: 0
-          integerValue:
-            reference:
-              rid: 794795621881479229
-            defaultValue: 0
-            _typedKey:
-              rid: -2
-          floatValue:
-            reference:
-              rid: 794795513687048254
-            defaultValue: 0
-            _typedKey:
-              rid: -2
-          doubleValue:
-            reference:
-              rid: -2
-            defaultValue: 0
-            _typedKey:
-              rid: -2
+          reference:
+            rid: -2
+          defaultValue:
+            doubleValue: 0
+          _typedKey:
+            rid: -2
     - rid: 794795621881479229
       type: {class: IntKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
       data:
@@ -212,9 +212,12 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 108345ec895fb6045a2c7e7e1836e516
-        position: {x: -165, y: 210}
+        position: {x: -135, y: 255}
+        size: {x: 150, y: 79}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
         description: Adds '0' + '0' and saves the total in 'CurrentCoins'
         drawGizmos: 0
         errored: 0
@@ -243,9 +246,12 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 894757148238cae479098f493af24e42
-        position: {x: -750, y: -15}
+        position: {x: -690, y: 135}
+        size: {x: 150, y: 79}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
         description: 'Activates a value change event for  and sends the value: 3'
         drawGizmos: 0
         errored: 0
@@ -268,34 +274,94 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 967ad11e02defbb408f11efa3fa6ea40
-        position: {x: 225, y: -30}
+        position: {x: 225, y: -45}
+        size: {x: 150, y: 178}
         blackboard:
           keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
         description: 
         drawGizmos: 0
         errored: 0
         conditionState: 0
         child:
           rid: 794795621881479228
-    - rid: 2229934950381256774
-      type: {class: OnMouseButtonNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
-      data:
-        state: 0
-        started: 0
-        guid: f70f620821b493c40a43b7bb80addbdb
-        position: {x: -405, y: -225}
-        blackboard:
-          keys: []
-        description: When the GameObject is click down and up, all children nodes
-          are invoked, this does not repeat like the main loop.
-        drawGizmos: 0
-        errored: 0
-        conditionState: 0
-        child:
-          rid: -2
     - rid: 2229935471056912422
       type: {class: StringKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
       data:
         name: EventActivationName
         typeName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 
+    - rid: 3449633504209141894
+      type: {class: StringLogNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 102be4b7a80809f4791cf3b75577816b
+        position: {x: -530, y: -47}
+        size: {x: 150, y: 65}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
+        description: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        message:
+          reference:
+            rid: -2
+          defaultValue: 
+          _typedKey:
+            rid: -2
+        objectValue:
+          reference:
+            rid: -2
+          _typedKey:
+            rid: -2
+    - rid: 3449633504209141902
+      type: {class: UpdateUITextNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 12d7f36ee2db6c64b8c3f1d8973bbdc3
+        position: {x: -405, y: 240}
+        size: {x: 150, y: 154}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        nodeTitle: 
+        description: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        textContainer:
+          reference:
+            rid: 794795486275436621
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        text:
+          reference:
+            rid: 794795621881479230
+          defaultValue: 
+          _typedKey:
+            rid: -2
+    - rid: 3449633504209141905
+      type: {class: BooleanKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: Test1
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 3449633504209141906
+      type: {class: BooleanKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: Test2
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 3449633504209141907
+      type: {class: BooleanKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: Test3
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0

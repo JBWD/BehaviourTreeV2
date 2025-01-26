@@ -2,8 +2,12 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Variable/Conversion", menuName = "Conversion: Collider to GameObject", nodeColor = NodeColors.pink,
-        nodeIcon = NodeIcons.repeat, nodeTitle = "Conversion:\nCollider to GameObject")]
+    [NodeMenuPath( "GameObject/Conversion" )]
+    [NodeTitle("GameObject:\nGet GameObject\nfrom Collider")]
+    [NodeMenuName("GameObject: Get GameObject from Collider")] 
+    [NodeIcon(NodeIcons.none)]
+    [CreateBBVariable("Collider", BBVariableType.Collider)]
+    [CreateBBVariable("SaveObject", BBVariableType.GameObject)]
     [System.Serializable]
     public class GetGameObjectFromColliderNode : ActionNode
     {

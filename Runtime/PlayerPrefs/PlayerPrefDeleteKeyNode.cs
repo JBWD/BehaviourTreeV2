@@ -2,7 +2,12 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Player Prefs", menuName = "Player Prefs: Delete Key", nodeTitle = "Player Prefs:\nDelete Key", nodeIcon = NodeIcons.save,nodeColor = NodeColors.pink)]
+    [NodeTitle("Player Prefs:\n Delete Key")]
+    [NodeMenuName("Player Prefs: Delete Key")]
+    [NodeMenuPath("Player Prefs")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("KeyToDelete", BBVariableType.String)]
     [System.Serializable]
     public class PlayerPrefDeleteKeyNode : ActionNode
     {

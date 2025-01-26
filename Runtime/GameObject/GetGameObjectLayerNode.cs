@@ -1,14 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "GameObject/Get", menuName = "GameObject: Get Layer", nodeColor = NodeColors.pink,
-        nodeIcon = NodeIcons.save, nodeTitle = "GameObject:\nGet Layer")]
+
+    [NodeMenuPath( "GameObject/Get" )]
+    [NodeTitle("GameObject:\nGet Layer")]
+    [NodeMenuName("GameObject: Get Layer")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.save)]
+    [CreateBBVariable("GameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("LayerIndex", BBVariableType.Number)]
     [System.Serializable]
     public class GetGameObjectLayerNode :ActionNode
     {
         [BlackboardValueOnly]
-        public NodeProperty<LayerMask> layerValue;
+        public NodeProperty<GameObject> gameObject;
+        public bool self = true;
+        public NodeProperty<NumericProperty> LayerIndex;
         
         protected override void OnStart()
         {
@@ -21,9 +30,24 @@ namespace Halcyon.BT
 
         protected override State OnUpdate()
         {
+            state = State.Failure;
+            if(!self)
+            {
+                if(gameObject != null)
+                {
+                    LayerIndex.Value.IntegerValue = gameObject.Value.layer;
+                    state = State.Success;
+                }
+            }
+            
+            if (state == State.Success)
+                return state;
+
+            
+            
             if (context.gameObject != null)
             {
-                layerValue.Value = context.gameObject.layer;
+                LayerIndex.Value.IntegerValue = context.gameObject.layer;
                 state = State.Success;
             }
             else

@@ -146,7 +146,15 @@ namespace Halcyon.BT {
         }
 
         public NodeView FindNodeView(Node node) {
-            return GetNodeByGuid(node.guid) as NodeView;
+            if (node == null)
+            {
+                return null;
+            }
+
+            NodeView view =  GetNodeByGuid(node.guid) == null ? null : GetNodeByGuid(node.guid) as NodeView;
+            if(view == null)
+                view = CreateNodeView(node);
+            return view;
         }
 
         public NodeView FindNodeView(string guid) {
@@ -175,8 +183,8 @@ namespace Halcyon.BT {
                 children.ForEach(c => {
                     NodeView parentView = FindNodeView(n);
                     NodeView childView = FindNodeView(c);
-                    Debug.Assert(parentView != null, "Invalid parent after deserialising");
-                    Debug.Assert(childView != null, $"Null child view after deserialising parent{parentView.node.GetType().Name}");
+                    Debug.Assert(parentView != null, "Invalid parent after deserializing");
+                    Debug.Assert(childView != null, $"Null child view after deserializing parent{parentView.node.GetType().Name}");
                     CreateEdgeView(parentView, childView);
                     
                 });
@@ -333,6 +341,10 @@ namespace Halcyon.BT {
 
         void CreateEdgeView(NodeView parentView, NodeView childView) {
             
+            if(childView == null || parentView == null)
+            {
+                return;
+            }
             Edge edge = parentView.output.ConnectTo(childView.input);
             AddElement(edge);
         }

@@ -2,13 +2,18 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Animator",menuName = "Animator: Get Layer Weight", nodeTitle = "Animator:\nGet Layer Weight", nodeColor = NodeColors.green, nodeIcon = NodeIcons.animation)]
+    [NodeMenuPath("Animator")]
+    [NodeMenuName("Animator: Get Layer Weight")]
+    [NodeTitle("Animator:\nGet Layer Weight")]
+    [NodeIcon(NodeIcons.animation)]
+    [CreateBBVariable("LayerIndex", BBVariableType.Number)]
+    [CreateBBVariable("LayerWeight", BBVariableType.Number)]
     [System.Serializable]
     public class AnimatorGetLayerWeightNode : ActionNode
     {
-        public NodeProperty<int> layerIndex;
+        public NodeProperty<NumericProperty> layerIndex;
         [BlackboardValueOnly]
-        public NodeProperty<float> saveWeight;
+        public NodeProperty<NumericProperty> saveWeight;
 
 
 
@@ -32,7 +37,7 @@ namespace Halcyon.BT
                 return state;
             }
 
-            saveWeight.Value = context.animator.GetLayerWeight(layerIndex.Value);
+            saveWeight.Value.FloatValue = context.animator.GetLayerWeight(layerIndex.Value.IntegerValue);
             return state;
         }
 
@@ -54,7 +59,7 @@ namespace Halcyon.BT
                 if (saveWeight.reference != null)
                 {
                     description =
-                        $"Retrieves the layer '{layerIndex.Value}' index and saves the value in '{saveWeight.reference.name}'";
+                        $"Retrieves the layer '{layerIndex.Value.IntegerValue}' index and saves the value in '{saveWeight.reference.name}'";
                 }
                 else
                 {

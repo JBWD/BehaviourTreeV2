@@ -28,7 +28,8 @@ namespace Halcyon.BT {
         [HideInInspector] public Context context;
         [HideInInspector] public Blackboard blackboard;
         [HideInInspector] public int connectionCapacity = int.MaxValue;
-        
+
+        [HideInInspector] public string nodeTitle;
         [TextArea] public string description;
         [Tooltip("When enabled, the nodes OnDrawGizmos will be invoked")] public bool drawGizmos = false;
         [HideInInspector] public bool errored = false;

@@ -2,8 +2,14 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Math/Vector3", menuName = "Vector3: Add Vector3", nodeTitle = "Vector3 Math:\nAdd Vector3", 
-        nodeColor = NodeColors.green, nodeIcon = NodeIcons.math)]
+    [NodeMenuPath( "Math/Vector3")]
+    [NodeTitle("Math:\nVector3 Multiply Numeric")]
+    [NodeMenuName("Math: Vector3 Multiply Numeric")]
+    [NodeColor(NodeColors.pink)]
+    [NodeIcon(NodeIcons.math)]
+    [CreateBBVariable("BaseNumericValue", BBVariableType.Number)]
+    [CreateBBVariable("MultiplyNumericValue", BBVariableType.Number)]
+    [CreateBBVariable("SaveNumericValue", BBVariableType.Number)]
     [System.Serializable]
     public class Vector3AddVector2Node : ActionNode
     {

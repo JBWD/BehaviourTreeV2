@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.UIElements;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 namespace Halcyon.BT {
@@ -35,6 +36,12 @@ namespace Halcyon.BT {
                 keyValue.bindingPath = nameof(BlackboardKey<object>.value);
 
                 container.AddManipulator(new ContextualMenuManipulator((evt) => {
+                    evt.menu.AppendAction("Rename", (x) => { renameField.value = keyName.text;
+                        renameField.style.display = DisplayStyle.Flex;
+                        renameField.Focus();
+
+                        keyValue.style.display = DisplayStyle.None;
+                        keyName.style.display = DisplayStyle.None;} );
                     evt.menu.AppendAction("Delete", (x) => BehaviourTreeEditorWindow.Instance.serializer.DeleteBlackboardKey(property.displayName), DropdownMenuAction.AlwaysEnabled);
                 }));
                 container.style.flexDirection = FlexDirection.Row;
@@ -42,15 +49,17 @@ namespace Halcyon.BT {
                 container.Add(renameField);
                 container.Add(keyValue);
 
-                keyName.RegisterCallback<MouseDownEvent>((evt) => {
-                    if(evt.clickCount == 2) {
-                        renameField.value = keyName.text;
-                        renameField.style.display = DisplayStyle.Flex;
-                        renameField.Focus();
+                keyName.RegisterCallback<MouseUpEvent>((evt) =>
+                {
+                
+                    keyValue.style.display = DisplayStyle.None;
+                    keyName.style.display = DisplayStyle.None;
 
-                        keyValue.style.display = DisplayStyle.None;
-                        keyName.style.display = DisplayStyle.None;
-                    }
+                    renameField.value = keyName.text;
+                    renameField.style.display = DisplayStyle.Flex;
+                    renameField.Focus();
+                    renameField.style.visibility = Visibility.Visible;
+                
                 });
 
 
@@ -58,7 +67,6 @@ namespace Halcyon.BT {
             }
             return null;
         }
-
-        
     }
+    
 }
