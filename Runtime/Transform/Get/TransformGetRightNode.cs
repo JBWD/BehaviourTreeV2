@@ -2,8 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform/Get", menuName = "Transform: Get Right", nodeTitle = "Transform:\nGet Right",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
+    [NodeMenuPath("Transform/Get")]
+    [NodeTitle("Transform:\nGet Right")]
+    [NodeMenuName("Transform: Get Right")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
+    [CreateBBVariable("SaveVector3Value", BBVariableType.Vector3)]
     [System.Serializable]
     public class TransformGetRightNode : ActionNode
     {

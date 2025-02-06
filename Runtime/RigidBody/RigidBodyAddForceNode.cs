@@ -3,7 +3,11 @@ using UnityEngine;
 
 namespace Halcyon.BT.RigidBody
 {
-    [BehaviourTreeNode]
+    [NodeMenuPath("RigidBody")]
+    [NodeTitle("RigidBody:\nAdd Force")]
+    [NodeMenuName("RigidBody: Add Force")] 
+    [CreateBBVariable("ForceDirectionValue", BBVariableType.Vector3)]
+    
     [System.Serializable]
     public class RigidBodyAddForceNode : ActionNode
     {

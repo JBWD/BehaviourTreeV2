@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dcde829cc493549a6e405cd4fc8179, type: 3}
   m_Name: BehaviourTreeProjectSettings
   m_EditorClassIdentifier: 
-  newTreePath: Assets/
-  newNodePath: Assets/
-  scriptTemplateActionNode: {fileID: 4900000, guid: 39908033e6333954ab068f9cd4335cab, type: 3}
-  scriptTemplateCompositeNode: {fileID: 4900000, guid: 68ec90eda70221843b347ce647ce661a, type: 3}
-  scriptTemplateDecoratorNode: {fileID: 4900000, guid: 50af0744759a6f148891a0302871668f, type: 3}
+  newTreePath: Assets/Behaviours
+  newNodePath: Assets/Behaviours/CustomNodes
+  scriptTemplateActionNode: {fileID: 4900000, guid: 39908033e6333954ab068f9cd4335cab,
+    type: 3}
+  scriptTemplateCompositeNode: {fileID: 4900000, guid: 68ec90eda70221843b347ce647ce661a,
+    type: 3}
+  scriptTemplateDecoratorNode: {fileID: 4900000, guid: 50af0744759a6f148891a0302871668f,
+    type: 3}
   showDescriptionsOnOpen: 0
   showIconOnOpen: 1

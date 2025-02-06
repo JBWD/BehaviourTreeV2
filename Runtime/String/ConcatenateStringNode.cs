@@ -4,7 +4,14 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "String", nodeTitle = "Concatenate Strings", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
+    [NodeMenuPath("String")]
+    [NodeTitle("String:\nConcatenate String")]
+    [NodeMenuName("String: Concatenate String")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("BaseStringValue", BBVariableType.String)]
+    [CreateBBVariable("AddStringValue", BBVariableType.String)]
+    [CreateBBVariable("SaveStringValue", BBVariableType.String)]
     [Serializable]
     public class ConcatenateStringNode : ActionNode
     {

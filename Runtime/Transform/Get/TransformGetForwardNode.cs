@@ -2,8 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform/Get", menuName = "Transform: Get Forward", nodeTitle = "Transform:\n Get Forward",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
+    [NodeMenuPath("Transform/Get")]
+    [NodeTitle("Transform:\nGet Forward")]
+    [NodeMenuName("Transform: Get Forward")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("SaveVector3Value", BBVariableType.Vector3)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
     [System.Serializable]
     public class TranformGetForwardNode :ActionNode
     {

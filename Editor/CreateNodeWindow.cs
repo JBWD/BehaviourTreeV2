@@ -78,6 +78,8 @@ namespace Halcyon.BT {
 
         public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context) 
         {
+            
+            
             var tree = new List<SearchTreeEntry>
             {
                 //Creating the Root
@@ -86,6 +88,14 @@ namespace Halcyon.BT {
 
         
             List<ContextualItem> items = new List<ContextualItem>();
+            if (Application.isPlaying)
+            {
+                var entry = new SearchTreeEntry(new GUIContent("Unable to Add in Play Mode.")) { level = 1 };
+                entry.userData = (Action)(() => Debug.Log("Unable to Add in Play Mode, please exit Play Mode."));
+                tree.Add(entry);
+                return tree;
+            }
+            
             //Gets all classes of type Node
             var collectionTypes = TypeCache.GetTypesDerivedFrom<Node>(); 
             

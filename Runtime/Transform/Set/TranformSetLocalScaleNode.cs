@@ -2,8 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform/Set", menuName = "Transform: Set Local Scale", nodeTitle = "Transform:\nSet Local Scale",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
+    [NodeMenuPath("Transform/Set")]
+    [NodeTitle("Transform:\nSet Local Scale")]
+    [NodeMenuName("Transform: Set Local Scale")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
+    [CreateBBVariable("ScaleValue", BBVariableType.Vector3)]
     [System.Serializable]
     public class TranformSetLocalScaleNode :ActionNode
     {

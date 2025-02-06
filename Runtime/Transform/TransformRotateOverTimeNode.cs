@@ -2,12 +2,16 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Transform", "Transform: Rotate Over Time", "Transform:\n Rotate Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
+    [NodeMenuName("Transform: Rotate Over Time"), NodeMenuPath("Transform")]
+    [NodeTitle("Transform:\nRotate Over time")]
+    [NodeIcon(NodeIcons.time)]
+    [CreateBBVariable("RotationsPerSecond", BBVariableType.Number)]
+    [CreateBBVariable("Rotation", BBVariableType.Vector3)]
     [System.Serializable]
     public class TransformRotateOverTimeNode : ActionNode
     {
         public NodeProperty<Vector3> rotation;
-        public NodeProperty<float> rotationsPerSecond;
+        public NodeProperty<NumericProperty> rotationsPerSecond;
         protected override void OnStart()
         {
             
@@ -25,7 +29,7 @@ namespace Halcyon.BT
                 state = State.Failure;
             else
             {
-                context.transform.Rotate(rotationsPerSecond.Value * Time.deltaTime * rotation.Value);
+                context.transform.Rotate(rotationsPerSecond.Value.FloatValue * Time.deltaTime * rotation.Value);
                 state = State.Success;
             }
 
@@ -34,7 +38,7 @@ namespace Halcyon.BT
         
         public override void UpdateDescription()
         {
-            description = $"Rotates the object {rotation.Value} degrees in each axis {rotationsPerSecond.Value} times per second.";
+            description = $"Rotates the object {rotation.Value} degrees in each axis {rotationsPerSecond.Value.FloatValue} times per second.";
 
         }
     }

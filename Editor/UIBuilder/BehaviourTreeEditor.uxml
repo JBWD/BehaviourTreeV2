@@ -4,15 +4,16 @@
         <uie:ToolbarMenu display-tooltip-when-elided="true" text="Assets " name="ToolbarMenu" />
         <uie:ToolbarSpacer style="flex-grow: 1;" />
         <uie:ToolbarToggle focusable="false" label="Show Icons" name="hideIconToggle" style="width: 80px; justify-content: flex-start;" />
-        <uie:ToolbarToggle focusable="false" label="Show Descriptions" name="hideDescriptionToggle" style="width: 115px;" />
+        <uie:ToolbarToggle focusable="false" label="Show Descriptions" name="hideDescriptionToggle" style="width: 120px;" />
+        <uie:ToolbarToggle focusable="false" label="Show Context" name="hideContextToggle" style="width: 95px; justify-content: flex-start;" />
         <ui:Label display-tooltip-when-elided="true" name="Version" />
     </uie:Toolbar>
     <Halcyon.BT.SplitView fixed-pane-initial-dimension="300">
         <ui:VisualElement name="left-panel">
-            <Halcyon.BT.SplitView orientation="Vertical" fixed-pane-initial-dimension="400">
+            <Halcyon.BT.SplitView orientation="Vertical" fixed-pane-initial-dimension="400" name="SplitView">
                 <ui:VisualElement name="inspector-container" style="background-color: rgb(56, 56, 56);">
                     <ui:Label text="Inspector" display-tooltip-when-elided="true" style="background-color: rgb(37, 37, 37);" />
-                    <Halcyon.BT.InspectorView style="background-color: rgb(56, 56, 56);" />
+                    <Halcyon.BT.InspectorView name="InspectorView" style="background-color: rgb(56, 56, 56);" />
                     <ui:Button text="Create Variables" name="CreateVariableButton" style="align-content: flex-end; translate: 0 150%; height: 25px; -unity-text-align: middle-center;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="blackboard-container" style="background-color: rgb(56, 56, 56);">
@@ -30,11 +31,17 @@
                 </ui:VisualElement>
             </Halcyon.BT.SplitView>
         </ui:VisualElement>
-        <ui:VisualElement name="right-panel">
+        <ui:VisualElement name="right-panel" style="flex-direction: column;">
             <uie:Toolbar>
                 <uie:ToolbarBreadcrumbs name="breadcrumbs" />
             </uie:Toolbar>
-            <Halcyon.BT.BehaviourTreeView focusable="true" style="flex-grow: 1; border-top-width: 2px; border-top-color: rgb(0, 0, 0);" />
+            <ui:VisualElement name="ContentView" style="flex-grow: 1; flex-direction: row;">
+                <Halcyon.BT.BehaviourTreeView focusable="true" name="BehaviourTreeView" style="flex-grow: 1; border-top-width: 2px; border-top-color: rgb(0, 0, 0); flex-direction: row;" />
+                <ui:VisualElement name="SideBar" style="flex-grow: 0; background-color: rgb(56, 56, 56); width: 325px; max-width: 325px;">
+                    <ui:Label text="Context" tooltip="The Context Menu is the internal variables used at runtime within the Behaviour Tree. This can be left off most of the time unless in play mode or to see the internal variables." name="ContextTitle" style="background-color: rgb(37, 37, 37);" />
+                    <ui:VisualElement name="ContextView" style="flex-grow: 1; width: auto; max-width: none; visibility: visible; display: flex; background-color: rgb(56, 56, 56); -unity-text-outline-width: 0; -unity-text-outline-color: rgb(0, 0, 0); border-top-width: 1px; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
     </Halcyon.BT.SplitView>
     <Halcyon.BT.OverlayView name="OverlayView" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5); visibility: hidden; height: auto; display: flex;">

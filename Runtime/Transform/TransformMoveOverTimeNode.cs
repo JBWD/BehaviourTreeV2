@@ -3,7 +3,11 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode("Transform", "Transform: Move Over Time", "Transform:\nMove Over Time", nodeIcon = NodeIcons.time, nodeColor = NodeColors.green)]
+    [NodeMenuPath("Transform")]
+    [NodeTitle("Transform:\nMove Over Time")]
+    [NodeMenuName("Transform: Move Over Time")]
+    [NodeIcon(NodeIcons.time)]
+    [CreateBBVariable("MovementSpeedDirection", BBVariableType.Vector3)]
     [Serializable]
     public class TransformMoveOverTimeNode : ActionNode
     {

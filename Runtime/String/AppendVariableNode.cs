@@ -4,8 +4,14 @@ using UnityEngine;
 namespace Halcyon.BT
 {
     
+    [NodeMenuPath("String")]
+    [NodeTitle("String:\nAppend Variable")]
+    [NodeMenuName("String: Append Variable")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("OriginalStringValue", BBVariableType.String)]
+    [CreateBBVariable("SaveStringValue", BBVariableType.String)]
     [Serializable]
-    [BehaviourTreeNode(menuPath = "String", menuName = "Append Variable",nodeTitle = "String:\nAppend Variable", nodeColor = NodeColors.green, nodeIcon = NodeIcons.action)]
     public class AppendVariableNode : ActionNode
     {
         

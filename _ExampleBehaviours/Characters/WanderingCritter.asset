@@ -1,0 +1,1327 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: WanderingCritter
+  m_EditorClassIdentifier: 
+  hasBeenDestroyed: 0
+  rootNode:
+    rid: 28537348643618982
+  nodes:
+  - rid: 28537348643618982
+  - rid: 28537362144559105
+  - rid: 28537362144559196
+  - rid: 28537362144559197
+  - rid: 28537362144559198
+  - rid: 28537362144559199
+  - rid: 28537362144559200
+  - rid: 28537362144559203
+  - rid: 28537362144559205
+  - rid: 28537362144559206
+  - rid: 28537362144559209
+  - rid: 28537362144559211
+  - rid: 28537362144559213
+  - rid: 28537362144559217
+  - rid: 28537362144559219
+  - rid: 28537370650607692
+  - rid: 5229468673304428618
+  - rid: 5229468673304428629
+  - rid: 5229468673304428630
+  - rid: 5229468673304428631
+  - rid: 5229468673304428632
+  - rid: 5229468673304428814
+  - rid: 5229468673304428817
+  - rid: 5229468673304428818
+  - rid: 5229468673304428819
+  treeState: 0
+  blackboard:
+    keys:
+    - rid: 28537362144559190
+    - rid: 28537362144559191
+    - rid: 28537362144559192
+    - rid: 28537362144559193
+    - rid: 28537362144559194
+    - rid: 28537362144559195
+    - rid: 5229468673304428621
+    - rid: 5229468673304428833
+  Context:
+    gameObject: {fileID: 0}
+    transform: {fileID: 0}
+    animator: {fileID: 0}
+    rigidBody: {fileID: 0}
+    agent: {fileID: 0}
+    characterController: {fileID: 0}
+    sphereCollider: {fileID: 0}
+    boxCollider: {fileID: 0}
+    capsuleCollider: {fileID: 0}
+    BehaviourTreeRunner: {fileID: 0}
+    CurrentPhase: 0
+    CurrentState: 0
+    CurrentConditions: 0
+    testing:
+    - Test
+    - Test2
+    - Test3
+  viewPosition: {x: 135, y: 224, z: 0}
+  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 28537348643618982
+      type: {class: RootNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: e0361ccd-cb98-49e3-b940-212b06f0f57f
+        position: {x: 1365, y: -120}
+        size: {x: 150, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 'Unity:
+
+          Update'
+        nodeTitle: 'Unity:
+
+          Update'
+        customTitle: 
+        description: 'Updating
+
+'
+        customDescription: 'Updating
+
+'
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 5229468673304428630
+    - rid: 28537362144559105
+      type: {class: NavmeshAIWanderNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: ade8f9d6258960543ba6095c80c39f3d
+        position: {x: 300, y: 1095}
+        size: {x: 150, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 'Navmesh AI:
+
+          Wander'
+        nodeTitle: 'Navmesh AI:
+
+          Wander'
+        customTitle: 
+        description: 'Testing
+
+'
+        customDescription: 'Testing
+
+'
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        spawnPosition:
+          reference:
+            rid: 28537362144559190
+          defaultValue: {x: 0, y: 0, z: 0}
+          _typedKey:
+            rid: -2
+        wanderRadius:
+          reference:
+            rid: 28537362144559191
+          defaultValue:
+            doubleValue: 20
+          _typedKey:
+            rid: -2
+        timeBetweenWanders:
+          reference:
+            rid: 28537362144559192
+          defaultValue:
+            doubleValue: 5
+          _typedKey:
+            rid: -2
+        stoppingDistance:
+          reference:
+            rid: 28537362144559193
+          defaultValue:
+            doubleValue: 0.1
+          _typedKey:
+            rid: -2
+        moveSpeed:
+          reference:
+            rid: 28537362144559194
+          defaultValue:
+            doubleValue: 3
+          _typedKey:
+            rid: -2
+        turnSpeed:
+          reference:
+            rid: 28537362144559195
+          defaultValue:
+            doubleValue: 120
+          _typedKey:
+            rid: -2
+    - rid: 28537362144559190
+      type: {class: Vector3Key, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: SpawnPosition
+        typeName: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0, z: 0}
+    - rid: 28537362144559191
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: WanderRadius
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp-firstpass, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value:
+          doubleValue: 20
+    - rid: 28537362144559192
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: TimeBetweenWanders
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp-firstpass, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value:
+          doubleValue: 10
+    - rid: 28537362144559193
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: StoppingDistance
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp-firstpass, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value:
+          doubleValue: 0.1
+    - rid: 28537362144559194
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: WanderSpeed
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp-firstpass, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value:
+          doubleValue: 1.5
+    - rid: 28537362144559195
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: TurnSpeed
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp-firstpass, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value:
+          doubleValue: 120
+    - rid: 28537362144559196
+      type: {class: OnStartNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 02e672a822980fc469ab05a5ca16b5cd
+        position: {x: 1005, y: -120}
+        size: {x: 150, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Unity:
+
+          On Start'
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 28537362144559219
+    - rid: 28537362144559197
+      type: {class: TransformGetPositionNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 8c9b6facc9aca3c48be5e861dd342ebd
+        position: {x: 1080, y: 270}
+        size: {x: 150, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Transform:
+
+          Get Position'
+        customTitle: 
+        description: 'Retrieves the position of the object in World Space and saves
+          the position in [SaveValue]'
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        transformValue:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        self: 1
+        saveValue:
+          reference:
+            rid: 28537362144559190
+          defaultValue: {x: 0, y: 0, z: 0}
+          _typedKey:
+            rid: -2
+    - rid: 28537362144559198
+      type: {class: NavmeshAIRunCurrentStateNode, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 58c3cc39412bdc143b968170ac206b73
+        position: {x: 1275, y: 270}
+        size: {x: 167, y: 176}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Navmesh AI:
+
+          Run Current State
+
+          Activator'
+        customTitle: 
+        description: Uses an action to run a local event calling the Current State.
+          This state is located in the Context Variable.
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+    - rid: 28537362144559199
+      type: {class: NavMeshAIRunStateListenerNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 5878d99637b79c34994525cc444613b4
+        position: {x: 300, y: 720}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh AI:\n Run State Listener"
+        customTitle: Wander State
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 5229468673304428817
+        desiredState:
+          reference:
+            rid: -2
+          defaultValue: 2
+          _typedKey:
+            rid: -2
+    - rid: 28537362144559200
+      type: {class: NavMeshAIRunStateListenerNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 8112b6bd0cc2b7243b933aef8b61bd73
+        position: {x: 855, y: 720}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh AI:\n Run State Listener"
+        customTitle: Flee State
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 28537370650607692
+        desiredState:
+          reference:
+            rid: -2
+          defaultValue: 1
+          _typedKey:
+            rid: -2
+    - rid: 28537362144559203
+      type: {class: NavMeshAISetCurrentStateNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 8bb8533ad02c6b849be4e1a84a7e947b
+        position: {x: 915, y: 270}
+        size: {x: 167, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh AI:\n Set Current State"
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        desiredState: 2
+    - rid: 28537362144559205
+      type: {class: Delay, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: b66844d86d46bc2438120c342fc72dfc
+        position: {x: 990, y: 1140}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: Delay
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 28537362144559206
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 3
+          _typedKey:
+            rid: -2
+    - rid: 28537362144559206
+      type: {class: NavMeshAISetCurrentStateNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: a32e915436b87a4449cfc18a6ad043c1
+        position: {x: 990, y: 1320}
+        size: {x: 167, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh AI:\n Set Current State"
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        desiredState: 10
+    - rid: 28537362144559209
+      type: {class: NavMeshAIRunStateListenerNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 4682f2bedf3ddd445be1e213f0fcd27e
+        position: {x: 1545, y: 720}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh AI:\n Run State Listener"
+        customTitle: Resetting State
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 28537362144559217
+        desiredState:
+          reference:
+            rid: -2
+          defaultValue: 10
+          _typedKey:
+            rid: -2
+    - rid: 28537362144559211
+      type: {class: NavMeshAISetCurrentStateNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 494a780a5a65bea41b0831f12afdfb2e
+        position: {x: 1635, y: 1095}
+        size: {x: 150, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh AI:\n Set Current State"
+        customTitle: Set State to <br> Wandering
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        desiredState: 2
+    - rid: 28537362144559213
+      type: {class: NavMeshMoveToPosition, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: c0d7fbd692cf93440a8de9b8e158cd90
+        position: {x: 1455, y: 1095}
+        size: {x: 164, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh:\n Move To Position"
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        targetPosition:
+          reference:
+            rid: 28537362144559190
+          defaultValue: {x: 0, y: 0, z: 0}
+          _typedKey:
+            rid: -2
+        stoppingDistance:
+          reference:
+            rid: 28537362144559193
+          defaultValue:
+            doubleValue: 0.2
+          _typedKey:
+            rid: -2
+    - rid: 28537362144559217
+      type: {class: Sequencer, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 0b71fda9741e7644da62e14ffd60e6f4
+        position: {x: 1545, y: 885}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: Sequencer
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 5229468673304428818
+        - rid: 28537362144559213
+        - rid: 28537362144559211
+        - rid: 5229468673304428819
+    - rid: 28537362144559219
+      type: {class: Parallel, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: f443037257412bf418e200267d4a8a3b
+        position: {x: 1005, y: 75}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: Parallel
+        customTitle: 
+        description: Runs all children whether they are successful, failed, or are
+          running.
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 28537362144559203
+        - rid: 28537362144559197
+    - rid: 28537370650607692
+      type: {class: Sequencer, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 2619fee624d043f468e62566f893df93
+        position: {x: 840, y: 915}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: Sequencer
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 5229468673304428814
+        - rid: 5229468673304428618
+        - rid: 28537362144559205
+    - rid: 5229468673304428618
+      type: {class: NavmeshAIFleeNode, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 1498b177087e4bc449ab4948e431d85e
+        position: {x: 840, y: 1140}
+        size: {x: 150, y: 79}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh AI:\n Flee"
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 1
+        errored: 0
+        conditionState: 0
+        Target:
+          reference:
+            rid: 5229468673304428621
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        NumberOfMovementChanges:
+          reference:
+            rid: -2
+          defaultValue:
+            doubleValue: 4
+          _typedKey:
+            rid: -2
+        FleeDistance:
+          reference:
+            rid: -2
+          defaultValue:
+            doubleValue: 5
+          _typedKey:
+            rid: -2
+    - rid: 5229468673304428621
+      type: {class: TransformKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: SaveTransform
+        typeName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 5229468673304428629
+      type: {class: NavMeshIsMoving, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 39280496ec6ab1d4a87f6fe9950e5ace
+        position: {x: 1455, y: 270}
+        size: {x: 150, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh:\n Is Moving"
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 5229468673304428631
+        - rid: 5229468673304428632
+        onlyChildIsTrue: 1
+    - rid: 5229468673304428630
+      type: {class: Parallel, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: cb14550855e99db499a8b90caae8514f
+        position: {x: 1365, y: 75}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: Parallel
+        customTitle: 
+        description: Runs all children whether they are successful, failed, or are
+          running.
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 28537362144559198
+        - rid: 5229468673304428629
+    - rid: 5229468673304428631
+      type: {class: AnimatorSetMultiAnimationParameterNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 57da2ec80d4f7294db32f358a26ee473
+        position: {x: 1350, y: 495}
+        size: {x: 184, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Animator:
+
+          Set Multi Parameter'
+        customTitle: 
+        description: Sets all of the parameters in the animator to their corresponding
+          values.
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        animationProperties:
+        - parameterType: 0
+          parameterName: IsWalking
+          floatParameter: 0
+          integerParameter: 0
+          booleanParameter: 1
+    - rid: 5229468673304428632
+      type: {class: AnimatorSetMultiAnimationParameterNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 0f871efa596897e439f83fc3f7eeaf1a
+        position: {x: 1530, y: 495}
+        size: {x: 184, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Animator:
+
+          Set Multi Parameter'
+        customTitle: 
+        description: Sets all of the parameters in the animator to their corresponding
+          values.
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        animationProperties:
+        - parameterType: 0
+          parameterName: IsWalking
+          floatParameter: 0
+          integerParameter: 0
+          booleanParameter: 0
+    - rid: 5229468673304428814
+      type: {class: NavMeshUpdateAgent, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 7739662b7a6957c49ae8c14101b6219c
+        position: {x: 690, y: 1140}
+        size: {x: 150, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh:\n Update Agent"
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        speed:
+          reference:
+            rid: 5229468673304428833
+          defaultValue:
+            doubleValue: 3
+          _typedKey:
+            rid: -2
+        stoppingDistance:
+          reference:
+            rid: 28537362144559193
+          defaultValue:
+            doubleValue: 0.1
+          _typedKey:
+            rid: -2
+        updateRotation:
+          reference:
+            rid: -2
+          defaultValue: 1
+          _typedKey:
+            rid: -2
+        acceleration:
+          reference:
+            rid: -2
+          defaultValue:
+            doubleValue: 40
+          _typedKey:
+            rid: -2
+    - rid: 5229468673304428817
+      type: {class: Sequencer, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 94596d562573a2f40accda4d9264c05f
+        position: {x: 300, y: 900}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: Sequencer
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 28537362144559105
+    - rid: 5229468673304428818
+      type: {class: NavMeshUpdateAgent, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: 1d0ed2ff16e0dd744af9ff7e300a12eb
+        position: {x: 1305, y: 1095}
+        size: {x: 150, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: "NavMesh:\n Update Agent"
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        speed:
+          reference:
+            rid: 5229468673304428833
+          defaultValue:
+            doubleValue: 3
+          _typedKey:
+            rid: -2
+        stoppingDistance:
+          reference:
+            rid: 28537362144559193
+          defaultValue:
+            doubleValue: 0.1
+          _typedKey:
+            rid: -2
+        updateRotation:
+          reference:
+            rid: -2
+          defaultValue: 1
+          _typedKey:
+            rid: -2
+        acceleration:
+          reference:
+            rid: -2
+          defaultValue:
+            doubleValue: 40
+          _typedKey:
+            rid: -2
+    - rid: 5229468673304428819
+      type: {class: SetTransformNode, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        state: 0
+        started: 0
+        guid: ad3a201b7523f804e922b34a7cc512a9
+        position: {x: 1800, y: 1095}
+        size: {x: 150, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          testing:
+          - Test
+          - Test2
+          - Test3
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Variable:
+
+          Set Transform'
+        customTitle: 
+        description: Sets the 'SaveValue' to the same value or reference as 'BaseValue'
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        baseValue:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        saveValue:
+          reference:
+            rid: 5229468673304428621
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+    - rid: 5229468673304428833
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp-firstpass}
+      data:
+        name: FleeSpeed
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp-firstpass, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value:
+          doubleValue: 3

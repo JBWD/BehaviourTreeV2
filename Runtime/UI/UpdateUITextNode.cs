@@ -10,6 +10,9 @@ namespace Halcyon.BT
      NodeTitle("Text Mesh Pro:\n Update Text"),
      NodeMenuName("TMP: Update Text"),
      NodeMenuPath("UI/Text Mesh Pro")]
+    [CreateBBVariable("TextContainer",BBVariableType.TextMeshProUGUI)]
+    [CreateBBVariable("Text",BBVariableType.String)]
+    
     [System.Serializable]
     public class UpdateUITextNode: ActionNode
     {

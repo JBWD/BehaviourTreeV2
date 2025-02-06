@@ -2,15 +2,20 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform", menuName = "Transform: Scale Over Time", nodeTitle = "Transform:\nScale Over Time",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.time)]
+    [NodeMenuPath("Transform")]
+    [NodeTitle("Transform:\nScale Over Time")]
+    [NodeMenuName("Transform: Scale Over Time")]
+    [NodeIcon(NodeIcons.time)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
+    [CreateBBVariable("TimeInSeconds", BBVariableType.Number)]
+    [CreateBBVariable("EndingScale", BBVariableType.Vector3)]
     [System.Serializable]
     public class TransformLocalScaleOverTime : ActionNode
     {
 
         public NodeProperty<Transform> transformValue;
         public bool self = true;
-        public NodeProperty<float> timeInSeconds;
+        public NodeProperty<NumericProperty> timeInSeconds;
         public NodeProperty<Vector3> endingScale;
 
         private float scaleSpeed;
@@ -30,14 +35,14 @@ namespace Halcyon.BT
                 startValue = transformValue.Value.localScale;
             }
 
-            if (timeInSeconds.Value < 0)
+            if (timeInSeconds.Value.FloatValue < 0)
             {
-                timeInSeconds.Value *= -1;
+                timeInSeconds.Value.FloatValue *= -1;
             }
             
-            if(timeInSeconds.Value != 0)
+            if(timeInSeconds.Value.FloatValue != 0)
                 
-                scaleSpeed = 1 / timeInSeconds.Value;
+                scaleSpeed = 1 / timeInSeconds.Value.FloatValue;
             else
             {
                 scaleSpeed = 1000000000;
@@ -94,7 +99,7 @@ namespace Halcyon.BT
         
         public override void UpdateDescription()
         {
-            description = $"Sets the Local Scale of the object over {timeInSeconds.Value} at a linear speed.";
+            description = $"Sets the Local Scale of the object over {timeInSeconds.Value.FloatValue} at a linear speed.";
 
         }
     }

@@ -2,8 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform/Set", menuName = "Transform: Set Parent", nodeTitle = "Transform:\nSet Parent",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
+    [NodeMenuPath("Transform/Set")]
+    [NodeTitle("Transform:\nSet Parent")]
+    [NodeMenuName("Transform: Set Parent")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
+    [CreateBBVariable("ParentValue", BBVariableType.Transform)]
     [System.Serializable]
     public class TranformSetParentNode :ActionNode
     {

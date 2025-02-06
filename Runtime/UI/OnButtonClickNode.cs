@@ -8,6 +8,7 @@ namespace Halcyon.BT
      NodeTitle("UI Button:\nOn Button Click"),
     NodeMenuName("UI Button: On Button Click"),
     NodeMenuPath("UI")]
+    [CreateBBVariable("ButtonValue", BBVariableType.Button)]
     [System.Serializable]
     public class OnButtonClickNode : TriggerNode
     {

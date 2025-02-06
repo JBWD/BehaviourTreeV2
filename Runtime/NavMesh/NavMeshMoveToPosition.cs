@@ -11,17 +11,19 @@ namespace Halcyon.BT {
     [NodeMenuPath("NavMesh")]
     [NodeIcon(NodeIcons.destination)]
     [CreateBBVariable("TargetPosition", BBVariableType.Vector3)]
+    [CreateBBVariable("StoppingDistance", BBVariableType.Number)]
     [System.Serializable]
     public class NavMeshMoveToPosition : ActionNode {
 
         
         [Tooltip("Target Position")]
         public NodeProperty<Vector3> targetPosition = new NodeProperty<Vector3> { defaultValue = Vector3.zero };
-
+        public NodeProperty<NumericProperty> stoppingDistance = new NodeProperty<NumericProperty> { Value = new NumericProperty() { DoubleValue = .1}};
 
 
         protected override void OnStart()
         {
+            context.agent.SetDestination(targetPosition.Value);
             if (context.agent == null)
             {
                 Debug.Log($"Game object {context.gameObject.name} is missing NavMeshAgent component");
@@ -41,16 +43,10 @@ namespace Halcyon.BT {
         protected override State OnUpdate() {
             
 
-
-            if (targetPosition.Value != context.agent.destination)
-            {
-                context.agent.SetDestination(targetPosition.Value);
-            }
-            else if (context.agent.remainingDistance < context.agent.stoppingDistance)
+            if (context.agent.remainingDistance <= context.agent.stoppingDistance && !context.agent.pathPending)
             {
                 return state = State.Success;
             }
-
             return state =State.Running;
         }
         

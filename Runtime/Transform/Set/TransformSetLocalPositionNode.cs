@@ -2,8 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform/Set", menuName = "Transform: Set Local Position", nodeTitle = "Transform:\nSet Local Position",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
+    [NodeMenuPath("Transform/Set")]
+    [NodeTitle("Transform:\nSet Local Position")]
+    [NodeMenuName("Transform: Set Local Position")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
+    [CreateBBVariable("PositionValue", BBVariableType.Vector3)]
     [System.Serializable]
     public class TransformSetLocalPositionNode: ActionNode
     {

@@ -8,9 +8,10 @@ namespace Halcyon.BT
     [NodeMenuName("NavMesh AI: Set Current State")]
     [NodeMenuPath("AI/NavMesh")]
     [NodeIcon(NodeIcons.ai)]
+    
     public class NavMeshAISetCurrentStateNode : ActionNode
     {
-        public NodeProperty<AIStates> desiredState;
+        public AIStates desiredState = AIStates.Idle;
 
         protected override void OnStart()
         {
@@ -24,7 +25,7 @@ namespace Halcyon.BT
 
         protected override State OnUpdate()
         {
-            context.CurrentState = desiredState.Value;
+            context.CurrentState = desiredState;
             return State.Success;
         }
     }

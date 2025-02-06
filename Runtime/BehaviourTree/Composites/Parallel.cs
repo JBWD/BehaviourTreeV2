@@ -6,6 +6,7 @@ using System.Linq;
 namespace Halcyon.BT {
     [System.Serializable]
     [NodeMenuPath("Behaviour Tree/Flow")]
+    [NodeIcon(NodeIcons.parallel)]
     public class Parallel : CompositeNode {
 
         protected override void OnStart() {

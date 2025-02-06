@@ -2,8 +2,14 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform/Get", menuName = "Transform: Get Local Scale", nodeTitle = "Transform:\n Get Local Scale",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
+    
+    [NodeMenuPath("Transform/Get")]
+    [NodeTitle("Transform:\n Get Local Scale")]
+    [NodeMenuName("Transform: Get Local Scale")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("SaveVector3Value", BBVariableType.Vector3)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
     [System.Serializable]
     public class TranformGetLocalScaleNode :ActionNode
     {

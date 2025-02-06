@@ -8,6 +8,9 @@ namespace Halcyon.BT
      NodeTitle("TMP:\n Update Score Text"),
      NodeMenuName("TMP: Update Score Text"),
      NodeMenuPath("UI/Text Mesh Pro")]
+    [CreateBBVariable("TextContainer", BBVariableType.TextMeshProUGUI)]
+    [CreateBBVariable("Text", BBVariableType.String)]
+    [CreateBBVariable("Score", BBVariableType.Number)]
     [System.Serializable]
     public class DisplayScoreNode: ActionNode
     {

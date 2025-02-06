@@ -17,22 +17,31 @@ namespace Halcyon.BT {
         protected override void OnStop() {
         }
 
-        protected override State OnUpdate() {
-            for (int i = current; i < children.Count; ++i) {
-                current = i;
-                var child = children[current];
-
-                switch (child.Update()) {
-                    case State.Running:
-                        return State.Running;
-                    case State.Failure:
-                        return State.Failure;
-                    case State.Success:
-                        continue;
-                }
+        protected override State OnUpdate()
+        {
+            if (children.Count == 0)
+                return State.Failure;
+            
+            var child = children[current];
+            
+            switch (child.Update()) {
+                case State.Running:
+                    return State.Running;
+                case State.Failure:
+                    return State.Failure;
+                case State.Success:
+                    current++;  
+                    break;
+                
             }
 
-            return State.Success;
+            if (current >= children.Count)
+            {
+                current = 0;
+                return State.Success;
+            }
+
+            return State.Running;
         }
     }
 }

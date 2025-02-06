@@ -2,8 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform/Set", menuName = "Transform: Set Global Rotation", nodeTitle = "Transform:\nSet Global Rotation",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
+    [NodeMenuPath("Transform/Set")]
+    [NodeTitle("Transform:\nSet Euler Angle Rotation")]
+    [NodeMenuName("Transform: Set Euler Angle Rotation")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
+    [CreateBBVariable("RotationValue", BBVariableType.Vector3)]
     [System.Serializable]
     public class TransformSetRotationEulerAngleNode: ActionNode
     {

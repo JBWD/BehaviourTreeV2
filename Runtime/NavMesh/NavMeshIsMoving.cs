@@ -23,7 +23,7 @@ namespace Halcyon.BT
 
         public override bool CheckComparison()
         {
-            return context.agent.remainingDistance > context.agent.stoppingDistance && !context.agent.isStopped;
+            return context.agent.remainingDistance > context.agent.stoppingDistance || context.agent.velocity.magnitude > 0.05f;
         }
 
         public override void UpdateDescription()

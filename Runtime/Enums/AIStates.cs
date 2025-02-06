@@ -2,15 +2,16 @@
 {
     public enum AIStates
     {
-        None,
         Idle,
-        Moving,
+        Fleeing,
         Wandering,
         Attacking,
         Defending,
         Chasing,
         Searching,
+        Gathering,
         Resting,
         Patrolling,
+        Resetting,
     }
 }

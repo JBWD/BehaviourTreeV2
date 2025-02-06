@@ -2,8 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform/Get", menuName = "Transform: Get Rotation", nodeTitle = "Transform:\n Get Rotation",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
+    [NodeMenuPath("Transform/Get")]
+    [NodeTitle("Transform:\nGet Rotation")]
+    [NodeMenuName("Transform: Get Rotation")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
+    [CreateBBVariable("SaveQuaternionValue", BBVariableType.Quaternion)]
     [System.Serializable]
     public class TransformGetRotationNode : ActionNode
     {

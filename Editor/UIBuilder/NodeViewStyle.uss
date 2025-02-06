@@ -540,6 +540,17 @@
     background-image: url("project://database/Assets/Plugins/BehaviourTreeV2/Editor/Icons/ICON_Music2%201.png?fileID=2800000&guid=048f258b5fec43a488600977f616da55&type=3#ICON_Music2 1");
 }
 
+.parallel #typeIcon {
+    width: 75px;
+    height: 75px;
+    flex-grow: 1;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    background-image: url("project://database/Assets/Plugins/BehaviourTreeV2/Editor/Icons/parallel.png?fileID=2800000&guid=dd62b0f3363c19b4680e425f6c598eba&type=3#parallel");
+    color: rgb(255, 255, 255);
+}
+
 #description {
     color: rgb(195, 195, 195);
     display: flex;

@@ -20,6 +20,8 @@ namespace Halcyon.BT {
         public Port input;
         public Port output;
         public Type derivedType;
+        private string m_baseTitle;
+        
         public NodeView NodeParent {
             
             get {
@@ -41,7 +43,8 @@ namespace Halcyon.BT {
         public NodeView(Node node, VisualTreeAsset nodeXml) : base(AssetDatabase.GetAssetPath(nodeXml)) {
             this.capabilities &= ~(Capabilities.Snappable); // Disable node snapping
             this.node = node;
-            this.title = node.GetType().Name;
+            node.nodeTitle = node.GetType().Name;
+            m_baseTitle = node.GetType().Name;
             derivedType = node.GetType();
             this.viewDataKey = node.guid;
 
@@ -59,12 +62,20 @@ namespace Halcyon.BT {
         public void SetupDataBinding() {
             SerializedBehaviourTree serializer = BehaviourTreeEditorWindow.Instance.serializer;
             var nodeProp = serializer.FindNode(serializer.Nodes, node);
-            if (nodeProp != null) {
+            if (nodeProp != null)
+            {
                 var descriptionProp = nodeProp.FindPropertyRelative("description");
-                if (descriptionProp != null) {
+                if (descriptionProp != null)
+                {
                     Label descriptionLabel = this.Q<Label>("description");
                     descriptionLabel.BindProperty(descriptionProp);
                 }
+            }
+
+            //Used for Runtime variables as they are added they need access to the context if it is not null.
+            if (serializer.tree.Context != null)
+            {
+                node.context = serializer.tree.Context;
             }
         }
 
@@ -85,7 +96,8 @@ namespace Halcyon.BT {
                 }
                 if (attribute is NodeTitleAttribute nodeTitleAttribute)
                 {
-                    title = nodeTitleAttribute.GetTitle();
+                    m_baseTitle = nodeTitleAttribute.GetTitle();
+                    node.nodeTitle = nodeTitleAttribute.GetTitle();
                 }
 
                 if (attribute is NodeColorAttribute nodeColorAttribute)
@@ -306,6 +318,23 @@ namespace Halcyon.BT {
         {
 
             node.size = new Vector2(GetPosition().width, GetPosition().height);
+        }
+
+        public void UpdateTitle()
+        {
+            if (node.customTitle == null)
+            {
+                title = m_baseTitle;
+                return;
+            }
+            if (node.customTitle.Trim() != "")
+            {
+                title= node.customTitle;
+            }
+            else
+            {
+                title = m_baseTitle;
+            }
         }
     }
     

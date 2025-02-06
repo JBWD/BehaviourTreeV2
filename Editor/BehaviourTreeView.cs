@@ -254,7 +254,6 @@ namespace Halcyon.BT {
         }
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt) {
-            //base.BuildContextualMenu(evt); // Disable default cut/copy/paste context menu options.. who uses those anyway?
             if (serializer == null)
             {
                 BehaviourTreeEditorWindow.Instance.ShowOverlay();
@@ -374,12 +373,14 @@ namespace Halcyon.BT {
             
             foreach (var n in nodes)
             {
+                
                 NodeView nodeView = n as NodeView;
                 nodeView.UpdateConditional();
                 nodeView.UpdateErroredNode();
                 nodeView.UpdateDescriptionVisibility(descVisibility);
                 nodeView.UpdateIconVisibility(iconVisibility);
                 nodeView.UpdateSize();
+                nodeView.UpdateTitle();
             }
         }
         

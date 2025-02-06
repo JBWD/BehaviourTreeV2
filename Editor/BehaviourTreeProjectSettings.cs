@@ -27,6 +27,7 @@ namespace Halcyon.BT {
 
         public bool showDescriptionsOnOpen = false;
         public bool showIconOnOpen = false;
+        public bool showContextOnOpen = false;
         static BehaviourTreeProjectSettings FindSettings(){
             var guids = AssetDatabase.FindAssets($"t:{nameof(BehaviourTreeProjectSettings)}");
             if (guids.Length > 1) {

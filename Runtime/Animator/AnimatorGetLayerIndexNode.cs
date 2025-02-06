@@ -44,6 +44,12 @@ namespace Halcyon.BT
 
         public override void UpdateDescription()
         {
+            if (customDescription.Trim() != "")
+            {
+                description = customDescription;
+                return;
+            }
+            
             errored = false;
             if (Application.isPlaying)
             {

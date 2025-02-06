@@ -22,7 +22,7 @@
         input, //Game1          Y
         goal, //Friends01       Y
         destination, //Location01   Y
-    save, //Save1               Y
+        save, //Save1               Y
         audio, //Volume         Y
         muteAudio, //Mute1      Y
         idea, //StepTips1       Y
@@ -32,12 +32,13 @@
         notification, //Notice1 Y
         inventory, //BackPack1  Y
         math, //Math            Y
-        equipment, //Hero1      Y
+        equipment, //Hero1      Y   
         skill, //ExampleSkill   Y
         takeDamage, //Heart-broken1 Y
         healDamage, //Life1     Y
         setting, //Setting      Y
         music, //Music21        Y
         map, //Map1             Y
+        parallel// Parallel     Y
     }
 }

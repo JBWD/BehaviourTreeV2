@@ -63,8 +63,11 @@ namespace Halcyon.BT {
         public ToolbarBreadcrumbs breadcrumbs;
         public ToolbarToggle hideDescriptionToggle;
         public ToolbarToggle hideIconToggle;
+        public ToolbarToggle hideContextToggle;
         public Button CreateVariableButton;
         public Label descriptionLabel;
+        public VisualElement contextView;
+        public VisualElement sideBar;
         [SerializeField]
         public PendingScriptCreate pendingScriptCreate = new PendingScriptCreate();
 
@@ -122,13 +125,16 @@ namespace Halcyon.BT {
             newScriptDialog = root.Q<NewScriptDialogView>("NewScriptDialogView");
             breadcrumbs = root.Q<ToolbarBreadcrumbs>("breadcrumbs");
             versionLabel = root.Q<Label>("Version");
+            hideContextToggle = root.Q<ToolbarToggle>("hideContextToggle");
+            hideContextToggle.value = settings.showContextOnOpen;
             hideDescriptionToggle = root.Q<ToolbarToggle>("hideDescriptionToggle");
             hideDescriptionToggle.value = settings.showDescriptionsOnOpen;
             hideIconToggle = root.Q<ToolbarToggle>("hideIconToggle");
             hideIconToggle.value = settings.showIconOnOpen;
             descriptionLabel = root.Q<Label>("description");
             CreateVariableButton = root.Q<Button>("CreateVariableButton");
-            
+            contextView = root.Q<VisualElement>("ContextView");
+            sideBar = root.Q<VisualElement>("SideBar");
             treeView.styleSheets.Add(behaviourTreeStyle);
 
             // Toolbar assets menu
@@ -169,6 +175,7 @@ namespace Halcyon.BT {
             overlayView.OnTreeSelected -= SelectTree;
             overlayView.OnTreeSelected += SelectTree;
             
+            CreateVariableButton.SetEnabled(false);
             CreateVariableButton.clicked += CreateVariableButtonOnClick;
           // CreateVariableButton.visible = false;
             // New Script Dialog
@@ -184,6 +191,7 @@ namespace Halcyon.BT {
             if (pendingScriptCreate != null && pendingScriptCreate.pendingCreate) {
                 CreatePendingScriptNode();
             }
+            UpdateSideBar();
         }
 
         private void CreateVariableButtonOnClick()
@@ -304,7 +312,37 @@ namespace Halcyon.BT {
             overlayView?.Hide();
             treeView?.PopulateView(serializer);
             blackboardView?.Bind(serializer);
+            PopulateContextMenu(serializer);
+            
+            
+            contextView.Add(new PropertyField(serializer.serializedObject.FindProperty("Context")));
         }
+
+        private void PopulateContextMenu(SerializedBehaviourTree serializedBehaviourTree)
+        {
+            contextView.Clear();
+            
+            SerializedObject  serializedObject = serializedBehaviourTree.serializedObject;
+            SerializedProperty property = serializedBehaviourTree.serializedObject.FindProperty("Context");
+
+            if (property.NextVisible(true)) // Skip the script reference
+            {
+                do
+                {
+                    // Create a property field for each property
+                    PropertyField propertyField = new PropertyField(property);
+
+                    // Bind the property field to the serialized property
+                    propertyField.Bind(serializedObject);
+                    propertyField.SetEnabled(false);
+                    // Add it to the root container
+                    contextView.Add(propertyField);
+                    
+                }
+                while (property.NextVisible(false));
+            }
+        }
+
 
         void ClearSelection() {
             tree = null;
@@ -371,11 +409,27 @@ namespace Halcyon.BT {
                 hideIconToggle.label = "Show Icons";
             }
             
+           UpdateSideBar();
+            
             
             treeView.UpdateEditorNodeSelectors(hideDescriptionToggle.value, hideIconToggle.value);
             tree.UpdateDescriptions();
+            
         }
 
+        void UpdateSideBar()
+        {
+            if (hideContextToggle.value)
+            {
+                hideContextToggle.label = "Hide Context";
+                sideBar.style.display = DisplayStyle.Flex;
+            }
+            else
+            {
+                hideContextToggle.label = "Show Context";
+                sideBar.style.display = DisplayStyle.None;
+            }
+        }
         void OnToolbarNewAsset() {
             
             var settings = BehaviourTreeEditorWindow.Instance.settings;

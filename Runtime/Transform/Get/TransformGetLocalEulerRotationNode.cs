@@ -2,8 +2,13 @@
 
 namespace Halcyon.BT
 {
-    [BehaviourTreeNode(menuPath = "Transform/Get", menuName = "Transform: Get Local Euler Rotation", nodeTitle = "Transform:\n Get Local Euler Rotation",
-        nodeColor = NodeColors.pink, nodeIcon = NodeIcons.save)]
+    [NodeMenuPath("Transform/Get")]
+    [NodeTitle("Transform:\nGet Local Euler Rotation")]
+    [NodeMenuName("Transform: Get Local Euler Rotation")]
+    [NodeIcon(NodeIcons.save)]
+    [NodeColor(NodeColors.pink)]
+    [CreateBBVariable("SaveVector3Value", BBVariableType.Vector3)]
+    [CreateBBVariable("TransformValue", BBVariableType.Transform)]
     [System.Serializable]
     public class TranformGetLocalEulerRotationNode :ActionNode
     {
