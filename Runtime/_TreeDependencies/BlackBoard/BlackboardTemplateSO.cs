@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Halcyon.BT
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Halcyon/Behaviour Tree/Black Board Template", fileName = "New Blackboard Template")]
     public class BlackboardTemplateSO : ScriptableObject 
     {
 

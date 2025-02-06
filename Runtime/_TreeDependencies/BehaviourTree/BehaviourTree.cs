@@ -5,7 +5,7 @@ using UnityEditor.Timeline;
 using UnityEngine;
 
 namespace Halcyon.BT {
-    [CreateAssetMenu()]
+    [CreateAssetMenu(menuName = "Halcyon/Behaviour Tree/Tree", fileName = "New Behaviour Tree")]
     public class BehaviourTree : ScriptableObject
     {
         public bool hasBeenDestroyed = false;
