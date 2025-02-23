@@ -36,20 +36,20 @@ namespace Halcyon.BT
                 switch (animationProperty.parameterType)
                 {
                     case AnimationParameterType.Boolean:
-                        context.animator.SetBool(animationProperty.parameterName, animationProperty.booleanParameter);
+                        context.animator.SetBool(animationProperty.parameterName.Value, animationProperty.booleanParameter.Value);
                         state = State.Success;
                         break;
                     case AnimationParameterType.Float:
-                        context.animator.SetFloat(animationProperty.parameterName, animationProperty.floatParameter);
+                        context.animator.SetFloat(animationProperty.parameterName.Value, animationProperty.floatParameter.Value.FloatValue);
                         state = State.Success;
                         break;
                     case AnimationParameterType.Integer:
-                        context.animator.SetInteger(animationProperty.parameterName,
-                            animationProperty.integerParameter);
+                        context.animator.SetInteger(animationProperty.parameterName.Value,
+                            animationProperty.integerParameter.Value.IntegerValue);
                         state = State.Success;
                         break;
                     case AnimationParameterType.Trigger:
-                        context.animator.SetTrigger(animationProperty.parameterName);
+                        context.animator.SetTrigger(animationProperty.parameterName.Value);
                         state = State.Success;
                         break;
                     default:
@@ -68,9 +68,9 @@ namespace Halcyon.BT
             {
                 if (context == null)
                     return;
-                if (context.animator == null)
+                if (context?.animator == null)
                 {
-                    description = $"Animator was not found on: {context.gameObject.name}";
+                    description = $"Animator was not found on: {context?.gameObject?.name}";
                     errored = true;
                 }
             }
@@ -79,7 +79,7 @@ namespace Halcyon.BT
             for (var index = 0; index < animationProperties.Count; index++)
             {
                 var animationProperty = animationProperties[index];
-                if (animationProperty.parameterName == "")
+                if (animationProperty.parameterName.Value == "")
                 {
                     description += $"[{index}] ";
                     errored = true;

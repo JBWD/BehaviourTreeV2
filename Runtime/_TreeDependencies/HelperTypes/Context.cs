@@ -1,7 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Halcyon.BT.Integrations.Pathlist;
+using Halcyon.BT.Integrations.Combat;
+using Halcyon.Combat;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +13,8 @@ namespace Halcyon.BT {
     // It will be somewhat specfic to your game exactly what to add here.
     // Feel free to extend this class 
     [Serializable]
+    
+    
     public partial class Context {
         /// <summary>
         /// Local GameObject
@@ -51,17 +54,19 @@ namespace Halcyon.BT {
         public AIStates CurrentState;
         public AIConditions CurrentConditions;
         
-        public Action OnDeath;
-        public Action OnTakeDamage;
-        public Action OnHeal;
         public Action<AIPhases> OnPhaseChange;
         public Action<AIStates> OnStateChange;
         public Action<AIConditions> OnConditionAdd;
         public Action<AIConditions> OnConditionRemove;
 
-        public List<string> testing = new List<string>(){"Test", "Test2", "Test3"};
+        [Header("Navmesh AI: Combat")]
+        public Health health;
+        public EffectManager effectManager;
+        public AbilityManager abilityManager;
+        
         // Add other game specific systems here
 
+        
         public static Context CreateFromGameObject(GameObject gameObject) {
             // Fetch all commonly used components
             Context context = new Context();
@@ -75,7 +80,9 @@ namespace Halcyon.BT {
             context.capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
             context.characterController = gameObject.GetComponent<CharacterController>();
             context.BehaviourTreeRunner = gameObject.GetComponent<BehaviourTreeRunner>();
-            
+            context.abilityManager = gameObject.GetComponent<AbilityManager>();
+            context.effectManager = gameObject.GetComponent<EffectManager>();
+            context.health = gameObject.GetComponent<Health>();
            
             return context;
         }

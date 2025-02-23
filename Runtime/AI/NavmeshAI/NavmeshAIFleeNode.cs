@@ -7,9 +7,9 @@ using UnityEngine.Serialization;
 
 
 [NodeTitle("NavMesh AI:\n Flee")]
-[NodeMenuName("NavMesh AI: Run State Listener")]
-[NodeMenuPath("NavMesh")]
-[NodeColor(NodeColors.white)]
+[NodeMenuName("NavMesh AI: Flee")]
+[NodeMenuPath("AI/NavMesh")]
+[NodeIcon(NodeIcons.ai)]
 public class NavmeshAIFleeNode : ActionNode
 {
 

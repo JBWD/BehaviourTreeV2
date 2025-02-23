@@ -25,10 +25,10 @@ namespace Halcyon.BT
     public class AnimationProperty
     {
         public AnimationParameterType parameterType;
-        public string parameterName;
-        public float floatParameter;
-        public int integerParameter;
-        public bool booleanParameter;
+        public NodeProperty<string> parameterName;
+        public NodeProperty<NumericProperty> floatParameter;
+        public NodeProperty<NumericProperty> integerParameter;
+        public NodeProperty<bool> booleanParameter;
     }
     
 
