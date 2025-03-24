@@ -1,0 +1,788 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: Spawner
+  m_EditorClassIdentifier: 
+  hasBeenDestroyed: 0
+  rootNode:
+    rid: 1684879910232129793
+  nodes:
+  - rid: 1684879910232129793
+  - rid: 1684879910232129795
+  - rid: 1684879910232129798
+  - rid: 1684879910232129801
+  - rid: 1684879910232129806
+  - rid: 1684879910232129807
+  - rid: 1684879910232129810
+  - rid: 1684879910232129814
+  - rid: 1684879910232129816
+  - rid: 1684879910232129830
+  - rid: 1684879910232129831
+  - rid: 1684880070303023104
+  treeState: 0
+  blackboard:
+    keys:
+    - rid: 1684879910232129797
+    - rid: 1684879910232129799
+    - rid: 1684879910232129803
+    - rid: 1684879910232129805
+    - rid: 1684879910232129808
+    - rid: 1684879910232129809
+    - rid: 1684879910232129811
+    - rid: 1684879910232129812
+    - rid: 1684879910232129815
+    - rid: 1684880070303023105
+  Context:
+    gameObject: {fileID: 0}
+    transform: {fileID: 0}
+    animator: {fileID: 0}
+    rigidBody: {fileID: 0}
+    agent: {fileID: 0}
+    characterController: {fileID: 0}
+    sphereCollider: {fileID: 0}
+    boxCollider: {fileID: 0}
+    capsuleCollider: {fileID: 0}
+    BehaviourTreeRunner: {fileID: 0}
+    CurrentPhase: 0
+    CurrentState: 0
+    CurrentConditions: 0
+    health: {fileID: 0}
+    effectManager: {fileID: 0}
+    abilityManager: {fileID: 0}
+  viewPosition: {x: 708, y: 175, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 1684879910232129793
+      type: {class: RootNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d160492c-5311-428a-a5b2-f3464c109aef
+        position: {x: 420, y: -105}
+        size: {x: 150, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Unity:
+
+          Update'
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 1684879910232129795
+    - rid: 1684879910232129795
+      type: {class: ComparisonBooleanNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 9719a299577276e418ef6f19aa5225e3
+        position: {x: 315, y: 135}
+        size: {x: 176, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Variable:
+
+          Compare Booleans'
+        customTitle: 
+        description: Checks to see if the boolean values are equal to each other.
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 1684879910232129798
+        onlyChildIsTrue: 1
+        firstValue:
+          reference:
+            rid: 1684879910232129799
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+        secondValue:
+          reference:
+            rid: -2
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 1684879910232129797
+      type: {class: BooleanKey, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: StartSpawning
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 1
+    - rid: 1684879910232129798
+      type: {class: ComparisonBooleanNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f390ea0f1353a60498c69d12b14e0a16
+        position: {x: 240, y: 375}
+        size: {x: 176, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Variable:
+
+          Compare Booleans'
+        customTitle: 
+        description: Checks to see if the boolean values are equal to each other.
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 1684879910232129831
+        onlyChildIsTrue: 1
+        firstValue:
+          reference:
+            rid: 1684879910232129797
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+        secondValue:
+          reference:
+            rid: -2
+          defaultValue: 1
+          _typedKey:
+            rid: -2
+    - rid: 1684879910232129799
+      type: {class: BooleanKey, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: IsPaused
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 1684879910232129801
+      type: {class: GE_OnNumericValueChangeListenerNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6ef2296f201cb0743bacca3969244dea
+        position: {x: -600, y: -105}
+        size: {x: 150, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Listener:
+
+          Numeric Event'
+        customTitle: Listener:<br>Round Change
+        description: 'Listens to the Float Value Change Global Event to be called
+          with the activation name: StartSpawning.'
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 1684879910232129806
+        activationName:
+          reference:
+            rid: -2
+          defaultValue: StartSpawning
+          _typedKey:
+            rid: -2
+        saveNumericProperty:
+          reference:
+            rid: 1684879910232129805
+          defaultValue:
+            doubleValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 1684879910232129803
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: Round
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value:
+          doubleValue: 1
+    - rid: 1684879910232129805
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: SentRound
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value:
+          doubleValue: 0
+    - rid: 1684879910232129806
+      type: {class: ComparisonNumericNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b48a6e3c2ec27f64d8a6eb6b97bc2d21
+        position: {x: -615, y: 105}
+        size: {x: 179, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Variables:
+
+          Compare Numerics'
+        customTitle: 
+        description: Checks if [FirstValue] is equal to [SecondValue].
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 1684879910232129807
+        onlyChildIsTrue: 1
+        operation: 2
+        firstValue:
+          reference:
+            rid: 1684879910232129803
+          defaultValue:
+            doubleValue: 0
+          _typedKey:
+            rid: -2
+        secondValue:
+          reference:
+            rid: 1684879910232129805
+          defaultValue:
+            doubleValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 1684879910232129807
+      type: {class: SetBooleanNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 303c7f880bddbea44b4406219d4b9774
+        position: {x: -615, y: 360}
+        size: {x: 150, y: 132}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Variable:
+
+          Set Boolean'
+        customTitle: Start Spawning
+        description: Sets the 'SaveValue' to the same value or reference as 'BaseValue'
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        baseValue:
+          reference:
+            rid: -2
+          defaultValue: 1
+          _typedKey:
+            rid: -2
+        saveValue:
+          reference:
+            rid: 1684879910232129797
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 1684879910232129808
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: NumberToSpawn
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value:
+          doubleValue: 0
+    - rid: 1684879910232129809
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: NumerSpawned
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value:
+          doubleValue: 0
+    - rid: 1684879910232129810
+      type: {class: GameObjectInstantiateNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 91a66078cad670b48bdbe286ab9d05b3
+        position: {x: 285, y: 1110}
+        size: {x: 150, y: 79}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'GameObject:
+
+          Instantiate'
+        customTitle: 
+        description: Creates a clone of [ObjectPrefab] at the specified location
+          and will save the created object in the corresponding fields.
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        objectPrefab:
+          reference:
+            rid: 1684879910232129811
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        spawnInWorldSpace: 1
+        spawnPosition:
+          reference:
+            rid: 1684879910232129812
+          defaultValue: {x: 0, y: 0, z: 0}
+          _typedKey:
+            rid: -2
+        spawnRotation:
+          reference:
+            rid: -2
+          defaultValue: {x: 0, y: 0, z: 0, w: 0}
+          _typedKey:
+            rid: -2
+        parent:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        saveGameObject:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        saveTransform:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+    - rid: 1684879910232129811
+      type: {class: GameObjectKey, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: SpawnPrefab
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 1684879910232129812
+      type: {class: Vector3Key, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: SpawnLocation
+        typeName: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0, z: 0}
+    - rid: 1684879910232129814
+      type: {class: Delay, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4ba55d9ab9ee33146ae7a207efa728c5
+        position: {x: 120, y: 885}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: Delay
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 1
+        children:
+        - rid: 1684879910232129830
+        - rid: 1684880070303023104
+        - rid: 1684879910232129810
+        duration:
+          reference:
+            rid: 1684879910232129815
+          defaultValue:
+            doubleValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 1684879910232129815
+      type: {class: NumberKey, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: TimeBetweenSpawns
+        typeName: Halcyon.BT.NumericProperty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value:
+          doubleValue: 0
+    - rid: 1684879910232129816
+      type: {class: GE_OnBooleanValueChangeListenerNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 5ee35ecfb44b99645aa5b950f8c37d1e
+        position: {x: -405, y: -105}
+        size: {x: 150, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Listener:
+
+          Boolean Event'
+        customTitle: Listener:<br>Pause Game
+        description: 'Listens to the Boolean Value Change Global Event to be called
+          with the activation name: GamePaused.'
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: -2
+        activationName:
+          reference:
+            rid: -2
+          defaultValue: GamePaused
+          _typedKey:
+            rid: -2
+        saveBoolValue:
+          reference:
+            rid: 1684879910232129799
+          defaultValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 1684879910232129830
+      type: {class: NumericAddNumericNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7262b88df7d98f9439150f1b58130b99
+        position: {x: -90, y: 1110}
+        size: {x: 203, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Math:
+
+          Numeric Add Numeric'
+        customTitle: 
+        description: Adds '0' + 'Halcyon.BT.NodeProperty`1[Halcyon.BT.NumericProperty]'
+          and saves the total in 'Halcyon.BT.NodeProperty`1[Halcyon.BT.NumericProperty]'
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        baseNumericValue:
+          reference:
+            rid: 1684879910232129809
+          defaultValue:
+            doubleValue: 0
+          _typedKey:
+            rid: 1684879910232129809
+        addNumericValue:
+          reference:
+            rid: -2
+          defaultValue:
+            doubleValue: 1
+          _typedKey:
+            rid: -2
+        saveNumericValue:
+          reference:
+            rid: 1684879910232129809
+          defaultValue:
+            doubleValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 1684879910232129831
+      type: {class: ComparisonNumericNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ea524982425a8ab46aa5bdf218bebab4
+        position: {x: 165, y: 630}
+        size: {x: 179, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Variables:
+
+          Compare Numerics'
+        customTitle: 
+        description: Checks if [FirstValue] is less than [SecondValue].
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children:
+        - rid: 1684879910232129814
+        onlyChildIsTrue: 1
+        operation: 0
+        firstValue:
+          reference:
+            rid: 1684879910232129809
+          defaultValue:
+            doubleValue: 0
+          _typedKey:
+            rid: -2
+        secondValue:
+          reference:
+            rid: 1684879910232129808
+          defaultValue:
+            doubleValue: 0
+          _typedKey:
+            rid: -2
+    - rid: 1684880070303023104
+      type: {class: TransformGetPositionNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f8d809227f518b243b6b9b887d28a57e
+        position: {x: 120, y: 1110}
+        size: {x: 150, y: 154}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 
+        customTitle: 
+        description: 'Retrieves the position of the object in World Space and saves
+          the position in [SaveValue]'
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        transformValue:
+          reference:
+            rid: 1684880070303023105
+          defaultValue: {fileID: 0}
+          _typedKey:
+            rid: -2
+        self: 0
+        saveValue:
+          reference:
+            rid: 1684879910232129812
+          defaultValue: {x: 0, y: 0, z: 0}
+          _typedKey:
+            rid: -2
+    - rid: 1684880070303023105
+      type: {class: TransformKey, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        name: SpawnTransform
+        typeName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}

@@ -1,16 +1,46 @@
+using Halcyon.BT;
+using Halcyon.Combat;
 using UnityEngine;
 
-public class CombatOnTakeDamageNode : MonoBehaviour
+namespace Halcyon.BT.Integrations.Combat
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [NodeMenuPath("Integrations/Combat/Triggers")]
+    [NodeTitle("Combat:\nOn Take Damage")]
+    [NodeMenuName("Combat: On Take Damage")] 
+    [NodeColor(NodeColors.purple)]
+    [CreateBBVariable("DamageTaken", BBVariableType.Number)]
+    [System.Serializable]
+    public class CombatOnTakeDamageNode : TriggerNode
     {
+        private Health _health;
         
-    }
+        public NodeProperty<NumericProperty> DamageTaken = new NodeProperty<NumericProperty>();
+        
+        public override void OnInit()
+        {
+            _health = context.health;
 
-    // Update is called once per frame
-    void Update()
-    {
+            if (_health != null)
+            {
+                _health.OnTakeDamageAction += OnTakeDamageAction;
+            }
+        }
         
+        public override void OnDisable()
+        {
+            if (_health != null)
+            {
+                _health.OnTakeDamageAction -= OnTakeDamageAction;
+            }
+        }
+
+        private void OnTakeDamageAction(float value)
+        {
+            DamageTaken.Value.FloatValue = value;
+            if (child != null)
+            {
+                child.Update();
+            }
+        }
     }
 }

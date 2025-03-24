@@ -1,4 +1,4 @@
-﻿namespace Plugins.BehaviourTreeV2.Integrations.Combat.Nodes.Comparisons
+﻿namespace Halcyon.BT.Integrations.Combat
 {
     public class CombatIsUsingAbilityNode
     {

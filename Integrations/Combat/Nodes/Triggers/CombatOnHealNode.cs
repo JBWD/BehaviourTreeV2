@@ -1,16 +1,48 @@
+using Halcyon.BT;
 using UnityEngine;
+using Halcyon.Combat;
+using UnityEngine.Serialization;
 
-public class CombatOnHealNode : MonoBehaviour
+namespace Halcyon.BT.Integrations.Combat
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    [NodeMenuPath("Integrations/Combat/Triggers")]
+    [NodeTitle("Combat:\nOn Heal")]
+    [NodeMenuName("Combat: On Heal")] 
+    [NodeColor(NodeColors.purple)]
+    [CreateBBVariable("DamageHealed", BBVariableType.Number)]
+    [System.Serializable]
+    public class CombatOnHealNode : TriggerNode
     {
-        
-    }
+        private Health _health;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public NodeProperty<NumericProperty> DamageHealed = new NodeProperty<NumericProperty>();
+            
+        public override void OnInit()
+        {
+            _health = context.health;
+
+            if (_health != null)
+            {
+                _health.OnHealDamageAction += OnHealDamageAction;
+            }
+        }
+            
+        public override void OnDisable()
+        {
+            if (_health != null)
+            {
+                _health.OnHealDamageAction -= OnHealDamageAction;
+            }
+        }
+
+        private void OnHealDamageAction(float value)
+        {
+            DamageHealed.Value.FloatValue = value;
+            if (child != null)
+            {
+                child.Update();
+            }
+        }
     }
 }

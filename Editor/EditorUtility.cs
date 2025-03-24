@@ -26,7 +26,7 @@ namespace Halcyon.BT
 
         public static BehaviourTree CreateNewTree(string assetName, string folder) {
 
-            string path = System.IO.Path.Join(folder, $"{assetName}.asset");
+            string path = System.IO.Path.Combine(folder, $"{assetName}.asset");
             if (System.IO.File.Exists(path)) {
                 Debug.LogError($"Failed to create behaviour tree asset: Path already exists:{assetName}");
                 return null;

@@ -10,13 +10,12 @@ namespace Halcyon.BT
     public class Delay : CompositeNode
     {
         [Tooltip("Amount of time to wait before returning success")]
-        public NodeProperty<float> duration;
+        public NodeProperty<NumericProperty> duration;
 
-        float startTime;
-
+        private float timeRemaining;
         protected override void OnStart()
         {
-            startTime = Time.time;
+            timeRemaining = duration.Value.FloatValue;
         }
 
         protected override void OnStop()
@@ -27,8 +26,8 @@ namespace Halcyon.BT
         protected override State OnUpdate()
         {
 
-            float timeRemaining = Time.time - startTime;
-            if (timeRemaining > duration.Value)
+            timeRemaining -= Time.deltaTime;
+            if (timeRemaining < 0)
             {
                 foreach (var child in children)
                     child.Update();

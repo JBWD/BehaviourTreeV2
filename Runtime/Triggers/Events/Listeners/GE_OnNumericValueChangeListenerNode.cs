@@ -11,6 +11,7 @@ namespace Halcyon.BT
     [CreateBBVariable("ActivationName", BBVariableType.String)]
     [CreateBBVariable("SaveNumericProperty", BBVariableType.Number)]
     [System.Serializable]
+    
     public class GE_OnNumericValueChangeListenerNode : TriggerNode
     {
         

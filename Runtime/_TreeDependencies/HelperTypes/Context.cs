@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Halcyon.BT.Integrations.Combat;
 using Halcyon.Combat;
 using UnityEngine;
 using UnityEngine.AI;
@@ -59,14 +56,11 @@ namespace Halcyon.BT {
         public Action<AIConditions> OnConditionAdd;
         public Action<AIConditions> OnConditionRemove;
 
-        [Header("Navmesh AI: Combat")]
         public Health health;
         public EffectManager effectManager;
         public AbilityManager abilityManager;
         
         // Add other game specific systems here
-
-        
         public static Context CreateFromGameObject(GameObject gameObject) {
             // Fetch all commonly used components
             Context context = new Context();
@@ -80,10 +74,11 @@ namespace Halcyon.BT {
             context.capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
             context.characterController = gameObject.GetComponent<CharacterController>();
             context.BehaviourTreeRunner = gameObject.GetComponent<BehaviourTreeRunner>();
-            context.abilityManager = gameObject.GetComponent<AbilityManager>();
-            context.effectManager = gameObject.GetComponent<EffectManager>();
+
             context.health = gameObject.GetComponent<Health>();
-           
+            context.effectManager = gameObject.GetComponent<EffectManager>();
+            context.abilityManager = gameObject.GetComponent<AbilityManager>();
+            
             return context;
         }
 

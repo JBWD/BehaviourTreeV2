@@ -13,20 +13,21 @@ namespace Halcyon.BT {
 
         [Tooltip("Amount of time to wait before returning success")]
         public NodeProperty<NumericProperty> duration;
-        float startTime;
-
-        protected override void OnStart() {
-            startTime = Time.time;
+        private float timeRemaining;
+        protected override void OnStart()
+        {
+            timeRemaining = duration.Value.FloatValue;
         }
 
-        protected override void OnStop() {
-            
+        protected override void OnStop()
+        {
+
         }
 
-        protected override State OnUpdate() {
-            
-            float timeRemaining = Time.time - startTime;
-            if (timeRemaining > duration.Value.FloatValue)
+        protected override State OnUpdate()
+        {
+            timeRemaining -= Time.deltaTime;
+            if (timeRemaining < 0)
             {
                 return State.Success;
             }
