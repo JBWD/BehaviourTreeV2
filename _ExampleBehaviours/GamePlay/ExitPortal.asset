@@ -35,8 +35,11 @@ MonoBehaviour:
     CurrentPhase: 0
     CurrentState: 0
     CurrentConditions: 0
-  viewPosition: {x: 600, y: 300, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+    health: {fileID: 0}
+    effectManager: {fileID: 0}
+    abilityManager: {fileID: 0}
+  viewPosition: {x: 554, y: 233, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -48,7 +51,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 63d370e5-6028-4b3b-938e-a8b9e95f56ad
-        position: {x: 225, y: 0}
+        position: {x: 210, y: -15}
         size: {x: 150, y: 178}
         context:
           gameObject: {fileID: 0}
@@ -64,6 +67,9 @@ MonoBehaviour:
           CurrentPhase: 0
           CurrentState: 0
           CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
         blackboard:
           keys: []
         connectionCapacity: 2147483647

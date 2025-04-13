@@ -13,10 +13,28 @@ namespace Halcyon.Combat
     public class EffectManager : MonoBehaviour
     {
         private List<ActiveEffect> activeEffects = new List<ActiveEffect>();
-
+        private Health health;
         public static Action<Effect> OnEffectAddedAction;
         public static Action<Effect> OnEffectRemovedAction;
-        
+        public Action<EffectManager> OnDeathAction;
+
+
+        private void Start()
+        {
+            health = GetComponent<Health>();
+            health.OnDeathAction += OnDeath;
+        }
+
+        private void OnDestroy()
+        {
+            health.OnDeathAction -= OnDeath;
+        }
+
+
+        private void OnDeath()
+        {
+            OnDeathAction?.Invoke(this);
+        }
         private void Update()
         {
             for (int i = activeEffects.Count - 1; i >= 0; i--)
@@ -70,12 +88,14 @@ namespace Halcyon.Combat
                 
             }
         }
+        
 
-        public void ApplyEffect(Effect effect)
+        public void ApplyEffect(Effect effect, GameObject casterGO)
         {
-            ApplyEffect(effect,null);
+            ApplyEffect(effect, casterGO.GetComponent<EffectManager>());
         }
-        public void ApplyEffect(Effect effect, GameObject caster)
+        
+        public void ApplyEffect(Effect effect, EffectManager caster = null)
         {
             if(effect is null)
                 return;
@@ -134,9 +154,9 @@ namespace Halcyon.Combat
             }
         }
 
-        private void AddNewActiveEffect(Effect effect, GameObject caster)
+        private void AddNewActiveEffect(Effect effect, EffectManager caster)
         {
-            ActiveEffect newEffect = new ActiveEffect(effect, gameObject, caster );
+            ActiveEffect newEffect = new ActiveEffect(effect, this, caster );
             if (effect.effectType == EffectType.Instant)
             {
                 newEffect.Apply();
@@ -161,8 +181,17 @@ namespace Halcyon.Combat
             }
             return containsEffect;
         }
+
+        public float GetCurrentHealth()
+        {
+            return health.currentHealth;
+        }
     }
 
+    
+    
+    
+    
     
     /// <summary>
     /// Wrapper class for Effects since they are scriptable objects.
@@ -176,11 +205,11 @@ namespace Halcyon.Combat
         public float duration;
         public float timeBetweenTicks { get; private set; }
         public int ticksRemaining { get; private set; }
-        private GameObject caster;
-        private GameObject target;
+        private EffectManager caster;
+        private EffectManager target;
         public float activationTime;
         
-        public ActiveEffect(Effect effect, GameObject target, GameObject caster)
+        public ActiveEffect(Effect effect, EffectManager target, EffectManager caster)
         {
             this.effect = effect;
             this.duration = effect.effectType == EffectType.StackingCondition ? effect.stackDuration : effect.duration;
@@ -206,8 +235,7 @@ namespace Halcyon.Combat
                 targetHealth.TakeDamage(Random.Range(effect.minDamage, effect.maxDamage));
                 if (effect.appliedInstantEffect != null)
                 {
-                    var effectManager = target.GetComponent<EffectManager>();
-                    effectManager.ApplyEffect(effect.appliedInstantEffect);
+                    target.ApplyEffect(effect.appliedInstantEffect);
                 }
             }
         }
@@ -230,8 +258,7 @@ namespace Halcyon.Combat
         {
             if (effect.appliedAfterTimeEffect != null)
             {
-                var effectManager = target.GetComponent<EffectManager>();
-                effectManager.ApplyEffect(effect.appliedAfterTimeEffect);
+                target.ApplyEffect(effect.appliedAfterTimeEffect);
             }
         }
 
@@ -245,8 +272,7 @@ namespace Halcyon.Combat
                 
                 if (effect.appliedAfterTimeEffect != null)
                 {
-                    var effectManager = target.GetComponent<EffectManager>();
-                    effectManager.ApplyEffect(effect.appliedAfterTimeEffect);
+                    target.ApplyEffect(effect.appliedAfterTimeEffect);
                 }
             }
         }

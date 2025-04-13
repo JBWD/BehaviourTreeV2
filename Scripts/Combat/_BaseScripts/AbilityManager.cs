@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 namespace Halcyon.Combat
 {
     
+    
     public class AbilityManager : MonoBehaviour
     {
 
@@ -25,13 +26,19 @@ namespace Halcyon.Combat
         public Ability autoAttack;
         public List<Ability> abilities;
         
+        
         private Dictionary<Ability, float> _abilityLastUsed = new Dictionary<Ability, float>();
         private bool _isCasting;
         private Ability abilityBeingCast = null;
         private float castStartTime; 
-        private GameObject castingTarget;
-
+        
         private Ability nextAbilityToUse = null;
+        
+        private EffectManager target;
+        private EffectManager preferredTarget;
+        public TargetingType targetingType;
+        private List<EffectManager> potentialTargets = new List<EffectManager>();
+        
         
         public void Update()
         {
@@ -40,7 +47,7 @@ namespace Halcyon.Combat
                 _isCasting = false;
                 abilityBeingCast = null;
                 _abilityLastUsed.Clear();
-                ApplyAbility(abilityBeingCast, castingTarget);
+                ApplyAbility(abilityBeingCast, target);
             }
         }
 
@@ -63,7 +70,7 @@ namespace Halcyon.Combat
         /// Automatically determins what Ability to apply to the target based on Cooldown, Range, Priority
         /// </summary>
         /// <param name="target"></param>
-        public virtual AbilityManagerStatus TryAutoUse(GameObject target)
+        public virtual AbilityManagerStatus TryAutoUse(EffectManager target)
         {
             if (_isCasting )
                 return AbilityManagerStatus.Casting;
@@ -86,15 +93,20 @@ namespace Halcyon.Combat
                 _isCasting = true;
                 abilityBeingCast = nextAbilityToUse;
                 castStartTime = Time.time;
-                castingTarget = target;
+                this.target = target;
             }
             
             ApplyAbility(nextAbilityToUse,target);
             nextAbilityToUse = null;
             return AbilityManagerStatus.Success;
         }
+
+        public virtual AbilityManagerStatus TryAutoUse()
+        {
+            return TryAutoUse(target);
+        }
         
-        public virtual void Use(Ability ability, GameObject target)
+        public virtual void Use(Ability ability, EffectManager target)
         {
             if (_isCasting)
                 return;
@@ -109,7 +121,7 @@ namespace Halcyon.Combat
                 _isCasting = true;
                 abilityBeingCast = ability;
                 castStartTime = Time.time;
-                castingTarget = target;
+                this.target = target;
                 return;
             }
             
@@ -118,7 +130,7 @@ namespace Halcyon.Combat
 
         
 
-        public virtual void Use(int index, GameObject target)
+        public virtual void Use(int index, EffectManager target)
         {
             if (index >= 0 && index < abilities.Count)
             {
@@ -131,7 +143,7 @@ namespace Halcyon.Combat
         }
 
 
-        public virtual void UseAutoAttack(GameObject target)
+        public virtual void UseAutoAttack(EffectManager target)
         {
             if (autoAttack != null)
             {
@@ -148,23 +160,23 @@ namespace Halcyon.Combat
             
         }
         
-        private void ApplyAbility(Ability ability, GameObject target)
+        private void ApplyAbility(Ability ability, EffectManager target)
         {
             ApplyEffects(ability, target);
             _abilityLastUsed.Add(ability, Time.time);
         }
         
         
-        private void ApplyEffects(Ability ability, GameObject target)
+        private void ApplyEffects(Ability ability, EffectManager target)
         {
-            var em = target.GetComponent<EffectManager>();
+            
             foreach (var effect in ability.effects)
             {
-                em.ApplyEffect(effect, gameObject);
+                target.ApplyEffect(effect, gameObject);
             }
         }
 
-        private bool InRange(Ability ability, GameObject target)
+        private bool InRange(Ability ability, EffectManager target)
         {
             return Vector3.Distance(transform.position, target.transform.position) <= ability.range;
         }
@@ -204,6 +216,87 @@ namespace Halcyon.Combat
             }
 
             return sortedAbilities;
+        }
+        
+        private void OnDestroy()
+        {
+            foreach (var potentialTarget in potentialTargets)
+            {
+                if(potentialTarget != null)
+                    potentialTarget.OnDeathAction -= RemoveTarget;
+            }
+        }
+
+        public void SelectNextTarget()
+        {
+            EffectManager newTarget = target;
+            float healthComparison = 0;
+            switch (targetingType)
+            {
+                case TargetingType.Standard:
+                    break;
+                case TargetingType.LowestHealth:
+                    healthComparison = float.MaxValue;
+                    break;
+                case TargetingType.HighestHealth:
+                    healthComparison = float.MinValue;
+                    break;
+            }
+            foreach (EffectManager t in potentialTargets)
+            {
+                switch (targetingType)
+                {
+                    case TargetingType.Standard:
+                        target = t;
+                        return;
+                    case TargetingType.LowestHealth:
+                        if (newTarget != null && newTarget.GetCurrentHealth() < healthComparison)
+                        {
+                            healthComparison = newTarget.GetCurrentHealth();
+                            newTarget = t;
+                        }
+                        else
+                        {
+                            newTarget = t;
+                        }
+                        break;
+                    case TargetingType.HighestHealth:
+                        if (newTarget != null && newTarget.GetCurrentHealth() > healthComparison)
+                        {
+                            healthComparison = newTarget.GetCurrentHealth();
+                            newTarget = t;
+                        }
+                        else
+                        {
+                            newTarget = t;
+                        }
+                        break;
+
+                }
+            }
+            target = newTarget;
+        }
+
+        
+        
+        public void AddTarget(EffectManager potentialTarget)
+        {
+            if (potentialTarget != null)
+            {
+                potentialTargets.Add(potentialTarget);
+                potentialTarget.OnDeathAction += RemoveTarget;
+                SelectNextTarget();
+            }
+        }
+
+        public void RemoveTarget(EffectManager potentialTarget)
+        {
+            if (potentialTarget != null)
+            {
+                potentialTargets.Remove(potentialTarget);
+                potentialTarget.OnDeathAction -= RemoveTarget;
+                SelectNextTarget();
+            }
         }
     }
 }

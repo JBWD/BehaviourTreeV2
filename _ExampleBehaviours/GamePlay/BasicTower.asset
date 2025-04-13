@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: BasicTower
+  m_EditorClassIdentifier: 
+  hasBeenDestroyed: 0
+  rootNode:
+    rid: 1684880092693004527
+  nodes:
+  - rid: 1684880092693004527
+  - rid: 1684880092693004529
+  - rid: 1684880092693004532
+  treeState: 0
+  blackboard:
+    keys: []
+  Context:
+    gameObject: {fileID: 0}
+    transform: {fileID: 0}
+    animator: {fileID: 0}
+    rigidBody: {fileID: 0}
+    agent: {fileID: 0}
+    characterController: {fileID: 0}
+    sphereCollider: {fileID: 0}
+    boxCollider: {fileID: 0}
+    capsuleCollider: {fileID: 0}
+    BehaviourTreeRunner: {fileID: 0}
+    CurrentPhase: 0
+    CurrentState: 0
+    CurrentConditions: 0
+    health: {fileID: 0}
+    effectManager: {fileID: 0}
+    abilityManager: {fileID: 0}
+  viewPosition: {x: 1080, y: 491, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 1684880092693004527
+      type: {class: RootNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6c434c2e-da9f-4fbe-9004-d4bab203e8b0
+        position: {x: -135, y: -195}
+        size: {x: 150, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Unity:
+
+          Update'
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: 1684880092693004532
+    - rid: 1684880092693004529
+      type: {class: OnMouseButtonNode, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b6c9a20a5a3e8d744866da2fef49cb19
+        position: {x: -1110, y: -495}
+        size: {x: 210, y: 178}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: 'Mouse:
+
+          On Mouse Button Click'
+        customTitle: 
+        description: When the GameObject is click down and up, all children nodes
+          are invoked, this does not repeat like the main loop.
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        child:
+          rid: -2
+    - rid: 1684880092693004532
+      type: {class: Delay, ns: Halcyon.BT, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: bcd0206a30171ae459a9a90fe1f2f44d
+        position: {x: -120, y: 45}
+        size: {x: 150, y: 156}
+        context:
+          gameObject: {fileID: 0}
+          transform: {fileID: 0}
+          animator: {fileID: 0}
+          rigidBody: {fileID: 0}
+          agent: {fileID: 0}
+          characterController: {fileID: 0}
+          sphereCollider: {fileID: 0}
+          boxCollider: {fileID: 0}
+          capsuleCollider: {fileID: 0}
+          BehaviourTreeRunner: {fileID: 0}
+          CurrentPhase: 0
+          CurrentState: 0
+          CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
+        blackboard:
+          keys: []
+        connectionCapacity: 2147483647
+        baseTitle: 
+        nodeTitle: Delay
+        customTitle: 
+        description: 
+        customDescription: 
+        drawGizmos: 0
+        errored: 0
+        conditionState: 0
+        children: []
+        duration:
+          reference:
+            rid: -2
+          defaultValue:
+            doubleValue: 1
+          _typedKey:
+            rid: -2

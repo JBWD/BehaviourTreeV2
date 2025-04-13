@@ -69,6 +69,7 @@ namespace Halcyon.BT {
 
         public Action OnDisableEvent;
         public Action OnEnableEvent;
+        public Action OnDestroyEvent;
 
         public Action<Vector2> OnMovementInputAction;
         public Action OnJumpInputAction;
@@ -233,13 +234,15 @@ namespace Halcyon.BT {
             return default(T);
         }
 
+        
+
+        #region Triggers Calling
         private void OnDestroy()
         {
+            OnDestroyEvent?.Invoke();
             if(runtimeTree!= null)
                 runtimeTree.hasBeenDestroyed = true;
         }
-
-        #region Triggers Calling
         public void UpdateKeyBoardInputs()
         {
             OnInputKey?.Invoke();

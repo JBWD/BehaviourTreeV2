@@ -22,7 +22,7 @@ namespace Halcyon.BT {
             if (treeAsset) {
                 treeInstance = treeAsset.Clone();
                 //Might want to look into having a cloned blackboard or a scriptable object blackboard that can be used instead.
-                //Might have to be changed as the subtree may have other variables that need to be used. As 2 blackboards will be used.
+                                                                                                                                     //Might have to be changed as the subtree may have other variables that need to be used. As 2 blackboards will be used.
                 treeInstance.Bind(context);
             }
             

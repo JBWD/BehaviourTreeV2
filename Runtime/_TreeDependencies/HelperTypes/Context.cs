@@ -1,5 +1,6 @@
 using System;
 using Halcyon.Combat;
+using Halcyon.TowerDefense;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -46,7 +47,6 @@ namespace Halcyon.BT {
         public BehaviourTreeRunner BehaviourTreeRunner;
 
         [Header("AI Information")]
-        //Navmesh AI Information and Triggers
         public AIPhases CurrentPhase;
         public AIStates CurrentState;
         public AIConditions CurrentConditions;
@@ -56,10 +56,14 @@ namespace Halcyon.BT {
         public Action<AIConditions> OnConditionAdd;
         public Action<AIConditions> OnConditionRemove;
 
+        [Header("Combat Information")]
         public Health health;
         public EffectManager effectManager;
         public AbilityManager abilityManager;
         
+        [Header("Tower Defense Information")]
+        public Tower tower;
+
         // Add other game specific systems here
         public static Context CreateFromGameObject(GameObject gameObject) {
             // Fetch all commonly used components
@@ -75,9 +79,13 @@ namespace Halcyon.BT {
             context.characterController = gameObject.GetComponent<CharacterController>();
             context.BehaviourTreeRunner = gameObject.GetComponent<BehaviourTreeRunner>();
 
+            //Combat
             context.health = gameObject.GetComponent<Health>();
             context.effectManager = gameObject.GetComponent<EffectManager>();
             context.abilityManager = gameObject.GetComponent<AbilityManager>();
+            
+            //TowerDefense
+            context.tower = gameObject.GetComponent<Tower>();
             
             return context;
         }

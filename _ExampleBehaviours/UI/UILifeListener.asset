@@ -43,6 +43,9 @@ MonoBehaviour:
     CurrentPhase: 0
     CurrentState: 0
     CurrentConditions: 0
+    health: {fileID: 0}
+    effectManager: {fileID: 0}
+    abilityManager: {fileID: 0}
   viewPosition: {x: 600, y: 300, z: 0}
   viewScale: {x: 1, y: 1, z: 1}
   references:
@@ -72,6 +75,9 @@ MonoBehaviour:
           CurrentPhase: 0
           CurrentState: 0
           CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
         blackboard:
           keys: []
         connectionCapacity: 2147483647
@@ -109,11 +115,16 @@ MonoBehaviour:
           CurrentPhase: 0
           CurrentState: 0
           CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
         blackboard:
           keys: []
         connectionCapacity: 2147483647
         baseTitle: 
-        nodeTitle: 
+        nodeTitle: 'Listener:
+
+          Numeric Event'
         customTitle: 
         description: 'Listens to the Float Value Change Global Event to be called
           with the activation name: LoseLife.'
@@ -166,11 +177,16 @@ MonoBehaviour:
           CurrentPhase: 0
           CurrentState: 0
           CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
         blackboard:
           keys: []
         connectionCapacity: 2147483647
         baseTitle: 
-        nodeTitle: 
+        nodeTitle: 'Unity:
+
+          On Start'
         customTitle: 
         description: 
         customDescription: 
@@ -201,11 +217,14 @@ MonoBehaviour:
           CurrentPhase: 0
           CurrentState: 0
           CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
         blackboard:
           keys: []
         connectionCapacity: 2147483647
         baseTitle: 
-        nodeTitle: 
+        nodeTitle: "TMP:\n Update Score Text"
         customTitle: 
         description: 
         customDescription: 
@@ -275,11 +294,14 @@ MonoBehaviour:
           CurrentPhase: 0
           CurrentState: 0
           CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
         blackboard:
           keys: []
         connectionCapacity: 2147483647
         baseTitle: 
-        nodeTitle: 
+        nodeTitle: Parallel
         customTitle: 
         description: Runs all children whether they are successful, failed, or are
           running.
@@ -296,7 +318,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 438d753a7b1244442a484ccd7df1e49c
-        position: {x: -435, y: 195}
+        position: {x: -450, y: 195}
         size: {x: 243, y: 154}
         context:
           gameObject: {fileID: 0}
@@ -312,11 +334,16 @@ MonoBehaviour:
           CurrentPhase: 0
           CurrentState: 0
           CurrentConditions: 0
+          health: {fileID: 0}
+          effectManager: {fileID: 0}
+          abilityManager: {fileID: 0}
         blackboard:
           keys: []
         connectionCapacity: 2147483647
         baseTitle: 
-        nodeTitle: 
+        nodeTitle: 'Math:
+
+          Numeric Subtract Numeric'
         customTitle: 
         description: Adds '0' - 'Halcyon.BT.NodeProperty`1[Halcyon.BT.NumericProperty]'
           and saves the total in 'Halcyon.BT.NodeProperty`1[Halcyon.BT.NumericProperty]'

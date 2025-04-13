@@ -7,6 +7,7 @@ namespace Halcyon.Combat
     [CreateAssetMenu(menuName = "Halcyon/Ability", fileName = "New Ability" )]
     public class Ability : ScriptableObject
     {
+        public AbilityType abilityType;
         public string abilityName;
         public float cooldown;
         public float range;
@@ -18,4 +19,6 @@ namespace Halcyon.Combat
         public List<Effect> effects; 
         
     }
+
+ 
 }

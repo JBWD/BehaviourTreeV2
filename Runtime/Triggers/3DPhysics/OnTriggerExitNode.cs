@@ -5,13 +5,22 @@ namespace Halcyon.BT
     [NodeMenuPath("Triggers/Physics")]
     [NodeTitle("On Trigger Exit")]
     [NodeMenuName("Physics: On Trigger Exit")] 
+    [CreateBBVariable("SaveCollider", BBVariableType.Collider)]
+    [CreateBBVariable("SaveGameObject", BBVariableType.GameObject)]
+    [CreateBBVariable("SaveTransform", BBVariableType.Transform)]
     [System.Serializable]
     public class OnTriggerExitNode: TriggerNode
     {
+        public LayerMask collisionLayer = -1;
+        [Tooltip("Tag of the object that you wish to have collisions with.")]
         public NodeProperty<string> collisionTag;
-        [BlackboardValueOnly]
-        public NodeProperty<Collider> collider;
-        
+        [Space,BlackboardValueOnly, Tooltip("Blackboard value you wish to have the Collider saved in.")]
+        public NodeProperty<Collider> saveCollider;
+        [BlackboardValueOnly, Tooltip("Blackboard value you wish to have the Collider's Transform saved in.")]
+        public NodeProperty<Transform> saveTransform;
+        [BlackboardValueOnly, Tooltip("Blackboard value you wish to have the Collider's GameObject saved in.")]
+        public NodeProperty<GameObject> saveGameObject;
+
 
         public override void OnInit()
         {
@@ -21,11 +30,16 @@ namespace Halcyon.BT
         {
             context.BehaviourTreeRunner.On3DTriggerExit -= SaveCollisionAndRunNode;
         }
-        public void SaveCollisionAndRunNode(Collider collider)
+        public virtual void SaveCollisionAndRunNode(Collider collider)
         {
-            if (collider.CompareTag(collisionTag.Value))
+            if (!collisionLayer.Contains(collider.gameObject.layer))
+                return;
+            
+            if (collider.tag == collisionTag.Value || collisionTag.Value.Trim() == "")
             {
-                this.collider.Value = collider;
+                this.saveCollider.Value = collider;
+                this.saveTransform.Value = collider.transform;
+                this.saveGameObject.Value = collider.transform.gameObject;
                 OnUpdate();
             }
             

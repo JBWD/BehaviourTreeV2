@@ -58,7 +58,7 @@ MonoBehaviour:
     health: {fileID: 0}
     effectManager: {fileID: 0}
     abilityManager: {fileID: 0}
-  viewPosition: {x: 708, y: 175, z: 0}
+  viewPosition: {x: 328, y: 243, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -112,7 +112,7 @@ MonoBehaviour:
         started: 0
         guid: 9719a299577276e418ef6f19aa5225e3
         position: {x: 315, y: 135}
-        size: {x: 176, y: 178}
+        size: {x: 151, y: 156}
         context:
           gameObject: {fileID: 0}
           transform: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
         nodeTitle: 'Variable:
 
           Compare Booleans'
-        customTitle: 
+        customTitle: Is Game Paused
         description: Checks to see if the boolean values are equal to each other.
         customDescription: 
         drawGizmos: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
         started: 0
         guid: f390ea0f1353a60498c69d12b14e0a16
         position: {x: 240, y: 375}
-        size: {x: 176, y: 178}
+        size: {x: 168, y: 156}
         context:
           gameObject: {fileID: 0}
           transform: {fileID: 0}
@@ -196,7 +196,7 @@ MonoBehaviour:
         nodeTitle: 'Variable:
 
           Compare Booleans'
-        customTitle: 
+        customTitle: Started Spawning
         description: Checks to see if the boolean values are equal to each other.
         customDescription: 
         drawGizmos: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6ef2296f201cb0743bacca3969244dea
-        position: {x: -600, y: -105}
+        position: {x: 855, y: -105}
         size: {x: 150, y: 178}
         context:
           gameObject: {fileID: 0}
@@ -299,8 +299,8 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b48a6e3c2ec27f64d8a6eb6b97bc2d21
-        position: {x: -615, y: 105}
-        size: {x: 179, y: 178}
+        position: {x: 840, y: 105}
+        size: {x: 181, y: 178}
         context:
           gameObject: {fileID: 0}
           transform: {fileID: 0}
@@ -325,7 +325,7 @@ MonoBehaviour:
         nodeTitle: 'Variables:
 
           Compare Numerics'
-        customTitle: 
+        customTitle: Check If Round and<br> Spawner Match
         description: Checks if [FirstValue] is equal to [SecondValue].
         customDescription: 
         drawGizmos: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 303c7f880bddbea44b4406219d4b9774
-        position: {x: -615, y: 360}
+        position: {x: 780, y: 360}
         size: {x: 150, y: 132}
         context:
           gameObject: {fileID: 0}
@@ -422,7 +422,7 @@ MonoBehaviour:
         started: 0
         guid: 91a66078cad670b48bdbe286ab9d05b3
         position: {x: 285, y: 1110}
-        size: {x: 150, y: 79}
+        size: {x: 150, y: 65}
         context:
           gameObject: {fileID: 0}
           transform: {fileID: 0}
@@ -447,7 +447,7 @@ MonoBehaviour:
         nodeTitle: 'GameObject:
 
           Instantiate'
-        customTitle: 
+        customTitle: Spawn Unit
         description: Creates a clone of [ObjectPrefab] at the specified location
           and will save the created object in the corresponding fields.
         customDescription: 
@@ -511,8 +511,8 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4ba55d9ab9ee33146ae7a207efa728c5
-        position: {x: 120, y: 885}
-        size: {x: 150, y: 156}
+        position: {x: 90, y: 870}
+        size: {x: 209, y: 156}
         context:
           gameObject: {fileID: 0}
           transform: {fileID: 0}
@@ -535,7 +535,7 @@ MonoBehaviour:
         connectionCapacity: 2147483647
         baseTitle: 
         nodeTitle: Delay
-        customTitle: 
+        customTitle: Time Between Spawns
         description: 
         customDescription: 
         drawGizmos: 0
@@ -566,7 +566,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 5ee35ecfb44b99645aa5b950f8c37d1e
-        position: {x: -405, y: -105}
+        position: {x: 1290, y: -105}
         size: {x: 150, y: 178}
         context:
           gameObject: {fileID: 0}
@@ -620,7 +620,7 @@ MonoBehaviour:
         started: 0
         guid: 7262b88df7d98f9439150f1b58130b99
         position: {x: -90, y: 1110}
-        size: {x: 203, y: 154}
+        size: {x: 201, y: 154}
         context:
           gameObject: {fileID: 0}
           transform: {fileID: 0}
@@ -645,7 +645,7 @@ MonoBehaviour:
         nodeTitle: 'Math:
 
           Numeric Add Numeric'
-        customTitle: 
+        customTitle: Incremement Number<br> Spawned
         description: Adds '0' + 'Halcyon.BT.NodeProperty`1[Halcyon.BT.NumericProperty]'
           and saves the total in 'Halcyon.BT.NodeProperty`1[Halcyon.BT.NumericProperty]'
         customDescription: 
@@ -679,8 +679,8 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ea524982425a8ab46aa5bdf218bebab4
-        position: {x: 165, y: 630}
-        size: {x: 179, y: 178}
+        position: {x: 150, y: 615}
+        size: {x: 189, y: 156}
         context:
           gameObject: {fileID: 0}
           transform: {fileID: 0}
@@ -705,7 +705,7 @@ MonoBehaviour:
         nodeTitle: 'Variables:
 
           Compare Numerics'
-        customTitle: 
+        customTitle: How Many Spawned
         description: Checks if [FirstValue] is less than [SecondValue].
         customDescription: 
         drawGizmos: 0
@@ -758,8 +758,10 @@ MonoBehaviour:
           keys: []
         connectionCapacity: 2147483647
         baseTitle: 
-        nodeTitle: 
-        customTitle: 
+        nodeTitle: 'Transform:
+
+          Get Position'
+        customTitle: Retrieve Spawn<br>Position
         description: 'Retrieves the position of the object in World Space and saves
           the position in [SaveValue]'
         customDescription: 

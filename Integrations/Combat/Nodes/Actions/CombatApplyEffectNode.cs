@@ -1,6 +1,6 @@
 ﻿namespace Halcyon.BT.Integrations.Combat.Nodes
 {
-    public class CombatSetTarget
+    public class CombatApplyEffectNode
     {
         
     }

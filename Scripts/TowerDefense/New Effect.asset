@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939663e7fe09834ca84048351debefa, type: 3}
+  m_Name: New Effect
+  m_EditorClassIdentifier: 
+  effectType: 0
+  effectName: 
+  minHeal: 0
+  maxHeal: 0
+  minDamage: 0
+  maxDamage: 0
+  appliedInstantEffect: {fileID: 0}
+  duration: 0
+  stackDuration: 0
+  stackSize: 0
+  healPerTick: 0
+  numberOfTicks: 0
+  damagePerTick: 0
+  appliedOverTimeEffectOnComplete: {fileID: 0}
+  timeUntilActivation: 0
+  minActivationDamage: 0
+  maxActivationDamage: 0
+  minActivationHeal: 0
+  maxActivationHeal: 0
+  appliedAfterTimeEffect: {fileID: 0}
